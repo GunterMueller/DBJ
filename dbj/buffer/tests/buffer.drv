@@ -1,0 +1,507 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2005                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " Starte & stoppe Buffer Manager"
+echo "#####################################################################"
+echo
+cat > stmt.buffer <<EOF
+start
+stop
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " Versuche 2 Starts"
+echo "#####################################################################"
+echo
+cat > stmt.buffer <<EOF
+start
+EOF
+test_buffer stmt.buffer
+cat > stmt.buffer <<EOF
+start
+EOF
+test_buffer stmt.buffer
+cat > stmt.buffer <<EOF
+stop
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " Versuche 2 Stops"
+echo "#####################################################################"
+echo
+cat > stmt.buffer <<EOF
+stop
+EOF
+test_buffer stmt.buffer
+cat > stmt.buffer <<EOF
+start
+EOF
+test_buffer stmt.buffer
+cat > stmt.buffer <<EOF
+stop
+EOF
+test_buffer stmt.buffer
+cat > stmt.buffer <<EOF
+stop
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " Starte Buffer Manager"
+echo "#####################################################################"
+echo
+cat > stmt.buffer <<EOF
+start
+dump
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " Fordere 3 existierende Seiten an"
+echo "#####################################################################"
+echo
+cat > stmt.buffer <<EOF
+get 1 28 datapage
+get 1 0 freespaceinventory
+get 56 4 datapage
+release 1 28
+dump
+release 1 0
+release 56 4
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " Fordere Seite mehrfach an"
+echo "#####################################################################"
+echo
+cat > stmt.buffer <<EOF
+get 2 5 datapage
+get 2 5 datapage
+dump
+release 2 5
+stop
+start
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " Fordere Seite mehrfach an und gib sie auch jeweils wieder frei"
+echo "#####################################################################"
+echo
+cat > stmt.buffer <<EOF
+get 1 8 datapage
+get 2 5 datapage
+get 9 23 datapage
+release 1 8
+get 9 24 datapage
+release 2 5
+dump
+get 9 25 datapage
+release 9 23
+get 2 5 datapage
+release 2 5
+release 9 24
+get 2 5 datapage
+get 1 1 datapage
+get 9 23 datapage
+get 9 24 datapage
+dump
+release 9 23
+release 9 24
+release 2 5
+release 9 25
+release 1 1
+dump
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " Modifiziere Seite"
+echo "#####################################################################"
+echo
+cat > stmt.buffer <<EOF
+get 1 8 datapage
+mark 1 8
+release 1 8
+dump
+get 2 5 datapage
+get 1 8 datapage
+get 9 24 datapage
+mark 1 8
+mark 9 24
+dump
+release 2 5
+release 9 24
+release 1 8
+dump
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " Commit/Rollback ohne modifizierte Seiten"
+echo "#####################################################################"
+echo
+cat > stmt.buffer <<EOF
+get 1 8 datapage
+get 9 12 datapage
+dump
+release 9 12
+release 1 8
+commit
+dump
+get 2 5 datapage
+filefail
+new 2 0 freespaceinventory
+release 2 5
+release 2 0
+dump
+rollback
+dump
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " Commit/Rollback mit modifizierte Seiten"
+echo "#####################################################################"
+echo
+cat > stmt.buffer <<EOF
+get 1 8 datapage
+get 9 12 datapage
+mark 9 12
+dump
+release 9 12
+release 1 8
+commit
+dump
+filefail
+new 2 7 datapage
+get 2 0 freespaceinventory
+mark 2 0
+mark 2 7
+dump
+release 2 7
+release 2 0
+rollback
+dump
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " getNewPage auf existierende Seite"
+echo "#####################################################################"
+echo
+cat > stmt.buffer <<EOF
+get 2 21 datapage
+release 2 21
+commit
+dump
+new 2 21 datapage
+rollback
+dump
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " Seite mit falschem Typ angefordert"
+echo "#####################################################################"
+echo
+cat > stmt.buffer <<EOF
+get 2 0 datapage
+dump
+rollback
+get 3 123 freespaceinventory
+dump
+rollback
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " markPageAsModified auf mehrfach angeforderde Seite"
+echo "#####################################################################"
+echo
+cat > stmt.buffer <<EOF
+stop
+start
+get 2 21 datapage
+get 2 21 datapage
+dump
+mark 2 21
+rollback
+dump
+stop
+start
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " getPage auf 'dirty' Seite"
+echo "#####################################################################"
+echo
+cat > stmt.buffer <<EOF
+stop
+start
+get 2 21 datapage
+mark 2 21
+dump
+get 2 21 datapage
+dump
+stop
+start
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " Puffer laeuft voll und neue Seite wird angefordert"
+echo "#####################################################################"
+echo
+cat > stmt.buffer <<EOF
+stop
+start
+fill 123 900
+dump
+commit
+fill 321 100
+dump
+rollback
+dump
+fill 456 150
+commit
+dump
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " Puffer ist voll und alle Seite sind 'dirty'"
+echo "#####################################################################"
+echo
+cat > stmt.buffer <<EOF
+stop
+start
+fill 123 500
+fill 234 400
+fill 345 90
+dump
+fill 456 10
+rollback
+dump
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " Segmente anlegen mit Commit/Rollback"
+echo "#####################################################################"
+echo
+echo "-----------"
+echo "Test Unit 1"
+echo "-----------"
+echo
+cat > stmt.buffer <<EOF
+create 37
+rollback
+create 12
+commit
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "-----------"
+echo "Test Unit 2"
+echo "-----------"
+echo
+cat > stmt.buffer <<EOF
+stop
+start
+create 37
+filefail
+new 37 0 freespaceinventory
+filefail
+new 37 1 datapage
+release 37 0
+release 37 1
+dump
+rollback
+dump
+create 123
+filefail
+new 123 6 datapage
+release 123 6
+filefail
+new 123 5 datapage
+dump
+release 123 5
+commit
+dump
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " Segmente loeschen mit Commit/Rollback"
+echo "#####################################################################"
+echo
+echo "-----------"
+echo "Test Unit 1"
+echo "-----------"
+echo
+cat > stmt.buffer <<EOF
+drop 137
+rollback
+drop 7
+commit
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "-----------"
+echo "Test Unit 2"
+echo "-----------"
+echo
+cat > stmt.buffer <<EOF
+stop
+start
+get 8 1 datapage
+get 12 89 datapage
+get 8 2 datapage
+mark 8 2
+release 8 1
+release 8 2
+drop 8
+dump
+commit
+dump
+get 3 1 datapage
+get 4 2 datapage
+get 3 2 datapage
+get 4 3 datapage
+mark 4 2
+mark 3 1
+release 4 2
+releae 4 3
+drop 4
+release 3 1
+release 3 2
+dump
+rollback
+dump
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " Segmente oeffnen mit Commit/Rollback"
+echo "#####################################################################"
+echo
+cat > stmt.buffer <<EOF
+open 56
+rollback
+open 26
+commit
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " Verschiedene Operationen gemischt"
+echo "#####################################################################"
+echo
+echo "-----------"
+echo "Test Unit 1"
+echo "-----------"
+echo
+cat > stmt.buffer <<EOF
+stop
+start
+filefail
+new 1 3 datapage
+dump
+release 1 3
+get 1 3 datapage
+mark 1 3
+dump
+release 1 3
+commit
+dump
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "-----------"
+echo "Test Unit 2"
+echo "-----------"
+echo
+cat > stmt.buffer <<EOF
+stop
+start
+create 12345
+commit
+filefail
+new 12345 0 freespaceinventory
+filefail
+new 12345 1 datapage
+dump
+drop 12345
+dump
+commit
+dump
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " Seite eines geloeschten Segments anfordern"
+echo "#####################################################################"
+echo
+cat > stmt.buffer <<EOF
+create 987
+commit
+filefail
+new 987 2 datapage
+drop 987
+dump
+filefail
+new 987 3 datapage
+EOF
+test_buffer stmt.buffer
+
+echo
+echo "#####################################################################"
+echo " Stoppe Buffer Manager"
+echo "#####################################################################"
+echo
+cat > stmt.buffer <<EOF
+stop
+EOF
+test_buffer stmt.buffer
+
+rm stmt.buffer
+
+exit 0

@@ -1,0 +1,42 @@
+
+#####################################################################
+ Commit
+#####################################################################
+
+BM::flush() aufgerufen.
+LM::releaseAll() aufgerufen.
+The operation was completed successfully.
+
+
+#####################################################################
+ Rollback
+#####################################################################
+
+BM::discard() aufgerufen.
+LM::releaseAll() aufgerufen.
+The operation was completed successfully.
+
+BM::flush() aufgerufen.
+LM::releaseAll() aufgerufen.
+The operation was completed successfully.
+
+BM::flush() aufgerufen.
+LM::releaseAll() aufgerufen.
+The operation was completed successfully.
+
+BM::discard() aufgerufen.
+LM::releaseAll() aufgerufen.
+The operation was completed successfully.
+
+BM::flush() aufgerufen.
+LM::releaseAll() aufgerufen.
+The operation was completed successfully.
+
+BM::discard() aufgerufen.
+LM::releaseAll() aufgerufen.
+The operation was completed successfully.
+
+BM::discard() aufgerufen.
+LM::releaseAll() aufgerufen.
+The operation was completed successfully.
+

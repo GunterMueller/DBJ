@@ -1,0 +1,39 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2004                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+# Erfolgreiche Faelle
+echo
+echo "#####################################################################"
+echo " Success cases"
+echo "#####################################################################"
+echo
+TEST_IDX=125 test_parser "DROP INDEX test_idx"
+
+# nicht-existierender Index
+echo
+echo "#####################################################################"
+echo " Index does not exist"
+echo "#####################################################################"
+echo
+test_parser "DROP INDEX test_idx"
+
+# Syntaxfehler
+echo
+echo "#####################################################################"
+echo " Syntax error"
+echo "#####################################################################"
+echo
+TEST_IDX=125 test_parser "DROP INDEX test_idx OF TYPE BTREE"
+TEST_IDX=15 test_parser "DROP UNIQUE INDEX test_idx"
+TEST_IDX=1 test_parser "DROP INDEX test_idx RESTRICT"
+
+exit 0
+

@@ -1,0 +1,296 @@
+
+#####################################################################
+ Simple cases
+#####################################################################
+
+Validated access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125)
+  |       
+Assignment - Column ('A'/0) - VarcharValue ('')
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125)
+  |       
+Assignment - Column ('C'/2) - NullValue
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125)
+  |       
+Assignment - Column ('D'/3) - IntegerValue (123)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125)
+  |       
+Assignment - Column ('B'/1) - NullValue
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125)
+  |       
+Assignment - Column ('D'/3) - Column ('B'/1)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125)
+  |       
+Assignment - Column ('A'/0) - Column ('C'/2)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125)
+  |       
+Assignment - Column ('A'/0) [Correlation name: test_tab] - Column ('C'/2)
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Using correlation names
+#####################################################################
+
+Validated access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125) [Correlation name: x]
+  |       
+Assignment - Column ('A'/0) - VarcharValue ('')
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125) [Correlation name: t]
+  |       
+Assignment - Column ('C'/2) [Correlation name: t] - NullValue
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125) [Correlation name: n]
+  |       
+Assignment - Column ('B'/1) [Correlation name: n] - IntegerValue (123)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125) [Correlation name: m]
+  |       
+Assignment - Column ('B'/1) - NullValue
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/2) [Correlation name: a]
+  |       
+Assignment - Column ('N'/0) [Correlation name: a] - Column ('O'/2) [Correlation name: a]
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125)
+  |       
+Assignment - Column ('A'/0) [Correlation name: test_tab] - Column ('C'/2) [Correlation name: test_tab]
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Using a WHERE clause
+#####################################################################
+
+Validated access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/1)
+  |       
+Assignment - Column ('Y'/1) - IntegerValue (2)
+  |          
+WhereClause - Predicate
+                |
+              Column ('X'/0) - Comparison ('=') - VarcharValue ('string')
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/1)
+  |       
+Assignment - Column ('Z'/2) - VarcharValue ('12')
+  |          
+WhereClause - Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Predicate - LogicalOp ('AND') - Predicate
+                |                              |                               |
+                |                              |                             Column ('Y'/1) - Comparison ('<') - IntegerValue (20)
+                |                              |         
+                |                            Column ('Y'/1) - Comparison ('>') - IntegerValue (10)
+                |         
+              Predicate
+                |
+              Column ('X'/0) - Comparison ('=') - VarcharValue ('string')
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Setting multiple values at once
+#####################################################################
+
+Validated access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/1)
+  |       
+Assignment - Column ('Y'/1) - IntegerValue (2) - Column ('Z'/2) - Column ('X'/0) - Column ('X'/0) - VarcharValue ('')
+  |          
+WhereClause - Predicate
+                |
+              Column ('X'/0) - Comparison ('=') - VarcharValue ('string')
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Table does not exist
+#####################################################################
+
+
+A table named 'TEST_TAB' does not exist.
+
+
+
+#####################################################################
+ Column does not exist (w/ and w/o correlation name)
+#####################################################################
+
+
+A column named 'X' does not exist in any of the tables in the SQL statement.
+
+
+
+A column named 'O' does not exist in any of the tables in the SQL statement.
+
+
+
+#####################################################################
+ Table has different data types than given data
+#####################################################################
+
+
+The column 'E' of table 'TEST_TAB' does not allow NULLs.
+
+
+
+The value of column 'A' cannot be updated in table 'TEST_TAB' because the types do not match.  The column in the table is of type VARCHAR, and the value to be set is of type INTEGER.
+
+
+
+The value of column 'D' cannot be updated in table 'TEST_TAB' because the types do not match.  The column in the table is of type INTEGER, and the value to be set is of type VARCHAR.
+
+
+
+#####################################################################
+ Syntax error
+#####################################################################
+
+
+An invalid number was encountered at "901234567890".
+
+
+
+An unterminated string was encountered at "1, 1234567890".
+
+
+
+A parsing error "syntax error" occured in statement "UPDATE t SET col1 = 2 col2 = 4".  Parsing stopped after token "col2 = 4" at the beginning of " = 4".
+
+
+
+A parsing error "syntax error" occured in statement "UPDATE SET x = 5".  Parsing stopped after token "SET x = 5" at the beginning of " x = 5".
+
+
+
+A parsing error "syntax error" occured in statement "UPDATE t SETT a = 2".  Parsing stopped after token "SETT a = 2" at the beginning of " a = 2".
+
+

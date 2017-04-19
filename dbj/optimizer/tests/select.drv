@@ -1,0 +1,134 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2004-2005                                                         *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " Keine WHERE-Klausel (Tabellen werden nach Tupel-Zahl sortiert)"
+echo "#####################################################################"
+echo
+
+T1="1:A" test_optimizer "SELECT T1.A FROM T1"
+T1="1:A" T2="2:A B C D" test_optimizer "SELECT T1.A FROM T1, T2"
+T1="1:A" T2="2:A B C D" T3="3:COL1" test_optimizer "SELECT * FROM T1, T2, T3"
+T1="1:A" T2="2:B" test_optimizer "SELECT T1.A FROM T1,T2"
+T1="2:A" T2="1:B" test_optimizer "SELECT T1.A FROM T1,T2"
+T1="1:A" T2="2:B" test_optimizer "SELECT T1.A FROM T2,T1"
+T1="2:A" T2="1:B" test_optimizer "SELECT T1.A FROM T2,T1"
+T1="5:C1" T2="3:A" T3="8:B" T4="1:D" T5="6:E" test_optimizer "SELECT T1.C1 FROM T1,T2,T3,T4,T5"
+T1="5:C1" T2="3:A" T3="8:B" T4="1:D" T5="6:E" test_optimizer "SELECT T1.C1 FROM T5,T4,T3,T2,T1"
+T1="5:C1" T2="3:A" T3="8:B" T4="1:D" T5="6:E" test_optimizer "SELECT T1.C1 FROM T3,T2,T5,T4,T1"
+T1="5:C1" T2="3:A" T3="8:B" T4="1:D" T5="6:E" test_optimizer "SELECT t2.a FROM T4,T2,T5,T2 as t2x,T3"
+T1="5345:C1" T2="33:A" T3="4442338:B" T4="4555441:D" T5="24546:E" test_optimizer "SELECT T1.C1 FROM T1,T2,T3,T4,T5"
+
+echo
+echo "#####################################################################"
+echo " WHERE-Klausel mit Konstanten"
+echo "#####################################################################"
+echo
+
+T1="1:A B C" test_optimizer "select t1.a, t1.b as b, t1.c from t1 where 1 < 2"
+T1="1:A B C" test_optimizer "select t1.a, t1.b as b, t1.c from t1 where '' <> 'some text'"
+T1="1:A B C" test_optimizer "select t1.a, t1.b as b, t1.c from t1 where 8 is not null"
+T1="1:A B C" test_optimizer "select t1.a, t1.b as b, t1.c from t1 where 'text' NOT LIKE REGEXP '.*pattern.*'"
+
+echo
+echo "#####################################################################"
+echo " geschachtete WHERE-Klauseln"
+echo "#####################################################################"
+echo
+
+T1="1:A B C" T2="2:D E F" test_optimizer "SELECT * FROM t1, t2 WHERE ((A = D) AND (B <> E AND (((A <= F)))) AND 5 <> 6 and (( C > F AND (A = C OR B <> B)) AND C LIKE REGEXP 'text'))"
+T1="1:A B C" T2="2:D E F" test_optimizer "select * from t1, t2 where ((a>a and b<b ) and c<>c) and (d>d or e<e and f=d) and a=c and b>=b and ((c>c or d>d) and e<e)"
+T1="67:A B C" test_optimizer "select * from t1 where (a = '') and (not ((b = 2) or (c = '')))"
+T1="7:A B C D E" T2="8:X" test_optimizer "select * from t1, t2 where (a = '') and (not ((b = 2) and (c = ''))) and e = '5' and a = e"
+T1="1:A B C" test_optimizer "select * from t1 as a, t1  as b where a.a = b.a or a.b < b.b and a.c <> b.c"
+T1="1:A B C" T2="2:A B C" test_optimizer "select a.* from t1 as a, t2 as b where a.a = b.a or a.b < b.b and a.c <> b.c"
+
+echo
+echo "#####################################################################"
+echo " Keine Where-Klausel, ein Index"
+echo "#####################################################################"
+echo
+
+INDEXES="IDX1" IDX1="1:1 1 BTREE 0" TAB1="1:A B C" test_optimizer "select * from tab1"
+INDEXES="IDX1" IDX1="1:1 1 BTREE 0" TAB1="1:A B C" test_optimizer "select a from tab1"
+INDEXES="IDX1" IDX1="1:1 1 BTREE 0" TAB1="1:A B C" test_optimizer "select a,b from tab1"
+
+INDEXES="IDX1" IDX1="1:1 1 BTREE 1" TAB1="1:A B C" test_optimizer "select * from tab1"
+INDEXES="IDX1" IDX1="1:1 1 BTREE 1" TAB1="1:A B C" test_optimizer "select c,a from tab1"
+INDEXES="IDX1" IDX1="1:1 1 BTREE 1" TAB1="1:A B C" test_optimizer "select a,b from tab1"
+
+echo
+echo "#####################################################################"
+echo " Mit Where-Klausel, kein Index (keine Negationen)"
+echo "#####################################################################"
+echo
+
+# keine Klammerungen
+TAB1="1:A B C D E F" test_optimizer "select * from tab1 where a = '' and b = 6 and f = 8 and e like regex 'pattern'"
+TAB1="1:A B C D E F" test_optimizer "select * om tab1 where a = '' or b = 6 or f = 8 or e like regex 'pattern'"
+TAB1="1:A B C D E F" test_optimizer "select * om tab1 where a = '' or b = 6 and f = 8 or e like regex 'pattern'"
+# mit Klammerungen
+TAB1="1:A B C D E F" test_optimizer "select * rom tab1 where (a = '' or b = 6) and f = 8 or (e like regex 'pattern')"
+TAB1="1:A B C D E F" test_optimizer "select * from tab1 where ((((a = '' or b = 6)) and f = 8) or (e like regex 'pattern'))"
+TAB1="1:A B C D E F" test_optimizer "select * from tab1 where ((((a = '' or (b = 6))) and f = 8) or (e like regex 'pattern'))"
+TAB1="1:A B C D E F" test_optimizer "select * from tab1 where (a = '' or (b = 6)) and f = 8 or (e like regex 'pattern') and c <> e or (d < f and f > 987)"
+TAB1="1:A B C D E F" test_optimizer "select * from tab1  as t where (t.a = '' or (b = 6)) and t.f = 8 or (e like regex 'pattern') and c <> t.e or (d < f and f > 987)"
+T="2:A B C" test_optimizer "select a from t where a like regex 'pattern1' and c is null or b = 8"
+
+echo
+echo "#####################################################################"
+echo " Mit Where-Klausel, kein Index (mit Negationen)"
+echo "#####################################################################"
+echo
+
+T="2:A B C" test_optimizer "select * from t where a not like regex 'pattern1' and c is null or not (b = 8)"
+T="2:A B C" test_optimizer "select * from t where not(a not like regex 'pattern1' and c is null) or not (b = 8)"
+T="26:N M O P Q R S T U" test_optimizer "select * from t as x where ((x.r < -56 or t = 875124) and not (n <> 'text' ) and (((u = ''))))"
+T="26:N M O P Q R S T U" test_optimizer "select * from t as x where ((x.r < -56 or t = 875124) and not (n <> 'text' or m > 765132 and m < 2135769) and not (((u = '')))) and not(not(n=x.o and not(x.q=s)))"
+T="26:N M O P Q R S T U" test_optimizer "select * from t as x where not(((x.r < -56 or t = 875124) and not (n <> 'text' or m > 765132 and m < 2135769) and not (((u = '')))) and not(not(not(n=x.o and not(x.q=s)))) and not(not(not(not(p is not null)))) and not(not(not(o like regex 'pattern'))))"
+T="0:A B C" test_optimizer "select * from t where not(1=0) and not(2<>7) or not(not(3<5))"
+T="0:A B C" test_optimizer "select * from t where not(1=0) and not(2<>7) or not(not(not(3<5)))"
+
+echo
+echo "#####################################################################"
+echo " Mit Where-Klausel, ein Index (keine Negationen)"
+echo "#####################################################################"
+echo
+
+INDEXES="IDX1" IDX1="6:3 1 BTREE 1" T="3:A B C" test_optimizer "select a from t where b < 7 AND c is null"
+INDEXES="IDX1" IDX1="6:3 1 BTREE 0" T="3:A B C" test_optimizer "select a from t where b < 7 AND c <> a AND 7 < 12"
+INDEXES="IDX1" IDX1="6:3 1 HASH 0" T="3:A B C" test_optimizer "select b from t where b < 7 AND c <> a AND 7 < 12"
+INDEXES="IDX1" IDX1="6:3 1 HASH 0" T="3:A B C" test_optimizer "select b from t where b = 7 and c <> a"
+INDEXES="IDX1" IDX1="6:3 1 HASH 1" T="3:A B C" test_optimizer "select * from t where b = 7 or c <> a"
+INDEXES="IDX1" IDX1="6:3 1 HASH 1" T="3:A B C" test_optimizer "select c from t where b <> 7"
+
+echo
+echo "#####################################################################"
+echo " Mit Where-Klausel, mehrere Indexe (mit Negationen)"
+echo "#####################################################################"
+echo
+
+INDEXES="IDX1 IDX2" IDX1="6:3 1 HASH 1" IDX2="9:6 0 BTREE 1" T="3:A B C" test_optimizer "select b from t where not(b <> 7)"
+INDEXES="IDX1 IDX2" IDX1="6:3 1 HASH 1" IDX2="9:3 0 HASH 0" T="3:A B C" test_optimizer "select a from t where not(b = 7) and A = 'text'"
+INDEXES="IDX1 IDX2 IDX3" IDX1="6:3 1 BTREE 1" IDX2="9:3 0 HASH 0" IDX3="10:3 1 HASH 1" T="3:A B C" test_optimizer "select a,c from t where not(b = 7) and A = 'text'"
+
+
+echo
+echo "#####################################################################"
+echo " Elimination von Konstanten Praedikaten"
+echo "#####################################################################"
+echo
+T1="1:A B C" T2="2:D E F" test_optimizer "select * from t1, t2 where ((a=a and b=b ) and c=c) and (d=d or e=e and f=f) and a=a and b=b and ((c=c or d=d) and e=e)"
+T1="1:A B C" T2="2:D E F" test_optimizer "select * from t1, t2 where ((a=a and b=b ) and c=c) and (d=d or e=e and f=f) and a=a and b=e and ((c=c or d=d) and e=e)"
+
+exit 0
+

@@ -1,0 +1,5 @@
+print_btree.exe: print_btree.o
+create_btree.exe: create_btree.o
+handfill_btree.exe: handfill_btree.o
+handremove_btree.exe: handremove_btree.o
+test_btree-iter.exe: test_btree-iter.o

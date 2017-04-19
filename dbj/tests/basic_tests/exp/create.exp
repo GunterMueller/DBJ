@@ -1,0 +1,287 @@
+
+#####################################################################
+ System starten
+#####################################################################
+
+The system was started successfully. SQLSTATE=00000
+
+
+#####################################################################
+ Tabelle anlegen
+#####################################################################
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+
+8 Seg1.dbj
+8 Seg2.dbj
+8 Seg3.dbj
+8 Seg32768.dbj
+8 Seg32769.dbj
+8 Seg32770.dbj
+8 Seg32771.dbj
+8 Seg32772.dbj
+8 Seg32773.dbj
+8 Seg32774.dbj
+8 Seg32775.dbj
+8 Seg32776.dbj
+8 Seg32777.dbj
+8 Seg32778.dbj
+8 Seg32779.dbj
+8 Seg32780.dbj
+0 Seg4.dbj
+0 Seg5.dbj
+0 Seg6.dbj
+
+TABLE_NAME                                                                                                                       TABLE_ID    COLUMN_COUNT TUPLE_COUNT
+-------------------------------------------------------------------------------------------------------------------------------- ----------- ------------ -----------
+SYSTABLES                                                                                                                                  1            5           6
+SYSCOLUMNS                                                                                                                                 2            6          30
+SYSINDEXES                                                                                                                                 3            7          13
+ANGEST                                                                                                                                     4            5           0
+PROJECT                                                                                                                                    5            4           0
+MITARBEIT                                                                                                                                  6            3           0
+
+  6 record(s) returned.
+
+
+TABLE_ID    COLUMN_NAME                                                                                                                      COLUMN_ID   DATA_TYPE                                                                                                                        MAX_LENGTH  NULLABLE
+----------- -------------------------------------------------------------------------------------------------------------------------------- ----------- -------------------------------------------------------------------------------------------------------------------------------- ----------- --------
+          1 TABLE_NAME                                                                                                                                 0 VARCHAR                                                                                                                                  128 N       
+          1 TABLE_ID                                                                                                                                   1 INTEGER                                                                                                                                    4 N       
+          1 COLUMN_COUNT                                                                                                                               2 INTEGER                                                                                                                                    4 N       
+          1 CREATE_TIME                                                                                                                                3 VARCHAR                                                                                                                                   26 N       
+          1 TUPLE_COUNT                                                                                                                                4 INTEGER                                                                                                                                    4 N       
+          2 TABLE_ID                                                                                                                                   0 INTEGER                                                                                                                                    4 N       
+          2 COLUMN_NAME                                                                                                                                1 VARCHAR                                                                                                                                  128 N       
+          2 COLUMN_ID                                                                                                                                  2 INTEGER                                                                                                                                    4 N       
+          2 DATA_TYPE                                                                                                                                  3 VARCHAR                                                                                                                                  128 N       
+          2 MAX_LENGTH                                                                                                                                 4 INTEGER                                                                                                                                    4 N       
+          2 NULLABLE                                                                                                                                   5 VARCHAR                                                                                                                                    1 N       
+          3 TABLE_ID                                                                                                                                   0 INTEGER                                                                                                                                    4 N       
+          3 INDEX_NAME                                                                                                                                 1 VARCHAR                                                                                                                                  128 N       
+          3 INDEX_ID                                                                                                                                   2 INTEGER                                                                                                                                    4 N       
+          3 INDEX_TYPE                                                                                                                                 3 VARCHAR                                                                                                                                    5 N       
+          3 COLUMN_ID                                                                                                                                  4 INTEGER                                                                                                                                    4 N       
+          3 IS_UNIQUE                                                                                                                                  5 VARCHAR                                                                                                                                    1 N       
+          3 CREATE_TIME                                                                                                                                6 VARCHAR                                                                                                                                   26 N       
+          4 PERSNR                                                                                                                                     0 INTEGER                                                                                                                                    4 N       
+          4 VORNAME                                                                                                                                    1 VARCHAR                                                                                                                                   10 Y       
+          4 NACHNAME                                                                                                                                   2 VARCHAR                                                                                                                                   20 N       
+          4 GEHALT                                                                                                                                     3 INTEGER                                                                                                                                    4 N       
+          4 ADRESSE                                                                                                                                    4 VARCHAR                                                                                                                                   20 Y       
+          5 PROJNR                                                                                                                                     0 INTEGER                                                                                                                                    4 N       
+          5 NAME                                                                                                                                       1 VARCHAR                                                                                                                                   20 N       
+          5 PRIORITAET                                                                                                                                 2 INTEGER                                                                                                                                    4 Y       
+          5 BESCHREIBUNG                                                                                                                               3 VARCHAR                                                                                                                                 1000 Y       
+          6 PERSNR                                                                                                                                     0 INTEGER                                                                                                                                    4 N       
+          6 PROJNR                                                                                                                                     1 INTEGER                                                                                                                                    4 N       
+          6 PERCENT                                                                                                                                    2 INTEGER                                                                                                                                    4 Y       
+
+  30 record(s) returned.
+
+
+TABLE_ID    INDEX_NAME                                                                                                                       INDEX_ID    INDEX_TYPE COLUMN_ID   IS_UNIQUE
+----------- -------------------------------------------------------------------------------------------------------------------------------- ----------- ---------- ----------- ---------
+          1 IDX_SYSTABLES_TABLEID_ID                                                                                                                   1 BTREE                1 Y        
+          1 IDX_SYSTABLES_TABLENAME_ID                                                                                                                 2 BTREE                0 Y        
+          2 IDX_SYSCOLUMNS_TABLEID_ID                                                                                                                  3 BTREE                0 N        
+          2 IDX_SYSCOLUMNS_COLUMNNAME_ID                                                                                                               4 BTREE                1 N        
+          3 IDX_SYSINDEXES_TABLEID_ID                                                                                                                  5 BTREE                0 N        
+          3 IDX_SYSINDEXES_INDEXNAME_ID                                                                                                                6 BTREE                1 Y        
+          3 IDX_SYSINDEXES_INDEXID_ID                                                                                                                  7 BTREE                2 Y        
+          4 ANGEST_PK                                                                                                                                  8 BTREE                0 Y        
+          4 ANGEST_NACHNAME                                                                                                                            9 BTREE                2 N        
+          5 PROJECT_PK                                                                                                                                10 BTREE                0 Y        
+          5 PROJECT_PRIO                                                                                                                              11 BTREE                2 N        
+          6 MITARBEIT_PERSNR                                                                                                                          12 BTREE                0 N        
+          6 MITARBEIT_PROJNR                                                                                                                          13 BTREE                1 N        
+
+  13 record(s) returned.
+
+
+8 Seg1.dbj
+8 Seg2.dbj
+8 Seg3.dbj
+8 Seg32768.dbj
+8 Seg32769.dbj
+8 Seg32770.dbj
+8 Seg32771.dbj
+8 Seg32772.dbj
+8 Seg32773.dbj
+8 Seg32774.dbj
+8 Seg32775.dbj
+8 Seg32776.dbj
+8 Seg32777.dbj
+8 Seg32778.dbj
+8 Seg32779.dbj
+8 Seg32780.dbj
+0 Seg4.dbj
+0 Seg5.dbj
+0 Seg6.dbj
+
+#####################################################################
+ Erneutes Anlegen aller existierenden Tabellen/Indexe
+#####################################################################
+
+A table named 'ANGEST' already exists. SQLSTATE=CP100
+Rolling back transaction...
+
+An index named 'ANGEST_NACHNAME' already exists. SQLSTATE=CP105
+Rolling back transaction...
+
+A table named 'PROJECT' already exists. SQLSTATE=CP100
+Rolling back transaction...
+
+An index named 'PROJECT_PRIO' already exists. SQLSTATE=CP105
+Rolling back transaction...
+
+A table named 'MITARBEIT' already exists. SQLSTATE=CP100
+Rolling back transaction...
+
+An index named 'MITARBEIT_PERSNR' already exists. SQLSTATE=CP105
+Rolling back transaction...
+
+An index named 'MITARBEIT_PROJNR' already exists. SQLSTATE=CP105
+Rolling back transaction...
+
+The operation was completed successfully. SQLSTATE=00000
+
+
+8 Seg1.dbj
+8 Seg2.dbj
+8 Seg3.dbj
+8 Seg32768.dbj
+8 Seg32769.dbj
+8 Seg32770.dbj
+8 Seg32771.dbj
+8 Seg32772.dbj
+8 Seg32773.dbj
+8 Seg32774.dbj
+8 Seg32775.dbj
+8 Seg32776.dbj
+8 Seg32777.dbj
+8 Seg32778.dbj
+8 Seg32779.dbj
+8 Seg32780.dbj
+0 Seg4.dbj
+0 Seg5.dbj
+0 Seg6.dbj
+
+#####################################################################
+ Tabelle mit kurzen Namen anlegen
+#####################################################################
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+
+TABLE_NAME                                                                                                                       TABLE_ID    COLUMN_COUNT TUPLE_COUNT
+-------------------------------------------------------------------------------------------------------------------------------- ----------- ------------ -----------
+SYSTABLES                                                                                                                                  1            5           7
+SYSCOLUMNS                                                                                                                                 2            6          31
+SYSINDEXES                                                                                                                                 3            7          14
+ANGEST                                                                                                                                     4            5           0
+PROJECT                                                                                                                                    5            4           0
+MITARBEIT                                                                                                                                  6            3           0
+T                                                                                                                                          7            1           0
+
+  7 record(s) returned.
+
+
+TABLE_ID    COLUMN_NAME                                                                                                                      COLUMN_ID   DATA_TYPE                                                                                                                        MAX_LENGTH  NULLABLE
+----------- -------------------------------------------------------------------------------------------------------------------------------- ----------- -------------------------------------------------------------------------------------------------------------------------------- ----------- --------
+          7 C                                                                                                                                          0 INTEGER                                                                                                                                    4 N       
+
+  1 record(s) returned.
+
+
+TABLE_ID    INDEX_NAME                                                                                                                       INDEX_ID    INDEX_TYPE COLUMN_ID   IS_UNIQUE
+----------- -------------------------------------------------------------------------------------------------------------------------------- ----------- ---------- ----------- ---------
+          7 T_PK                                                                                                                                      14 BTREE                0 Y        
+
+  1 record(s) returned.
+
+
+8 Seg1.dbj
+8 Seg2.dbj
+8 Seg3.dbj
+8 Seg32768.dbj
+8 Seg32769.dbj
+8 Seg32770.dbj
+8 Seg32771.dbj
+8 Seg32772.dbj
+8 Seg32773.dbj
+8 Seg32774.dbj
+8 Seg32775.dbj
+8 Seg32776.dbj
+8 Seg32777.dbj
+8 Seg32778.dbj
+8 Seg32779.dbj
+8 Seg32780.dbj
+8 Seg32781.dbj
+0 Seg4.dbj
+0 Seg5.dbj
+0 Seg6.dbj
+0 Seg7.dbj
+
+#####################################################################
+ Index nachtraeglich anlegen
+#####################################################################
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+
+8 Seg1.dbj
+8 Seg2.dbj
+8 Seg3.dbj
+8 Seg32768.dbj
+8 Seg32769.dbj
+8 Seg32770.dbj
+8 Seg32771.dbj
+8 Seg32772.dbj
+8 Seg32773.dbj
+8 Seg32774.dbj
+8 Seg32775.dbj
+8 Seg32776.dbj
+8 Seg32777.dbj
+8 Seg32778.dbj
+8 Seg32779.dbj
+8 Seg32780.dbj
+8 Seg32781.dbj
+8 Seg32782.dbj
+0 Seg4.dbj
+0 Seg5.dbj
+0 Seg6.dbj
+0 Seg7.dbj
+8 Seg8.dbj
+
+#####################################################################
+ System stoppen
+#####################################################################
+
+The system was stopped successfully. SQLSTATE=00000
+

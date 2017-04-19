@@ -1,0 +1,106 @@
+
+#####################################################################
+ Teste File Manager
+#####################################################################
+
+8 Seg11.dbj
+============================================================
+ Lege Segment 12 an.
+============================================================
+The operation was completed successfully.
+
+The operation was completed successfully.
+
+============================================================
+ Lese Daten aus Datei 'file.data'.
+============================================================
+The operation was completed successfully.
+
+============================================================
+ Oeffne nicht-existierendes Segment 10.
+============================================================
+The file for segment 10 could not be found.
+
+============================================================
+ Schliesse Segment 12.
+============================================================
+The operation was completed successfully.
+
+============================================================
+ Versuche in geschlossenes Segment zu schreiben.
+============================================================
+The file for segment 12 cannot be accessed because it was not opened.
+
+============================================================
+ Oeffne existierendes Segment 11.
+============================================================
+The operation was completed successfully.
+
+============================================================
+ Schreibe Daten in Segment 11.
+============================================================
+The operation was completed successfully.
+
+============================================================
+ Schliesse Segment 11.
+============================================================
+The operation was completed successfully.
+
+============================================================
+ Oeffne Segment 11.
+============================================================
+The operation was completed successfully.
+
+============================================================
+ Lies Daten in Segment 11.
+============================================================
+The operation was completed successfully.
+
+------------------------------------------------------------
+ Seite 6.
+------------------------------------------------------------
+#include <iostream.h>
+#include <fstream.h>
+#include <stdio.h>
+using namespace std;
+
+void exists(char* file){
+    fstream fs;
+    fs.open(file,fstream::in);
+    if(!fs){
+	cout << "Datei existiert nicht";
+    }
+    else {cout << "Datei existiert";}
+}
+
+void remov(char* file){
+    if(remove(file)==-1) {
+	cout << "Datei kann nicht geloescht werden!";
+    }
+}
+
+int main ()
+{
+//    fstream fs;
+//    fs.open("test.txt",fstream::trunc);
+    exists("test2.txt");
+    remov("test.txt");
+        cout << "Hallo Welten\n";
+	return 0;
+}
+
+------------------------------------------------------------
+The operation was completed successfully.
+
+ Seite 2.
+------------------------------------------------------------
+#include <iostream.h>
+#include <#
+------------------------------------------------------------
+============================================================
+ Schliesse Segment 11.
+============================================================
+The operation was completed successfully.
+
+24 Seg11.dbj
+0 Seg12.dbj

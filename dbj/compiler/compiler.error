@@ -1,0 +1,100 @@
+/*************************************************************************\
+ *                                                                       *
+ * (C) 2004-2005                                                         *
+ * Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+ * Friedrich-Schiller-Universitaet Jena                                  *
+ * Ernst-Abbe-Platz 1-2                                                  *
+ * 07745 Jena                                                            *
+ *                                                                       *
+\*************************************************************************/
+
+/*
+ * Definition aller Fehlermeldungen des SQL Compilers
+ */
+
+// Parser fehler
+{ DBJ_COMPILER_PARSE_FAIL,
+      "Parsing failed with reason code rc = %s.",
+      "CP000" },
+{ DBJ_COMPILER_NO_ACCESS_PLAN,
+      "The parser did not generate an access plan.",
+      "CP001" },
+{ DBJ_COMPILER_UNTERMINATED_STRING,
+      "An unterminated string was encountered at \"%s\".",
+      "CP002" },
+{ DBJ_COMPILER_INVALID_NUMBER,
+      "An invalid number was encountered at \"%s\".",
+      "CP003" },
+{ DBJ_COMPILER_UNKNOWN_TOKEN,
+      "An unknown token was encountered in the statement, beginning "
+      "at \"%s\".",
+      "CP004" },
+{ DBJ_COMPILER_PARSE_EARLY_END,
+      "An incomplete or invalid statement was entered.  \"%s\"",
+      "CP005" },
+{ DBJ_COMPILER_PARSE_ERROR_TOKEN,
+      "A parsing error \"%s\" occured in statement \"%s\".  Parsing stopped "
+      "after token \"%s\" at the beginning of \"%s\".",
+      "CP006" },
+
+// Fehler beim Validieren
+{ DBJ_COMPILER_TABLE_ALREADY_EXISTS,
+      "A table named '%s' already exists.",
+      "CP100" },
+{ DBJ_COMPILER_TABLE_NOT_EXISTS,
+      "A table named '%s' does not exist.",
+      "CP101" },
+{ DBJ_COMPILER_DUPLICATE_TABLE_NAME,
+      "More than one table has the name '%s'.  Table names must be made "
+      "unique, possibly using correlation names.",
+      "CP102" },
+{ DBJ_COMPILER_DUPLICATE_COLUMN_NAME,
+      "More than one column has the name '%s'.  Column names must be made "
+      "unique, possibly renaming single columns.",
+      "CP103" },
+{ DBJ_COMPILER_KEY_COLUMN_NOT_FOUND,
+      "The primary key cannot be created on column '%s' because no such "
+      "column exists in the table '%s'.",
+      "CP104" },
+{ DBJ_COMPILER_INDEX_ALREADY_EXISTS,
+      "An index named '%s' already exists.",
+      "CP105" },
+{ DBJ_COMPILER_INDEX_NOT_EXISTS,
+      "An index named '%s' does not exist.",	
+      "CP106" },
+{ DBJ_COMPILER_COLUMN_NOT_FOUND_IN_ANY,
+      "A column named '%s' does not exist in any of the tables in "
+      "the SQL statement.",
+      "CP107" },
+{ DBJ_COMPILER_COLUMN_NOT_FOUND,
+      "A column named '%s' does not exist in the table '%s'.",
+      "CP108" },
+{ DBJ_COMPILER_COLUMN_TABLE_NOT_UNIQUE,
+      "The source table to which the column '%s' belongs cannot be "
+      "determined unambigiously.",
+      "CP109" },
+{ DBJ_COMPILER_COLUMN_NOT_NULLABLE,
+      "The column '%s' of table '%s' does not allow NULLs.",
+      "CP110" },
+{ DBJ_COMPILER_INSERT_INVALID_NUM_VALUES,	
+      "The row %s cannot be inserted into table '%s'.  It has %s columns, "
+      "but the table is defined with %s columns.",
+      "CP111" },
+{ DBJ_COMPILER_INSERT_VALUE_TYPE_MISMATCH,
+      "The value of column '%s' of row %s cannot be inserted into table '%s' "
+      "because the types do not match.  The column in the table is of "
+      "type %s, and the value to be inserted is of type %s.",
+      "CP112" },
+{ DBJ_COMPILER_UPDATE_VALUE_TYPE_MISMATCH,
+      "The value of column '%s' cannot be updated in table '%s' because "
+      "the types do not match.  The column in the table is of type %s, "
+      "and the value to be set is of type %s.",
+      "CP113" },
+{ DBJ_COMPILER_PREDICATE_TYPE_MISMATCH,
+      "The predicate '%s %s %s' is not valid because it compares values "
+      "of two different types.",
+      "CP114" },
+{ DBJ_COMPILER_CORRELATION_NAME_NOT_EXISTS,
+      "The correlation name '%s' used in the select clause is not assigned "
+      "to any of the tables in the from clause.",
+      "CP115" },

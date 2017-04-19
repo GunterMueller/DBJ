@@ -1,0 +1,168 @@
+
+#####################################################################
+ Success cases
+#####################################################################
+
+Validated access plan:
+==================================================
+CreateIndexStmt
+  |
+Index ('TEST_IDX')
+  |
+Table ('TEST_TAB'/23)
+  |
+Column ('TEST_COL'/5)
+  |
+IndexType ('BTREE')
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+CreateIndexStmt
+  |
+Index ('TEST_IDX')
+  |
+Table ('TEST_TAB'/23)
+  |
+Column ('TEST_COL'/5)
+  |
+IndexType ('HASH')
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+CreateIndexStmt
+  |
+UniqueIndex ('TEST_IDX')
+  |
+Table ('TEST_TAB'/23)
+  |
+Column ('TEST_COL'/5)
+  |
+IndexType ('BTREE')
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+CreateIndexStmt
+  |
+UniqueIndex ('TEST_IDX')
+  |
+Table ('TEST_TAB'/23)
+  |
+Column ('TEST_COL'/5)
+  |
+IndexType ('HASH')
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+CreateIndexStmt
+  |
+Index ('TEST_IDX')
+  |
+Table ('TEST_TAB'/23)
+  |
+Column ('TEST_COL'/5)
+  |
+IndexType ('BTREE')
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+CreateIndexStmt
+  |
+UniqueIndex ('TEST_IDX')
+  |
+Table ('TEST_TAB'/23)
+  |
+Column ('TEST_COL'/5)
+  |
+IndexType ('BTREE')
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Index already exists
+#####################################################################
+
+
+An index named 'TEST_IDX' already exists.
+
+
+
+An index named 'TEST_IDX' already exists.
+
+
+
+An index named 'TEST_IDX' already exists.
+
+
+
+#####################################################################
+ Table/column does not exist
+#####################################################################
+
+
+A column named 'COL1' does not exist in the table 'TEST_TAB'.
+
+
+
+A table named 'TEST_TAB' does not exist.
+
+
+
+A table named 'TEST_TAB' does not exist.
+
+
+
+#####################################################################
+ Syntax error
+#####################################################################
+
+
+An incomplete or invalid statement was entered.  "CREATE INDEX test_idx ON tab ( col1 ) OF TYPE X"
+
+
+
+An incomplete or invalid statement was entered.  "CREATE INDEX test_idx ON tab ( col1 ) BTREE"
+
+
+
+A parsing error "syntax error" occured in statement "CREATE INDEX test_idx ON TABLE tab ( col1 )".  Parsing stopped after token "TABLE tab ( col1 )" at the beginning of " tab ( col1 )".
+
+
+
+A parsing error "syntax error" occured in statement "CREATE IDX test_idx ON tab ( col1 )".  Parsing stopped after token "IDX test_idx ON tab ( col1 )" at the beginning of " test_idx ON tab ( col1 )".
+
+
+
+A parsing error "syntax error" occured in statement "CREATE IDX test_idx ON tab ( col1 ) FORCE".  Parsing stopped after token "IDX test_idx ON tab ( col1 ) FORCE" at the beginning of " test_idx ON tab ( col1 ) FORCE".
+
+
+
+A parsing error "syntax error" occured in statement "CREATE INDEX test_idx ON tab ((col1)) OF TYPE BTREE".  Parsing stopped after token "((col1)) OF TYPE BTREE" at the beginning of "col1)) OF TYPE BTREE".
+
+
+
+A parsing error "syntax error" occured in statement "CREATE INDEX test_idx ON tab (col1) OF TYPE (BTREE)".  Parsing stopped after token "(BTREE)" at the beginning of "BTREE)".
+
+

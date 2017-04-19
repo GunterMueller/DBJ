@@ -1,0 +1,515 @@
+
+#####################################################################
+ System starten
+#####################################################################
+
+The system was started successfully. SQLSTATE=00000
+
+
+#####################################################################
+ Tabellen anlegen
+#####################################################################
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+
+
+#####################################################################
+ Daten einfuegen
+#####################################################################
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+
+PERSNR      VORNAME    NACHNAME             GEHALT      ADRESSE             
+----------- ---------- -------------------- ----------- --------------------
+          1 Klaus      Kuespert                   10000 -                   
+          2 Knut       Stolze                      1500 Ernst-Abbe-Platz 2  
+          3 Thomas     Mueller                     3000 Ernst-Abbe-Platz 2  
+          4 Hannes     Moser                        500 Ernst-Abbe-Platz 1  
+
+  4 record(s) returned.
+
+The operation was completed successfully. SQLSTATE=00000
+
+
+PROJNR      NAME                 PRIORITAET 
+----------- -------------------- -----------
+          1 DBS-Entwicklung                1
+          2 DBS1                           5
+          3 XML-Seminar                   99
+
+  3 record(s) returned.
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+
+PERSNR      PROJNR      PERCENT    
+----------- ----------- -----------
+          1           1          10
+          1           2          30
+          1           3           2
+          2           1          90
+          3           1           0
+          3           3          30
+          4           1         100
+
+  7 record(s) returned.
+
+The operation was completed successfully. SQLSTATE=00000
+
+
+
+#####################################################################
+ Einfache Anfragen
+#####################################################################
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+
+C1         
+-----------
+          1
+
+  1 record(s) returned.
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+
+C1         
+-----------
+          1
+          2
+
+  2 record(s) returned.
+
+The operation was completed successfully. SQLSTATE=00000
+
+
+
+#####################################################################
+ Einfache Anfragen (mit Selektion und Projektion)
+#####################################################################
+
+======================================================================
+Optimized access plan
+----------------------------------------------------------------------
+SelectStmt
+  |
+Projections - Column ('PERSNR'/0) - Column ('GEHALT'/3)
+  |           
+Sources - Table ('ANGEST'/4)
+            |
+          Predicate
+            |
+          Column ('NACHNAME'/2) - Comparison ('<>') - VarcharValue ('Stolze')
+======================================================================
+
+PERSNR      GEHALT     
+----------- -----------
+          1       10000
+          3        3000
+          4         500
+
+  3 record(s) returned.
+
+======================================================================
+Optimized access plan
+----------------------------------------------------------------------
+SelectStmt
+  |
+Projections - Column ('PERSNR'/0) [New column name: NR] - Column ('GEHALT'/3) [New column name: GELD]
+  |           
+Sources - Table ('ANGEST'/4)
+            |
+          Predicate
+            |
+          Column ('NACHNAME'/2) - Comparison ('<>') - VarcharValue ('Stolze')
+======================================================================
+
+NR          GELD       
+----------- -----------
+          1       10000
+          3        3000
+          4         500
+
+  3 record(s) returned.
+
+======================================================================
+Optimized access plan
+----------------------------------------------------------------------
+SelectStmt
+  |
+Projections - Column ('PERSNR'/0) - Column ('GEHALT'/3)
+  |           
+Sources - Table ('ANGEST'/4)
+            |
+          Predicate
+            |
+          Column ('ADRESSE'/4) - Comparison ('<>') - NullValue
+======================================================================
+
+PERSNR      GEHALT     
+----------- -----------
+          2        1500
+          3        3000
+          4         500
+
+  3 record(s) returned.
+
+======================================================================
+Optimized access plan
+----------------------------------------------------------------------
+SelectStmt
+  |
+Projections - Column ('VORNAME'/1) - Column ('ADRESSE'/4)
+  |           
+Sources - Table ('ANGEST'/4)
+            |
+          Index ('ANGEST_PK'/8) [(INTEGER) 2..3]
+            |
+          Predicate
+            |
+          Column ('GEHALT'/3) - Comparison ('>=') - IntegerValue (3000)
+======================================================================
+
+VORNAME    ADRESSE             
+---------- --------------------
+Thomas     Ernst-Abbe-Platz 2  
+
+  1 record(s) returned.
+
+======================================================================
+Optimized access plan
+----------------------------------------------------------------------
+SelectStmt
+  |
+Projections - Column ('PROJNR'/0) [Correlation name: PROJECT] - Column ('NAME'/1) [Correlation name: PROJECT] - Column ('PRIORITAET'/2) [Correlation name: PROJECT] - Column ('BESCHREIBUNG'/3) [Correlation name: PROJECT]
+  |           
+Sources - Table ('PROJECT'/5)
+            |
+          Predicate
+            |
+          Column ('NAME'/1) - Comparison ('NOT LIKE') - VarcharValue ('DBS1.*')
+======================================================================
+
+PROJNR      NAME                 PRIORITAET  BESCHREIBUNG                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+----------- -------------------- ----------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          1 DBS-Entwicklung                1 -                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+          3 XML-Seminar                   99 -                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+
+  2 record(s) returned.
+
+
+
+#####################################################################
+ Joins
+#####################################################################
+
+======================================================================
+Optimized access plan
+----------------------------------------------------------------------
+SelectStmt
+  |
+Projections - Column ('PERSNR'/0) [Correlation name: ANGEST] - Column ('VORNAME'/1) [Correlation name: ANGEST] - Column ('NACHNAME'/2) [Correlation name: ANGEST] - Column ('GEHALT'/3) [Correlation name: ANGEST] - Column ('ADRESSE'/4) [Correlation name: ANGEST] - Column ('PERSNR'/0) [Correlation name: MITARBEIT] - Column ('PROJNR'/1) [Correlation name: MITARBEIT] - Column ('PERCENT'/2) [Correlation name: MITARBEIT]
+  |           
+Sources - Table ('ANGEST'/4) - Table ('MITARBEIT'/6)
+======================================================================
+
+PERSNR      VORNAME    NACHNAME             GEHALT      ADRESSE              PERSNR      PROJNR      PERCENT    
+----------- ---------- -------------------- ----------- -------------------- ----------- ----------- -----------
+          1 Klaus      Kuespert                   10000 -                              1           1          10
+          1 Klaus      Kuespert                   10000 -                              1           2          30
+          1 Klaus      Kuespert                   10000 -                              1           3           2
+          1 Klaus      Kuespert                   10000 -                              2           1          90
+          1 Klaus      Kuespert                   10000 -                              3           1           0
+          1 Klaus      Kuespert                   10000 -                              3           3          30
+          1 Klaus      Kuespert                   10000 -                              4           1         100
+          2 Knut       Stolze                      1500 Ernst-Abbe-Platz 2             1           1          10
+          2 Knut       Stolze                      1500 Ernst-Abbe-Platz 2             1           2          30
+          2 Knut       Stolze                      1500 Ernst-Abbe-Platz 2             1           3           2
+          2 Knut       Stolze                      1500 Ernst-Abbe-Platz 2             2           1          90
+          2 Knut       Stolze                      1500 Ernst-Abbe-Platz 2             3           1           0
+          2 Knut       Stolze                      1500 Ernst-Abbe-Platz 2             3           3          30
+          2 Knut       Stolze                      1500 Ernst-Abbe-Platz 2             4           1         100
+          3 Thomas     Mueller                     3000 Ernst-Abbe-Platz 2             1           1          10
+          3 Thomas     Mueller                     3000 Ernst-Abbe-Platz 2             1           2          30
+          3 Thomas     Mueller                     3000 Ernst-Abbe-Platz 2             1           3           2
+          3 Thomas     Mueller                     3000 Ernst-Abbe-Platz 2             2           1          90
+          3 Thomas     Mueller                     3000 Ernst-Abbe-Platz 2             3           1           0
+          3 Thomas     Mueller                     3000 Ernst-Abbe-Platz 2             3           3          30
+          3 Thomas     Mueller                     3000 Ernst-Abbe-Platz 2             4           1         100
+          4 Hannes     Moser                        500 Ernst-Abbe-Platz 1             1           1          10
+          4 Hannes     Moser                        500 Ernst-Abbe-Platz 1             1           2          30
+          4 Hannes     Moser                        500 Ernst-Abbe-Platz 1             1           3           2
+          4 Hannes     Moser                        500 Ernst-Abbe-Platz 1             2           1          90
+          4 Hannes     Moser                        500 Ernst-Abbe-Platz 1             3           1           0
+          4 Hannes     Moser                        500 Ernst-Abbe-Platz 1             3           3          30
+          4 Hannes     Moser                        500 Ernst-Abbe-Platz 1             4           1         100
+
+  28 record(s) returned.
+
+======================================================================
+Optimized access plan
+----------------------------------------------------------------------
+SelectStmt
+  |
+Projections - Column ('PERSNR'/0) [Correlation name: a] - Column ('VORNAME'/1) [Correlation name: a] - Column ('NACHNAME'/2) [Correlation name: a] - Column ('GEHALT'/3) [Correlation name: a] - Column ('ADRESSE'/4) [Correlation name: a] - Column ('PERSNR'/0) [Correlation name: m] - Column ('PROJNR'/1) [Correlation name: m] - Column ('PERCENT'/2) [Correlation name: m]
+  |           
+Sources - Table ('ANGEST'/4) [Correlation name: a] - Table ('MITARBEIT'/6) [Correlation name: m]
+  |       
+WhereClause - Predicate
+                |
+              Column ('PERSNR'/0) [Correlation name: a] - Comparison ('=') - Column ('PERSNR'/0) [Correlation name: m]
+======================================================================
+
+PERSNR      VORNAME    NACHNAME             GEHALT      ADRESSE              PERSNR      PROJNR      PERCENT    
+----------- ---------- -------------------- ----------- -------------------- ----------- ----------- -----------
+          1 Klaus      Kuespert                   10000 -                              1           1          10
+          1 Klaus      Kuespert                   10000 -                              1           2          30
+          1 Klaus      Kuespert                   10000 -                              1           3           2
+          2 Knut       Stolze                      1500 Ernst-Abbe-Platz 2             2           1          90
+          3 Thomas     Mueller                     3000 Ernst-Abbe-Platz 2             3           1           0
+          3 Thomas     Mueller                     3000 Ernst-Abbe-Platz 2             3           3          30
+          4 Hannes     Moser                        500 Ernst-Abbe-Platz 1             4           1         100
+
+  7 record(s) returned.
+
+======================================================================
+Optimized access plan
+----------------------------------------------------------------------
+SelectStmt
+  |
+Projections - Column ('PERSNR'/0) [Correlation name: a] - Column ('PERCENT'/2) [Correlation name: m]
+  |           
+Sources - Table ('ANGEST'/4) [Correlation name: a] - Table ('MITARBEIT'/6) [Correlation name: m]
+  |       
+WhereClause - Predicate
+                |
+              Column ('PERSNR'/0) [Correlation name: a] - Comparison ('=') - Column ('PERSNR'/0) [Correlation name: m]
+======================================================================
+
+PERSNR      PERCENT    
+----------- -----------
+          1          10
+          1          30
+          1           2
+          2          90
+          3           0
+          3          30
+          4         100
+
+  7 record(s) returned.
+
+
+======================================================================
+Optimized access plan
+----------------------------------------------------------------------
+SelectStmt
+  |
+Projections - Column ('PERSNR'/0) [Correlation name: a] - Column ('VORNAME'/1) [Correlation name: a] - Column ('NACHNAME'/2) [Correlation name: a] - Column ('GEHALT'/3) [Correlation name: a] - Column ('ADRESSE'/4) [Correlation name: a] - Column ('PERSNR'/0) [Correlation name: m] - Column ('PROJNR'/1) [Correlation name: m] - Column ('PERCENT'/2) [Correlation name: m] - Column ('PROJNR'/0) [Correlation name: p] - Column ('NAME'/1) [Correlation name: p] - Column ('PRIORITAET'/2) [Correlation name: p] - Column ('BESCHREIBUNG'/3) [Correlation name: p]
+  |           
+Sources - Table ('PROJECT'/5) [Correlation name: p] - Table ('ANGEST'/4) [Correlation name: a] - Table ('MITARBEIT'/6) [Correlation name: m]
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Column ('PROJNR'/0) [Correlation name: p] - Comparison ('=') - Column ('PROJNR'/1) [Correlation name: m]
+                |         
+              Column ('PERSNR'/0) [Correlation name: a] - Comparison ('=') - Column ('PERSNR'/0) [Correlation name: m]
+======================================================================
+
+PERSNR      VORNAME    NACHNAME             GEHALT      ADRESSE              PERSNR      PROJNR      PERCENT     PROJNR      NAME                 PRIORITAET  BESCHREIBUNG                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+----------- ---------- -------------------- ----------- -------------------- ----------- ----------- ----------- ----------- -------------------- ----------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          1 Klaus      Kuespert                   10000 -                              1           1          10           1 DBS-Entwicklung                1 -                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+          2 Knut       Stolze                      1500 Ernst-Abbe-Platz 2             2           1          90           1 DBS-Entwicklung                1 -                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+          3 Thomas     Mueller                     3000 Ernst-Abbe-Platz 2             3           1           0           1 DBS-Entwicklung                1 -                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+          4 Hannes     Moser                        500 Ernst-Abbe-Platz 1             4           1         100           1 DBS-Entwicklung                1 -                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+          1 Klaus      Kuespert                   10000 -                              1           2          30           2 DBS1                           5 -                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+          1 Klaus      Kuespert                   10000 -                              1           3           2           3 XML-Seminar                   99 -                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+          3 Thomas     Mueller                     3000 Ernst-Abbe-Platz 2             3           3          30           3 XML-Seminar                   99 -                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+
+  7 record(s) returned.
+
+======================================================================
+Optimized access plan
+----------------------------------------------------------------------
+SelectStmt
+  |
+Projections - Column ('PERSNR'/0) [Correlation name: a] [New column name: ANGEST_NR] - Column ('VORNAME'/1) [Correlation name: a] - Column ('NACHNAME'/2) [Correlation name: a] - Column ('PROJNR'/0) [Correlation name: p] [New column name: PROJ_NR] - Column ('NAME'/1) [Correlation name: p] [New column name: PROJ_NAME] - Column ('PERCENT'/2) [Correlation name: m]
+  |           
+Sources - Table ('PROJECT'/5) [Correlation name: p] - Table ('ANGEST'/4) [Correlation name: a] - Table ('MITARBEIT'/6) [Correlation name: m]
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Column ('PROJNR'/0) [Correlation name: p] - Comparison ('=') - Column ('PROJNR'/1) [Correlation name: m]
+                |         
+              Column ('PERSNR'/0) [Correlation name: a] - Comparison ('=') - Column ('PERSNR'/0) [Correlation name: m]
+======================================================================
+
+ANGEST_NR   VORNAME    NACHNAME             PROJ_NR     PROJ_NAME            PERCENT    
+----------- ---------- -------------------- ----------- -------------------- -----------
+          1 Klaus      Kuespert                       1 DBS-Entwicklung               10
+          2 Knut       Stolze                         1 DBS-Entwicklung               90
+          3 Thomas     Mueller                        1 DBS-Entwicklung                0
+          4 Hannes     Moser                          1 DBS-Entwicklung              100
+          1 Klaus      Kuespert                       2 DBS1                          30
+          1 Klaus      Kuespert                       3 XML-Seminar                    2
+          3 Thomas     Mueller                        3 XML-Seminar                   30
+
+  7 record(s) returned.
+
+
+
+#####################################################################
+ Einfache Anfragen mit Index-Scans
+#####################################################################
+
+======================================================================
+Optimized access plan
+----------------------------------------------------------------------
+CreateTableStmt
+  |
+Table ('T2') - Column ('C1')
+  |            
+Column ('C1')
+  |
+DataType ('INTEGER') - NotNullOption
+======================================================================
+The operation was completed successfully. SQLSTATE=00000
+
+======================================================================
+Optimized access plan
+----------------------------------------------------------------------
+InsertStmt
+  |
+Sources - Table ('T2'/7) - Index (14)
+  |       
+Row - Row - Row - Row
+  |     |     |     |
+  |     |     |   IntegerValue (4)
+  |     |     |   
+  |     |   IntegerValue (3)
+  |     |   
+  |   IntegerValue (2)
+  |   
+IntegerValue (1)
+======================================================================
+The operation was completed successfully. SQLSTATE=00000
+
+======================================================================
+Optimized access plan
+----------------------------------------------------------------------
+CommitStmt
+======================================================================
+The operation was completed successfully. SQLSTATE=00000
+
+======================================================================
+Optimized access plan
+----------------------------------------------------------------------
+SelectStmt
+  |
+Projections - Column ('C1'/0)
+  |           
+Sources - Table ('T2'/7)
+            |
+          Index ('T2_PK'/14) [(INTEGER) 1..NULL]
+            |
+          Predicate
+            |
+          Column ('C1'/0) - Comparison ('>') - IntegerValue (1)
+======================================================================
+
+C1         
+-----------
+          2
+          3
+          4
+
+  3 record(s) returned.
+
+======================================================================
+Optimized access plan
+----------------------------------------------------------------------
+SelectStmt
+  |
+Projections - Column ('C1'/0)
+  |           
+Sources - Table ('T2'/7)
+            |
+          Index ('T2_PK'/14) [(INTEGER) 2..NULL]
+======================================================================
+
+C1         
+-----------
+          2
+          3
+          4
+
+  3 record(s) returned.
+
+======================================================================
+Optimized access plan
+----------------------------------------------------------------------
+SelectStmt
+  |
+Projections - Column ('C1'/0)
+  |           
+Sources - Table ('T2'/7)
+            |
+          Index ('T2_PK'/14) [(INTEGER) 2..3]
+======================================================================
+
+C1         
+-----------
+          2
+          3
+
+  2 record(s) returned.
+
+======================================================================
+Optimized access plan
+----------------------------------------------------------------------
+RollbackStmt
+======================================================================
+The operation was completed successfully. SQLSTATE=00000
+
+
+
+#####################################################################
+ System stoppen
+#####################################################################
+
+The system was stopped successfully. SQLSTATE=00000
+

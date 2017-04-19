@@ -1,0 +1,33 @@
+#!/usr/bin/perl -w
+#*************************************************************************
+#*                                                                       *
+#* (C) 2005                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+require 5;
+use strict;
+
+my $cmd = "";
+
+&maskOutput(`test_rec-tuple 2>&1`);
+
+#*************************************************************************
+# Schreibe maskierte Ausgabe
+#*************************************************************************
+sub maskOutput
+{
+    local $_;
+    my @output = @_;
+    foreach (@output) {
+        # Maskiere Lokation von Fehlern im Code
+        s/\(DbjRecordTuple.cpp:\d+.*\)\s*$/(**MASKED**)/;
+        print $_;
+    }
+}
+exit 0
+

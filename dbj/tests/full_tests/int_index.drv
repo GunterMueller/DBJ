@@ -1,0 +1,80 @@
+#!/usr/bin/perl -w
+
+#*************************************************************************
+#*                                                                       *
+#* (C) 2004-2005                                                         *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+require 5;
+use strict;
+
+print "#####################################################################\n";
+print " System starten\n";
+print "#####################################################################\n";
+print "\n";
+system("dbjstart");
+
+print "\n";
+print "#####################################################################\n";
+print " Tabelle mit Index auf INTEGER Daten anlegen und mit 500.000 Tupeln\n";
+print " befuellen\n";
+print "#####################################################################\n";
+print "\n";
+open(FILE, ">stmt.sql") || die "Could not write to 'stmt.sql'\n";
+print FILE "CREATE TABLE int_test ( i INTEGER NOT NULL, PRIMARY KEY(i) );\n";
+print FILE "COMMIT;\n";
+close FILE;
+system("dbj -f stmt.sql");
+
+for (my $i = 1; $i < 500000; $i += 1000) {
+    open(FILE, ">stmt.sql") || die "Could not write to 'stmt.sql'\n";
+    print FILE "INSERT INTO int_test VALUES ";
+    for (my $j = 0; $j < 1000; $j++) {
+	my $value = $i + $j;
+	print FILE "($value)";
+	print FILE ($j == 999) ? ";\n" : ",";
+    }
+    print FILE "COMMIT;\n";
+    close FILE;
+    system("dbj -f stmt.sql");
+}
+system("ls -s Seg*.dbj | sed -e 's/^ *//'");
+
+open(FILE, ">stmt.sql") || die "Could not write to 'stmt.sql'\n";
+print FILE "SELECT * FROM int_test WHERE i > 499500;\n";
+print FILE "SELECT * FROM int_test WHERE i BETWEEN 10 AND 99;\n";
+close FILE;
+system("dbj -p -f stmt.sql");
+
+open(FILE, ">stmt.sql") || die "Could not write to 'stmt.sql'\n";
+print FILE "DELETE FROM int_test WHERE i BETWEEN 10 AND 20;\n";
+print FILE "SELECT tuple_count FROM systables WHERE table_name 'INT_TEST';\n";
+print FILE "COMMIT;\n";
+close FILE;
+system("dbj -p -f stmt.sql");
+system("ls -s Seg*.dbj | sed -e 's/^ *//'");
+
+open(FILE, ">stmt.sql") || die "Could not write to 'stmt.sql'\n";
+print FILE "DROP TABLE int_test;\n";
+print FILE "COMMIT;\n";
+close FILE;
+system("dbj -p -f stmt.sql");
+system("ls -s Seg*.dbj | sed -e 's/^ *//'");
+
+print "\n";
+print "#####################################################################\n";
+print " System stoppen\n";
+print "#####################################################################\n";
+print "\n";
+system("dbjstop");
+system("rm Seg*.dbj");
+
+unlink "stmt.sql";
+
+exit 0
+

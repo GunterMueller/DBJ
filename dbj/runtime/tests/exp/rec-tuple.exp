@@ -1,0 +1,127 @@
+*************************************************************
+* Teste DbjRecordTuple::setInt & DbjRecordTuple::setVarchar *
+*************************************************************
+Erzeuge Tabellen-Deskriptor.
+Erzeuge DbjRecordTuple (ohne Record).
+DbjRecord Konstruktor aufgerufen.
+DbjRecord::setData() aufgerufen.
+DbjRecord::setData() aufgerufen.
+DbjRecord::setData() aufgerufen.
+DbjRecord::setData() aufgerufen.
+DbjRecord::setData() aufgerufen.
+
+Record data: 23 23 23 23 09 00 54 45 53 54 20 57 45 52 54 4E 2D 01 01 01 01 4E 
+
+Versuche Attribut 2 auf NULL zu setzen (nicht zulaessig).
+
+Cannot set the attribute 1 in a record to NULL because the definition of the table the record belongs to forbids NULLs in that column.
+
+
+Setze Attribut 5 auf Wert.
+
+Record data: 23 23 23 23 09 00 54 45 53 54 20 57 45 52 54 4E 2D 01 01 01 01 2D 11 11 11 11 
+
+Setze Attribut 3 auf NULL (keine Aenderung).
+
+Record data: 23 23 23 23 09 00 54 45 53 54 20 57 45 52 54 4E 2D 01 01 01 01 2D 11 11 11 11 
+
+Setze Attribut 3 auf Wert.
+
+Record data: 23 23 23 23 09 00 54 45 53 54 20 57 45 52 54 2D 0A 00 6E 65 75 65 72 20 57 65 72 74 2D 01 01 01 01 2D 11 11 11 11 
+
+Verkuerze Wert von Attribut 3.
+
+Record data: 23 23 23 23 09 00 54 45 53 54 20 57 45 52 54 2D 04 00 57 45 52 54 2D 01 01 01 01 2D 11 11 11 11 
+
+Verkuerze Wert von Attribut 3 auf leeren String.
+
+Record data: 23 23 23 23 09 00 54 45 53 54 20 57 45 52 54 2D 00 00 2D 01 01 01 01 2D 11 11 11 11 
+
+Setze Wert 3 auf NULL.
+
+Record data: 23 23 23 23 09 00 54 45 53 54 20 57 45 52 54 4E 2D 01 01 01 01 2D 11 11 11 11 
+
+Setze Wert 5 auf NULL.
+
+Record data: 23 23 23 23 09 00 54 45 53 54 20 57 45 52 54 4E 2D 01 01 01 01 4E 
+
+Langer String fuer Attribut 2.
+
+Record data: 23 23 23 23 14 00 31 32 33 34 35 36 37 38 39 30 31 32 33 34 35 36 37 38 39 30 4E 2D 01 01 01 01 4E 
+
+Setze alle Attribute auf maximale Laenge.
+
+Record data: 23 23 23 23 14 00 31 32 33 34 35 36 37 38 39 30 31 32 33 34 35 36 37 38 39 30 2D 0C 00 31 32 33 34 35 36 37 38 39 30 31 32 2D 45 45 45 45 2D FF FF FF FF 
+
+Setze alle Attribute auf minimale Laenge.
+
+Record data: 00 00 00 00 00 00 4E 4E 4E 
+
+Setze nicht existierendes Attribut 6.
+
+An invalid parameter value was detected.  (**MASKED**)
+
+Falscher Datentyp 1 (Attribut 2).
+
+Cannot access a value of type 'INTEGER' for column 1 because the values in that column are of type 'VARCHAR'.
+
+
+Falscher Datentyp 2 (Attribut 5).
+
+Cannot access a value of type 'VARCHAR' for column 4 because the values in that column are of type 'INTEGER'.
+
+
+Zu langer String fuer Attribut 2.
+
+Cannot set the value '123456789012345678901' for column 1 because the value has a length of 21 bytes but the column is defined with a maximum length of 20 bytes.
+
+
+************************************
+* Teste DbjRecordTuple::initialize *
+************************************
+Erzeuge Tabellen-Deskriptor.
+Erzeuge Record-Tupel von zu kurzem Record.
+DbjRecord Konstruktor aufgerufen.
+
+The record is 5 bytes long, but it must be at least 8 bytes and at most 27 bytes long.
+
+
+Erzeuge Record-Tupel von zu langem Record.
+DbjRecord Konstruktor aufgerufen.
+
+The record is 28 bytes long, but it must be at least 8 bytes and at most 27 bytes long.
+
+
+Hole Daten von existierendem Record.
+DbjRecord Konstruktor aufgerufen.
+INTEGER-Attribut 0: -1610606944
+VARCHAR-Attribut 1: 'ABCDEFGHIJ'
+VARCHAR-Attribut 2: <null>
+INTEGER-Attribut 3: <null>
+
+Initialisiere DbjTupleRecord mit gleichem DbjRecord Objekt.
+INTEGER-Attribut 0: -1610606944
+VARCHAR-Attribut 1: 'ABCDEFGHIJ'
+VARCHAR-Attribut 2: <null>
+INTEGER-Attribut 3: <null>
+
+Setze neues Record Objekt und initialisiere DbjRecordTuple.
+DbjRecord Konstruktor aufgerufen.
+INTEGER-Attribut 0: 12345
+VARCHAR-Attribut 1: 'YES'
+VARCHAR-Attribut 2: 'NO'
+INTEGER-Attribut 3: 67890
+
+Aendere Wert von Attribut 3.
+
+Record data: 39 30 00 00 03 00 59 45 53 4E 2D 32 09 01 00 
+
+INTEGER-Attribut 0: 12345
+VARCHAR-Attribut 1: 'YES'
+VARCHAR-Attribut 2: <null>
+INTEGER-Attribut 3: 67890
+
+Initialisiere DbjTupleRecord ohne Record.
+
+An invalid parameter value was detected.  (**MASKED**)
+

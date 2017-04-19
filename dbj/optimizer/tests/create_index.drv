@@ -1,0 +1,23 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2005                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " Plan bleibt unveraendert"
+echo "#####################################################################"
+echo
+
+TAB1="13:COL1 COL2 COL3" test_optimizer "create index idx1 on tab1 ( col1 ) of type btree"
+TAB1="13:COL1 COL2 COL3" test_optimizer "create index idx1 on tab1 ( col1 ) of type hash"
+TAB1="13:COL1 COL2 COL3" test_optimizer "create unique index idx1 on tab1 ( col1 ) of type btree"
+TAB1="13:COL1 COL2 COL3" test_optimizer "create unique index idx1 on tab1 ( col1 ) of type hash"
+
+exit 0

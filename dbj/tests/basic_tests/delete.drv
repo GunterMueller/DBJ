@@ -1,0 +1,128 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2004-2005                                                         *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " System starten"
+echo "#####################################################################"
+echo
+dbjstart
+
+echo
+echo "#####################################################################"
+echo " Tabellen anlegen"
+echo "#####################################################################"
+echo
+cat > stmt.sql <<EOF
+CREATE TABLE angest (
+   persNr    INTEGER NOT NULL,
+   vorname   VARCHAR(10),
+   nachname  VARCHAR(20) NOT NULL,
+   gehalt    INTEGER NOT NULL,
+   adresse   VARCHAR(20),
+
+   PRIMARY KEY(persNr)
+);
+CREATE INDEX angest_nachname ON angest(nachname);
+
+
+CREATE TABLE project (
+   projNr        INTEGER NOT NULL,
+   name          VARCHAR(20) NOT NULL,
+   prioritaet    INTEGER,
+   beschreibung  VARCHAR(1000),
+
+   PRIMARY KEY(projNr)
+);
+CREATE INDEX project_prio ON project(prioritaet);
+
+COMMIT WORK;
+EOF
+dbj -f stmt.sql
+ls -s Seg*.dbj | sed -e 's/^ *//'
+
+echo
+echo "#####################################################################"
+echo " Daten einfuegen"
+echo "#####################################################################"
+echo
+cat > stmt.sql <<EOF
+insert into angest values(1, 'Klaus', 'Kuespert', 10000, NULL);
+insert into angest values(2, 'Knut', 'Stolze', 1500, 'Ernst-Abbe-Platz 2');
+insert into angest values(3, 'Thomas', 'Mueller', 3000, 'Ernst-Abbe-Platz 2');
+insert into angest values(4, 'Hannes', 'Moser', 500, 'Ernst-Abbe-Platz 1');
+select * from angest;
+commit;
+EOF
+dbj -f stmt.sql
+ls -s Seg*.dbj | sed -e 's/^ *//'
+
+echo
+echo "#####################################################################"
+echo " Daten loeschen"
+echo "#####################################################################"
+echo
+cat > stmt.sql <<EOF
+delete from angest where persnr = 3;
+select persnr, nachname from angest;
+rollback;
+select persnr, nachname from angest;
+
+delete from angest where nachname like regexp 'M.*' or gehalt > 7000;
+select persnr, nachname, gehalt from angest;
+commit;
+
+delete from project;
+select * from project;
+rollback;
+select * from project;
+
+delete from angest;
+commit;
+EOF
+dbj -f stmt.sql
+
+echo
+echo "#####################################################################"
+echo " Delete & Rollback"
+echo "#####################################################################"
+echo
+cat > stmt.sql <<EOF
+create table a ( b int );
+insert into a values (1),(2),(3);
+commit;
+
+select * from a;
+delete from a where b = 2;
+select * from a;
+rollback;
+
+select * from a;
+delete from a where b = 1;
+select * from a;
+commit;
+select * from a;
+drop table a;
+commit;
+EOF
+dbj -f stmt.sql
+
+echo
+echo "#####################################################################"
+echo " System stoppen"
+echo "#####################################################################"
+echo
+dbjstop
+rm Seg*.dbj
+
+rm stmt.sql
+
+exit 0

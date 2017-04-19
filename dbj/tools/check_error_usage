@@ -1,0 +1,382 @@
+#!/usr/bin/perl -w
+
+#************************************************************************
+#
+# (C) 2004-2005
+# Lehrstuhl fuer Datenbanken und Informationssysteme
+# Friedrich-Schiller-Universitaet Jena
+# Ernst-Abbe-Platz 1-2
+# 07745 Jena
+#
+#************************************************************************
+#************************************************************************
+#
+# Dieses Skript wird dazu verwendet, um die Nutzung der Fehlercodes im
+# gesamten Quelltext zu ueberpruefen.  Hierfuer wird die Datei
+# DbjErrorMessages.hpp geparst, und anschliessend alle Vorkommen der
+# Makros DBJ_SET_ERROR* ueberprueft, ob die Anzahl der uebergebenen Token
+# auch der Anzahl der Platzhalter in der jeweiligen Fehlermeldung
+# enstspricht.  Wird eine Inkonsistenz (zu viele oder zu wenige Token)
+# gefunden, so produziert das Skript eine entsprechende Ausgabe.
+#
+# Benutzung:
+#
+#     check_error_usage <include-file> <source-path> [ <excludes-file> ]
+#
+#************************************************************************
+
+require 5;
+use strict;
+
+# Anzahl der Platzhalter in jeder Fehlermeldung
+my %errorTokens = ( );
+
+my %ignoreCodes = ( ); # welche Fehler sollen in welcher Datei ignoriert werden?
+my $excludes = "";     # Pattern der zu ignorierenden Dateien
+my $errors = 0;        # Anzahl der gefundenen Probleme
+my $notChecked = 0;    # Anzahl der nicht geprueften Aufrufe von DBJ_SET_ERROR*
+my $totalCalls = 0;    # Gesamtzahl der Aufrufe von DBJ_SET_ERROR*
+my $extensions = "(C|cpp|hpp|ypp|h|H)"; # Endungen der zu prufenden Quelldateien
+
+# Auto-flush
+$| = 1;
+
+my $debug = (exists $ENV{DBJ_DEBUG} && $ENV{DBJ_DEBUG} eq "true") ? 1 : 0;
+
+# check input arguments
+my ($errorFile, $sourcePath, $excludeFile) = &parseArguments(@ARGV);
+&readErrorMessages($errorFile);
+&readExcludesFile($excludeFile) if $excludeFile ne "";
+&checkBuildTree($sourcePath);
+&dumpSummary();
+
+###########################################################################
+#
+# Pruefe Parameter des Skripts
+#
+###########################################################################
+sub parseArguments
+{
+    die "Usage: $0 <include-file> <source-path> [ <exclude-file> ]\n\n"
+	unless @ARGV == 2 || @ARGV == 3;
+    die "Cannot read definition file '$ARGV[0]'.\n" unless -r $ARGV[0];
+    die "Cannot find build tree '$ARGV[1].\n" unless -d $ARGV[1];
+    die "Cannot read excludes file 'ARGV[2]'.\n" 
+	unless @ARGV == 2 || -r $ARGV[2];
+
+    return ($ARGV[0], $ARGV[1], @ARGV == 3 ? $ARGV[2] : "");
+}
+
+
+###########################################################################
+#
+# Lies alle Fehlermeldungen
+#
+###########################################################################
+sub readErrorMessages
+{
+    my $source = shift;
+    my $currentError = "";
+    local $_;
+
+    die "No preprocessor specified\n" unless $ENV{CPP};
+
+    # read the input file and handle each line
+    print "Reading error definition file '$source'...";
+    my @preppedFile = `$ENV{CPP} -DDBJ_PREP_ERRORCODES $source`;
+
+    foreach (@preppedFile) {
+	chomp;
+
+	# ignoriere Praeprozessor Direktiven
+	next if /^\s*\#/;
+
+	# neue Meldung beginnt
+	if ( /^\s*\{/ ) {
+	    die "\nGeschachtelte Fehlermeldung gefunden: '$currentError'.\n"
+		if $currentError;
+	    $currentError = $_;
+	}
+	# Meldung wird fortgesetzt
+	elsif ( $currentError ) {
+	    $currentError .= $_;
+	}
+	# aktuelle Meldung ist beendet - verarbeite sie
+	if ( /\}\s*,\s*$/ ) {
+	    # Finde Symbol des Fehlers
+	    my $errorSymbol = $1 
+		if $currentError =~ /^\s*\{\s*(DBJ_[\w_]+)\s*,/;
+	    die "\nNo error symbol found in message '$currentError'.\n"
+		unless $errorSymbol;
+	    die "\nError code '$errorSymbol' already found before.\n"
+		if exists $errorTokens{$errorSymbol};
+
+	    # finde Anzahl der Token
+	    my @tokens = split(/\%/, $currentError);
+	    my $numTokens = @tokens - 1;
+	    $errorTokens{$errorSymbol} = $numTokens;
+
+	    $currentError = "";
+	}
+    }
+    print "done.\n";
+
+    if ( $debug ) {
+	print "Read error codes:\n";
+	for (sort keys %errorTokens) {
+	    print "\t$_ => $errorTokens{$_} Tokens\n";
+	}
+    }
+}
+
+
+###########################################################################
+#
+# Lies Liste der Dateien, die nicht geprueft werden sollen
+#
+###########################################################################
+sub readExcludesFile
+{
+    my $file = shift;
+    local $_;
+
+    my @exclList = ( );
+
+    print "Reading excludes file '$file'...";
+    open(INPUT_FILE, "<$file") || die "Could not open file '$file'.\n";
+    while (<INPUT_FILE>) {
+	chomp;
+
+	# ignoriere Leer- und Kommentarzeilen
+	next if /^\s*$/ || /^\s*(\#|\/\/).*$/;
+
+	# fuege Dateinamen zu "exclude" Liste und "ignoreCodes" Hash hinzu
+	if ( /,/ ) {
+	    if ( /^([\w\.]+)\s*,\s*((\\\*\s*)?\w+)$/ ) {
+		$ignoreCodes{$1} = $2;
+	    }
+	    else {
+		die "Invalid specification in excludes file '$file', " .
+		    "line $. ('$_')\n";
+	    }
+	}
+	else {
+	    push(@exclList, $_);
+	}
+    }
+    close(INPUT_FILE);
+    print "done.\n";
+
+    if ( $debug ) {
+	print "Excluded files:\n";
+	for (@exclList) {
+	    print "\t$_\n";
+	}
+
+	print "Ignoring error codes:\n";
+	for (keys %ignoreCodes) {
+	    print "\tfile: $_ => code: $ignoreCodes{$_}\n";
+	}
+    }
+
+    # construct search pattern for m//
+    $excludes = "(" . join("|", @exclList) . ")";
+    print "Excludes pattern: '$excludes'\n" if $debug;
+}
+
+
+###########################################################################
+#
+# Pruefe alle Quelldateien des Projekts
+#
+###########################################################################
+sub checkBuildTree
+{
+    my ($directory, $level) = (@_, "");
+    local $_;
+
+    print "${level}Checking all source files in directory '$directory'..."
+	if $debug || ! $level;
+    print "\n" if $debug;
+
+    # gehe in Unterverzeichnisse
+    opendir(CUR_DIR, $directory) || 
+	die "Cannot open directory '$directory'.\n";
+    my @subdirs = 
+	grep { ! /^(SCCS|tests|\.|\.\.)$/ && -d "$directory/$_" } readdir(CUR_DIR);
+    closedir(CUR_DIR);
+    foreach (@subdirs) {
+	&checkBuildTree("$directory/$_", "$level    ");
+    }
+
+    # pruefe im aktuellen Verzeichnis
+    opendir(CUR_DIR, $directory) || 
+	die "Cannot open directory '$directory'.\n";
+    my @files = grep { /\.$extensions$/ && ! /^$excludes$/ && ! /^\.\w+/ &&
+			   ! -d "$directory/$_" } readdir(CUR_DIR);
+    closedir(CUR_DIR);
+    foreach (@files) {
+	&checkFile("$directory/$_", "$level    ");
+    }
+
+    print "${level}Done with directory '$directory'.\n" if $debug;
+    print "\n" if  ! $level && ( $errors || $notChecked );
+    print "done.\n" unless $debug || $level;
+}
+
+
+###########################################################################
+#
+# Check the error code usage in the given file
+#
+###########################################################################
+sub checkFile
+{
+    my ($file, $level) = (@_, "");
+    local $_;
+
+    # Status in "handleMacro":
+    # 0 - kein Makro
+    # 1 - erwarte oeffnende Klammer
+    # 2 - erwarte Fehlercode (nach oeffnender Klammer)
+    my $handleMacro = 0;
+    my $numTokens = -1;  # Anzahl der Tokens fuer das aktuelle Makro
+
+    print "${level}Checking file '$file'.\n" if $debug;
+    open(FILE, "<$file") || die "Cannot open file '$file'.\n";
+    while (<FILE>) {
+	s/\r//g;
+	chomp;
+
+	# ignoriere Leerzeilen
+	next if /^\s*$/;
+
+	# ein direkter "setError" wurde gefunden!
+	if ( /\bsetError\b/ && ! /::setError\b/ ) {
+	    $errors++;
+	    print "\nFile '$file', line $. - found direct call to setError()";
+	    next;
+	}
+
+	# wir erlauben nicht, dass ein Fehlercode direkt mittels "return"
+	# zurueckgegeben wird
+	if ( /\breturn\b.*\bDBJ_/ && ! /\breturn\b.*==.*\bDBJ_/ ) {
+	    $errors++;
+	    print "\nFile '$file', line $. - found illegal " .
+		"\"return <error code>\".  Set ALL errors via the " .
+		"DBJ_SET_ERROR* macros";
+	    next;
+	}
+
+	# beachte nur Zeilen mit einem Aufruf der DBJ_SET_ERROR* Makros
+	# (oder Zeilen innerhalb des Makros)
+	next unless /\bDBJ_SET_ERROR($|[^\*])/ || $handleMacro;
+
+	# ignoriere Kommentare
+	s|//.*$||;
+	s|/\*.*\*/||g;
+
+	# Makro war innerhalb eines Kommentars?
+	next unless /\bDBJ_SET_ERROR/ || $handleMacro;
+
+	# ein neuer Makroaufruf gefunden
+	if ( /\bDBJ_SET_ERROR/ ) {
+	    $totalCalls++;
+
+	    # bestimme Anzahl der uebergebenen Token
+	    $numTokens = 0 if /\bDBJ_SET_ERROR\b/;
+	    $numTokens = $1 if /\bDBJ_SET_ERROR_TOKEN(\d)\b/;
+
+	    # finde oeffnende Klammer (evtl. in der naechsten Zeile)
+	    s/^.*\bDBJ_SET_(SQL_)?ERROR(_TOKEN.)?//;
+	    $handleMacro = 1;
+	    next if /^\s*$/;
+	}
+
+	# finde oeffnende Klammer
+	if ( $handleMacro == 1 ) {
+	    if ( ! /^\s*\(/ ) {
+		$errors++;
+		print "\nFile '$file', line $. -  no opening parenthesis " .
+		    "for macro";
+		$handleMacro = 0;
+		next;
+	    }
+
+	    # nun muss der Fehlercode kommen ('DBJ_*')
+	    # (evtl. in der naechsten Zeile)
+	    s/^\s*\(//;
+	    $handleMacro = 2;
+	    next if /^\s*$/;
+	}
+
+	$handleMacro = 0;
+
+	# finde Fehlercode
+	print "Scanning line '$_'\n" if $debug;
+	/^\s*((\*\s*)?\w*)\b/;
+	my $errorCode = $1;
+
+	# Unbekannter Fehlercode (und auch nicht zu ignorieren?)
+	if ( ! exists $errorTokens{$errorCode} ||
+	     $errorTokens{$errorCode} < 0 ) {
+	    # ignoriere spezielle Fehlercodes
+	    my $noDir = $1 if $file =~ /.+\/([^\/]+)$/;
+	    if ( exists $ignoreCodes{$noDir} &&
+		 $errorCode =~ /^$ignoreCodes{$noDir}$/ ) {
+		print "Ignoring error code '$errorCode' in file " .
+		    "'$file', line $.\n" if $debug;
+		next;
+	    }
+
+	    $notChecked++;
+	    print "\nFile '$file', line $. - unknown error code " .
+		"'$errorCode' found";
+	    next;
+	}
+
+	# kein DBJ_* Fehlercode?
+	if ( ! $errorCode =~ /^DBJ_/ ) {
+	    $errors++;
+	    print "\nFile '$file', line $. - error code does not have " .
+		"prefix 'DBJ_'";
+	    next;
+	}
+
+	# pruefe Anzahl der Tokens
+	if ( $numTokens != $errorTokens{$errorCode} ) {
+	    $errors++;
+	    print "\nFile '$file', line $. - wrong number of tokens";
+	    print "\n\t=> $numTokens tokens passed in but message " .
+		"expects $errorTokens{$errorCode}";
+	    next;
+	}
+    }
+    close(FILE);
+    print "${level}Done with file '$file'.\n" if $debug;
+}
+
+
+###########################################################################
+#
+# Check the error code usage in the given file
+#
+###########################################################################
+sub dumpSummary
+{
+    return unless $errors || $notChecked;
+
+    # einige Aufrufe wurden ignoriert
+    if ( $notChecked ) {
+	print "\nWARNING: $notChecked out of $totalCalls calls to " .
+	    "DBJ_SET_ERROR() could not be checked.\n";
+	print "(messages were not defined)\n\n";
+    }
+
+    # Fehler
+    if ( $errors ) {
+	print "WARNING: Found $errors wrong usages of error macros.\n";
+	die "Bailing out.\n";
+    }
+}
+

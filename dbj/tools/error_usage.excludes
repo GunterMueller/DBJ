@@ -1,0 +1,23 @@
+#************************************************************************
+#
+# (C) 2004
+# Lehrstuhl fuer Datenbanken und Informationssysteme
+# Friedrich-Schiller-Universitaet Jena
+# Ernst-Abbe-Platz 1-2
+# 07745 Jena
+#
+#************************************************************************
+
+#************************************************************************
+#
+# Liste der Dateien, die beim Pruefen der Fehlercodes ignoriert werden
+#
+#************************************************************************
+
+# ignoriere Makrodefinitionen
+DbjError.cpp
+DbjError.hpp
+
+# ignoriere die folgenden spezifischen Fehler
+#DbjParser.ypp,errorCode
+

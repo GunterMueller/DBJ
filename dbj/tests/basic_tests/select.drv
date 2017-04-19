@@ -1,0 +1,196 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2004-2005                                                         *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " System starten"
+echo "#####################################################################"
+echo
+dbjstart
+
+echo
+echo "#####################################################################"
+echo " Tabellen anlegen"
+echo "#####################################################################"
+echo
+cat > stmt.sql <<EOF
+CREATE TABLE angest (
+   persNr    INTEGER NOT NULL,
+   vorname   VARCHAR(10),
+   nachname  VARCHAR(20) NOT NULL,
+   gehalt    INTEGER NOT NULL,
+   adresse   VARCHAR(20),
+
+   PRIMARY KEY(persNr)
+);
+CREATE INDEX angest_nachname ON angest(nachname);
+
+
+CREATE TABLE project (
+   projNr        INTEGER NOT NULL,
+   name          VARCHAR(20) NOT NULL,
+   prioritaet    INTEGER,
+   beschreibung  VARCHAR(1000),
+
+   PRIMARY KEY(projNr)
+);
+CREATE INDEX project_prio ON project(prioritaet);
+
+CREATE TABLE mitarbeit (
+   persNr    INTEGER NOT NULL,
+   projNr   INTEGER NOT NULL,
+   percent  INTEGER
+);
+CREATE INDEX mitarbeit_persNr ON mitarbeit(persNr);
+CREATE INDEX mitarbeit_projNr ON mitarbeit(projNr);
+
+COMMIT WORK;
+EOF
+dbj -f stmt.sql
+
+echo
+echo "#####################################################################"
+echo " Daten einfuegen"
+echo "#####################################################################"
+echo
+cat > stmt.sql <<EOF
+insert into angest values(1, 'Klaus', 'Kuespert', 10000, NULL);
+insert into angest values(2, 'Knut', 'Stolze', 1500, 'Ernst-Abbe-Platz 2');
+insert into angest values(3, 'Thomas', 'Mueller', 3000, 'Ernst-Abbe-Platz 2');
+insert into angest values(4, 'Hannes', 'Moser', 500, 'Ernst-Abbe-Platz 1');
+select * from angest;
+
+insert into project values(1, 'DBS-Entwicklung', 1, NULL),
+                          (2, 'DBS1', 5, NULL),
+                          (3, 'XML-Seminar', 99, NULL);
+select projnr, name, prioritaet from project;
+
+insert into mitarbeit values (1, 1, 10), (1, 2, 30), (1, 3, 2);
+insert into mitarbeit values (2, 1, 90);
+insert into mitarbeit values (3, 1, 0), (3, 3, 30);
+insert into mitarbeit values (4, 1, 100);
+select * from mitarbeit;
+
+commit;
+EOF
+dbj -f stmt.sql
+
+echo
+echo "#####################################################################"
+echo " Einfache Anfragen"
+echo "#####################################################################"
+echo
+cat > stmt.sql <<EOF
+CREATE TABLE t (
+   c1 INT,
+   PRIMARY KEY(c1)
+);
+INSERT INTO t VALUES (1);
+SELECT c1 FROM t;
+ROLLBACK;
+CREATE TABLE t (
+   c1 INT,
+   PRIMARY KEY(c1)
+);
+INSERT INTO t VALUES (1), (2);
+SELECT c1 FROM t;
+ROLLBACK;
+EOF
+dbj -f stmt.sql
+
+echo
+echo "#####################################################################"
+echo " Einfache Anfragen (mit Selektion und Projektion)"
+echo "#####################################################################"
+echo
+cat > stmt.sql <<EOF
+SELECT persNr, gehalt
+FROM   angest
+WHERE  nachname <> 'Stolze';
+
+SELECT persNr AS nr, gehalt AS geld
+FROM   angest
+WHERE  nachname <> 'Stolze';
+
+SELECT persNr, gehalt
+FROM   angest
+WHERE  adresse IS NOT NULL;
+
+SELECT vorname, adresse
+FROM   angest
+WHERE  persNr BETWEEN 2 AND 3 AND
+       gehalt >= 3000;
+
+SELECT *
+FROM   project
+WHERE  name NOT LIKE REGEXP 'DBS1.*';
+EOF
+dbj -p -f stmt.sql
+
+echo
+echo "#####################################################################"
+echo " Joins"
+echo "#####################################################################"
+echo
+cat > stmt.sql <<EOF
+SELECT *
+FROM   angest, mitarbeit;
+
+SELECT *
+FROM   angest AS a, mitarbeit AS m
+WHERE  a.persnr = m.persnr;
+
+SELECT a.persnr, m.percent
+FROM   angest AS a, mitarbeit AS m
+WHERE  a.persnr = m.persnr;
+EOF
+dbj -p -f stmt.sql
+
+cat > stmt.sql <<EOF
+select * from angest as a, mitarbeit as m, project as p where a.persnr = m.persnr and p.projnr = m.projnr;
+
+SELECT a.persnr AS angest_nr, a.vorname, a.nachname, p.projnr as proj_nr, p.name as proj_name, m.percent
+FROM ´ angest AS a, mitarbeit AS m, project AS p
+WHERE  a.persnr = m.persnr AND
+       p.projnr = m.projnr;
+EOF
+dbj -p -f stmt.sql
+
+echo
+echo "#####################################################################"
+echo " Einfache Anfragen mit Index-Scans"
+echo "#####################################################################"
+echo
+cat > stmt.sql <<EOF
+CREATE TABLE t2 (
+   c1 INT,
+   PRIMARY KEY(c1)
+);
+INSERT INTO t2 VALUES (1), (2), (3), (4);
+COMMIT;
+SELECT c1 FROM t2 WHERE c1 > 1;
+SELECT c1 FROM t2 WHERE c1 >= 2;
+SELECT c1 FROM t2 WHERE c1 BETWEEN 2 AND 3;
+ROLLBACK;
+EOF
+dbj -p -f stmt.sql
+
+echo
+echo "#####################################################################"
+echo " System stoppen"
+echo "#####################################################################"
+echo
+dbjstop
+rm Seg*.dbj
+
+rm stmt.sql
+
+exit 0

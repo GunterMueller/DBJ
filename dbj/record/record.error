@@ -1,0 +1,53 @@
+/*************************************************************************\
+ *                                                                       *
+ * (C) 2004-2005                                                         *
+ * Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+ * Friedrich-Schiller-Universitaet Jena                                  *
+ * Ernst-Abbe-Platz 1-2                                                  *
+ * 07745 Jena                                                            *
+ *                                                                       *
+\*************************************************************************/
+
+/*
+ * Definition aller Fehlermeldungen des Record Managers
+ */
+
+{ DBJ_RM_NO_MEMORY_BLOCK_FOUND_WARN,
+      "There is no page in table %s which has at least %s bytes of free space.",
+      "RM000" },
+{ DBJ_RM_GET_RECORD_TOO_LONG,
+      "The length of record at offset %s that was requested from page %s in "
+      "segment %s indicates a size of %s bytes.  So the complete record "
+      "exceeds the total page size of %s bytes.",
+      "RM001" },
+{ DBJ_RM_INSERT_RECORD_TOO_LONG,
+      "Length %s of the record is too big for a page size of %s bytes.",
+      "RM002" },
+{ DBJ_RM_RECORD_OUT_OF_PAGE_BOUNDS,
+      "The offset %s of the requested record is outside of the data area of "
+      "the page %s on segment %s.",
+      "RM003" },
+{ DBJ_RM_FSI_PAGE_DOES_NOT_EXIST,
+      "The free space inventory page %s for data page %s in segment %s does "
+      "not exist.",
+      "RM004" },
+{ DBJ_RM_NO_FSI_ENTRY_FOR_PAGE,
+      "Could not find any information about page %s on segment %s in free "
+      "space inventory.",
+      "RM005" },
+{ DBJ_RM_FSI_ENTRY_NOT_ALLOWED,
+      "The page %s in segment %s must not be inserted into the free space "
+      "inventory because it itself is a free space inventory page.",
+      "RM006" },
+{ DBJ_RM_TABLE_ALREADY_EXISTS,
+      "A table with ID %s already exists in the database.",
+      "RM007" },
+{ DBJ_RM_NOT_ENOUGH_SPACE_FOR_TID,
+      "Not enough space could be freed on the page %s in segment %s to place "
+      "the secondary tuple-id of two records that will be moved to a "
+      "different page.",
+      "RM008" },
+{ DBJ_RM_NO_MORE_PAGES,
+      "Could not allocate a new page in table %s because all pages are "
+      "already used.",
+      "RM009" },

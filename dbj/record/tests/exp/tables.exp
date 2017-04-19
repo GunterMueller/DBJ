@@ -1,0 +1,22 @@
+
+#####################################################################
+ Lege Tabelle an
+#####################################################################
+
+BM::createSegment(1) aufgerufen.
+The operation was completed successfully.
+
+BM::createSegment(29) aufgerufen.
+The operation was completed successfully.
+
+
+#####################################################################
+ Loesche Tabellen
+#####################################################################
+
+BM::dropSegment(45) aufgerufen.
+The operation was completed successfully.
+
+BM::dropSegment(876) aufgerufen.
+The operation was completed successfully.
+

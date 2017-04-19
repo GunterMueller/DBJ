@@ -1,0 +1,3 @@
+DbjBufferManager::dropSegments does not latch buffer before
+	DbjBufferManager::wipeSegment is called.
+

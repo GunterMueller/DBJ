@@ -1,0 +1,5 @@
+test_trace.exe: test_trace.o
+test_memory.exe: test_memory.o
+test_shm.exe: test_shm.o
+test_latch.exe: test_latch.o
+dumpLatch.exe: dumpLatch.o

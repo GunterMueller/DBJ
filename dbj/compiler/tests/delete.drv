@@ -1,0 +1,83 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2004-2005                                                         *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+# Erfolgreiche Faelle
+echo
+echo "#####################################################################"
+echo " Success cases"
+echo "#####################################################################"
+echo
+# ColumnId % 2 = 0 -> VARCHAR; sonst INTEGER
+TAB=1 test_parser "DELETE FROM tab"
+TAB=2 test_parser "DELETE FROM tab AS t"
+TAB=3 test_parser "DELETE FROM tab WHERE 1 = 0"
+TAB=4 test_parser "DELETE FROM tab AS t WHERE 1 = 0"
+TAB="5:COL1 COL2" COL1=2 test_parser "DELETE FROM tab AS t WHERE col1 = 'abc'"
+TAB="5:COL1" COL1=1 test_parser "DELETE FROM tab AS t WHERE col1 = 12345"
+TAB="6:COL1 COL2" COL1=2 COL2=1 test_parser "DELETE FROM tab AS t WHERE col1 = 'abc' AND col2 = 123"
+TAB="7:COL1 COL2 COL3" COL1=1 COL2=3 COL3=2 test_parser "DELETE FROM tab AS t WHERE (col1) IS NULL AND col2 = 123 or col3 is not null"
+TAB="8:COL1 COL2 COL3" COL1=1 COL2=3 COL3=2 test_parser "DELETE FROM tab WHERE ((col1 IS NULL)) AND (col2 = 123 or (col3 is not null))"
+TAB="9:COL1 COL2 COL3" COL1=1 COL2=3 COL3=2 test_parser "DELETE FROM tab AS t WHERE ((col1 IS NULL)) AND (1=0 and (col2 = 123 or col2 = 0 or col2 = 32) and (col3 is not null))"
+T1="2:COL1" COL1=1 test_parser "DELETE FROM t1 AS t2 WHERE ((t2.col1 = 123))"
+T1="2:COL1 COL2 COL3 COL01" COL1=1 COL2=2 COL3=3 COL01=5 test_parser "DELETE FROM t1 AS t2 WHERE ((t2.col1 = 123) and t2.col1 = 0 or col2 is null) and (t2.col2 is not null or col2 = 'text') and col3 = 1928 and col01 = 5"
+T="2:COL1 COL2" COL1=2 COL2=4 test_parser "DELETE FROM t WHERE col1 <> col2"
+TAB="10:A B" A=2 B=2 test_parser "DELETE FROM tab WHERE (a = (b))"
+TAB="10:COL1 COL2" test_parser "DELETE FROM tab WHERE col1 BETWEEN 'a' AND 'z' OR COL2 NOT BETWEEN 5 AND 7"
+
+# Spaltentypen korrespondieren nicht
+echo
+echo "#####################################################################"
+echo " Type mismatch in predicates"
+echo "#####################################################################"
+echo
+T="1:COL1" COL1=0 test_parser "DELETE FROM t WHERE col1 = 123"
+T="2:COL1" COL1=0 test_parser "DELETE FROM t WHERE ((col1 = 123))"
+T="2:COL1 COL2" COL1=0 COL2=1 test_parser "DELETE FROM t WHERE col1 = 'abc' or (col1 = 123) and col2 = 987"
+T="2:COL1" COL1=1 test_parser "DELETE FROM t WHERE col1 = 'string'"
+T="2:COL1 COL2" COL1=1 COL2=1 test_parser "DELETE FROM t WHERE (col1 = 567) and (col2 = 987) or (col2 = 'text')"
+T="2:COL1" COL1=2 test_parser "DELETE FROM t WHERE col1 <> 567"
+T="2:COL1 COL2 COL3" COL1=11 COL2=7 COL3=2 test_parser "DELETE FROM t WHERE col1 <> col2 and col2 = col3"
+
+# nicht-existierende Tabelle
+echo
+echo "#####################################################################"
+echo " Table does not exist"
+echo "#####################################################################"
+echo
+T1=1 test_parser "DELETE FROM t AS t1"
+T1="2:COL1" COL1=1 test_parser "DELETE FROM t WHERE ((col1 = 123))"
+
+# Spalte existiert in Tabelle nicht
+echo
+echo "#####################################################################"
+echo " Column does not exist"
+echo "#####################################################################"
+echo
+T1="1:A B C" test_parser "DELETE FROM t1 WHERE col1 is NULL"
+T1="2:COL1" COL1=1 test_parser "DELETE FROM t1 AS t2 WHERE (t1.col1 = 123)"
+T1="2:COL1 COL2 COL3" COL1=1 COL2=2 COL3=3 test_parser "DELETE FROM t1 AS t2 WHERE ((t2.col1 = 123) and t2.col1 = 0 or col2 is null) and (t2.col2 is not null or col2 = 'text') and col3 = 1928 and col01 = 5"
+
+# Syntaxfehler
+echo
+echo "#####################################################################"
+echo " Syntax errors"
+echo "#####################################################################"
+echo
+test_parser "DELETE FROM tab t"
+test_parser "DELETE FROM tab t WHERE a = b"
+test_parser "DELETE FROM tab WHERE a != b"
+test_parser "DELETE FROM tab WHERE a = b is not null"
+test_parser "DELETE FROM tab WHERE (a = ()b))"
+test_parser "DELETE FROM WHERE (a = ()b))"
+test_parser "DELETE FRO t WHERE a = b"
+
+exit 0
+

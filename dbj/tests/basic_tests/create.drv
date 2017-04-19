@@ -1,0 +1,155 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2004-2005                                                         *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+rm -f Seg*.dbj
+
+echo
+echo "#####################################################################"
+echo " System starten"
+echo "#####################################################################"
+echo
+dbjstart
+
+echo
+echo "#####################################################################"
+echo " Tabelle anlegen"
+echo "#####################################################################"
+echo
+cat > stmt.sql <<EOF
+CREATE TABLE angest (
+   persNr    INTEGER NOT NULL,
+   vorname   VARCHAR(10),
+   nachname  VARCHAR(20) NOT NULL,
+   gehalt    INTEGER NOT NULL,
+   adresse   VARCHAR(20),
+
+   PRIMARY KEY(persNr)
+);
+CREATE INDEX angest_nachname ON angest(nachname);
+
+
+CREATE TABLE project (
+   projNr        INTEGER NOT NULL,
+   name          VARCHAR(20) NOT NULL,
+   prioritaet    INTEGER,
+   beschreibung  VARCHAR(1000),
+
+   PRIMARY KEY(projNr)
+);
+CREATE INDEX project_prio ON project(prioritaet);
+
+CREATE TABLE mitarbeit (
+   persNr    INTEGER NOT NULL,
+   projNr   INTEGER NOT NULL,
+   percent  INTEGER
+);
+CREATE INDEX mitarbeit_persNr ON mitarbeit(persNr);
+CREATE INDEX mitarbeit_projNr ON mitarbeit(projNr);
+
+COMMIT WORK;
+EOF
+dbj -f stmt.sql
+ls -s Seg*.dbj | sed -e 's/^ *//'
+
+cat > stmt.sql <<EOF
+SELECT table_name, table_id, column_count, tuple_count FROM systables;
+SELECT * FROM syscolumns;
+SELECT table_id, index_name, index_id, index_type, column_id, is_unique FROM sysindexes;
+EOF
+dbj -f stmt.sql
+ls -s Seg*.dbj | sed -e 's/^ *//'
+
+echo
+echo "#####################################################################"
+echo " Erneutes Anlegen aller existierenden Tabellen/Indexe"
+echo "#####################################################################"
+echo
+cat > stmt.sql <<EOF
+CREATE TABLE angest (
+   persNr    INTEGER NOT NULL,
+   vorname   VARCHAR(10),
+   nachname  VARCHAR(20) NOT NULL,
+   gehalt    INTEGER NOT NULL,
+   adresse   VARCHAR(20),
+
+   PRIMARY KEY(persNr)
+);
+CREATE INDEX angest_nachname ON angest(nachname);
+
+CREATE TABLE project (
+   projNr        INTEGER NOT NULL,
+   name          VARCHAR(20) NOT NULL,
+   prioritaet    INTEGER,
+   beschreibung  VARCHAR(1000),
+
+   PRIMARY KEY(projNr)
+);
+CREATE INDEX project_prio ON project(prioritaet);
+
+CREATE TABLE mitarbeit (
+   persNr    INTEGER NOT NULL,
+   projNr   INTEGER NOT NULL,
+   percent  INTEGER
+);
+CREATE INDEX mitarbeit_persNr ON mitarbeit(persNr);
+CREATE INDEX mitarbeit_projNr ON mitarbeit(projNr);
+
+COMMIT WORK;
+EOF
+dbj -f stmt.sql
+ls -s Seg*.dbj | sed -e 's/^ *//'
+
+echo
+echo "#####################################################################"
+echo " Tabelle mit kurzen Namen anlegen"
+echo "#####################################################################"
+echo
+cat > stmt.sql <<EOF
+CREATE TABLE t (
+   c INTEGER NOT NULL,
+   PRIMARY KEY(c)
+);
+COMMIT WORK;
+SELECT table_name, table_id, column_count, tuple_count FROM systables;
+SELECT * FROM syscolumns WHERE table_id = 7;
+SELECT table_id, index_name, index_id, index_type, column_id, is_unique FROM sysindexes WHERE table_id = 7;
+EOF
+dbj -f stmt.sql
+ls -s Seg*.dbj | sed -e 's/^ *//'
+
+echo
+echo "#####################################################################"
+echo " Index nachtraeglich anlegen"
+echo "#####################################################################"
+echo
+cat > stmt.sql <<EOF
+CREATE TABLE t2 (
+   c INTEGER
+);
+INSERT INTO t2 VALUES (1), (2), (3);
+COMMIT WORK;
+CREATE INDEX idx ON t2(c);
+COMMIT;
+EOF
+dbj -f stmt.sql
+ls -s Seg*.dbj | sed -e 's/^ *//'
+
+echo
+echo "#####################################################################"
+echo " System stoppen"
+echo "#####################################################################"
+echo
+dbjstop
+rm Seg*.dbj
+
+rm stmt.sql
+
+exit 0

@@ -1,0 +1,66 @@
+/*************************************************************************\
+ *                                                                       *
+ * (C) 2004-2005                                                         *
+ * Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+ * Friedrich-Schiller-Universitaet Jena                                  *
+ * Ernst-Abbe-Platz 1-2                                                  *
+ * 07745 Jena                                                            *
+ *                                                                       *
+\*************************************************************************/
+
+
+{ DBJ_CAT_COLUMN_NOT_IN_TABLE,
+      "A column named '%s' does not exist in table '%s'",
+      "CAT01" },
+{ DBJ_CAT_MODIFYING_CATALOG_TABLES_NOT_ALLOWED,
+      "Modifying the catalog tables is not allowed.",
+      "CAT02" },
+{ DBJ_CAT_DATATYPE_MISMATCH,
+      "Cannot access a value of type '%s' for column %s because the "
+      "values in that column are of type '%s'.",
+      "CAT03" },
+{ DBJ_CAT_INCOMPLETE_CATALOG_FOUND,
+      "The database already exists but the catalog is not complete.  At "
+      "least one catalog table or an index on any of the catalog tables "
+      "is missing.  Clean up the database in path '%s' manually.",
+      "CAT04" },
+{ DBJ_CAT_INVALID_RECORD_SIZE,
+      "The record is %s bytes long, but it must be at least %s bytes and "
+      "at most %s bytes long.",
+      "CAT05" },
+{ DBJ_CAT_INVALID_RECORD_STRUCTURE,
+      "Cannot read %s bytes in record at offset %s because the record is "
+      "only %s bytes long.  The record has an invalid structure that does "
+      "not line up with the definition of the table it belongs to.",
+      "CAT06" },
+{ DBJ_CAT_COLUMN_NOT_NULLABLE,
+      "Cannot set the attribute %s in a record to NULL because the definition "
+      "of the table the record belongs to forbids NULLs in that column.",
+      "CAT07" },
+{ DBJ_CAT_VALUE_TOO_LONG,
+      "Cannot set the value '%s' for column %s because the value has a length "
+      "of %s bytes but the column is defined with a maximum length of %s bytes.",
+      "CAT08" },
+{ DBJ_CAT_TOO_MANY_TABLES,
+      "Cannot create a new table in the database because too many tables "
+      "already exist.",
+      "CAT09" },
+{ DBJ_CAT_TOO_MANY_INDEXES,
+      "Cannot create a new index in the database because too many indexes "
+      "already exist.",
+      "CAT10" },
+{ DBJ_CAT_INCONSISTENT_CATALOG,
+      "The information stored in the catalog is invalid or inconsistent.",
+      "CAT11" },
+{ DBJ_CAT_INDEX_NAME_TOO_LONG,
+      "The index name '%s' is too long.  The name for an index must have "
+      "at most %s characters.",
+      "CAT12" },
+{ DBJ_CAT_TABLE_NAME_TOO_LONG,
+      "The table name '%s' is too long.  The name for a table must have "
+      "at most %s characters.",
+      "CAT13" },
+{ DBJ_CAT_COLUMN_NAME_TOO_LONG,
+      "The column name '%s' is too long.  The name for a column must have "
+      "at most %s characters.",
+      "CAT14" },

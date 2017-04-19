@@ -1,0 +1,54 @@
+#!/usr/bin/perl -w
+#*************************************************************************
+#*                                                                       *
+#* (C) 2004-2005                                                         *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+require 5;
+use strict;
+
+print "*********************************************************\n";
+print "Starte DbjSystem und initialisiere Lock Liste\n";
+system("test_start-lm");
+print "\nDbjSystem: Lock Liste initialisiert\n\n";
+print "*********************************************************\n";
+print "\n";
+
+print "Ausfuehren der Testfaelle\n";
+
+my $cmd = "test_client1 1> client.1.tmp 2>&1 &" . 
+    "(sleep 1 && test_client2 1> client.2.tmp 2>&1 ) &" .
+    "sleep 30";
+system($cmd);
+&processParallelOutput(2);
+
+
+print "\n*********************************************************\n";
+print "Shutdown DbjSystem und loeschen der Lock Liste\n";
+system("test_stop-lm");
+print "\nSystem Shutdown Complete\n";
+print "\n*********************************************************\n";
+
+#*********************************************************************
+#Lese Ausgabe Datei
+#*********************************************************************
+sub processParallelOutput
+{
+    local $_;
+    my $numFiles = shift;
+    
+    for(my $file = 1; $file <= $numFiles; $file++){
+	open(FILE, "<client.$file.tmp") || die "Could not open file";
+	my @currOutput = <FILE>;
+	print @currOutput;
+	close(FILE);
+	unlink "client.$file.tmp";
+    }
+}
+
+exit 0

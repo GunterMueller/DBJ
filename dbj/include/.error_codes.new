@@ -1,0 +1,147 @@
+/**********************************************************************\
+ *                                                                    *
+ * (C) 2004                                                           *
+ * Lehrstuhl fuer Datnbanken und Informationssysteme                 *
+ * Friedrich-Schiller-Universitaet Jena                               *
+ * Ernst-Abbe-Platz 1-2                                               *
+ * 07745 Jena                                                         *
+ *                                                                    *
+\**********************************************************************/
+/**********************************************************************\
+ *                                                                    *
+ * Filename: .error_codes.new                                         *
+ *                                                                    *
+ * THIS FILE IS GENERATED AUTOMATICALLY - DON'T TOUCH IT!!!           *
+ *                                                                    *
+ * Purpose:                                                           *
+ *   .error_codes.new is the header file containing all error codes   *
+ *   For more details on the actual error messages, see the file      *
+ *   'support/DbjErrorMessages.hpp'.                                  *
+ *                                                                    *
+\**********************************************************************/
+
+#if !defined(___error_codes_new__)
+#define ___error_codes_new__
+
+
+/** Fehlercodes.
+ *
+ * Diese Enumeration spezifiziert <i>alle</i> moeglichen Fehlercodes
+ * des gesamten Datenbanksystems.  Keine anderen Fehlercodes
+ * duerfen verwendet werden!
+ *
+ * Jede Komponente muss einen eigenen Header definieren, der die
+ * entsprechenden Fehlermeldungen spezifiziert.  Der Header muss in
+ * 'support/DbjErrorMessages.hpp' eingebunden werden.
+ */
+enum DbjErrorCode {
+    DBJ_SUCCESS                                        =     0,
+    DBJ_INTERNAL_FAIL                                  =    -1,
+    DBJ_PARAMETER_FAIL                                 =    -2,
+    DBJ_NOT_FOUND_WARN                                 =    +3,
+    DBJ_SYSTEM_START_FAIL                              =    -4,
+    DBJ_SYSTEM_STOP_IN_USE                             =    -5,
+    DBJ_COMPILER_PARSE_FAIL                            =    -6,
+    DBJ_COMPILER_NO_ACCESS_PLAN                        =    -7,
+    DBJ_COMPILER_UNTERMINATED_STRING                   =    -8,
+    DBJ_COMPILER_INVALID_NUMBER                        =    -9,
+    DBJ_COMPILER_UNKNOWN_TOKEN                         =   -10,
+    DBJ_COMPILER_PARSE_EARLY_END                       =   -11,
+    DBJ_COMPILER_PARSE_ERROR_TOKEN                     =   -12,
+    DBJ_COMPILER_TABLE_ALREADY_EXISTS                  =   -13,
+    DBJ_COMPILER_TABLE_NOT_EXISTS                      =   -14,
+    DBJ_COMPILER_DUPLICATE_TABLE_NAME                  =   -15,
+    DBJ_COMPILER_DUPLICATE_COLUMN_NAME                 =   -16,
+    DBJ_COMPILER_KEY_COLUMN_NOT_FOUND                  =   -17,
+    DBJ_COMPILER_INDEX_ALREADY_EXISTS                  =   -18,
+    DBJ_COMPILER_INDEX_NOT_EXISTS                      =   -19,
+    DBJ_COMPILER_COLUMN_NOT_FOUND_IN_ANY               =   -20,
+    DBJ_COMPILER_COLUMN_NOT_FOUND                      =   -21,
+    DBJ_COMPILER_COLUMN_TABLE_NOT_UNIQUE               =   -22,
+    DBJ_COMPILER_COLUMN_NOT_NULLABLE                   =   -23,
+    DBJ_COMPILER_INSERT_INVALID_NUM_VALUES             =   -24,
+    DBJ_COMPILER_INSERT_VALUE_TYPE_MISMATCH            =   -25,
+    DBJ_COMPILER_UPDATE_VALUE_TYPE_MISMATCH            =   -26,
+    DBJ_COMPILER_PREDICATE_TYPE_MISMATCH               =   -27,
+    DBJ_COMPILER_CORRELATION_NAME_NOT_EXISTS           =   -28,
+    DBJ_OPT_PREDICATE_ON_MULTIPLE_TABLES_WARN          =   +29,
+    DBJ_OPT_EMPTY_RESULT_SET_WARN                      =   +30,
+    DBJ_CAT_COLUMN_NOT_IN_TABLE                        =   -31,
+    DBJ_CAT_MODIFYING_CATALOG_TABLES_NOT_ALLOWED       =   -32,
+    DBJ_CAT_DATATYPE_MISMATCH                          =   -33,
+    DBJ_CAT_INCOMPLETE_CATALOG_FOUND                   =   -34,
+    DBJ_CAT_INVALID_RECORD_SIZE                        =   -35,
+    DBJ_CAT_INVALID_RECORD_STRUCTURE                   =   -36,
+    DBJ_CAT_COLUMN_NOT_NULLABLE                        =   -37,
+    DBJ_CAT_VALUE_TOO_LONG                             =   -38,
+    DBJ_CAT_TOO_MANY_TABLES                            =   -39,
+    DBJ_CAT_TOO_MANY_INDEXES                           =   -40,
+    DBJ_CAT_INCONSISTENT_CATALOG                       =   -41,
+    DBJ_CAT_INDEX_NAME_TOO_LONG                        =   -42,
+    DBJ_CAT_TABLE_NAME_TOO_LONG                        =   -43,
+    DBJ_CAT_COLUMN_NAME_TOO_LONG                       =   -44,
+    DBJ_RUNTIME_INVALID_PROJECTION_DEFINITION          =   -45,
+    DBJ_RUNTIME_REGEXP_COMPILE_FAIL                    =   -46,
+    DBJ_RUNTIME_REGEXP_MATCH_FAIL                      =   -47,
+    DBJ_RUNTIME_TOO_MANY_COLUMNS_IN_TABLE              =   -48,
+    DBJ_RUNTIME_COLUMN_TOO_LONG                        =   -49,
+    DBJ_RM_NO_MEMORY_BLOCK_FOUND_WARN                  =   +50,
+    DBJ_RM_GET_RECORD_TOO_LONG                         =   -51,
+    DBJ_RM_INSERT_RECORD_TOO_LONG                      =   -52,
+    DBJ_RM_RECORD_OUT_OF_PAGE_BOUNDS                   =   -53,
+    DBJ_RM_FSI_PAGE_DOES_NOT_EXIST                     =   -54,
+    DBJ_RM_NO_FSI_ENTRY_FOR_PAGE                       =   -55,
+    DBJ_RM_FSI_ENTRY_NOT_ALLOWED                       =   -56,
+    DBJ_RM_TABLE_ALREADY_EXISTS                        =   -57,
+    DBJ_RM_NOT_ENOUGH_SPACE_FOR_TID                    =   -58,
+    DBJ_RM_NO_MORE_PAGES                               =   -59,
+    DBJ_IM_INDEX_ALREADY_EXISTS                        =   -60,
+    DBJ_IM_DUPLICATE_KEY_IN_UNIQUE_INDEX               =   -61,
+    DBJ_IM_NO_LEAF_PAGE                                =   -62,
+    DBJ_IM_DUPLICATE_ENTRY_IN_NON_UNIQUE_INDEX         =   -63,
+    DBJ_IM_NO_MORE_PAGES                               =   -64,
+    DBJ_IM_INDEX_NOT_OPENED                            =   -65,
+    DBJ_LM_LOCK_LIST_FULL                              =   -66,
+    DBJ_LM_NO_SUCH_ENTRY                               =   -67,
+    DBJ_LM_LOCK_TIME_OUT                               =   -68,
+    DBJ_BM_PAGE_NOT_FOUND                              =   -69,
+    DBJ_BM_PAGETYPE_MISMATCH                           =   -70,
+    DBJ_BM_PAGEID_MISMATCH                             =   -71,
+    DBJ_BM_BUFFER_FULL                                 =   -72,
+    DBJ_BM_PAGE_IS_DIRTY                               =   -73,
+    DBJ_BM_PAGE_IS_FIX                                 =   -74,
+    DBJ_BM_PAGE_NOT_RELEASED                           =   -75,
+    DBJ_BM_PAGE_ALREADY_EXISTS_IN_BUFFER               =   -76,
+    DBJ_BM_PAGE_ALREADY_EXISTS_IN_FILE                 =   -77,
+    DBJ_BM_SEGMENT_DROPPED                             =   -78,
+    DBJ_FM_FILE_NOT_FOUND                              =   -79,
+    DBJ_FM_FILE_ALREADY_EXISTS                         =   -80,
+    DBJ_FM_FILE_NOT_OPEN                               =   -81,
+    DBJ_FM_FILE_STILL_OPEN                             =   -82,
+    DBJ_FM_PAGE_NOT_EXISTS                             =   -83,
+    DBJ_FM_FILE_CREATE_FAIL                            =   -84,
+    DBJ_FM_FILE_DROP_FAIL                              =   -85,
+    DBJ_FM_FILE_OPEN_FAIL                              =   -86,
+    DBJ_FM_FILE_CLOSE_FAIL                             =   -87,
+    DBJ_FM_FILE_READ_FAIL                              =   -88,
+    DBJ_FM_FILE_WRITE_FAIL                             =   -89,
+    DBJ_FM_PATH_TOO_LONG                               =   -90,
+    DBJ_FM_FILE_INVALID_SIZE                           =   -91,
+    DBJ_ERROR_DUPLICATE_ERROR_OBJECT                   =   -92,
+    DBJ_MM_ALLOC_FAIL                                  =   -93,
+    DBJ_MM_BUFFER_UNDER_OVERFLOW                       =   -94,
+    DBJ_MM_SHM_CREATE_FAIL                             =   -95,
+    DBJ_MM_SHM_GETID_FAIL                              =   -96,
+    DBJ_MM_SHM_DESTROY_WARN                            =   +97,
+    DBJ_MM_SHM_CONNECT_FAIL                            =   -98,
+    DBJ_MM_SHM_DISCONNECT_FAIL                         =   -99,
+    DBJ_MM_SHM_NOT_EXISTS                              =  -100,
+    DBJ_MM_SHM_ALREADY_ATTACHED                        =  -101,
+    DBJ_MM_SHM_NOT_ATTACHED                            =  -102,
+    DBJ_LATCH_SEM_CREATE_FAIL                          =  -103,
+    DBJ_LATCH_SEM_DESTROY_WARN                         =  +104,
+    DBJ_LATCH_SEM_OPERATION_FAIL                       =  -105
+};
+
+#endif /* ___error_codes_new__ */
+

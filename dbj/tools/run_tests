@@ -1,0 +1,103 @@
+#!/usr/bin/perl -w
+
+#************************************************************************
+#
+# (C) 2005
+# Lehrstuhl fuer Datenbanken und Informationssysteme
+# Friedrich-Schiller-Universitaet Jena
+# Ernst-Abbe-Platz 1-2
+# 07745 Jena
+#
+#************************************************************************
+#************************************************************************
+#
+# Dieses Skript wird dazu verwendet, um die Tests im angegebenen
+# Verzeichnis auszufuehren und die Ergebnisse zusammenzufassen.
+#
+# Urspruenglich war die ganze Logik in "makefile.common", aber da die
+# Logik komplexer geworden ist, wurde es ausgelagert.
+#
+# Benutzung:
+#
+#     run_tests <directory> [ { <test> ... } ]
+#
+#************************************************************************
+
+require 5;
+use strict;
+
+# auto-flush
+$| = 1;
+
+# pruefe Parameter (Verzeichnis)
+die "Usage: $0 <directory> [ { <test-file> ... } ]\n" unless @ARGV >= 1;
+my $TESTDIR = shift;
+exit 0 if ! -d $TESTDIR;
+
+# run & diff Verzeichnisse neu anlegen
+rmdir "$TESTDIR/run";
+rmdir "$TESTDIR/diff";
+mkdir "$TESTDIR/run";
+mkdir "$TESTDIR/diff";
+
+my $failCount = 0;
+
+# ermittle zu testende Driver
+my @TESTS = ( );
+if ( @ARGV > 0 ) {
+    foreach ( @ARGV ) {
+	if ( /\.drv$/ && -r "$TESTDIR/$_" ) {
+	    push @TESTS, $_;
+	}
+	elsif ( -r "$TESTDIR/$_.drv" ) {
+	    push @TESTS, "$_.drv";
+	}
+	else {
+	    die "Driver $_ was not found.\n";
+	}
+    }
+}
+else {
+    opendir TEST_DIR, "$TESTDIR" || die "Could not open directory $TESTDIR.\n";
+    @TESTS = grep { /\.drv$/ } readdir(TEST_DIR);
+    closedir TEST_DIR;
+}
+
+foreach ( @TESTS ) {
+    my $driver = $_;
+    (my $basename = $driver ) =~ s/\.drv$//;
+
+    # Test unit ausfuehren
+    printf "\t==> %-40s ", $basename;
+    system("PATH=/bin:/usr/bin:. $TESTDIR/$driver > $TESTDIR/run/$basename.run");
+    my $rc = $?;
+    if ( ! -r "$TESTDIR/exp/$basename.exp" ) {
+	printf "exp file missing\n";
+	next;
+    }
+
+    # Ergebnis des Tests auswerten
+    my $fileComp = "$TESTDIR/exp/$basename.exp $TESTDIR/run/$basename.run";
+    system("$ENV{DIFF} -au $fileComp > $TESTDIR/diff/$basename.diff");
+    if ( $? != 0 || $rc != 0 ) {
+	system("$ENV{DIFF} -ay --left-column $fileComp > $TESTDIR/diff/$basename.err");
+	my $numDiffs = `$ENV{DIFF} -a $fileComp | grep -E "^(<|>)" | wc -l`;
+	printf "failure (%d lines differ)\n", $numDiffs;
+	$failCount++;
+    }
+    else {
+	printf "success\n";
+    }
+}
+
+# Zusammenfassung der Tests
+if ( $failCount > 0 ) {
+    print "\n";
+    print "=====================\n";
+    printf " %2d TEST(S) FAILED!!\n", $failCount;
+    print "=====================\n";
+    print "\n";
+}
+
+exit 0
+

@@ -1,0 +1,139 @@
+#!/usr/bin/perl -w
+#*************************************************************************
+#*                                                                       *
+#* (C) 2004-2005                                                         *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+require 5;
+use strict;
+
+my $cmd = "";
+
+`rm proc.*.tmp 2>/dev/null`;
+
+&checkResources();
+
+print "\n";
+print "#####################################################################\n";
+print " Initialize Shared Memory Segment & Latch\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`test_latch i 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Cleanup Shared Memory Segment & Latch\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`test_latch c 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Initialize Shared Memory Segment & Latch\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`test_latch i 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Get Shared Latch\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`test_latch s d 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Get Exclusive Latch\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`test_latch x d 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Get 3x Shared Latch (parallel)\n";
+print "#####################################################################\n";
+print "\n";
+$cmd = "test_latch s d 1> proc.1.tmp 2>&1 & " .
+    "( sleep 2 && test_latch s d 1> proc.2.tmp 2>&1 ) & " .
+    "( sleep 4 && test_latch s d 1> proc.3.tmp 2>&1 )";
+`$cmd`;
+&processParallelOutput(3);
+
+print "\n";
+print "#####################################################################\n";
+print " Get Shared, Exclusive, Shared, Shared, Exclusive Latch (parallel)\n";
+print "#####################################################################\n";
+print "\n";
+$cmd = "test_latch s d 1> proc.1.tmp 2>&1 & " .
+    "( sleep 1 && test_latch x d 1> proc.2.tmp 2>&1 ) & " .
+    "( sleep 2 && test_latch s d 1> proc.3.tmp 2>&1 ) & " .
+    "( sleep 8 && test_latch s d 1> proc.4.tmp 2>&1 ) & " .
+    "( sleep 14 && test_latch x d 1> proc.5.tmp 2>&1 )";
+`$cmd`;
+&processParallelOutput(5);
+
+print "\n";
+print "#####################################################################\n";
+print " Cleanup Shared Memory Segment & Latch\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`test_latch c 2>&1`);
+
+&checkResources();
+
+#*************************************************************************
+# Schreibe maskierte Ausgabe
+#*************************************************************************
+sub maskOutput
+{
+    local $_;
+    my @output = @_;
+    foreach (@output) {
+        # Maskiere Speicheradressen
+        s/ 0x[\da-f]+/ **ADDRESS**/g;
+        # Maskiere Zeilennummern
+        s/(at:? [\w_]+\.[ch]pp:)\d+/$1**LINE**/g;
+        print $_;
+    }
+}
+
+#*************************************************************************
+# Lese Ausgabe-Dateien und schreibe sie sortiert & maskiert
+#*************************************************************************
+sub processParallelOutput
+{
+    local $_;
+    my $numFiles = shift;
+
+    for (my $file = 1; $file <= $numFiles; $file++) {
+	open(FILE, "<proc.$file.tmp") || 
+	    die "Could not open file proc.$file.tmp\n";
+	my @currOutput = <FILE>;
+	print "\n";
+	print "Process $file\n";
+	print "---------\n";
+	&maskOutput(@currOutput);
+	close(FILE);
+	unlink "proc.$file.tmp";
+    }
+}
+
+#*************************************************************************
+# Ueberpruefe, dass keine Shared Memory Segmente & Semaphoren genutzt werden
+#*************************************************************************
+sub checkResources
+{
+    my $user = `whoami`;
+    my $resources = `ipcs | grep $user`;
+    if ( $resources ne "" ) {
+	print "Not all resources are freed!!\n";
+    }
+}
+
+exit 0
+

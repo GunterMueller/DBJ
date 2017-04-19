@@ -1,0 +1,155 @@
+#!/usr/bin/perl -w
+#*************************************************************************
+#*                                                                       *
+#* (C) 2004                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+require 5;
+use strict;
+
+&checkResources();
+
+print "\n";
+print "#####################################################################\n";
+print " Create & destroy Shared Memory Segment (no memory tracking)\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`test_shm c d 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Create & destroy Shared Memory Segment (with memory tracking)\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`DBJ_MEMORY_TRACK=stdout test_shm c d 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Destroy not existing Shared Memory Segment (no memory tracking)\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`test_shm d 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Destroy not existing Shared Memory Segment (with memory tracking)\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`DBJ_MEMORY_TRACK=stdout test_shm d 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Create Shared Memory Segment (memory tracking)\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`DBJ_MEMORY_TRACK=stdout test_shm c 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Connect & disconnect to Shared Memory Segment (memory tracking)\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`DBJ_MEMORY_TRACK=stdout test_shm + - 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Connect & disconnect to Shared Memory Segment (no memory tracking)\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`test_shm + - 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Only disconnect from Shared Memory Segment (memory tracking)\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`DBJ_MEMORY_TRACK=stdout test_shm - 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Destroy Shared Memory Segment (memory tracking)\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`DBJ_MEMORY_TRACK=stdout test_shm d 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Create Shared Memory Segment (no memory tracking)\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`test_shm c 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Connect & disconnect to Shared Memory Segment (memory tracking)\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`DBJ_MEMORY_TRACK=stdout test_shm + - 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Only disconnect from Shared Memory Segment (memory tracking)\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`DBJ_MEMORY_TRACK=stdout test_shm - 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Destroy Shared Memory Segment (no memory tracking)\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`test_shm d 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Connect to not existing Shared Memory Segment (no memory tracking)\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`test_shm + 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Connect to not existing Shared Memory Segment (memory tracking)\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`DBJ_MEMORY_TRACK=stdout test_shm + 2>&1`);
+
+&checkResources();
+
+#*************************************************************************
+# Schreibe maskierte Ausgabe
+#*************************************************************************
+sub maskOutput
+{
+    local $_;
+    my @output = @_;
+    foreach (@output) {
+        # maskiere Speicheradressen
+        s/ 0x[\da-f]+/ **ADDRESS**/g;
+        # maskiere Zeilennummern
+        s/(at:? [\w_]+\.[ch]pp:)\d+/$1**LINE**/g;
+	# maskiere Parameter & Rueckgabe von Functionen
+	s/(Function:)( \w+)? ([\w:]+)\(.*\)/$1 $3()/g;
+        print $_;
+    }
+}
+
+#*************************************************************************
+# Ueberpruefe, dass keine Shared Memory Segmente & Semaphoren genutzt werden
+#*************************************************************************
+sub checkResources
+{
+    my $user = `whoami`;
+    my $resources = `ipcs | grep $user`;
+    if ( $resources ne "" ) {
+	print "Not all resources are freed!!\n";
+    }
+}
+
+exit 0
+

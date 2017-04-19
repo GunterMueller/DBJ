@@ -1,0 +1,31 @@
+#************************************************************************
+#
+# (C) 2004-2005
+# Lehrstuhl fuer Datenbanken und Informationssysteme
+# Friedrich-Schiller-Universitaet Jena
+# Ernst-Abbe-Platz 1-2
+# 07745 Jena
+#
+#************************************************************************
+#************************************************************************
+#
+# Diese Datei definiert, welcher Nutzer Benachrichtigungen erhalten will, wenn
+# Aenderungen in einer bestimmten Komponente oder an einer bestimmten Datei
+# vorgenommen wurden.  Dabei werden keine Benachrichtigungen ueber die eigenen
+# Aenderungen versandt.
+#
+# Der BitKeeper Trigger "post-incoming.notify" implementiert den Mechanismus,
+# um die Benachrichtigungen per eMail zu versenden.  Alle eMails kommen von
+# dem Nutzer namens "System J BitKeeper"
+#
+# Die Eintraege hier haben folgenden Aufbau:
+#
+# Verzeichnis	email-Adresse
+# Datei		email-Adresse
+#
+#************************************************************************
+
+.*		stolze@de.ibm.com
+
+.*		obihan@web.de
+

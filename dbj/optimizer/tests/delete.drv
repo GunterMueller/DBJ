@@ -1,0 +1,113 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2005                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " Keine Where-Klausel, kein Index"
+echo "#####################################################################"
+echo
+
+TAB1="1:A B C" test_optimizer "delete from tab1"
+ABC="1:C1 C2 C3 C4 C5 C6 C7" test_optimizer "delete from abc"
+
+echo
+echo "#####################################################################"
+echo " Keine Where-Klausel, ein Index"
+echo "#####################################################################"
+echo
+
+INDEXES="IDX1" IDX1="6:1 2 BTREE 0" TAB1="1:A B C" test_optimizer "delete from tab1"
+INDEXES="IDX1" IDX1="7:1 2 BTREE 1" TAB1="1:A B C" test_optimizer "delete from tab1"
+INDEXES="IDX1" IDX1="8:1 2 HASH 0" TAB1="1:A B C" test_optimizer "delete from tab1"
+INDEXES="IDX1" IDX1="9:1 2 HASH 1" TAB1="1:A B C" test_optimizer "delete from tab1"
+INDEXES="IDX1" IDX1="10:1 2 BTREE 1" ABC="1:C1 C2 C3 C4 C5 C6 C7" test_optimizer "delete from abc"
+
+echo
+echo "#####################################################################"
+echo " Keine Where-Klausel, mehrere Indexe"
+echo "#####################################################################"
+echo
+
+INDEXES="IDX1 IDX2" IDX1="6:1 2 BTREE 0" IDX2="7:1 2 HASH 0" TAB1="1:A B C" test_optimizer "delete from tab1"
+INDEXES="IDX1 X2 X3" IDX1="65:1 2 BTREE 1" X2="11:1 0 BTREE 1" X3="16:1 1 HASH 0" TAB1="1:A B C" test_optimizer "delete from tab1"
+
+echo
+echo "#####################################################################"
+echo " Mit Where-Klausel, kein Index (keine Negationen)"
+echo "#####################################################################"
+echo
+
+# keine Klammerungen
+TAB1="1:A B C D E F" test_optimizer "delete from tab1 where a = '' and b = 6 and f = 8 and e like regex 'pattern'"
+TAB1="1:A B C D E F" test_optimizer "delete from tab1 where a = '' or b = 6 or f = 8 or e like regex 'pattern'"
+TAB1="1:A B C D E F" test_optimizer "delete from tab1 where a = '' or b = 6 and f = 8 or e like regex 'pattern'"
+# mit Klammerungen
+TAB1="1:A B C D E F" test_optimizer "delete from tab1 where (a = '' or b = 6) and f = 8 or (e like regex 'pattern')"
+TAB1="1:A B C D E F" test_optimizer "delete from tab1 where ((((a = '' or b = 6)) and f = 8) or (e like regex 'pattern'))"
+TAB1="1:A B C D E F" test_optimizer "delete from tab1 where ((((a = '' or (b = 6))) and f = 8) or (e like regex 'pattern'))"
+TAB1="1:A B C D E F" test_optimizer "delete from tab1 where (a = '' or (b = 6)) and f = 8 or (e like regex 'pattern') and c <> e or (d < f and f > 987)"
+TAB1="1:A B C D E F" test_optimizer "delete from tab1  as t where (t.a = '' or (b = 6)) and t.f = 8 or (e like regex 'pattern') and c <> t.e or (d < f and f > 987)"
+T="2:A B C" test_optimizer "delete from t where a like regex 'pattern1' and c is null or b = 8"
+
+echo
+echo "#####################################################################"
+echo " Mit Where-Klausel, kein Index (mit Negationen)"
+echo "#####################################################################"
+echo
+
+T="2:A B C" test_optimizer "delete from t where a not like regex 'pattern1' and c is null or not (b = 8)"
+T="2:A B C" test_optimizer "delete from t where not(a not like regex 'pattern1' and c is null) or not (b = 8)"
+T="26:N M O P Q R S T U" test_optimizer "delete from t as x where ((x.r < -56 or t = 875124) and not (n <> 'text' ) and (((u = ''))))"
+
+T="26:N M O P Q R S T U" test_optimizer "delete from t as x where ((x.r < -56 or t = 875124) and not (n <> 'text' or m > 765132 and m < 2135769) and not (((u = '')))) and not(not(n=x.o and not(x.q=s)))"
+T="26:N M O P Q R S T U" test_optimizer "delete from t as x where not(((x.r < -56 or t = 875124) and not (n <> 'text' or m > 765132 and m < 2135769) and not (((u = '')))) and not(not(not(n=x.o and not(x.q=s)))) and not(not(not(not(p is not null)))) and not(not(not(o like regex 'pattern'))))"
+
+echo
+echo "#####################################################################"
+echo " Mit Where-Klausel, ein Index (keine Negationen)"
+echo "#####################################################################"
+echo
+
+INDEXES="IDX1" IDX1="6:3 1 BTREE 1" T="3:A B C" test_optimizer "delete from t where b < 7 AND c is null"
+INDEXES="IDX1" IDX1="6:3 1 BTREE 0" T="3:A B C" test_optimizer "delete from t where b < 7 AND c <> a OR 7 >= 12"
+INDEXES="IDX1" IDX1="6:3 1 HASH 1" T="3:A B C" test_optimizer "delete from t where b < 7 AND c <> a OR 7 >= 12"
+INDEXES="IDX1" IDX1="6:3 1 HASH 1" T="3:A B C" test_optimizer "delete from t where b = 7 and c <> a"
+INDEXES="IDX1" IDX1="6:3 1 HASH 1" T="3:A B C" test_optimizer "delete from t where b = 7 or c <> a"
+INDEXES="IDX1" IDX1="6:3 1 HASH 1" T="3:A B C" test_optimizer "delete from t where b = 7"
+
+echo
+echo "#####################################################################"
+echo " Mit Where-Klausel, mehrere Indexe (mit Negationen)"
+echo "#####################################################################"
+echo
+
+INDEXES="IDX1 IDX2" IDX1="6:3 1 HASH 1" IDX2="9:6 0 BTREE 1" T="3:A B C" test_optimizer "delete from t where not(b <> 7)"
+INDEXES="IDX1 IDX2" IDX1="6:3 1 HASH 1" IDX2="9:3 0 HASH 0" T="3:A B C" test_optimizer "delete from t where not(b = 7) and A = 'text'"
+INDEXES="IDX1 IDX2 IDX3" IDX1="6:3 1 HASH 1" IDX2="9:3 0 HASH 0" IDX3="10:3 1 HASH 1" T="3:A B C" test_optimizer "delete from t where not(b = 7) and A = 'text'"
+INDEXES="IDX1 IDX2" IDX1="6:3 1 BTREE 1" IDX2="9:3 0 BTREE 0" T="3:A B C" test_optimizer "delete from t where ((a) not between 'x' AND ('y') and (b = 7 or c between 'a' and 'z'))"
+
+echo "#####################################################################"
+echo " Elimination von konstanten Praedikaten"
+echo "#####################################################################"
+
+T="3:A B C" test_optimizer "delete from t where b < 7 AND c <> a AND 7 < 12"
+T="3:A B C" test_optimizer "delete from t where b < 7 OR c <> a OR 7 < 12"
+T="3:A B C" test_optimizer "delete from t where 'abc' <> 'abc ' AND b < 7 OR c <> a"
+T="3:A B C" test_optimizer "delete from t where 'abc' <> 'abc ' OR -1 > 1"
+T="3:A B C" test_optimizer "delete from t where b > 9 OR 'abc' <> 'abc ' AND a >= c"
+T="3:A B C" test_optimizer "delete from t where b > 9 AND 'abc' <> 'abc ' AND a >= c"
+T="3:A B C" test_optimizer "delete from t where b > 9 OR 'abc' <> 'abc ' OR a >= c"
+T="3:A B C" test_optimizer "delete from t where b > 9 OR (('abc' <> 'abc ')) OR a >= c"
+T="3:A B C" test_optimizer "delete from t where b > 9 AND (('abc' = 'abc ') OR a >= c)"
+T="3:A B C" test_optimizer "delete from t where b > 9 OR (('abc' = 'abc ') AND a >= c)"
+T="3:A B C" test_optimizer "delete from t where b > 9 AND (('abc' = 'abc ') AND a >= c)"
+
+exit 0

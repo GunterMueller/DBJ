@@ -1,0 +1,41 @@
+
+#####################################################################
+ Success cases
+#####################################################################
+
+Validated access plan:
+==================================================
+DropIndexStmt
+  |
+Index ('TEST_IDX'/125)
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Index does not exist
+#####################################################################
+
+
+An index named 'TEST_IDX' does not exist.
+
+
+
+#####################################################################
+ Syntax error
+#####################################################################
+
+
+A parsing error "syntax error" occured in statement "DROP INDEX test_idx OF TYPE BTREE".  Parsing stopped after token "OF TYPE BTREE" at the beginning of " TYPE BTREE".
+
+
+
+A parsing error "syntax error" occured in statement "DROP UNIQUE INDEX test_idx".  Parsing stopped after token "UNIQUE INDEX test_idx" at the beginning of " INDEX test_idx".
+
+
+
+An incomplete or invalid statement was entered.  "DROP INDEX test_idx RESTRICT"
+
+

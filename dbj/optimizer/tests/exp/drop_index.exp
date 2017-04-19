@@ -1,0 +1,73 @@
+
+#####################################################################
+ Plan bleibt unveraendert
+#####################################################################
+
+Query: drop index idx1
+Access plan:
+==================================================
+DropIndexStmt
+  |
+Index ('IDX1'/1)
+==================================================
+Optimized-Access plan:
+==================================================
+DropIndexStmt
+  |
+Index ('IDX1'/1)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: drop index idx1
+Access plan:
+==================================================
+DropIndexStmt
+  |
+Index ('IDX1'/2)
+==================================================
+Optimized-Access plan:
+==================================================
+DropIndexStmt
+  |
+Index ('IDX1'/2)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: drop index idx1
+Access plan:
+==================================================
+DropIndexStmt
+  |
+Index ('IDX1'/3)
+==================================================
+Optimized-Access plan:
+==================================================
+DropIndexStmt
+  |
+Index ('IDX1'/3)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: drop index idx1
+Access plan:
+==================================================
+DropIndexStmt
+  |
+Index ('IDX1'/4)
+==================================================
+Optimized-Access plan:
+==================================================
+DropIndexStmt
+  |
+Index ('IDX1'/4)
+==================================================
+
+The operation was completed successfully.
+
+

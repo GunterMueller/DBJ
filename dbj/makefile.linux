@@ -1,0 +1,62 @@
+#************************************************************************
+#
+# (C) 2004-2005
+# Lehrstuhl fuer Datenbanken und Informationssysteme
+# Friedrich-Schiller-Universitaet Jena
+# Ernst-Abbe-Platz 1-2
+# 07745 Jena
+#
+#************************************************************************
+
+CXX := g++
+CPP := cpp
+ARCHIVE := ar rc
+
+COMPILER = gcc
+
+CXXFLAGS := -Wall -W -Wfloat-equal -Wshadow -Wpointer-arith \
+	-Wcast-qual -Wcast-align -Wwrite-strings -Wconversion \
+	-Wsign-compare -Wpacked -Wredundant-decls \
+	-Wold-style-cast -Woverloaded-virtual -Wno-pmf-conversions \
+	$(CXXFLAGS)
+
+CXXDEBUGFLAGS := -g -Winline
+CXXOPTFLAGS := -O3
+
+# Diese Option sollte zu einem spaeteren Zeitpunkt zugeschaltet werden
+# -Werror
+
+# Diese Option kann vielleicht noch mit genutzt werden
+# -Wpadding
+
+# Diese Optionen verursachen Probleme:
+# -Wunreachable-code => breaks in switch-Anweisungen
+# -Wundef            => Probleme im Parser
+# -Waggregate-return => Probleme in STL Header Dateien
+
+LD := $(CXX)
+wl_flag := -Wl,
+LDFLAGS := $(addprefix $(wl_flag),--warn-once $(LDFLAGS))
+LDOPTFLAGS := --strip-all
+LINK_REQUIRE_LIB_FIRST := false
+
+LIBREADLINE := -lreadline
+LIBPCRE := -lpcre
+
+#========================================================================
+
+ECHO := echo
+REMOVE := rm -f
+GREP := grep
+MOVE := mv
+DIFF := /usr/bin/diff --strip-trailing-cr
+TOUCH := touch
+
+#========================================================================
+
+ifeq "$(OPERATING_SYSTEM)" "CYGWIN_NT-5.0"
+    INCFLAGS += -I/usr/include/c++/3.3.3
+else
+    INCFLAGS += -I/usr/include/g++
+endif
+

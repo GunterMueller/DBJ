@@ -1,0 +1,94 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2004-2005                                                         *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+# Erfolgreiche Faelle
+echo
+echo "#####################################################################"
+echo " Success cases"
+echo "#####################################################################"
+echo
+# ColumnId % 2 = 0 -> VARCHAR; sonst INTEGER
+T="1:A B C D E F G H I J K L" test_parser "SELECT * FROM t"
+T="1:C1 C2 C3" test_parser "SELECT * FROM t AS x"
+T="1:X Y Z C" test_parser "SELECT * FROM t AS x WHERE c = 1"
+T="1:C1 DUMMY C2" test_parser "SELECT * FROM t AS x WHERE c1 >= c2"
+T1="1:T1_COL C2" T2="2:C1 C2 T2_COL" test_parser "SELECT t1_col, t2_col FROM t1 AS t2, t2 AS t1 WHERE t2.t1_col < t1.t2_col"
+T="1:A B C" test_parser "SELECT *, * FROM t"
+T1="1:X" T2="2:N M O P Q" test_parser "SELECT *, t1.* FROM t1, t2"
+T1="1:N M O P Q R S T U V W" T2="2:A B C D E F G H I J K L M" test_parser "SELECT *, t1.*, t2.*, t1.m FROM t1, t2 WHERE n = a and o < c or (w <> t2.m) or ((c <=o)and(c=e or t1.p <=f) and (q <= g or (a=a and t1.t <>t2.l) and d is not null or t1.o is null))"
+T="1:A B C" test_parser "SELECT A, B, t.a FROM t"
+T="1:A B C" test_parser "SELECT A, B FROM t WHERE a LIKE REGEX 'string'"
+T="1:A B C" test_parser "SELECT A, B FROM t WHERE (c NOT LIKE REGEX 'some text')"
+TAB="10:COL1 COL2" test_parser "SELECT * FROM tab WHERE col1 NOT BETWEEN 'a' AND 'z' AND COL2 NOT BETWEEN 5 AND 7"
+T1="1:A B C" T2="2:A B C" test_parser "select a.* from t1 as a, t2 as b where a.a = b.a or a.b < b.b and a.c <> b.c"
+T="1:TABLE_NAME COLUMN_ID FROM_FROM" test_parser "select table_NAME, column_id, from_from from t"
+
+# Spaltentypen korrespondieren nicht
+echo
+echo "#####################################################################"
+echo " Type mismatch in where clause"
+echo "#####################################################################"
+echo
+XYZ="3:C1 C2 C3" test_parser "SELECT c1, c2 from xyz where c1 <= c2"
+T1="1:T1_COL" T2="2:C1 T2_COL" test_parser "SELECT t1_col, t2_col FROM t1 AS t2, t2 AS t1 WHERE t2.t1_col < t1.t2_col"
+T="12:A1 B1 C1" test_parser "select t2.b1 from t as t1, t As t2 where t1.a1 <> t2.b2"
+
+# nicht-existierende Tabellen
+echo
+echo "#####################################################################"
+echo " Tables do not exist"
+echo "#####################################################################"
+echo
+test_parser "SELECT * FROM t"
+TA="1:A B C" TB="2:D E F" test_parser "SELECT D FROM ta, tb, tc"
+
+# Spalte existiert in Tabelle nicht
+echo
+echo "#####################################################################"
+echo " Column does not exist"
+echo "#####################################################################"
+echo
+T="8:X Y Z" test_parser "SELECT x, y, z FROM t WHERE a = x"
+T="8:X Y Z" test_parser "SELECT y, z, n FROM t WHERE z <> x"
+T1="5:X Y Z" T2="4:A B C D" T3="3:C D X" test_parser "SELECT t3.x, t2.c FROM t1, t3 WHERE y = 0"
+
+# Spalte kann nicht eindeutig zu Tabelle zugeordnet werden
+echo
+echo "#####################################################################"
+echo " Column not identified uniquely"
+echo "#####################################################################"
+echo
+T1="5:X Y Z" T2="4:A B C D" T3="3:C D X" test_parser "SELECT x FROM t1, t2, t3 WHERE 1 = 0"
+T1="5:X Y Z" T2="4:A B C D" T3="3:C D X" test_parser "SELECT t3.x, t2.c FROM t1, t2, t3 WHERE x <> 'wrong text'"
+
+# Syntaxfehler
+echo
+echo "#####################################################################"
+echo " Syntax errors"
+echo "#####################################################################"
+echo
+test_parser "SELECT select from from where where = were"
+test_parser "SELEC abc FROM t"
+test_parser "SELECT abc def from t"
+test_parser "SELECT abc FROM t x"
+test_parser "SELECT abc FROM t as x WHERE x!= y"
+test_parser "SELECT abc FROM t as x WHERE x(=) y"
+test_parser "SELECT abc FROM t as x WHERE x()= y"
+test_parser "SELECT abc FROM t as x WHERE x * 2 = y"
+test_parser "SELECT abc FROM t as x WHERE (x = y) xor 5 = 6"
+test_parser "SELECT abc FROM t as x WHERE (x = y) and z"
+test_parser "SELECT a, c FROM t WHERE b LIKE 123"
+test_parser "SELECT a, c FROM t WHERE b LIKE REGEX 123"
+T="1:A B C" test_parser "SELECT a.* FROM t AS b"
+test_parser "select * from systables, syscolumns where syscolumns.table_id = systables.table_id:"
+
+exit 0
+

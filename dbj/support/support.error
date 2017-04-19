@@ -1,0 +1,71 @@
+/*************************************************************************\
+ *                                                                       *
+ * (C) 2004-2005                                                         *
+ * Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+ * Friedrich-Schiller-Universitaet Jena                                  *
+ * Ernst-Abbe-Platz 1-2                                                  *
+ * 07745 Jena                                                            *
+ *                                                                       *
+\*************************************************************************/
+
+/*
+ * Definition aller Fehlermeldungen der Support Komponente
+ */
+
+// Fehlerbehandlung
+{ DBJ_ERROR_DUPLICATE_ERROR_OBJECT,
+      "An error object already exists; could not create a second one.",
+      "ER000" },
+
+// Speicherverwaltung
+{ DBJ_MM_ALLOC_FAIL,
+      "Could not allocte %s bytes successfully.",
+      "MM000" },
+{ DBJ_MM_BUFFER_UNDER_OVERFLOW,
+      "An underflow or overflow of a memory block allocated at '%s:%s' "
+      "(Function: %s) was detected.",
+      "MM001" },
+{ DBJ_MM_SHM_CREATE_FAIL,
+      "Could not create shared memory segment for memory set '%s' (ID %s) "
+      "exclusively.  Segment already exists?  System error: %s ('%s')",
+      "MM002" },
+{ DBJ_MM_SHM_GETID_FAIL,
+      "Could not determine the shared memory segment id for memory set '%s'.  "
+      "Segment does not exists?  System error: %s ('%s')",
+      "MM003" },
+{ DBJ_MM_SHM_DESTROY_WARN,
+      "Could not destroy shared memory segment for memory set '%s' (ID %s).  "
+      "Please cleanup manually.  System error: %s ('%s')",
+      "MM004" },
+{ DBJ_MM_SHM_CONNECT_FAIL,
+      "Could not connect to shared memory segment for memory set '%s' (ID %s).  "
+      "System error: %s ('%s')",
+      "MM005" },
+{ DBJ_MM_SHM_DISCONNECT_FAIL,
+      "Could not disconnect from shared memory segment for memory set '%s' "
+      "(ID %s).  System error: %s ('%s')",
+      "MM006" },
+{ DBJ_MM_SHM_NOT_EXISTS,
+      "The shared memory segment for memory set '%s' does not exist.",
+      "MM007" },
+{ DBJ_MM_SHM_ALREADY_ATTACHED,
+      "Could not connect to memory set '%s' (ID %s).  A connection to the "
+      "shared memory segment for this memory set already exists.",
+      "MM008" },
+{ DBJ_MM_SHM_NOT_ATTACHED,
+      "Could not disconnect from memory set '%s'.  A connection to "
+      "the shared memory segment for this memory set does not exist.",
+      "MM009" },
+
+// Latches
+{ DBJ_LATCH_SEM_CREATE_FAIL,
+      "Could not create new semaphore set.  System error: %s ('%s')",
+      "LT000" },
+{ DBJ_LATCH_SEM_DESTROY_WARN,
+      "Could not destroy semaphore set.  Please cleanup manually.  "
+      "System error: %s ('%s')",
+      "LT001" },
+{ DBJ_LATCH_SEM_OPERATION_FAIL,
+      "An operation on the semaphore set failed.  System error: %s ('%s')",
+      "LT002" },
+

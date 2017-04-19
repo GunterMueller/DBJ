@@ -1,0 +1,95 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2005                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " Fuege einzelne Records ein"
+echo "#####################################################################"
+echo
+cat > stmt.rm <<EOF
+insert 1 4000
+dump 1
+EOF
+test_record stmt.rm
+rm Page*.dbj
+
+cat > stmt.rm <<EOF
+insert 1 1500
+insert 1 1500
+insert 1 1500
+dump 1
+EOF
+test_record stmt.rm
+rm Page*.dbj
+
+echo
+echo "#####################################################################"
+echo " Fuege einzelnen Record ein und loesche diesen gleich wieder"
+echo "#####################################################################"
+echo
+cat > stmt.rm <<EOF
+insert 2 3000
+dump 2
+delete 2 1 0
+dump 2
+EOF
+test_record stmt.rm
+rm Page*.dbj
+
+echo
+echo "#####################################################################"
+echo " Loesche nicht-existierenden Record"
+echo "#####################################################################"
+echo
+cat > stmt.rm <<EOF
+delete 3 4 0
+EOF
+test_record stmt.rm
+
+cat > stmt.rm <<EOF
+insert 2 1234
+delete 2 1 5
+EOF
+test_record stmt.rm
+rm Page*.dbj
+
+cat > stmt.rm <<EOF
+insert 1 1000
+insert 1 1000
+insert 1 1500
+delete 1 1 1
+update 1 1 1 2000
+EOF
+test_record stmt.rm
+rm Page*.dbj
+
+echo
+echo "#####################################################################"
+echo " Verkuerze & verlaengere Record"
+echo "#####################################################################"
+echo
+cat > stmt.rm <<EOF
+insert 1 1000
+insert 1 1000
+insert 1 1500
+dump 1
+update 1 1 2 1300
+dump 1
+update 1 1 1 1050
+dump 1
+EOF
+test_record stmt.rm
+rm Page*.dbj
+
+rm stmt.rm
+
+exit 0
+

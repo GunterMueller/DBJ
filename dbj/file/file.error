@@ -1,0 +1,58 @@
+/*************************************************************************\
+ *                                                                       *
+ * (C) 2004-2005                                                         *
+ * Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+ * Friedrich-Schiller-Universitaet Jena                                  *
+ * Ernst-Abbe-Platz 1-2                                                  *
+ * 07745 Jena                                                            *
+ *                                                                       *
+\*************************************************************************/
+
+/*
+ * Definition aller Fehlermeldungen des File Managers
+ */
+
+{ DBJ_FM_FILE_NOT_FOUND,
+      "The file for segment %s could not be found.",
+      "FM001" },
+{ DBJ_FM_FILE_ALREADY_EXISTS,
+      "The file for segment %s could not be created because it already exists.",
+      "FM002" },
+{ DBJ_FM_FILE_NOT_OPEN,
+      "The file for segment %s cannot be accessed because it was not opened.",
+      "FM003" },
+{ DBJ_FM_FILE_STILL_OPEN,
+      "The file for segment %s cannot be dropped because it is still opened.  "
+      "Close the file befor attempting to drop it.",
+      "FM004" },
+{ DBJ_FM_PAGE_NOT_EXISTS,
+      "Page number %s does not exist in segment %s.  The file contains only "
+      "%s pages.",
+      "FM005" },
+{ DBJ_FM_FILE_CREATE_FAIL,
+      "An error occured while creating the file for segment %s.",
+      "FM006" },
+{ DBJ_FM_FILE_DROP_FAIL,
+      "An error occured while removing the file for segment %s.",
+      "FM007" },
+{ DBJ_FM_FILE_OPEN_FAIL,
+      "An error occured while opening the file for segment %s.",
+      "FM008" },
+{ DBJ_FM_FILE_CLOSE_FAIL,
+      "An error occured while closing the file for segment %s.",
+      "FM009" },
+{ DBJ_FM_FILE_READ_FAIL,
+      "An error occured while reading from the file for segment %s.",
+      "FM010" },
+{ DBJ_FM_FILE_WRITE_FAIL,
+      "An error occured while writing to the file for segment %s.",
+      "FM011" },
+{ DBJ_FM_PATH_TOO_LONG,
+      "The fully qualified path to the database directory %s is too long.  "
+      "It exceeds the maximum possible length of %s characters.",
+      "FM012" },
+{ DBJ_FM_FILE_INVALID_SIZE,
+      "The file for segment %s has an invalid size of %s bytes.  Each file "
+      "must have a size that is a multiple of the page size of %s bytes.",
+      "FM013" },
+

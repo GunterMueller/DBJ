@@ -1,0 +1,365 @@
+
+#####################################################################
+ Keine Indexe auf Zieltabelle
+#####################################################################
+
+Query: UPDATE test_tab AS x SET a = ''
+Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125) [Correlation name: x]
+  |       
+Assignment - Column ('A'/0) - VarcharValue ('')
+==================================================
+Optimized-Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125) [Correlation name: x]
+  |       
+Assignment - Column ('A'/0) - VarcharValue ('')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: UPDATE test_tab AS t SET t.c = null
+Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125) [Correlation name: t]
+  |       
+Assignment - Column ('C'/2) [Correlation name: t] - NullValue
+==================================================
+Optimized-Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125) [Correlation name: t]
+  |       
+Assignment - Column ('C'/2) [Correlation name: t] - NullValue
+==================================================
+
+The operation was completed successfully.
+
+
+Query: UPDATE test_tab AS n SET n.b = 123
+Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125) [Correlation name: n]
+  |       
+Assignment - Column ('B'/1) [Correlation name: n] - IntegerValue (123)
+==================================================
+Optimized-Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125) [Correlation name: n]
+  |       
+Assignment - Column ('B'/1) [Correlation name: n] - IntegerValue (123)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: UPDATE test_tab AS m SET b = null
+Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125) [Correlation name: m]
+  |       
+Assignment - Column ('B'/1) - NullValue
+==================================================
+Optimized-Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125) [Correlation name: m]
+  |       
+Assignment - Column ('B'/1) - NullValue
+==================================================
+
+The operation was completed successfully.
+
+
+Query: UPDATE test_tab AS a SET a.n = a.o
+Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/2) [Correlation name: a]
+  |       
+Assignment - Column ('N'/0) [Correlation name: a] - Column ('O'/2) [Correlation name: a]
+==================================================
+Optimized-Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/2) [Correlation name: a]
+  |       
+Assignment - Column ('N'/0) [Correlation name: a] - Column ('O'/2) [Correlation name: a]
+==================================================
+
+The operation was completed successfully.
+
+
+Query: UPDATE test_tab SET test_tab.a = test_tab.c
+Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125)
+  |       
+Assignment - Column ('A'/0) [Correlation name: test_tab] - Column ('C'/2) [Correlation name: test_tab]
+==================================================
+Optimized-Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/125)
+  |       
+Assignment - Column ('A'/0) [Correlation name: test_tab] - Column ('C'/2) [Correlation name: test_tab]
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Ein Index auf Zieltabelle
+#####################################################################
+
+Query: UPDATE test_tab SET y = 2 WHERE x = 'string'
+Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/1)
+  |       
+Assignment - Column ('Y'/1) - IntegerValue (2)
+  |          
+WhereClause - Predicate
+                |
+              Column ('X'/0) - Comparison ('=') - VarcharValue ('string')
+==================================================
+Optimized-Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/1) - Index (6)
+  |         |                    
+  |       Index ('IDX1'/6) [(VARCHAR) 'string'..'string']
+  |       
+Assignment - Column ('Y'/1) - IntegerValue (2)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: UPDATE test_tab SET y = 2 WHERE x = 'string'
+Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/1)
+  |       
+Assignment - Column ('Y'/1) - IntegerValue (2)
+  |          
+WhereClause - Predicate
+                |
+              Column ('X'/0) - Comparison ('=') - VarcharValue ('string')
+==================================================
+Optimized-Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/1) - Index (6)
+  |         |                    
+  |       Predicate
+  |         |
+  |       Column ('X'/0) - Comparison ('=') - VarcharValue ('string')
+  |       
+Assignment - Column ('Y'/1) - IntegerValue (2)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: UPDATE test_tab SET z = '12' WHERE (x = 'string') and (y > 10 or y <= 20)
+Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/1)
+  |       
+Assignment - Column ('Z'/2) - VarcharValue ('12')
+  |          
+WhereClause - Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Predicate - LogicalOp ('OR') - Predicate
+                |                               |                              |
+                |                               |                            Column ('Y'/1) - Comparison ('<=') - IntegerValue (20)
+                |                               |         
+                |                             Column ('Y'/1) - Comparison ('>') - IntegerValue (10)
+                |         
+              Predicate
+                |
+              Column ('X'/0) - Comparison ('=') - VarcharValue ('string')
+==================================================
+Optimized-Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/1) - Index (6)
+  |         |                    
+  |       Predicate - LogicalOp ('AND') - Predicate
+  |         |                               |
+  |         |                             Predicate - LogicalOp ('OR') - Predicate
+  |         |                               |                              |
+  |         |                               |                            Column ('Y'/1) - Comparison ('<=') - IntegerValue (20)
+  |         |                               |         
+  |         |                             Column ('Y'/1) - Comparison ('>') - IntegerValue (10)
+  |         |         
+  |       Column ('X'/0) - Comparison ('=') - VarcharValue ('string')
+  |       
+Assignment - Column ('Z'/2) - VarcharValue ('12')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: UPDATE test_tab SET z = '12' WHERE (x = 'string') and (y >= 10 and y <= 20)
+Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/1)
+  |       
+Assignment - Column ('Z'/2) - VarcharValue ('12')
+  |          
+WhereClause - Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Predicate - LogicalOp ('AND') - Predicate
+                |                               |                               |
+                |                               |                             Column ('Y'/1) - Comparison ('<=') - IntegerValue (20)
+                |                               |         
+                |                             Column ('Y'/1) - Comparison ('>=') - IntegerValue (10)
+                |         
+              Predicate
+                |
+              Column ('X'/0) - Comparison ('=') - VarcharValue ('string')
+==================================================
+Optimized-Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/1) - Index (6)
+  |         |                    
+  |       Index ('IDX1'/6) [(INTEGER) 10..20]
+  |         |
+  |       Predicate
+  |         |
+  |       Column ('X'/0) - Comparison ('=') - VarcharValue ('string')
+  |       
+Assignment - Column ('Z'/2) - VarcharValue ('12')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: UPDATE test_tab SET z = '12' WHERE (x = 'string') or (y > 10 and y < 20)
+Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/1)
+  |       
+Assignment - Column ('Z'/2) - VarcharValue ('12')
+  |          
+WhereClause - Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Predicate - LogicalOp ('AND') - Predicate
+                |                              |                               |
+                |                              |                             Column ('Y'/1) - Comparison ('<') - IntegerValue (20)
+                |                              |         
+                |                            Column ('Y'/1) - Comparison ('>') - IntegerValue (10)
+                |         
+              Predicate
+                |
+              Column ('X'/0) - Comparison ('=') - VarcharValue ('string')
+==================================================
+Optimized-Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/1) - Index (6)
+  |       
+Assignment - Column ('Z'/2) - VarcharValue ('12')
+  |          
+WhereClause - Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Predicate - LogicalOp ('AND') - Predicate
+                |                              |                               |
+                |                              |                             Column ('Y'/1) - Comparison ('<') - IntegerValue (20)
+                |                              |         
+                |                            Column ('Y'/1) - Comparison ('>') - IntegerValue (10)
+                |         
+              Column ('X'/0) - Comparison ('=') - VarcharValue ('string')
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Mehrere Indexe auf Zieltabelle
+#####################################################################
+
+Query: UPDATE test_tab SET z = '12' WHERE (x = 'string') and (y > 10 or y < 20)
+Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/1)
+  |       
+Assignment - Column ('Z'/2) - VarcharValue ('12')
+  |          
+WhereClause - Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Predicate - LogicalOp ('OR') - Predicate
+                |                               |                              |
+                |                               |                            Column ('Y'/1) - Comparison ('<') - IntegerValue (20)
+                |                               |         
+                |                             Column ('Y'/1) - Comparison ('>') - IntegerValue (10)
+                |         
+              Predicate
+                |
+              Column ('X'/0) - Comparison ('=') - VarcharValue ('string')
+==================================================
+Optimized-Access plan:
+==================================================
+UpdateStmt
+  |
+Sources - Table ('TEST_TAB'/1) - Index (6) - Index (7)
+  |         |                    
+  |       Index ('IDX2'/7) [(VARCHAR) 'string'..'string']
+  |         |
+  |       Predicate
+  |         |
+  |       Predicate - LogicalOp ('OR') - Predicate
+  |         |                              |
+  |         |                            Column ('Y'/1) - Comparison ('<') - IntegerValue (20)
+  |         |         
+  |       Column ('Y'/1) - Comparison ('>') - IntegerValue (10)
+  |       
+Assignment - Column ('Z'/2) - VarcharValue ('12')
+==================================================
+
+The operation was completed successfully.
+
+

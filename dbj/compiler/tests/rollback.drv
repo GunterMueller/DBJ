@@ -1,0 +1,29 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2005                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " Success cases"
+echo "#####################################################################"
+echo
+test_parser "ROLLBACK"
+test_parser "ROLLBACK WORK"
+
+echo
+echo "#####################################################################"
+echo " Syntax error"
+echo "#####################################################################"
+echo
+test_parser "ROLLBACK garbage"
+test_parser "rolback"
+
+exit 0
+

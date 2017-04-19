@@ -1,0 +1,29 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2005                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " Teste File Manager"
+echo "#####################################################################"
+echo
+cp tests/Seg11.orig Seg11.dbj
+cp tests/file.data file.data
+chmod 644 Seg11.dbj
+ls -s Seg*.dbj | sed -e 's/^ *//'
+
+test_fm
+
+ls -s Seg*.dbj | sed -e 's/^ *//'
+rm Seg*.dbj
+rm file.data
+
+exit 0
+

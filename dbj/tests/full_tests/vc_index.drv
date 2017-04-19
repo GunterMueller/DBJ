@@ -1,0 +1,138 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2004-2005                                                         *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " System starten"
+echo "#####################################################################"
+echo
+dbjstart
+
+echo
+echo "#####################################################################"
+echo " Tabelle mit Index auf VARCHAR Daten anlegen und mit 100.000 Tupeln"
+echo " befuellen"
+echo "#####################################################################"
+echo
+cat > stmt.sql <<EOF
+CREATE TABLE vc_test ( text VARCHAR(4000) NOT NULL, PRIMARY KEY(text) );
+COMMIT;
+EOF
+dbj -f stmt.sql
+
+FILL=""
+for i in `seq 1 3000`; do
+    FILL="${FILL}x"
+done
+
+for i in `seq 1 20 99980`; do
+    cat > stmt.sql <<EOF
+INSERT INTO vc_test
+VALUES ('$i$FILL'), ('$[$i+1]$FILL'), ('$[$i+2]$FILL'), ('$[$i+3]$FILL'),
+       ('$[i+4]$FILL'), ('$[$i+5]$FILL'), ('$[$i+6]$FILL'), ('$[$i+7]$FILL'),
+       ('$[i+8]$FILL'), ('$[$i+9]$FILL'), ('$[$i+10]$FILL'), ('$[$i+11]$FILL'),
+       ('$[i+12]$FILL'), ('$[$i+13]$FILL'), ('$[$i+14]$FILL'), ('$[$i+15]$FILL'),
+       ('$[i+16]$FILL'), ('$[$i+17]$FILL'), ('$[$i+18]$FILL'), ('$[$i+19]$FILL');
+COMMIT;
+EOF
+    dbj -f stmt.sql
+done
+ls -s Seg*.dbj | sed -e 's/^ *//'
+
+cat > stmt.sql <<EOF
+SELECT * FROM vc_test WHERE text > '99900';
+EOF
+dbj -p -f stmt.sql
+
+cat > stmt.sql <<EOF
+DELETE FROM vc_test WHERE text BETWEEN '1' AND '2';
+SELECT tuple_count FROM systables WHERE table_name 'VC_TEST';
+COMMIT;
+EOF
+dbj -p -f stmt.sql
+ls -s Seg*.dbj | sed -e 's/^ *//'
+
+cat > stmt.sql <<EOF
+DROP TABLE vc_test;
+COMMIT;
+EOF
+dbj -p -f stmt.sql
+ls -s Seg*.dbj | sed -e 's/^ *//'
+
+echo
+echo "#####################################################################"
+echo " Tabelle mit non-unique Index auf VARCHAR Daten anlegen und mit "
+echo " 10.000 Tupeln befuellen"
+echo "#####################################################################"
+echo
+cat > stmt.sql <<EOF
+CREATE TABLE vc_test ( text VARCHAR(4000) NOT NULL );
+CREATE INDEX vc_idx ON vc_test(text) OF TYPE BTREE;
+COMMIT;
+EOF
+dbj -f stmt.sql
+
+FILL=""
+for i in `seq 1 3000`; do
+    FILL="${FILL}x"
+done
+
+for i in `seq 1 50 9950`; do
+    cat > stmt.sql <<EOF
+INSERT INTO vc_test
+VALUES ('$i$FILL'), ('$i$FILL'), ('$i$FILL'), ('$i$FILL'), ('$i$FILL'),
+       ('$i$FILL'), ('$i$FILL'), ('$i$FILL'), ('$i$FILL'), ('$i$FILL'),
+       ('$i$FILL'), ('$i$FILL'), ('$i$FILL'), ('$i$FILL'), ('$i$FILL'),
+       ('$i$FILL'), ('$i$FILL'), ('$i$FILL'), ('$i$FILL'), ('$i$FILL'),
+       ('$i$FILL'), ('$i$FILL'), ('$i$FILL'), ('$i$FILL'), ('$i$FILL'),
+       ('$i$FILL'), ('$i$FILL'), ('$i$FILL'), ('$i$FILL'), ('$i$FILL'),
+       ('$i$FILL'), ('$i$FILL'), ('$i$FILL'), ('$i$FILL'), ('$i$FILL'),
+       ('$i$FILL'), ('$i$FILL'), ('$i$FILL'), ('$i$FILL'), ('$i$FILL'),
+       ('$i$FILL'), ('$i$FILL'), ('$i$FILL'), ('$i$FILL'), ('$i$FILL'),
+       ('$i$FILL'), ('$i$FILL'), ('$i$FILL'), ('$i$FILL'), ('$i$FILL');
+COMMIT;
+EOF
+    dbj -f stmt.sql
+done
+ls -s Seg*.dbj | sed -e 's/^ *//'
+
+cat > stmt.sql <<EOF
+SELECT * FROM vc_test WHERE text > '9900';
+EOF
+dbj -p -f stmt.sql
+
+cat > stmt.sql <<EOF
+DELETE FROM vc_test WHERE text BETWEEN '1' AND '2';
+SELECT tuple_count FROM systables WHERE table_name 'VC_TEST';
+COMMIT;
+EOF
+dbj -p -f stmt.sql
+ls -s Seg*.dbj | sed -e 's/^ *//'
+
+cat > stmt.sql <<EOF
+DROP TABLE vc_test;
+COMMIT;
+EOF
+dbj -p -f stmt.sql
+ls -s Seg*.dbj | sed -e 's/^ *//'
+
+echo
+echo "#####################################################################"
+echo " System stoppen"
+echo "#####################################################################"
+echo
+dbjstop
+rm Seg*.dbj
+
+rm stmt.sql
+
+exit 0
+

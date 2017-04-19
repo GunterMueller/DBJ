@@ -1,0 +1,273 @@
+
+#####################################################################
+ Keine Indexe auf Zieltabelle
+#####################################################################
+
+Query: insert into tab values ('string')
+Access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TAB'/1)
+  |       
+Row
+  |
+VarcharValue ('string')
+==================================================
+Optimized-Access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TAB'/1)
+  |       
+Row
+  |
+VarcharValue ('string')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: insert into tab values ( '', 1, ''),('first text', 2, 'text')
+Access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TAB'/1)
+  |       
+Row - Row
+  |     |
+  |   VarcharValue ('first text') - IntegerValue (2) - VarcharValue ('text')
+  |   
+VarcharValue ('') - IntegerValue (1) - VarcharValue ('')
+==================================================
+Optimized-Access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TAB'/1)
+  |       
+Row - Row
+  |     |
+  |   VarcharValue ('first text') - IntegerValue (2) - VarcharValue ('text')
+  |   
+VarcharValue ('') - IntegerValue (1) - VarcharValue ('')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: insert into tab values ( '', 2, '', 4, '', 6, '', 8, '', 10, '', 12)
+Access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TAB'/1)
+  |       
+Row
+  |
+VarcharValue ('') - IntegerValue (2) - VarcharValue ('') - IntegerValue (4) - VarcharValue ('') - IntegerValue (6) - VarcharValue ('') - IntegerValue (8) - VarcharValue ('') - IntegerValue (10) - VarcharValue ('') - IntegerValue (12)
+==================================================
+Optimized-Access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TAB'/1)
+  |       
+Row
+  |
+VarcharValue ('') - IntegerValue (2) - VarcharValue ('') - IntegerValue (4) - VarcharValue ('') - IntegerValue (6) - VarcharValue ('') - IntegerValue (8) - VarcharValue ('') - IntegerValue (10) - VarcharValue ('') - IntegerValue (12)
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Ein Index auf Zieltabelle
+#####################################################################
+
+Query: insert into tab values ('string')
+Access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TAB'/12)
+  |       
+Row
+  |
+VarcharValue ('string')
+==================================================
+Optimized-Access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TAB'/12) - Index (6)
+  |       
+Row
+  |
+VarcharValue ('string')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: insert into tab values ('string')
+Access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TAB'/12)
+  |       
+Row
+  |
+VarcharValue ('string')
+==================================================
+Optimized-Access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TAB'/12) - Index (6)
+  |       
+Row
+  |
+VarcharValue ('string')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: insert into tab values ('string')
+Access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TAB'/12)
+  |       
+Row
+  |
+VarcharValue ('string')
+==================================================
+Optimized-Access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TAB'/12) - Index (6)
+  |       
+Row
+  |
+VarcharValue ('string')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: insert into tab values ('string')
+Access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TAB'/12)
+  |       
+Row
+  |
+VarcharValue ('string')
+==================================================
+Optimized-Access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TAB'/12) - Index (6)
+  |       
+Row
+  |
+VarcharValue ('string')
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Mehrere Indexe auf Zieltabelle
+#####################################################################
+
+Query: insert into tab values ('string')
+Access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TAB'/12)
+  |       
+Row
+  |
+VarcharValue ('string')
+==================================================
+Optimized-Access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TAB'/12) - Index (6) - Index (7)
+  |       
+Row
+  |
+VarcharValue ('string')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: insert into tab values ( '', 1, ''),('first text', 2, 'text')
+Access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TAB'/1)
+  |       
+Row - Row
+  |     |
+  |   VarcharValue ('first text') - IntegerValue (2) - VarcharValue ('text')
+  |   
+VarcharValue ('') - IntegerValue (1) - VarcharValue ('')
+==================================================
+Optimized-Access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TAB'/1) - Index (1) - Index (2) - Index (3)
+  |       
+Row - Row
+  |     |
+  |   VarcharValue ('first text') - IntegerValue (2) - VarcharValue ('text')
+  |   
+VarcharValue ('') - IntegerValue (1) - VarcharValue ('')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: insert into tab values ( '', 2, '', 4, '', 6, '', 8, '', 10, '', 12)
+Access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TAB'/1)
+  |       
+Row
+  |
+VarcharValue ('') - IntegerValue (2) - VarcharValue ('') - IntegerValue (4) - VarcharValue ('') - IntegerValue (6) - VarcharValue ('') - IntegerValue (8) - VarcharValue ('') - IntegerValue (10) - VarcharValue ('') - IntegerValue (12)
+==================================================
+Optimized-Access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TAB'/1) - Index (12) - Index (24) - Index (36)
+  |       
+Row
+  |
+VarcharValue ('') - IntegerValue (2) - VarcharValue ('') - IntegerValue (4) - VarcharValue ('') - IntegerValue (6) - VarcharValue ('') - IntegerValue (8) - VarcharValue ('') - IntegerValue (10) - VarcharValue ('') - IntegerValue (12)
+==================================================
+
+The operation was completed successfully.
+
+

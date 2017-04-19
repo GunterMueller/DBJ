@@ -1,0 +1,5510 @@
+
+#####################################################################
+ Teste Record Manager Funktionalitaet
+#####################################################################
+
+================================================================
+ Lege Tabelle an
+================================================================
+Segment Nr.: 2 erstellt
+Alle Seiten der Transaktion geschrieben!
+Alle Sperren entfernt!
+Errorcode 0
+The operation was completed successfully.
+================================================================
+ Fuege 255 Records ein
+================================================================
+Record 0 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+    => Seite nicht gefunden.
+Seite 0 von Segment 2 angefordert.
+    => Seite nicht gefunden.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Neue Seite 1 in Segment 2 erstellt.
+Seite 0 von Segment 2 angefordert.
+    => Seite nicht gefunden.
+Seite 0 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Neue Seite 0 in Segment 2 erstellt.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 1 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 2 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 3 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 4 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 5 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 6 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 7 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 8 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 9 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 10 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 11 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 12 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 13 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 14 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 15 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 16 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 17 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 18 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 19 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 20 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 21 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 22 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 23 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 24 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 25 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 26 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 27 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 28 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 29 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 30 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 31 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 32 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 33 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 34 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 35 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 36 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 37 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 38 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 39 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 40 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 41 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 42 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 43 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 44 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 45 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 46 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 47 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 48 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 49 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 50 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 51 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 52 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 53 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 54 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 55 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 56 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 57 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 58 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 59 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 60 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 61 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 62 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 63 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 64 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 65 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 66 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 67 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 68 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 69 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 70 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 71 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 72 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 73 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 74 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 75 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 76 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 77 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 78 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 79 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 80 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 81 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 82 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 83 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 84 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 85 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 86 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 87 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 88 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 89 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 90 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 91 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 92 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 93 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 94 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 95 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 96 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 97 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 98 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 99 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 100 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 101 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 102 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 103 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 104 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 105 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 106 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 107 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 108 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 109 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 110 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 111 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 112 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 113 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 114 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 115 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 116 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 117 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 118 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 119 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 120 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 121 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 122 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 123 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 124 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 125 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 126 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 127 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 128 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 129 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 130 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 131 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 132 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 133 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 134 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 135 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 136 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 137 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 138 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 139 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 140 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 141 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 142 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 143 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 144 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 145 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 146 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 147 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 148 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 149 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 150 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 151 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 152 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 153 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 154 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 155 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 156 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 157 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 158 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 159 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 160 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 161 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 162 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 163 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 164 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 165 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 166 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 167 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 168 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 169 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 170 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 171 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 172 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 173 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 174 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 175 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 176 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 177 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 178 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 179 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 180 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 181 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 182 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 183 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 184 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 185 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 186 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 187 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 188 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 189 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 190 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 191 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 192 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 193 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 194 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 195 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 196 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 197 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 198 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 199 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 200 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 201 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 202 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 203 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 204 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 205 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 206 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 207 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 208 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 209 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 210 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 211 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 212 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 213 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 214 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 215 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 216 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 217 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 218 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 219 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 220 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 221 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 222 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 223 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 224 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 225 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 226 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 227 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 228 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 229 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 230 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 231 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 232 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 233 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 234 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 235 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 236 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 237 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 238 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 239 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 240 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 241 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 242 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 243 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 244 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 245 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 246 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 247 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 248 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 249 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 250 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 251 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 252 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 253 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 254 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+Record 255 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 2 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Neue Seite 2 in Segment 2 erstellt.
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 2 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 2 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+
+================================================================
+ Fuege 10 Records in Tabelle ein
+================================================================
+Record 0 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 2 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 2 von Segment 2 angefordert.
+Seite 2 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 2 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+Record 1 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 2 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 2 von Segment 2 angefordert.
+Seite 2 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 2 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+Record 2 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 2 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 2 von Segment 2 angefordert.
+Seite 2 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 2 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+Record 3 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 2 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 2 von Segment 2 angefordert.
+Seite 2 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 2 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+Record 4 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 2 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 2 von Segment 2 angefordert.
+Seite 2 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 2 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+Record 5 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 2 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 2 von Segment 2 angefordert.
+Seite 2 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 2 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+Record 6 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 2 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 2 von Segment 2 angefordert.
+Seite 2 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 2 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+Record 7 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 2 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 2 von Segment 2 angefordert.
+Seite 2 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 2 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+Record 8 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 2 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 2 von Segment 2 angefordert.
+Seite 2 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 2 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+Record 9 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 2 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 2 von Segment 2 angefordert.
+Seite 2 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 2 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+Record 10 einfuegen.
+Segment Nr.: 2 geoeffnet
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 2 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 2 von Segment 2 angefordert.
+Seite 2 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 2 von Segment 2 freigegeben.
+insert record: The operation was completed successfully.
+================================================================
+ Hole Record Iterator
+================================================================
+Segment Nr.: 2 geoeffnet
+getRecordIterator: The operation was completed successfully.
+
+Fetch
+Seite 0 von Segment 2 angefordert.
+Seite 0 von Segment 2 freigegeben.
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 0.
+Seite 1 von Segment 2 angefordert.
+Seite 1 von Segment 2 freigegeben.
+Segment Nr.: 2 geoeffnet
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 0.
+Seite 1 von Segment 2 angefordert.
+Seite 1 von Segment 2 freigegeben.
+getNext: The operation was completed successfully.
+
+Commit
+Alle Seiten der Transaktion geschrieben!
+Alle Sperren entfernt!
+Commit: The operation was completed successfully.
+
+================================================================
+ Loesche 255 Tupel
+================================================================
+Loesche Record 0
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 1
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 2
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 3
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 4
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 5
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 6
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 7
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 8
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 9
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 10
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 11
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 12
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 13
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 14
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 15
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 16
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 17
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 18
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 19
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 20
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 21
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 22
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 23
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 24
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 25
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 26
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 27
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 28
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 29
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 30
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 31
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 32
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 33
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 34
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 35
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 36
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 37
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 38
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 39
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 40
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 41
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 42
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 43
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 44
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 45
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 46
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 47
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 48
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 49
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 50
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 51
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 52
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 53
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 54
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 55
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 56
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 57
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 58
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 59
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 60
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 61
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 62
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 63
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 64
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 65
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 66
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 67
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 68
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 69
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 70
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 71
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 72
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 73
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 74
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 75
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 76
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 77
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 78
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 79
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 80
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 81
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 82
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 83
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 84
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 85
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 86
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 87
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 88
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 89
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 90
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 91
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 92
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 93
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 94
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 95
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 96
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 97
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 98
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 99
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 100
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 101
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 102
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 103
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 104
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 105
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 106
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 107
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 108
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 109
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 110
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 111
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 112
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 113
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 114
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 115
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 116
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 117
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 118
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 119
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 120
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 121
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 122
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 123
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 124
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 125
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 126
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 127
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 128
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 129
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 130
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 131
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 132
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 133
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 134
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 135
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 136
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 137
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 138
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 139
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 140
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 141
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 142
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 143
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 144
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 145
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 146
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 147
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 148
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 149
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 150
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 151
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 152
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 153
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 154
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 155
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 156
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 157
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 158
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 159
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 160
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 161
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 162
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 163
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 164
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 165
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 166
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 167
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 168
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 169
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 170
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 171
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 172
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 173
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 174
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 175
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 176
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 177
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 178
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 179
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 180
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 181
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 182
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 183
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 184
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 185
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 186
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 187
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 188
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 189
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 190
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 191
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 192
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 193
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 194
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 195
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 196
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 197
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 198
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 199
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 200
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 201
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 202
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 203
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 204
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 205
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 206
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 207
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 208
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 209
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 210
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 211
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 212
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 213
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 214
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 215
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 216
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 217
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 218
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 219
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 220
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 221
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 222
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 223
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 224
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 225
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 226
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 227
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 228
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 229
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 230
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 231
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 232
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 233
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 234
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 235
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 236
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 237
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 238
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 239
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 240
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 241
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 242
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 243
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 244
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 245
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 246
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 247
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 248
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 249
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 250
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 251
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 252
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 253
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+Loesche Record 254
+Seite 1 in Segment 2 gesperrt mit Sperre vom Typ 1.
+Seite 1 von Segment 2 angefordert.
+Seite 1 modifiziert!
+Seite 0 von Segment 2 angefordert.
+Seite 0 modifiziert!
+Seite 0 von Segment 2 freigegeben.
+Seite 1 von Segment 2 freigegeben.
+remove record: The operation was completed successfully.
+
+================================================================
+ COMMIT
+================================================================
+Alle Seiten der Transaktion geschrieben!
+Alle Sperren entfernt!
+commit: The operation was completed successfully.
+
+================================================================
+ Hole Record Iterator
+================================================================
+Segment Nr.: 2 geoeffnet
+getRecordIterator: The operation was completed successfully.
+

@@ -1,0 +1,223 @@
+
+#####################################################################
+ Success cases
+#####################################################################
+
+Validated access plan:
+==================================================
+CreateTableStmt
+  |
+Table ('T')
+  |
+Column ('A')
+  |
+DataType ('INTEGER')
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+CreateTableStmt
+  |
+Table ('TEST_TAB')
+  |
+Column ('COL1') - Column ('COL2') - Column ('COL3')
+  |                 |                 |
+  |                 |               DataType ('INTEGER')
+  |                 |               
+  |               DataType ('INTEGER')
+  |               
+DataType ('INTEGER')
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+CreateTableStmt
+  |
+Table ('TEST_TAB')
+  |
+Column ('COL1') - Column ('COL2') - Column ('COL3')
+  |                 |                 |
+  |                 |               DataType ('INTEGER')
+  |                 |               
+  |               DataType ('INTEGER') - NotNullOption
+  |               
+DataType ('INTEGER')
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+CreateTableStmt
+  |
+Table ('TEST_TAB') - Column ('COL1')
+  |                  
+Column ('COL1') - Column ('COL2')
+  |                 |
+  |               DataType ('INTEGER')
+  |               
+DataType ('INTEGER') - NotNullOption
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+CreateTableStmt
+  |
+Table ('TEST_TAB')
+  |
+Column ('COL1') - Column ('COL2') - Column ('COL3')
+  |                 |                 |
+  |                 |               DataType ('INTEGER')
+  |                 |               
+  |               DataType ('VARCHAR'/1)
+  |               
+DataType ('INTEGER')
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+CreateTableStmt
+  |
+Table ('TEST_TAB')
+  |
+Column ('COL1') - Column ('COL2') - Column ('COL3')
+  |                 |                 |
+  |                 |               DataType ('VARCHAR'/100)
+  |                 |               
+  |               DataType ('VARCHAR'/100)
+  |               
+DataType ('VARCHAR'/100)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+CreateTableStmt
+  |
+Table ('TEST_TAB')
+  |
+Column ('COL1') - Column ('COL2')
+  |                 |
+  |               DataType ('VARCHAR'/-100)
+  |               
+DataType ('VARCHAR'/2000)
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Table already exists
+#####################################################################
+
+
+A table named 'TEST_TAB' already exists.
+
+
+
+#####################################################################
+ Primary key column is not defined as being NOT NULL
+#####################################################################
+
+Validated access plan:
+==================================================
+CreateTableStmt
+  |
+Table ('TEST_TAB') - Column ('COL1')
+  |                  
+Column ('COL1') - Column ('COL2')
+  |                 |
+  |               DataType ('INTEGER')
+  |               
+DataType ('INTEGER') - NotNullOption
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+CreateTableStmt
+  |
+Table ('TEST_TAB') - Column ('COL1')
+  |                  
+Column ('COL1') - Column ('COL2')
+  |                 |
+  |               DataType ('INTEGER')
+  |               
+DataType ('VARCHAR'/2000) - NotNullOption
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Duplicate column names
+#####################################################################
+
+
+More than one column has the name 'COL1'.  Column names must be made unique, possibly renaming single columns.
+
+
+
+More than one column has the name 'COL1'.  Column names must be made unique, possibly renaming single columns.
+
+
+
+More than one column has the name 'COL1'.  Column names must be made unique, possibly renaming single columns.
+
+
+
+#####################################################################
+ Syntax errors
+#####################################################################
+
+
+A parsing error "syntax error" occured in statement "CREATE TABLE test_tab ( col1 INT, col2 INT, PRIMARY KEY(col1), col3 VARCHAR(10) )".  Parsing stopped after token "KEY(col1), col3 VARCHAR(10) )" at the beginning of " col3 VARCHAR(10) )".
+
+
+
+A parsing error "syntax error" occured in statement "CREATE TABLE 123 ( col1 VARCHAR(2000), col2 INTEGER )".  Parsing stopped after token "123 ( col1 VARCHAR(2000), col2 INTEGER )" at the beginning of " ( col1 VARCHAR(2000), col2 INTEGER )".
+
+
+
+A parsing error "syntax error" occured in statement "CREATE TABLE test_tab ( col1 INTEGERX )".  Parsing stopped after token "INTEGERX )" at the beginning of " )".
+
+
+
+A parsing error "syntax error" occured in statement "CREATE TABLE test_tab ( col1 (int), col2 varchar(100) )".  Parsing stopped after token "(int), col2 varchar(100) )" at the beginning of "int), col2 varchar(100) )".
+
+
+
+An incomplete or invalid statement was entered.  "CREATE TABLE test_tab ( col1 int, col2 varchar(100) ) always"
+
+
+
+A parsing error "syntax error" occured in statement "CREATE TABL test_tab ( col1 int, col2 varchar(100) )".  Parsing stopped after token "TABL test_tab ( col1 int, col2 varchar(100) )" at the beginning of " test_tab ( col1 int, col2 varchar(100) )".
+
+
+
+A parsing error "syntax error" occured in statement "CREATE TABLE test_tab ((col1 int, col2 varchar(100)))".  Parsing stopped after token "((col1 int, col2 varchar(100)))" at the beginning of "col1 int, col2 varchar(100)))".
+
+
+
+A parsing error "syntax error" occured in statement "CREATE TABLE test_tab ( col1 int, col2 varchar((100)))".  Parsing stopped after token "varchar((100)))" at the beginning of "100)))".
+
+

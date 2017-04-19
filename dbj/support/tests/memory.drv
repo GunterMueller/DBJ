@@ -1,0 +1,49 @@
+#!/usr/bin/perl -w
+#*************************************************************************
+#*                                                                       *
+#* (C) 2004-2005                                                         *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+require 5;
+use strict;
+
+print "\n";
+print "#####################################################################\n";
+print " Private memory without memory tracking\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`test_memory 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Private memory with memory tracking\n";
+print "#####################################################################\n";
+print "\n";
+
+&maskOutput(`DBJ_MEMORY_TRACK=stdout test_memory free-inval-ptr 2>&1`);
+
+#*************************************************************************
+# Schreibe maskierte Ausgabe
+#*************************************************************************
+sub maskOutput
+{
+    local $_;
+    my @output = @_;
+    foreach (@output) {
+	# maskiere Speicheradressen
+	s/ 0x[\da-f]+ / **ADDRESS** /g;
+	# maskiere Zeilennummern
+	s/(at:? [\w_]+\.[ch]pp:)\d+/$1**LINE**/g;
+	# maskiere Parameter & Rueckgabe von Funktionen/Methoden
+	s/(Function:) ?(\w+)? ([\w:]+)\([^\)]*\)/$1 $3()/g;
+	print $_;
+    }
+}
+
+exit 0
+

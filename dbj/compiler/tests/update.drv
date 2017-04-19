@@ -1,0 +1,89 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2005                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " Simple cases"
+echo "#####################################################################"
+echo
+# Spaltentypen wechseln zwischen VARCHAR/INT
+TEST_TAB="125:A" test_parser "UPDATE test_tab SET a = ''"
+TEST_TAB="125:A B C" test_parser "UPDATE test_tab SET c = null"
+TEST_TAB="125:A B C D" test_parser "UPDATE test_tab SET d = 123"
+TEST_TAB="125:A B C D" test_parser "UPDATE test_tab SET b = null"
+TEST_TAB="125:A B C D" test_parser "UPDATE test_tab SET d = b"
+TEST_TAB="125:A B C D" test_parser "UPDATE test_tab SET a = c"
+TEST_TAB="125:A B C D" test_parser "UPDATE test_tab SET test_tab.a = c"
+
+echo
+echo "#####################################################################"
+echo " Using correlation names"
+echo "#####################################################################"
+echo
+TEST_TAB="125:A" test_parser "UPDATE test_tab AS x SET a = ''"
+TEST_TAB="125:A B C" test_parser "UPDATE test_tab AS t SET t.c = null"
+TEST_TAB="125:A B C D" test_parser "UPDATE test_tab AS n SET n.b = 123"
+TEST_TAB="125:A B C D" test_parser "UPDATE test_tab AS m SET b = null"
+TEST_TAB="2:N M O" test_parser "UPDATE test_tab AS a SET a.n = a.o"
+TEST_TAB="125:A B C D" test_parser "UPDATE test_tab SET test_tab.a = test_tab.c"
+
+echo
+echo "#####################################################################"
+echo " Using a WHERE clause"
+echo "#####################################################################"
+echo
+TEST_TAB="1:X Y Z" test_parser "UPDATE test_tab SET y = 2 WHERE x = 'string'"
+TEST_TAB="1:X Y Z" test_parser "UPDATE test_tab SET z = '12' WHERE (x = 'string') or (y > 10 and y < 20)"
+
+echo
+echo "#####################################################################"
+echo " Setting multiple values at once"
+echo "#####################################################################"
+echo
+TEST_TAB="1:X Y Z" test_parser "UPDATE test_tab SET y = 2, z = x, x = '' WHERE x = 'string'"
+
+echo
+echo "#####################################################################"
+echo " Table does not exist"
+echo "#####################################################################"
+echo
+test_parser "UPDATE test_tab SET intCol = 21"
+
+echo
+echo "#####################################################################"
+echo " Column does not exist (w/ and w/o correlation name)"
+echo "#####################################################################"
+echo
+TEST_TAB="1: A B C" test_parser "UPDATE test_tab SET x = 123"
+TEST_TAB="2:N M O" test_parser "UPDATE test_tab AS a SET a.n = test_tab.o"
+
+echo
+echo "#####################################################################"
+echo " Table has different data types than given data"
+echo "#####################################################################"
+echo
+TEST_TAB="1:E R T" test_parser "UPDATE test_tab SET r = 3, e = null"
+TEST_TAB="1:A B C" test_parser "UPDATE test_tab SET test_tab.a = 98"
+TEST_TAB="1:A B C D" test_parser "UPDATE test_tab AS x SET x.d = 'str'"
+
+echo
+echo "#####################################################################"
+echo " Syntax error"
+echo "#####################################################################"
+echo
+test_parser "UPDATE test_tab SET intCol = 12345678901234567890"
+test_parser "UPDATE t SET vcCol = '1, 1234567890"
+test_parser "UPDATE t SET col1 = 2 col2 = 4"
+test_parser "UPDATE SET x = 5"
+test_parser "UPDATE t SETT a = 2"
+
+exit 0
+

@@ -1,0 +1,22 @@
+/*************************************************************************\
+ *                                                                       *
+ * (C) 2004                                                              *
+ * Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+ * Friedrich-Schiller-Universitaet Jena                                  *
+ * Ernst-Abbe-Platz 1-2                                                  *
+ * 07745 Jena                                                            *
+ *                                                                       *
+\*************************************************************************/
+
+/*
+ * Definition aller Fehlermeldungen der Optimizers
+ */
+
+{ DBJ_OPT_PREDICATE_ON_MULTIPLE_TABLES_WARN,
+      "The predicate operates on multiple tables and cannot be pushed "
+      "down into the join.",
+      "OPT00" },
+{ DBJ_OPT_EMPTY_RESULT_SET_WARN,
+      "The statement does not affect any rows because the predicates "
+      "in the where clause evaluate to 'false'.",
+      "OPT01" },

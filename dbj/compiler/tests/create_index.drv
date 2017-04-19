@@ -1,0 +1,60 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2004                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+# Erfolgreiche Faelle
+echo
+echo "#####################################################################"
+echo " Success cases"
+echo "#####################################################################"
+echo
+TEST_TAB="23:C1 C2 C3 C4 TEST_COL" TEST_COL=5 test_parser "CREATE INDEX test_idx ON test_tab ( test_col ) OF TYPE BTREE"
+TEST_TAB="23:C1 C2 C3 C4 TEST_COL" TEST_COL=5 test_parser "CREATE INDEX test_idx ON test_tab ( test_col ) OF TYPE HASH"
+TEST_TAB="23:C1 TEST_COL" TEST_COL=5 test_parser "CREATE UNIQUE INDEX test_idx ON test_tab ( test_col ) OF TYPE BTREE"
+TEST_TAB="23:C1 C2 C3 C4 TEST_COL" TEST_COL=5 test_parser "CREATE UNIQUE INDEX test_idx ON test_tab ( test_col ) OF TYPE HASH"
+TEST_TAB="23:C1 C2 C3 C4 TEST_COL" TEST_COL=5 test_parser "CREATE INDEX test_idx ON test_tab ( test_col )"
+TEST_TAB="23:C1 C2 C3 C4 TEST_COL" TEST_COL=5 test_parser "CREATE UNIQUE INDEX test_idx ON test_tab ( test_col )"
+
+# existierender Index
+echo
+echo "#####################################################################"
+echo " Index already exists"
+echo "#####################################################################"
+echo
+TEST_IDX=12 test_parser "CREATE INDEX test_idx ON test_tab ( col1 )"
+TEST_IDX=1 test_parser "CREATE INDEX test_idx ON test_tab ( col1 ) OF TYPE HASH"
+TEST_IDX=9 test_parser "CREATE UNIQUE INDEX test_idx ON test_tab ( col1 )"
+
+# Tabelle/Spalte existiert nicht
+echo
+echo "#####################################################################"
+echo " Table/column does not exist"
+echo "#####################################################################"
+echo
+TEST_TAB=8 test_parser "CREATE INDEX test_idx ON test_tab ( col1 )"
+COL1=1267 test_parser "CREATE INDEX test_idx ON test_tab ( col1 )"
+test_parser "CREATE INDEX test_idx ON test_tab ( col1 )"
+
+# Syntaxfehler
+echo
+echo "#####################################################################"
+echo " Syntax error"
+echo "#####################################################################"
+echo
+TAB=29 COL1=56 test_parser "CREATE INDEX test_idx ON tab ( col1 ) OF TYPE X"
+TAB=29 COL1=56 test_parser "CREATE INDEX test_idx ON tab ( col1 ) BTREE"
+TAB=29 COL1=56 test_parser "CREATE INDEX test_idx ON TABLE tab ( col1 )"
+TAB=29 COL1=56 test_parser "CREATE IDX test_idx ON tab ( col1 )"
+TAB=29 COL1=56 test_parser "CREATE IDX test_idx ON tab ( col1 ) FORCE"
+TAB=1 COL1=2 test_parser "CREATE INDEX test_idx ON tab ((col1)) OF TYPE BTREE"
+TAB=1 COL1=2 test_parser "CREATE INDEX test_idx ON tab (col1) OF TYPE (BTREE)"
+
+exit 0
+

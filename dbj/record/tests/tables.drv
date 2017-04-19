@@ -1,0 +1,37 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2005                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " Lege Tabelle an"
+echo "#####################################################################"
+echo
+cat > stmt.rm <<EOF
+create 1
+create 29
+EOF
+test_record stmt.rm
+
+echo
+echo "#####################################################################"
+echo " Loesche Tabellen"
+echo "#####################################################################"
+echo
+cat > stmt.rm <<EOF
+drop 45
+drop 876
+EOF
+test_record stmt.rm
+
+rm stmt.rm
+
+exit 0
+

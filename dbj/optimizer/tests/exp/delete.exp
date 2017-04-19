@@ -1,0 +1,1556 @@
+
+#####################################################################
+ Keine Where-Klausel, kein Index
+#####################################################################
+
+Query: delete from tab1
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from abc
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('ABC'/1)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('ABC'/1)
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Keine Where-Klausel, ein Index
+#####################################################################
+
+Query: delete from tab1
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1) - Index (6)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from tab1
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1) - Index (7)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from tab1
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1) - Index (8)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from tab1
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1) - Index (9)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from abc
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('ABC'/1)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('ABC'/1) - Index (10)
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Keine Where-Klausel, mehrere Indexe
+#####################################################################
+
+Query: delete from tab1
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1) - Index (6) - Index (7)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from tab1
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1) - Index (65) - Index (11) - Index (16)
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Mit Where-Klausel, kein Index (keine Negationen)
+#####################################################################
+
+Query: delete from tab1 where a = '' and b = 6 and f = 8 and e like regex 'pattern'
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('AND') - Predicate
+                |                               |                               |                               |
+                |                               |                               |                             Column ('E'/4) - Comparison ('LIKE') - VarcharValue ('pattern')
+                |                               |                               |         
+                |                               |                             Column ('F'/5) - Comparison ('=') - IntegerValue (8)
+                |                               |         
+                |                             Column ('B'/1) - Comparison ('=') - IntegerValue (6)
+                |         
+              Column ('A'/0) - Comparison ('=') - VarcharValue ('')
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+            |
+          Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('AND') - Predicate
+            |                               |                               |                               |
+            |                               |                               |                             Column ('E'/4) - Comparison ('LIKE') - VarcharValue ('pattern')
+            |                               |                               |         
+            |                               |                             Column ('F'/5) - Comparison ('=') - IntegerValue (8)
+            |                               |         
+            |                             Column ('B'/1) - Comparison ('=') - IntegerValue (6)
+            |         
+          Column ('A'/0) - Comparison ('=') - VarcharValue ('')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from tab1 where a = '' or b = 6 or f = 8 or e like regex 'pattern'
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('OR') - Predicate
+                |                              |                              |                              |
+                |                              |                              |                            Column ('E'/4) - Comparison ('LIKE') - VarcharValue ('pattern')
+                |                              |                              |         
+                |                              |                            Column ('F'/5) - Comparison ('=') - IntegerValue (8)
+                |                              |         
+                |                            Column ('B'/1) - Comparison ('=') - IntegerValue (6)
+                |         
+              Column ('A'/0) - Comparison ('=') - VarcharValue ('')
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('OR') - Predicate
+                |                              |                              |                              |
+                |                              |                              |                            Column ('E'/4) - Comparison ('LIKE') - VarcharValue ('pattern')
+                |                              |                              |         
+                |                              |                            Column ('F'/5) - Comparison ('=') - IntegerValue (8)
+                |                              |         
+                |                            Column ('B'/1) - Comparison ('=') - IntegerValue (6)
+                |         
+              Column ('A'/0) - Comparison ('=') - VarcharValue ('')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from tab1 where a = '' or b = 6 and f = 8 or e like regex 'pattern'
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('OR') - Predicate
+                |                              |                               |                              |
+                |                              |                               |                            Column ('E'/4) - Comparison ('LIKE') - VarcharValue ('pattern')
+                |                              |                               |         
+                |                              |                             Column ('F'/5) - Comparison ('=') - IntegerValue (8)
+                |                              |         
+                |                            Column ('B'/1) - Comparison ('=') - IntegerValue (6)
+                |         
+              Column ('A'/0) - Comparison ('=') - VarcharValue ('')
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('OR') - Predicate
+                |                              |                              |
+                |                              |                            Column ('E'/4) - Comparison ('LIKE') - VarcharValue ('pattern')
+                |                              |         
+                |                            Predicate - LogicalOp ('AND') - Predicate
+                |                              |                               |
+                |                              |                             Column ('F'/5) - Comparison ('=') - IntegerValue (8)
+                |                              |         
+                |                            Column ('B'/1) - Comparison ('=') - IntegerValue (6)
+                |         
+              Column ('A'/0) - Comparison ('=') - VarcharValue ('')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from tab1 where (a = '' or b = 6) and f = 8 or (e like regex 'pattern')
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('OR') - Predicate
+                |                               |                              |
+                |                               |                            Predicate
+                |                               |                              |
+                |                               |                            Column ('E'/4) - Comparison ('LIKE') - VarcharValue ('pattern')
+                |                               |         
+                |                             Column ('F'/5) - Comparison ('=') - IntegerValue (8)
+                |         
+              Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Column ('B'/1) - Comparison ('=') - IntegerValue (6)
+                |         
+              Column ('A'/0) - Comparison ('=') - VarcharValue ('')
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Column ('E'/4) - Comparison ('LIKE') - VarcharValue ('pattern')
+                |         
+              Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Column ('F'/5) - Comparison ('=') - IntegerValue (8)
+                |         
+              Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Column ('B'/1) - Comparison ('=') - IntegerValue (6)
+                |         
+              Column ('A'/0) - Comparison ('=') - VarcharValue ('')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from tab1 where ((((a = '' or b = 6)) and f = 8) or (e like regex 'pattern'))
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+  |       
+WhereClause - Predicate
+                |
+              Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Predicate
+                |                              |
+                |                            Column ('E'/4) - Comparison ('LIKE') - VarcharValue ('pattern')
+                |         
+              Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Column ('F'/5) - Comparison ('=') - IntegerValue (8)
+                |         
+              Predicate
+                |
+              Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Column ('B'/1) - Comparison ('=') - IntegerValue (6)
+                |         
+              Column ('A'/0) - Comparison ('=') - VarcharValue ('')
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Column ('E'/4) - Comparison ('LIKE') - VarcharValue ('pattern')
+                |         
+              Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Column ('F'/5) - Comparison ('=') - IntegerValue (8)
+                |         
+              Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Column ('B'/1) - Comparison ('=') - IntegerValue (6)
+                |         
+              Column ('A'/0) - Comparison ('=') - VarcharValue ('')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from tab1 where ((((a = '' or (b = 6))) and f = 8) or (e like regex 'pattern'))
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+  |       
+WhereClause - Predicate
+                |
+              Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Predicate
+                |                              |
+                |                            Column ('E'/4) - Comparison ('LIKE') - VarcharValue ('pattern')
+                |         
+              Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Column ('F'/5) - Comparison ('=') - IntegerValue (8)
+                |         
+              Predicate
+                |
+              Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Predicate
+                |                              |
+                |                            Column ('B'/1) - Comparison ('=') - IntegerValue (6)
+                |         
+              Column ('A'/0) - Comparison ('=') - VarcharValue ('')
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Column ('E'/4) - Comparison ('LIKE') - VarcharValue ('pattern')
+                |         
+              Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Column ('F'/5) - Comparison ('=') - IntegerValue (8)
+                |         
+              Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Column ('B'/1) - Comparison ('=') - IntegerValue (6)
+                |         
+              Column ('A'/0) - Comparison ('=') - VarcharValue ('')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from tab1 where (a = '' or (b = 6)) and f = 8 or (e like regex 'pattern') and c <> e or (d < f and f > 987)
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('OR') - Predicate
+                |                               |                              |                               |                              |
+                |                               |                              |                               |                            Predicate - LogicalOp ('AND') - Predicate
+                |                               |                              |                               |                              |                               |
+                |                               |                              |                               |                              |                             Column ('F'/5) - Comparison ('>') - IntegerValue (987)
+                |                               |                              |                               |                              |         
+                |                               |                              |                               |                            Column ('D'/3) - Comparison ('<') - Column ('F'/5)
+                |                               |                              |                               |         
+                |                               |                              |                             Column ('C'/2) - Comparison ('<>') - Column ('E'/4)
+                |                               |                              |         
+                |                               |                            Predicate
+                |                               |                              |
+                |                               |                            Column ('E'/4) - Comparison ('LIKE') - VarcharValue ('pattern')
+                |                               |         
+                |                             Column ('F'/5) - Comparison ('=') - IntegerValue (8)
+                |         
+              Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Predicate
+                |                              |
+                |                            Column ('B'/1) - Comparison ('=') - IntegerValue (6)
+                |         
+              Column ('A'/0) - Comparison ('=') - VarcharValue ('')
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('OR') - Predicate
+                |                              |                              |
+                |                              |                            Predicate - LogicalOp ('AND') - Predicate
+                |                              |                              |                               |
+                |                              |                              |                             Column ('F'/5) - Comparison ('>') - IntegerValue (987)
+                |                              |                              |         
+                |                              |                            Column ('D'/3) - Comparison ('<') - Column ('F'/5)
+                |                              |         
+                |                            Predicate - LogicalOp ('AND') - Predicate
+                |                              |                               |
+                |                              |                             Column ('C'/2) - Comparison ('<>') - Column ('E'/4)
+                |                              |         
+                |                            Column ('E'/4) - Comparison ('LIKE') - VarcharValue ('pattern')
+                |         
+              Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Column ('F'/5) - Comparison ('=') - IntegerValue (8)
+                |         
+              Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Column ('B'/1) - Comparison ('=') - IntegerValue (6)
+                |         
+              Column ('A'/0) - Comparison ('=') - VarcharValue ('')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from tab1  as t where (t.a = '' or (b = 6)) and t.f = 8 or (e like regex 'pattern') and c <> t.e or (d < f and f > 987)
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1) [Correlation name: t]
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('OR') - Predicate
+                |                               |                              |                               |                              |
+                |                               |                              |                               |                            Predicate - LogicalOp ('AND') - Predicate
+                |                               |                              |                               |                              |                               |
+                |                               |                              |                               |                              |                             Column ('F'/5) - Comparison ('>') - IntegerValue (987)
+                |                               |                              |                               |                              |         
+                |                               |                              |                               |                            Column ('D'/3) - Comparison ('<') - Column ('F'/5)
+                |                               |                              |                               |         
+                |                               |                              |                             Column ('C'/2) - Comparison ('<>') - Column ('E'/4) [Correlation name: t]
+                |                               |                              |         
+                |                               |                            Predicate
+                |                               |                              |
+                |                               |                            Column ('E'/4) - Comparison ('LIKE') - VarcharValue ('pattern')
+                |                               |         
+                |                             Column ('F'/5) [Correlation name: t] - Comparison ('=') - IntegerValue (8)
+                |         
+              Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Predicate
+                |                              |
+                |                            Column ('B'/1) - Comparison ('=') - IntegerValue (6)
+                |         
+              Column ('A'/0) [Correlation name: t] - Comparison ('=') - VarcharValue ('')
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB1'/1) [Correlation name: t]
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('OR') - Predicate
+                |                              |                              |
+                |                              |                            Predicate - LogicalOp ('AND') - Predicate
+                |                              |                              |                               |
+                |                              |                              |                             Column ('F'/5) - Comparison ('>') - IntegerValue (987)
+                |                              |                              |         
+                |                              |                            Column ('D'/3) - Comparison ('<') - Column ('F'/5)
+                |                              |         
+                |                            Predicate - LogicalOp ('AND') - Predicate
+                |                              |                               |
+                |                              |                             Column ('C'/2) - Comparison ('<>') - Column ('E'/4) [Correlation name: t]
+                |                              |         
+                |                            Column ('E'/4) - Comparison ('LIKE') - VarcharValue ('pattern')
+                |         
+              Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Column ('F'/5) [Correlation name: t] - Comparison ('=') - IntegerValue (8)
+                |         
+              Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Column ('B'/1) - Comparison ('=') - IntegerValue (6)
+                |         
+              Column ('A'/0) [Correlation name: t] - Comparison ('=') - VarcharValue ('')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t where a like regex 'pattern1' and c is null or b = 8
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/2)
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('OR') - Predicate
+                |                               |                              |
+                |                               |                            Column ('B'/1) - Comparison ('=') - IntegerValue (8)
+                |                               |         
+                |                             Column ('C'/2) - Comparison ('=') - NullValue
+                |         
+              Column ('A'/0) - Comparison ('LIKE') - VarcharValue ('pattern1')
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/2)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Column ('B'/1) - Comparison ('=') - IntegerValue (8)
+                |         
+              Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Column ('C'/2) - Comparison ('=') - NullValue
+                |         
+              Column ('A'/0) - Comparison ('LIKE') - VarcharValue ('pattern1')
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Mit Where-Klausel, kein Index (mit Negationen)
+#####################################################################
+
+Query: delete from t where a not like regex 'pattern1' and c is null or not (b = 8)
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/2)
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('OR') - Negation - Predicate
+                |                               |                                         |
+                |                               |                                       Predicate
+                |                               |                                         |
+                |                               |                                       Column ('B'/1) - Comparison ('=') - IntegerValue (8)
+                |                               |         
+                |                             Column ('C'/2) - Comparison ('=') - NullValue
+                |         
+              Column ('A'/0) - Comparison ('NOT LIKE') - VarcharValue ('pattern1')
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/2)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Column ('B'/1) - Comparison ('<>') - IntegerValue (8)
+                |         
+              Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Column ('C'/2) - Comparison ('=') - NullValue
+                |         
+              Column ('A'/0) - Comparison ('NOT LIKE') - VarcharValue ('pattern1')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t where not(a not like regex 'pattern1' and c is null) or not (b = 8)
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/2)
+  |       
+WhereClause - Negation - Predicate - LogicalOp ('OR') - Negation - Predicate
+                           |                                         |
+                           |                                       Predicate
+                           |                                         |
+                           |                                       Column ('B'/1) - Comparison ('=') - IntegerValue (8)
+                           |         
+                         Predicate - LogicalOp ('AND') - Predicate
+                           |                               |
+                           |                             Column ('C'/2) - Comparison ('=') - NullValue
+                           |         
+                         Column ('A'/0) - Comparison ('NOT LIKE') - VarcharValue ('pattern1')
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/2)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('OR') - Predicate
+                |                              |                              |
+                |                              |                            Column ('B'/1) - Comparison ('<>') - IntegerValue (8)
+                |                              |         
+                |                            Column ('C'/2) - Comparison ('<>') - NullValue
+                |         
+              Column ('A'/0) - Comparison ('LIKE') - VarcharValue ('pattern1')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t as x where ((x.r < -56 or t = 875124) and not (n <> 'text' ) and (((u = ''))))
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/26) [Correlation name: x]
+  |       
+WhereClause - Predicate
+                |
+              Predicate - LogicalOp ('AND') - Negation - Predicate - LogicalOp ('AND') - Predicate
+                |                                          |                               |
+                |                                          |                             Predicate
+                |                                          |                               |
+                |                                          |                             Predicate
+                |                                          |                               |
+                |                                          |                             Predicate
+                |                                          |                               |
+                |                                          |                             Column ('U'/8) - Comparison ('=') - VarcharValue ('')
+                |                                          |         
+                |                                        Predicate
+                |                                          |
+                |                                        Column ('N'/0) - Comparison ('<>') - VarcharValue ('text')
+                |         
+              Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Column ('T'/7) - Comparison ('=') - IntegerValue (875124)
+                |         
+              Column ('R'/5) [Correlation name: x] - Comparison ('<') - IntegerValue (-56)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/26) [Correlation name: x]
+            |
+          Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('AND') - Predicate
+            |                               |                               |
+            |                               |                             Column ('U'/8) - Comparison ('=') - VarcharValue ('')
+            |                               |         
+            |                             Column ('N'/0) - Comparison ('=') - VarcharValue ('text')
+            |         
+          Predicate - LogicalOp ('OR') - Predicate
+            |                              |
+            |                            Column ('T'/7) - Comparison ('=') - IntegerValue (875124)
+            |         
+          Column ('R'/5) [Correlation name: x] - Comparison ('<') - IntegerValue (-56)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t as x where ((x.r < -56 or t = 875124) and not (n <> 'text' or m > 765132 and m < 2135769) and not (((u = '')))) and not(not(n=x.o and not(x.q=s)))
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/26) [Correlation name: x]
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Negation - Predicate
+                |                                          |
+                |                                        Negation - Predicate
+                |                                                     |
+                |                                                   Predicate - LogicalOp ('AND') - Negation - Predicate
+                |                                                     |                                          |
+                |                                                     |                                        Predicate
+                |                                                     |                                          |
+                |                                                     |                                        Column ('Q'/4) [Correlation name: x] - Comparison ('=') - Column ('S'/6)
+                |                                                     |         
+                |                                                   Column ('N'/0) - Comparison ('=') - Column ('O'/2) [Correlation name: x]
+                |         
+              Predicate - LogicalOp ('AND') - Negation - Predicate - LogicalOp ('AND') - Negation - Predicate
+                |                                          |                                          |
+                |                                          |                                        Predicate
+                |                                          |                                          |
+                |                                          |                                        Predicate
+                |                                          |                                          |
+                |                                          |                                        Predicate
+                |                                          |                                          |
+                |                                          |                                        Column ('U'/8) - Comparison ('=') - VarcharValue ('')
+                |                                          |         
+                |                                        Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('AND') - Predicate
+                |                                          |                              |                               |
+                |                                          |                              |                             Column ('M'/1) - Comparison ('<') - IntegerValue (2135769)
+                |                                          |                              |         
+                |                                          |                            Column ('M'/1) - Comparison ('>') - IntegerValue (765132)
+                |                                          |         
+                |                                        Column ('N'/0) - Comparison ('<>') - VarcharValue ('text')
+                |         
+              Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Column ('T'/7) - Comparison ('=') - IntegerValue (875124)
+                |         
+              Column ('R'/5) [Correlation name: x] - Comparison ('<') - IntegerValue (-56)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/26) [Correlation name: x]
+            |
+          Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('AND') - Predicate
+            |                               |                               |                               |                               |                               |
+            |                               |                               |                               |                               |                             Column ('Q'/4) [Correlation name: x] - Comparison ('<>') - Column ('S'/6)
+            |                               |                               |                               |                               |         
+            |                               |                               |                               |                             Column ('N'/0) - Comparison ('=') - Column ('O'/2) [Correlation name: x]
+            |                               |                               |                               |         
+            |                               |                               |                             Column ('U'/8) - Comparison ('<>') - VarcharValue ('')
+            |                               |                               |         
+            |                               |                             Predicate - LogicalOp ('OR') - Predicate
+            |                               |                               |                              |
+            |                               |                               |                            Column ('M'/1) - Comparison ('>=') - IntegerValue (2135769)
+            |                               |                               |         
+            |                               |                             Column ('M'/1) - Comparison ('<=') - IntegerValue (765132)
+            |                               |         
+            |                             Column ('N'/0) - Comparison ('=') - VarcharValue ('text')
+            |         
+          Predicate - LogicalOp ('OR') - Predicate
+            |                              |
+            |                            Column ('T'/7) - Comparison ('=') - IntegerValue (875124)
+            |         
+          Column ('R'/5) [Correlation name: x] - Comparison ('<') - IntegerValue (-56)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t as x where not(((x.r < -56 or t = 875124) and not (n <> 'text' or m > 765132 and m < 2135769) and not (((u = '')))) and not(not(not(n=x.o and not(x.q=s)))) and not(not(not(not(p is not null)))) and not(not(not(o like regex 'pattern'))))
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/26) [Correlation name: x]
+  |       
+WhereClause - Negation - Predicate
+                           |
+                         Predicate - LogicalOp ('AND') - Negation - Predicate - LogicalOp ('AND') - Negation - Predicate - LogicalOp ('AND') - Negation - Predicate
+                           |                                          |                                          |                                          |
+                           |                                          |                                          |                                        Negation - Predicate
+                           |                                          |                                          |                                                     |
+                           |                                          |                                          |                                                   Negation - Predicate
+                           |                                          |                                          |                                                                |
+                           |                                          |                                          |                                                              Predicate
+                           |                                          |                                          |                                                                |
+                           |                                          |                                          |                                                              Column ('O'/2) - Comparison ('LIKE') - VarcharValue ('pattern')
+                           |                                          |                                          |         
+                           |                                          |                                        Negation - Predicate
+                           |                                          |                                                     |
+                           |                                          |                                                   Negation - Predicate
+                           |                                          |                                                                |
+                           |                                          |                                                              Negation - Predicate
+                           |                                          |                                                                           |
+                           |                                          |                                                                         Predicate
+                           |                                          |                                                                           |
+                           |                                          |                                                                         Column ('P'/3) - Comparison ('<>') - NullValue
+                           |                                          |         
+                           |                                        Negation - Predicate
+                           |                                                     |
+                           |                                                   Negation - Predicate
+                           |                                                                |
+                           |                                                              Predicate - LogicalOp ('AND') - Negation - Predicate
+                           |                                                                |                                          |
+                           |                                                                |                                        Predicate
+                           |                                                                |                                          |
+                           |                                                                |                                        Column ('Q'/4) [Correlation name: x] - Comparison ('=') - Column ('S'/6)
+                           |                                                                |         
+                           |                                                              Column ('N'/0) - Comparison ('=') - Column ('O'/2) [Correlation name: x]
+                           |         
+                         Predicate - LogicalOp ('AND') - Negation - Predicate - LogicalOp ('AND') - Negation - Predicate
+                           |                                          |                                          |
+                           |                                          |                                        Predicate
+                           |                                          |                                          |
+                           |                                          |                                        Predicate
+                           |                                          |                                          |
+                           |                                          |                                        Predicate
+                           |                                          |                                          |
+                           |                                          |                                        Column ('U'/8) - Comparison ('=') - VarcharValue ('')
+                           |                                          |         
+                           |                                        Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('AND') - Predicate
+                           |                                          |                              |                               |
+                           |                                          |                              |                             Column ('M'/1) - Comparison ('<') - IntegerValue (2135769)
+                           |                                          |                              |         
+                           |                                          |                            Column ('M'/1) - Comparison ('>') - IntegerValue (765132)
+                           |                                          |         
+                           |                                        Column ('N'/0) - Comparison ('<>') - VarcharValue ('text')
+                           |         
+                         Predicate - LogicalOp ('OR') - Predicate
+                           |                              |
+                           |                            Column ('T'/7) - Comparison ('=') - IntegerValue (875124)
+                           |         
+                         Column ('R'/5) [Correlation name: x] - Comparison ('<') - IntegerValue (-56)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/26) [Correlation name: x]
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('OR') - Predicate
+                |                              |                              |                              |                              |                              |                              |
+                |                              |                              |                              |                              |                              |                            Column ('O'/2) - Comparison ('LIKE') - VarcharValue ('pattern')
+                |                              |                              |                              |                              |                              |         
+                |                              |                              |                              |                              |                            Column ('P'/3) - Comparison ('=') - NullValue
+                |                              |                              |                              |                              |         
+                |                              |                              |                              |                            Predicate - LogicalOp ('AND') - Predicate
+                |                              |                              |                              |                              |                               |
+                |                              |                              |                              |                              |                             Column ('Q'/4) [Correlation name: x] - Comparison ('<>') - Column ('S'/6)
+                |                              |                              |                              |                              |         
+                |                              |                              |                              |                            Column ('N'/0) - Comparison ('=') - Column ('O'/2) [Correlation name: x]
+                |                              |                              |                              |         
+                |                              |                              |                            Column ('U'/8) - Comparison ('=') - VarcharValue ('')
+                |                              |                              |         
+                |                              |                            Predicate - LogicalOp ('AND') - Predicate
+                |                              |                              |                               |
+                |                              |                              |                             Column ('M'/1) - Comparison ('<') - IntegerValue (2135769)
+                |                              |                              |         
+                |                              |                            Column ('M'/1) - Comparison ('>') - IntegerValue (765132)
+                |                              |         
+                |                            Column ('N'/0) - Comparison ('<>') - VarcharValue ('text')
+                |         
+              Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Column ('T'/7) - Comparison ('<>') - IntegerValue (875124)
+                |         
+              Column ('R'/5) [Correlation name: x] - Comparison ('>=') - IntegerValue (-56)
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Mit Where-Klausel, ein Index (keine Negationen)
+#####################################################################
+
+Query: delete from t where b < 7 AND c is null
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Column ('C'/2) - Comparison ('=') - NullValue
+                |         
+              Column ('B'/1) - Comparison ('<') - IntegerValue (7)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3) - Index (6)
+            |             
+          Index ('IDX1'/6) [(INTEGER) NULL..7]
+            |
+          Predicate - LogicalOp ('AND') - Predicate
+            |                               |
+            |                             Column ('C'/2) - Comparison ('=') - NullValue
+            |         
+          Column ('B'/1) - Comparison ('<') - IntegerValue (7)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t where b < 7 AND c <> a OR 7 >= 12
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('OR') - Predicate
+                |                               |                              |
+                |                               |                            IntegerValue (7) - Comparison ('>=') - IntegerValue (12)
+                |                               |         
+                |                             Column ('C'/2) - Comparison ('<>') - Column ('A'/0)
+                |         
+              Column ('B'/1) - Comparison ('<') - IntegerValue (7)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3) - Index (6)
+            |             
+          Index ('IDX1'/6) [(INTEGER) NULL..7]
+            |
+          Predicate - LogicalOp ('AND') - Predicate
+            |                               |
+            |                             Column ('C'/2) - Comparison ('<>') - Column ('A'/0)
+            |         
+          Column ('B'/1) - Comparison ('<') - IntegerValue (7)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t where b < 7 AND c <> a OR 7 >= 12
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('OR') - Predicate
+                |                               |                              |
+                |                               |                            IntegerValue (7) - Comparison ('>=') - IntegerValue (12)
+                |                               |         
+                |                             Column ('C'/2) - Comparison ('<>') - Column ('A'/0)
+                |         
+              Column ('B'/1) - Comparison ('<') - IntegerValue (7)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3) - Index (6)
+            |             
+          Predicate - LogicalOp ('AND') - Predicate
+            |                               |
+            |                             Column ('C'/2) - Comparison ('<>') - Column ('A'/0)
+            |         
+          Column ('B'/1) - Comparison ('<') - IntegerValue (7)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t where b = 7 and c <> a
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Column ('C'/2) - Comparison ('<>') - Column ('A'/0)
+                |         
+              Column ('B'/1) - Comparison ('=') - IntegerValue (7)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3) - Index (6)
+            |             
+          Index ('IDX1'/6) [(INTEGER) 7..7]
+            |
+          Predicate
+            |
+          Column ('C'/2) - Comparison ('<>') - Column ('A'/0)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t where b = 7 or c <> a
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Column ('C'/2) - Comparison ('<>') - Column ('A'/0)
+                |         
+              Column ('B'/1) - Comparison ('=') - IntegerValue (7)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3) - Index (6)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Column ('C'/2) - Comparison ('<>') - Column ('A'/0)
+                |         
+              Column ('B'/1) - Comparison ('=') - IntegerValue (7)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t where b = 7
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Predicate
+                |
+              Column ('B'/1) - Comparison ('=') - IntegerValue (7)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3) - Index (6)
+            |             
+          Index ('IDX1'/6) [(INTEGER) 7..7]
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Mit Where-Klausel, mehrere Indexe (mit Negationen)
+#####################################################################
+
+Query: delete from t where not(b <> 7)
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Negation - Predicate
+                           |
+                         Predicate
+                           |
+                         Column ('B'/1) - Comparison ('<>') - IntegerValue (7)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3) - Index (6)
+            |             
+          Index ('IDX1'/6) [(INTEGER) 7..7]
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t where not(b = 7) and A = 'text'
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Negation - Predicate - LogicalOp ('AND') - Predicate
+                           |                               |
+                           |                             Column ('A'/0) - Comparison ('=') - VarcharValue ('text')
+                           |         
+                         Predicate
+                           |
+                         Column ('B'/1) - Comparison ('=') - IntegerValue (7)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3) - Index (6) - Index (9)
+            |             
+          Index ('IDX2'/9) [(VARCHAR) 'text'..'text']
+            |
+          Predicate
+            |
+          Column ('B'/1) - Comparison ('<>') - IntegerValue (7)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t where not(b = 7) and A = 'text'
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Negation - Predicate - LogicalOp ('AND') - Predicate
+                           |                               |
+                           |                             Column ('A'/0) - Comparison ('=') - VarcharValue ('text')
+                           |         
+                         Predicate
+                           |
+                         Column ('B'/1) - Comparison ('=') - IntegerValue (7)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3) - Index (6) - Index (9) - Index (10)
+            |             
+          Index ('IDX2'/9) [(VARCHAR) 'text'..'text']
+            |
+          Predicate
+            |
+          Column ('B'/1) - Comparison ('<>') - IntegerValue (7)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t where ((a) not between 'x' AND ('y') and (b = 7 or c between 'a' and 'z'))
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Predicate
+                |
+              Negation - Predicate - LogicalOp ('AND') - Predicate
+                           |                               |
+                           |                             Predicate - LogicalOp ('OR') - Predicate
+                           |                               |                              |
+                           |                               |                            Predicate - LogicalOp ('AND') - Predicate
+                           |                               |                              |                               |
+                           |                               |                              |                             Column ('C'/2) - Comparison ('<=') - VarcharValue ('z')
+                           |                               |                              |         
+                           |                               |                            Column ('C'/2) - Comparison ('>=') - VarcharValue ('a')
+                           |                               |         
+                           |                             Column ('B'/1) - Comparison ('=') - IntegerValue (7)
+                           |         
+                         Predicate - LogicalOp ('AND') - Predicate
+                           |                               |
+                           |                             Column ('A'/0) - Comparison ('<=') - VarcharValue ('y')
+                           |         
+                         Column ('A'/0) - Comparison ('>=') - VarcharValue ('x')
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3) - Index (6) - Index (9)
+            |             
+          Predicate - LogicalOp ('AND') - Predicate
+            |                               |
+            |                             Predicate - LogicalOp ('OR') - Predicate
+            |                               |                              |
+            |                               |                            Predicate - LogicalOp ('AND') - Predicate
+            |                               |                              |                               |
+            |                               |                              |                             Column ('C'/2) - Comparison ('<=') - VarcharValue ('z')
+            |                               |                              |         
+            |                               |                            Column ('C'/2) - Comparison ('>=') - VarcharValue ('a')
+            |                               |         
+            |                             Column ('B'/1) - Comparison ('=') - IntegerValue (7)
+            |         
+          Predicate - LogicalOp ('OR') - Predicate
+            |                              |
+            |                            Column ('A'/0) - Comparison ('>') - VarcharValue ('y')
+            |         
+          Column ('A'/0) - Comparison ('<') - VarcharValue ('x')
+==================================================
+
+The operation was completed successfully.
+
+
+#####################################################################
+ Elimination von konstanten Praedikaten
+#####################################################################
+Query: delete from t where b < 7 AND c <> a AND 7 < 12
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('AND') - Predicate
+                |                               |                               |
+                |                               |                             IntegerValue (7) - Comparison ('<') - IntegerValue (12)
+                |                               |         
+                |                             Column ('C'/2) - Comparison ('<>') - Column ('A'/0)
+                |         
+              Column ('B'/1) - Comparison ('<') - IntegerValue (7)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+            |
+          Predicate - LogicalOp ('AND') - Predicate
+            |                               |
+            |                             Column ('C'/2) - Comparison ('<>') - Column ('A'/0)
+            |         
+          Column ('B'/1) - Comparison ('<') - IntegerValue (7)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t where b < 7 OR c <> a OR 7 < 12
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('OR') - Predicate
+                |                              |                              |
+                |                              |                            IntegerValue (7) - Comparison ('<') - IntegerValue (12)
+                |                              |         
+                |                            Column ('C'/2) - Comparison ('<>') - Column ('A'/0)
+                |         
+              Column ('B'/1) - Comparison ('<') - IntegerValue (7)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t where 'abc' <> 'abc ' AND b < 7 OR c <> a
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('OR') - Predicate
+                |                               |                              |
+                |                               |                            Column ('C'/2) - Comparison ('<>') - Column ('A'/0)
+                |                               |         
+                |                             Column ('B'/1) - Comparison ('<') - IntegerValue (7)
+                |         
+              VarcharValue ('abc') - Comparison ('<>') - VarcharValue ('abc ')
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Column ('C'/2) - Comparison ('<>') - Column ('A'/0)
+                |         
+              Column ('B'/1) - Comparison ('<') - IntegerValue (7)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t where 'abc' <> 'abc ' OR -1 > 1
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            IntegerValue (-1) - Comparison ('>') - IntegerValue (1)
+                |         
+              VarcharValue ('abc') - Comparison ('<>') - VarcharValue ('abc ')
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t where b > 9 OR 'abc' <> 'abc ' AND a >= c
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('AND') - Predicate
+                |                              |                               |
+                |                              |                             Column ('A'/0) - Comparison ('>=') - Column ('C'/2)
+                |                              |         
+                |                            VarcharValue ('abc') - Comparison ('<>') - VarcharValue ('abc ')
+                |         
+              Column ('B'/1) - Comparison ('>') - IntegerValue (9)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Column ('A'/0) - Comparison ('>=') - Column ('C'/2)
+                |         
+              Column ('B'/1) - Comparison ('>') - IntegerValue (9)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t where b > 9 AND 'abc' <> 'abc ' AND a >= c
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('AND') - Predicate
+                |                               |                               |
+                |                               |                             Column ('A'/0) - Comparison ('>=') - Column ('C'/2)
+                |                               |         
+                |                             VarcharValue ('abc') - Comparison ('<>') - VarcharValue ('abc ')
+                |         
+              Column ('B'/1) - Comparison ('>') - IntegerValue (9)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+            |
+          Predicate - LogicalOp ('AND') - Predicate
+            |                               |
+            |                             Column ('A'/0) - Comparison ('>=') - Column ('C'/2)
+            |         
+          Column ('B'/1) - Comparison ('>') - IntegerValue (9)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t where b > 9 OR 'abc' <> 'abc ' OR a >= c
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('OR') - Predicate
+                |                              |                              |
+                |                              |                            Column ('A'/0) - Comparison ('>=') - Column ('C'/2)
+                |                              |         
+                |                            VarcharValue ('abc') - Comparison ('<>') - VarcharValue ('abc ')
+                |         
+              Column ('B'/1) - Comparison ('>') - IntegerValue (9)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t where b > 9 OR (('abc' <> 'abc ')) OR a >= c
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('OR') - Predicate
+                |                              |                              |
+                |                              |                            Column ('A'/0) - Comparison ('>=') - Column ('C'/2)
+                |                              |         
+                |                            Predicate
+                |                              |
+                |                            Predicate
+                |                              |
+                |                            VarcharValue ('abc') - Comparison ('<>') - VarcharValue ('abc ')
+                |         
+              Column ('B'/1) - Comparison ('>') - IntegerValue (9)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t where b > 9 AND (('abc' = 'abc ') OR a >= c)
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Predicate - LogicalOp ('OR') - Predicate
+                |                               |                              |
+                |                               |                            Column ('A'/0) - Comparison ('>=') - Column ('C'/2)
+                |                               |         
+                |                             Predicate
+                |                               |
+                |                             VarcharValue ('abc') - Comparison ('=') - VarcharValue ('abc ')
+                |         
+              Column ('B'/1) - Comparison ('>') - IntegerValue (9)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+            |
+          Predicate - LogicalOp ('AND') - Predicate
+            |                               |
+            |                             Column ('A'/0) - Comparison ('>=') - Column ('C'/2)
+            |         
+          Column ('B'/1) - Comparison ('>') - IntegerValue (9)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t where b > 9 OR (('abc' = 'abc ') AND a >= c)
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate
+                |                              |
+                |                            Predicate - LogicalOp ('AND') - Predicate
+                |                              |                               |
+                |                              |                             Column ('A'/0) - Comparison ('>=') - Column ('C'/2)
+                |                              |         
+                |                            Predicate
+                |                              |
+                |                            VarcharValue ('abc') - Comparison ('=') - VarcharValue ('abc ')
+                |         
+              Column ('B'/1) - Comparison ('>') - IntegerValue (9)
+==================================================
+Optimized-Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+            |
+          Predicate
+            |
+          Column ('B'/1) - Comparison ('>') - IntegerValue (9)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: delete from t where b > 9 AND (('abc' = 'abc ') AND a >= c)
+Access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/3)
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Predicate - LogicalOp ('AND') - Predicate
+                |                               |                               |
+                |                               |                             Column ('A'/0) - Comparison ('>=') - Column ('C'/2)
+                |                               |         
+                |                             Predicate
+                |                               |
+                |                             VarcharValue ('abc') - Comparison ('=') - VarcharValue ('abc ')
+                |         
+              Column ('B'/1) - Comparison ('>') - IntegerValue (9)
+==================================================
+
+The statement does not affect any rows because the predicates in the where clause evaluate to 'false'.
+
+

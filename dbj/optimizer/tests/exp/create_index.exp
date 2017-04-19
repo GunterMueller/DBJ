@@ -1,0 +1,121 @@
+
+#####################################################################
+ Plan bleibt unveraendert
+#####################################################################
+
+Query: create index idx1 on tab1 ( col1 ) of type btree
+Access plan:
+==================================================
+CreateIndexStmt
+  |
+Index ('IDX1')
+  |
+Table ('TAB1'/13)
+  |
+Column ('COL1'/0)
+  |
+IndexType ('BTREE')
+==================================================
+Optimized-Access plan:
+==================================================
+CreateIndexStmt
+  |
+Index ('IDX1')
+  |
+Table ('TAB1'/13)
+  |
+Column ('COL1'/0)
+  |
+IndexType ('BTREE')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: create index idx1 on tab1 ( col1 ) of type hash
+Access plan:
+==================================================
+CreateIndexStmt
+  |
+Index ('IDX1')
+  |
+Table ('TAB1'/13)
+  |
+Column ('COL1'/0)
+  |
+IndexType ('HASH')
+==================================================
+Optimized-Access plan:
+==================================================
+CreateIndexStmt
+  |
+Index ('IDX1')
+  |
+Table ('TAB1'/13)
+  |
+Column ('COL1'/0)
+  |
+IndexType ('HASH')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: create unique index idx1 on tab1 ( col1 ) of type btree
+Access plan:
+==================================================
+CreateIndexStmt
+  |
+UniqueIndex ('IDX1')
+  |
+Table ('TAB1'/13)
+  |
+Column ('COL1'/0)
+  |
+IndexType ('BTREE')
+==================================================
+Optimized-Access plan:
+==================================================
+CreateIndexStmt
+  |
+UniqueIndex ('IDX1')
+  |
+Table ('TAB1'/13)
+  |
+Column ('COL1'/0)
+  |
+IndexType ('BTREE')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: create unique index idx1 on tab1 ( col1 ) of type hash
+Access plan:
+==================================================
+CreateIndexStmt
+  |
+UniqueIndex ('IDX1')
+  |
+Table ('TAB1'/13)
+  |
+Column ('COL1'/0)
+  |
+IndexType ('HASH')
+==================================================
+Optimized-Access plan:
+==================================================
+CreateIndexStmt
+  |
+UniqueIndex ('IDX1')
+  |
+Table ('TAB1'/13)
+  |
+Column ('COL1'/0)
+  |
+IndexType ('HASH')
+==================================================
+
+The operation was completed successfully.
+
+

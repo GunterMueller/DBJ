@@ -1,0 +1,41 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2004                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " Reading commands from STDIN"
+echo "#####################################################################"
+echo
+echo "select * from t;" | test_clp
+test_clp <<EOF
+select * from t;
+insert
+into a
+values (1);
+commit;
+EOF
+
+echo
+echo "#####################################################################"
+echo " Reading commands from file"
+echo "#####################################################################"
+echo
+cat > script.tmp <<EOF
+create table t ( c int );
+insert into t
+values (2);
+rollback;
+EOF
+test_clp -f script.tmp
+rm script.tmp
+
+exit 0
+

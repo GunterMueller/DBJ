@@ -1,0 +1,275 @@
+#************************************************************************
+#
+# (C) 2004-2005
+# Lehrstuhl fuer Datenbanken und Informationssysteme
+# Friedrich-Schiller-Universitaet Jena
+# Ernst-Abbe-Platz 1-2
+# 07745 Jena
+#
+#************************************************************************
+
+#========================================================================
+# some global flags
+#========================================================================
+
+RELTOPDIR := $(shell perl -e '$$cwd = `pwd`; \
+		$$root = `cd \`bk root\`; pwd`; \
+		$$_ = substr($$cwd,length($$root)-1); \
+		s|\s||g; s|[^/]+|..|g; s|^/||; \
+		$$_ = "." unless $$_ ne ""; \
+		print "$$_";')
+
+INCDIR := $(RELTOPDIR)/include
+INCFLAGS := -I$(INCDIR)
+TESTDIR = tests
+
+
+#========================================================================
+# Use operating system specific makefiles
+#========================================================================
+
+OPERATING_SYSTEM := $(shell uname)
+
+ifeq "$(OPERATING_SYSTEM)" "AIX"
+    include $(RELTOPDIR)/makefile.aix
+    CXXFLAGS += -DDBJ_AIX
+endif
+ifeq "$(OPERATING_SYSTEM)" "Linux"
+    include $(RELTOPDIR)/makefile.linux
+    CXXFLAGS += -DDBJ_LINUX
+endif
+ifneq "$(filter CYGWIN_NT%,$(OPERATING_SYSTEM))" ""
+    # Cygwin ist identisch mit Linux
+    include $(RELTOPDIR)/makefile.linux
+    EXE_SUFF := .exe
+    CXXFLAGS += -DDBJ_CYGWIN
+endif
+
+# set optimize/debug flags
+ifneq "$(DBJ_OPTIMIZE)" "true"
+CXXFLAGS += $(CXXDEBUGFLAGS)
+else
+CXXFLAGS += $(CXXOPTFLAGS) -DDBJ_OPTIMIZE
+LDFLAGS += $(LDOPTFLAGS)
+endif
+
+# export is needed to have the variables available in some Perl scripts
+export CXX
+export CPP
+export DIFF
+
+
+#========================================================================
+# miscellaneous variables
+#========================================================================
+
+LIBNAME := lib$(notdir $(CURDIR)).a
+OBJS := $(addsuffix .o,$(basename $(SOURCES)))
+ifeq "$(TEST_OBJS)" ""
+TEST_OBJS := $(patsubst %.cpp,%.o,$(TESTS))
+endif
+TEST_EXES := $(patsubst %.cpp,%$(EXE_SUFF),$(TESTS))
+
+DEPFILE := .make.dep
+DEPTESTSFILE := .make.tests.dep
+
+ifneq "$(VERBOSE)" "true"
+SILENT := @
+endif
+NOBREAK := -
+
+INDENT := $(shell perl -e 'for ($$i=0; $$i<$(MAKELEVEL);$$i++) \
+		{ print "    "; }')
+
+
+#========================================================================
+# external targets
+#========================================================================
+
+all:	lib
+
+obj:
+
+tests:
+
+#========================================================================
+# compile source files to object files (usually done in parallel)
+#========================================================================
+
+obj:	dep $(OBJS)
+
+%.o:	%.cpp
+	$(SILENT)$(ECHO) "$(INDENT)Compiling $< ..."
+	$(SILENT)$(CXX) $(CXXFLAGS) $(COPTS) $(COPTS_$(basename $@)) \
+		`perl -e 'print "$(SUPRESS_TEST_MSGS)" if "$(filter $@,$(TEST_OBJS))" ne "";'` \
+		$(INCFLAGS) -c -o $@ $<
+
+%.cpp:	$(INCDIR)/DbjErrorCodes.hpp
+
+$(INCDIR)/DbjErrorCodes.hpp: $(INCDIR)/.error_codes.new
+	$(SILENT)$(RELTOPDIR)/tools/copy_if_diff $< $@
+
+$(INCDIR)/.error_codes.new: $(RELTOPDIR)/support/DbjErrorMessages.hpp
+	$(SILENT)$(ECHO) "$(INDENT)Generating $(INCDIR)/DbjErrorCodes.hpp ..."
+	$(SILENT)$(RELTOPDIR)/tools/gen_errorcodes $< $@
+
+# force re-generation of DbjErrorCodes.hpp in case a .error file changed
+$(INCDIR)/.error_codes.new: $(wildcard $(RELTOPDIR)/*/*.error)
+
+# cancel out SCCS implicit rules
+%: SCCS/s.%
+
+
+#========================================================================
+# link object files into an archive named "lib<dirname>.a"
+#========================================================================
+
+lib:	$(LIBNAME)
+
+ifneq "$(OBJS)" ""
+$(LIBNAME): $(OBJS)
+	$(SILENT)$(ECHO) "$(INDENT)Building $@ ..."
+	$(SILENT)$(ARCHIVE) $@ $^
+else
+$(LIBNAME):
+endif
+
+
+#========================================================================
+# link test programs
+#========================================================================
+
+tests:	test_exe run_tests
+
+test_exe: dep $(TEST_OBJS) $(TEST_EXES)
+
+ifeq "$(LINK_REQUIRE_LIB_FIRST)" "true"
+define link-test-exe
+$(LD) $(LDFLAGS) -o $@ $(LDOPTS) $(LDOPTS_$(basename $@)) $(LIBNAME) $(RELTOPDIR)/support/libsupport.a $(basename $@).o
+endef
+else
+define link-test-exe
+$(LD) $(LDFLAGS) -o $@ $(basename $@).o $(LIBNAME) $(LDOPTS) $(LDOPTS_$(basename $@)) $(RELTOPDIR)/support/libsupport.a
+endef
+endif
+
+# Dependencies to code of test programs is handled in .make.tests.dep file
+$(TEST_EXES): $(LIBNAME) $(filter %.a,$(LDOPTS) $(LDOPTS_$(basename $@)))
+	$(SILENT)$(ECHO) "$(INDENT)Linking executable '$@' ..."
+	$(SILENT)$(link-test-exe)
+
+run_tests:
+	$(SILENT)$(RELTOPDIR)/tools/run_tests $(TESTDIR)
+
+
+#========================================================================
+# extract list of dependencies
+#========================================================================
+
+depend: dep
+
+dep: $(DEPFILE) $(DEPTESTSFILE)
+
+ifeq "$(filter clean info html_doc,$(MAKECMDGOALS))" ""
+-include $(DEPFILE)
+-include $(DEPTESTSFILE)
+endif
+
+$(DEPFILE): $(SOURCES) $(TESTS) $(INCDIR)/DbjErrorCodes.hpp
+	$(SILENT)$(REMOVE) $@.new
+	$(SILENT)$(TOUCH) $@.new
+	$(SILENT)makedepend $(INCFLAGS) -f $@.new -m $^ 2>/dev/null
+	$(SILENT)$(REMOVE) $(addsuffix .bak,$@)
+	$(SILENT)$(RELTOPDIR)/tools/copy_if_diff $@.new $@
+	$(SILENT)$(REMOVE) $@.new*
+
+$(DEPTESTSFILE): GNUmakefile
+	$(SILENT)$(REMOVE) $@.new
+	$(SILENT)$(TOUCH) $@.new
+	$(SILENT)for i in $(TEST_OBJS); do				\
+		exe=`$(ECHO) $$i | sed -e 's/\.o$$/$(EXE_SUFF)/'`;	\
+		$(ECHO) "$$exe: $$i" >> $@.new;				\
+	done
+	$(SILENT)$(RELTOPDIR)/tools/copy_if_diff $@.new $@
+	$(SILENT)$(REMOVE) $@.new
+
+
+#========================================================================
+# generate documentation
+#========================================================================
+
+doc:	html_doc zip_doc latex_doc
+
+html_doc: $(INCDIR)/DbjErrorCodes.hpp
+	$(SILENT)$(ECHO) "$(INDENT)Generating HTML documentation ..."
+	$(SILENT)cd $(RELTOPDIR) && \
+		doxygen Documentation/doxygen.html.cfg | \
+			$(GREP) "Warning" | xargs $(ECHO)
+
+zip_doc: dbj.html.zip
+
+dbj.html.zip: html_doc
+	$(SILENT)$(ECHO) "$(INDENT)Generating ZIP file with HTML documentation..."
+	$(SILENT)cd $(RELTOPDIR)/Documentation && zip -9rq -ll $@ html
+
+# we don't have LaTeX installed on the iibm08
+THIS_HOST := $(shell test -x /usr/bin/hostname && /usr/bin/hostname)
+ifneq "$(THIS_HOST)" "iibm08"
+latex_doc: $(INCDIR)/DbjErrorCodes.hpp
+	$(SILENT)$(ECHO) "$(INDENT)Generating LaTeX documentation ..."
+	$(SILENT)cd $(RELTOPDIR) && \
+		doxygen Documentation/doxygen.latex.cfg 1> /dev/null 2>&1
+	$(SILENT)$(RELTOPDIR)/tools/fix_latex_doc \
+		$(RELTOPDIR)/Documentation/latex/class_dbj_compiler.tex
+	$(SILENT)$(MAKE) -C $(RELTOPDIR)/Documentation/latex ps
+	$(SILENT)ps2pdf $(RELTOPDIR)/Documentation/latex/refman.ps \
+		$(RELTOPDIR)/Documentation/refman.pdf
+else
+latex_doc:
+endif
+
+
+#========================================================================
+# do some checks on the source code
+#========================================================================
+
+check_all: check_errors check_headers
+
+check_errors:
+	$(SILENT)$(RELTOPDIR)/tools/check_error_usage \
+		$(RELTOPDIR)/support/DbjErrorMessages.hpp $(RELTOPDIR) \
+		$(RELTOPDIR)/tools/error_usage.excludes
+
+HEADER_CMP := test_header-compile.cpp
+HEADER_FILES := $(wildcard *.hpp)
+ifeq "$(notdir $(shell pwd))" "support"
+    HEADER_FILES += $(wildcard $(INCDIR)/*.hpp)
+endif
+
+ifneq "$(HEADER_FILES)" ""
+check_headers: $(INCDIR)/DbjErrorCodes.hpp
+	$(SILENT)for i in $(HEADER_FILES); do \
+		$(ECHO) "    ==> Testing header file '$$i'"; \
+		$(ECHO) "#include \"$$i\"" > $(HEADER_CMP); \
+		$(CXX) $(CXXFLAGS) $(INCFLAGS) -c $(HEADER_CMP); \
+		if [ $$? -ne 0 ]; then \
+			break; \
+		fi; \
+	done
+	$(SILENT)$(REMOVE) *.o
+	$(SILENT)$(REMOVE) $(HEADER_CMP)
+else
+check_headers: $(INCDIR)/DbjErrorCodes.hpp
+endif
+
+
+#========================================================================
+# cleanup (executables, object files, temp files, archives)
+#========================================================================
+
+clean::
+	$(SILENT)$(ECHO) "Cleaning in directory '$(notdir $(CURDIR))'..."
+	$(SILENT)$(REMOVE) $(OBJS) $(INCDIR)/DbjErrorCodes.hpp $(LIBNAME)
+	$(SILENT)$(REMOVE) .make.dep* *.bak *.stackdump core
+	$(SILENT)$(REMOVE) -r $(TESTDIR)/run $(TESTDIR)/diff $(filter-out %.a,$(TEST_OBJS)) $(TEST_EXES)
+

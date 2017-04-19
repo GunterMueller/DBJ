@@ -1,0 +1,117 @@
+#!/usr/bin/perl -w
+#*************************************************************************
+#*                                                                       *
+#* (C) 2004-2005                                                         *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+require 5;
+use strict;
+
+# setze Umgebungsvariablen zurueck
+$ENV{DBJ_TRACE_FILE} = "";
+$ENV{DBJ_TRACE_MASK} = "";
+$ENV{DBJ_MEMORY_TRACK} = "";
+
+print "\n";
+print "#####################################################################\n";
+print " No tracing activated\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`test_trace 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Tracing activated (all components)\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`DBJ_TRACE_FILE=stdout test_trace 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Tracing activated (only RunTime component)\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`DBJ_TRACE_FILE=stdout DBJ_TRACE_MASK=runtime test_trace 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Tracing activated (only Support component)\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`DBJ_TRACE_FILE=stdout DBJ_TRACE_MASK=support test_trace 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Tracing activated (unused component)\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`DBJ_TRACE_FILE=stdout DBJ_TRACE_MASK=File DBJ_MEMORY_TRACK=stdout test_trace 2>&1`);
+
+print "\n";
+print "#####################################################################\n";
+print " Performance tracing activated\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`DBJ_PERF_FILE=stdout test_trace 2>&1`);
+
+#*************************************************************************
+# Schreibe maskierte und sortierte Ausgabe
+#*************************************************************************
+sub maskOutput
+{
+    local $_;
+    my @output = @_;
+
+    my $sort = 0;
+    my @unsortedRows = ( );
+
+    foreach (@output) {
+	# maskiere Laufzeiten
+	s/( calls in \d+\.)\d+( sec to)/$1**MASKED**$2/g;
+	# maskiere Parameter & Rueckgabe von Functionen
+	if ( /::/ ) {
+	    # es kann "static void *class::operator new(...)" sein
+	    s/(Function: |sec to function \"|^\s*)(\w[\w\*& ]+ )?(\w+::[\w ]+)\([^\)]*\)( const)?/$1$3()/;
+	}
+	else {
+	    s/(Function: |sec to function \"|^\s*)(\w[\w\*& ]+ )?(\w+)\([^\)]*\)( const)?/$1$3()/;
+	}
+
+	# sortiere Ausgabe von "Function timings:"
+	if ( $sort ) {
+	    if (  /^\s*$/ || /^\+/ || /^-/ ) {
+		# beende Aufsammeln der unsortierten Zeilen
+		$sort = 0;
+		print sort @unsortedRows;
+		@unsortedRows = ( );
+		print $_;
+	    }
+	    else {
+		if ( /^=========/ ) {
+		    print $_;
+		}
+		else {
+		    # sammle aktuelle Zeile zum Sortieren auf
+		    s/ +/ /g;
+		    push(@unsortedRows, $_);
+		}
+	    }
+	}
+	else {
+	    if ( /^Function timings:/ ) {
+		# schalte Sortieren ein
+		$sort = 1;
+	    }
+	    print $_;
+	}
+    }
+    print sort @unsortedRows if @unsortedRows > 0;
+}
+
+exit 0
+

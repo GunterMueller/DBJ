@@ -1,0 +1,170 @@
+#!/bin/perl -w
+#*************************************************************************
+#*                                                                       *
+#* (C) 2005                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+require 5;
+use strict;
+
+print "\n";
+print "Struktur des B-Baums\n";
+print "====================\n";
+print "\n";
+print "Wurzel: Knoten 1\n";
+print "Blaetter (von links nach rechts)\n";
+print "\n";
+print "   2 [-28, -24]\n";
+print "   3 [-13, 123]\n";
+print "   4 [124, 165]\n";
+print "  25 [166, 166]\n";
+print "   6 [167, <max>]\n";
+print "\n";
+
+print "\n";
+print "#####################################################################\n";
+print " B-Baum Iterator fuer Interval [5, 10].\n";
+print "#####################################################################\n";
+print "\n";
+print `test_btree-iter 5 10`;
+
+print "\n";
+print "#####################################################################\n";
+print " B-Baum Iterator fuer Punkt-Interval [200, 200].\n";
+print "#####################################################################\n";
+print "\n";
+print `test_btree-iter 200 200`;
+
+print "\n";
+print "#####################################################################\n";
+print " B-Baum Iterator fuer Punkt-Interval [166, 166].\n";
+print "#####################################################################\n";
+print "\n";
+print `test_btree-iter 166 166`;
+
+print "\n";
+print "#####################################################################\n";
+print " B-Baum Iterator fuer Interval [NULL, 13].\n";
+print "#####################################################################\n";
+print "\n";
+print `test_btree-iter NULL 13`;
+
+print "\n";
+print "#####################################################################\n";
+print " B-Baum Iterator fuer Interval [411, NULL].\n";
+print "#####################################################################\n";
+print "\n";
+print `test_btree-iter 411 NULL`;
+
+print "\n";
+print "#####################################################################\n";
+print " B-Baum Iterator fuer Interval [NULL, NULL].\n";
+print "#####################################################################\n";
+print "\n";
+print `test_btree-iter NULL NULL`;
+
+print "\n";
+print "#####################################################################\n";
+print " B-Baum Iterator fuer Interval [NULL, -30] (vor Daten).\n";
+print "#####################################################################\n";
+print "\n";
+print `test_btree-iter NULL -30`;
+
+print "\n";
+print "#####################################################################\n";
+print " B-Baum Iterator fuer Interval [-31, -29] (vor Daten).\n";
+print "#####################################################################\n";
+print "\n";
+print `test_btree-iter -31 -29`;
+
+print "\n";
+print "#####################################################################\n";
+print " B-Baum Iterator fuer Interval [-29, -27] (ueberlappend mit Beginn).\n";
+print "#####################################################################\n";
+print "\n";
+print `test_btree-iter -29 -27`;
+
+print "\n";
+print "#####################################################################\n";
+print " B-Baum Iterator fuer Interval [499, 508] (ueberlappend mit Ende).\n";
+print "#####################################################################\n";
+print "\n";
+print `test_btree-iter 499 508`;
+
+print "\n";
+print "#####################################################################\n";
+print " B-Baum Iterator fuer Interval [505, 506] (ueberlappend mit Ende).\n";
+print "#####################################################################\n";
+print "\n";
+print `test_btree-iter 505 506`;
+
+print "\n";
+print "#####################################################################\n";
+print " B-Baum Iterator fuer Interval [508, 509] (hinter Daten).\n";
+print "#####################################################################\n";
+print "\n";
+print `test_btree-iter 508 509`;
+
+print "\n";
+print "#####################################################################\n";
+print " B-Baum Iterator fuer Interval [700, NULL] (hinter Daten).\n";
+print "#####################################################################\n";
+print "\n";
+print `test_btree-iter 700 NULL`;
+
+print "\n";
+print "#####################################################################\n";
+print " B-Baum Iterator fuer Interval [-10, -12] (Fehler).\n";
+print "#####################################################################\n";
+print "\n";
+&maskOutput(`test_btree-iter -10 -12`);
+
+print "\n";
+print "#####################################################################\n";
+print " B-Baum Iterator fuer Interval [197, 202] (Duplikate).\n";
+print "#####################################################################\n";
+print "\n";
+print `test_btree-iter 197 202 0`;
+
+print "\n";
+print "#####################################################################\n";
+print " B-Baum Iterator fuer Interval [NULL, -26] (Duplikate).\n";
+print "#####################################################################\n";
+print "\n";
+print `test_btree-iter NULL -26 0`;
+
+print "\n";
+print "#####################################################################\n";
+print " B-Baum Iterator fuer Interval [143, 159] (keine Duplikate im Interval).\n";
+print "#####################################################################\n";
+print "\n";
+print `test_btree-iter 143 159 0`;
+
+print "\n";
+print "#####################################################################\n";
+print " B-Baum Iterator fuer Interval [158, 163] (in Luecke).\n";
+print "#####################################################################\n";
+print "\n";
+print `test_btree-iter 158 163 0`;
+
+#*************************************************************************
+# Schreibe maskierte Ausgabe
+#*************************************************************************
+sub maskOutput
+{
+    local $_;
+    my @output = @_;
+    foreach (@output) {
+        # Maskiere Fehlermeldung
+        s/(An invalid parameter value was detected\.).*$/$1/;
+        print $_;
+    }
+}
+
+exit 0
+

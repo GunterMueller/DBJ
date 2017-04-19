@@ -1,0 +1,17 @@
+
+#####################################################################
+ System starten
+#####################################################################
+
+The system could not be started successfully. SQLSTATE=SY000
+
+
+#####################################################################
+ Tabelle mit Index auf VARCHAR Daten anlegen und mit 100.000 Tupeln
+ befuellen
+#####################################################################
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+

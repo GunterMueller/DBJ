@@ -1,0 +1,90 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2004-2005                                                         *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+# Erfolgreiche Faelle
+echo
+echo "#####################################################################"
+echo " Success cases"
+echo "#####################################################################"
+echo
+# Spaltentypen wechseln zwischen VARCHAR/INT
+TEST_TAB="125:A" test_parser "INSERT INTO test_tab VALUES ( '1' )"
+TEST_TAB="3:A B" test_parser "INSERT INTO test_tab VALUES ( '1', 1 )"
+TEST_TAB="11:A B C D E F G H" test_parser "INSERT INTO test_tab VALUES ( '1', 1, 'abcdef', 1234567, 'some veryyyyyyyy looooooooooooooooooooong text', -123456789, '', NULL )"
+TEST_TAB="2:C1 C2 C3 C4 C5 C6 C7 C8 C9 C10" test_parser "INSERT INTO test_tab VALUES ( '', NULL, NULL, 1, NULL, NULL, '', NULL, NULL, 2 )"
+TEST_TAB="38:H I JKLMNO" test_parser "INSERT INTO test_tab VALUES ( '1', NULL, 'abc' ),( 'row 2', 12, 'row 2' ),('NULL', NULL, NULL),( 'last row', 4, '#####' ), ( 'really last row', 0, '')"
+
+# nicht-existierende Tabelle
+echo
+echo "#####################################################################"
+echo " Table does not exist"
+echo "#####################################################################"
+echo
+test_parser "INSERT INTO test_tab VALUES ( '1' )"
+
+# Tabelle hat andere Spaltenanzahl (auch multi-row Insert)
+echo
+echo "#####################################################################"
+echo " Table has different number of columns"
+echo "#####################################################################"
+echo
+TEST_TAB="1:A" test_parser "INSERT INTO test_tab VALUES ( '1', 1 )"
+TEST_TAB="2:A" test_parser "INSERT INTO test_tab VALUES ( '1', NULL )"
+TEST_TAB="3:A B C" test_parser "INSERT INTO test_tab VALUES ( '1', 1 )"
+TEST_TAB="4:A B C" test_parser "INSERT INTO test_tab VALUES ( '1', NULL )"
+TEST_TAB="5:X Y" test_parser "INSERT INTO test_tab VALUES ( '1', NULL, 'abc' ),( 'row 2', 12, 'row 2' ),(NULL, NULL, NULL),( 'last row', 4, NULL ), ( 'really last row', 0, '')"
+TEST_TAB="6:S T U V" test_parser "INSERT INTO test_tab VALUES ( '1', NULL, 'abc' ),( 'row 2', 12, 'row 2' ),(NULL, NULL, NULL),( 'last row', 4, NULL ), ( 'really last row', 0, '')"
+
+# Tabelle hat andere Datentypen
+echo
+echo "#####################################################################"
+echo " Table has different data types than given data"
+echo "#####################################################################"
+echo
+TEST_TAB="1:E R T" test_parser "INSERT INTO test_tab VALUES ( 1, 1, '' )"
+TEST_TAB="2:MNB TZU" test_parser "INSERT INTO test_tab VALUES ( NULL, 'NULL' )"
+
+# Multi-row Insert mit unterschiedlichen Datentypen in den Werten
+echo
+echo "#####################################################################"
+echo " Differences in rows of a multi-row insert"
+echo "#####################################################################"
+echo
+TEST_TAB="11:ASDF GHJK QWER" test_parser "INSERT INTO test_tab VALUES ( '1', 1, 'text' ),(1, 1, '')"
+TEST_TAB="12:ASDF GHJK QWER" test_parser "INSERT INTO test_tab VALUES ( '1', 1, 'text' ),('1',1,'', 12)"
+TEST_TAB="13:ASDF GHJK QWER" test_parser "INSERT INTO test_tab VALUES ( '1', 1, 'text' ),('1',1,''),('text1',89,'text2'),('',56,'',null)"
+TEST_TAB="14:ASDF GHJK QWER" test_parser "INSERT INTO test_tab VALUES ( '1', 1, 'text' ),('1',1,''),('text1',89,'text2'),('',56,'',null),('abc',0,'###')"
+
+echo
+echo "#####################################################################"
+echo " Inserting NULL into NOT NULL columns"
+echo "#####################################################################"
+echo
+T="1:A B C" test_parser "INSERT INTO t VALUES ( NULL, 1, '' )"
+T="1:A B C D" test_parser "INSERT INTO t VALUES ( '', 1, '', NULL )"
+T="1:A B C D" test_parser "INSERT INTO t VALUES ( '0', 1, '2', 3 ), (NULL,1,'',2)"
+
+# Syntaxfehler
+echo
+echo "#####################################################################"
+echo " Syntax error"
+echo "#####################################################################"
+echo
+test_parser "INSERT INTO test_tab VALUES ( '1', 12345678901234567890)"
+test_parser "INSERT INTO test_tab VALUES ( '1, 1234567890)"
+test_parser "INSERT INTO test_tab VALUES ('',0),('',1)('',2)"
+test_parser "INSERT INT test_tab VALUES ('',0),('',1)"
+test_parser "INSERT INTO 1234 VALUES ('',0),('',1)"
+test_parser "INSERT INTO test_tab VALUES (('&&&',0))"
+test_parser "INSERT INTO INSERT VALUES ('',0)"
+
+exit 0
+

@@ -1,0 +1,61 @@
+
+#####################################################################
+ Einzelne Tabelle ohne Indexe
+#####################################################################
+
+Query: drop table xyz
+Access plan:
+==================================================
+DropTableStmt
+  |
+Table ('XYZ'/1)
+==================================================
+Optimized-Access plan:
+==================================================
+DropTableStmt
+  |
+Table ('XYZ'/1)
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Weitere Indexe auf der Tabelle
+#####################################################################
+
+Query: drop table tab1
+Access plan:
+==================================================
+DropTableStmt
+  |
+Table ('TAB1'/156)
+==================================================
+Optimized-Access plan:
+==================================================
+DropTableStmt
+  |
+Table ('TAB1'/156) - Index (5)
+==================================================
+
+The operation was completed successfully.
+
+
+Query: drop table tab1
+Access plan:
+==================================================
+DropTableStmt
+  |
+Table ('TAB1'/1)
+==================================================
+Optimized-Access plan:
+==================================================
+DropTableStmt
+  |
+Table ('TAB1'/1) - Index (1) - Index (29) - Index (36) - Index (4)
+==================================================
+
+The operation was completed successfully.
+
+

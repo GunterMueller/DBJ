@@ -1,0 +1,104 @@
+
+#####################################################################
+ Plan bleibt unveraendert
+#####################################################################
+
+Query: create table xyz ( abc int, def int, ghi varchar(500) )
+Access plan:
+==================================================
+CreateTableStmt
+  |
+Table ('XYZ')
+  |
+Column ('ABC') - Column ('DEF') - Column ('GHI')
+  |                |                |
+  |                |              DataType ('VARCHAR'/500)
+  |                |              
+  |              DataType ('INTEGER')
+  |              
+DataType ('INTEGER')
+==================================================
+Optimized-Access plan:
+==================================================
+CreateTableStmt
+  |
+Table ('XYZ')
+  |
+Column ('ABC') - Column ('DEF') - Column ('GHI')
+  |                |                |
+  |                |              DataType ('VARCHAR'/500)
+  |                |              
+  |              DataType ('INTEGER')
+  |              
+DataType ('INTEGER')
+==================================================
+
+The operation was completed successfully.
+
+
+Query: create table xyz ( abc int not null, def int not null, ghi varchar(500) )
+Access plan:
+==================================================
+CreateTableStmt
+  |
+Table ('XYZ')
+  |
+Column ('ABC') - Column ('DEF') - Column ('GHI')
+  |                |                |
+  |                |              DataType ('VARCHAR'/500)
+  |                |              
+  |              DataType ('INTEGER') - NotNullOption
+  |              
+DataType ('INTEGER') - NotNullOption
+==================================================
+Optimized-Access plan:
+==================================================
+CreateTableStmt
+  |
+Table ('XYZ')
+  |
+Column ('ABC') - Column ('DEF') - Column ('GHI')
+  |                |                |
+  |                |              DataType ('VARCHAR'/500)
+  |                |              
+  |              DataType ('INTEGER') - NotNullOption
+  |              
+DataType ('INTEGER') - NotNullOption
+==================================================
+
+The operation was completed successfully.
+
+
+Query: create table xyz ( abc int not null, def int not null, ghi varchar(500), primary key (abc) )
+Access plan:
+==================================================
+CreateTableStmt
+  |
+Table ('XYZ') - Column ('ABC')
+  |             
+Column ('ABC') - Column ('DEF') - Column ('GHI')
+  |                |                |
+  |                |              DataType ('VARCHAR'/500)
+  |                |              
+  |              DataType ('INTEGER') - NotNullOption
+  |              
+DataType ('INTEGER') - NotNullOption
+==================================================
+Optimized-Access plan:
+==================================================
+CreateTableStmt
+  |
+Table ('XYZ') - Column ('ABC')
+  |             
+Column ('ABC') - Column ('DEF') - Column ('GHI')
+  |                |                |
+  |                |              DataType ('VARCHAR'/500)
+  |                |              
+  |              DataType ('INTEGER') - NotNullOption
+  |              
+DataType ('INTEGER') - NotNullOption
+==================================================
+
+The operation was completed successfully.
+
+

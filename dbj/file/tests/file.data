@@ -1,0 +1,29 @@
+#include <iostream.h>
+#include <fstream.h>
+#include <stdio.h>
+using namespace std;
+
+void exists(char* file){
+    fstream fs;
+    fs.open(file,fstream::in);
+    if(!fs){
+	cout << "Datei existiert nicht";
+    }
+    else {cout << "Datei existiert";}
+}
+
+void remov(char* file){
+    if(remove(file)==-1) {
+	cout << "Datei kann nicht geloescht werden!";
+    }
+}
+
+int main ()
+{
+//    fstream fs;
+//    fs.open("test.txt",fstream::trunc);
+    exists("test2.txt");
+    remov("test.txt");
+        cout << "Hallo Welten\n";
+	return 0;
+}

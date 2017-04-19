@@ -1,0 +1,46 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2005                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " Largest Free Block aendert sich"
+echo "#####################################################################"
+echo
+cat > stmt.rm <<EOF
+insert 1 1000
+insert 1 1000
+insert 1 1500
+dump 1
+delete 1 1 1
+dump 1
+update 1 1 0 1800
+dump 1
+EOF
+test_record stmt.rm
+rm Page*.dbj
+
+cat > stmt.rm <<EOF
+insert 1 1000
+insert 1 1000
+insert 1 1500
+dump 1
+delete 1 1 1
+dump 1
+update 1 1 0 2100
+dump 1
+EOF
+test_record stmt.rm
+rm Page*.dbj
+
+rm stmt.rm
+
+exit 0
+

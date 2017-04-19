@@ -1,0 +1,205 @@
+
+#####################################################################
+ Success cases
+#####################################################################
+
+Validated access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TEST_TAB'/125)
+  |       
+Row
+  |
+VarcharValue ('1')
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TEST_TAB'/3)
+  |       
+Row
+  |
+VarcharValue ('1') - IntegerValue (1)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TEST_TAB'/11)
+  |       
+Row
+  |
+VarcharValue ('1') - IntegerValue (1) - VarcharValue ('abcdef') - IntegerValue (1234567) - VarcharValue ('some veryyyyyyyy looooooooooooooooooooong text') - IntegerValue (-123456789) - VarcharValue ('') - NullValue
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TEST_TAB'/2)
+  |       
+Row
+  |
+VarcharValue ('') - NullValue - NullValue - IntegerValue (1) - NullValue - NullValue - VarcharValue ('') - NullValue - NullValue - IntegerValue (2)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+InsertStmt
+  |
+Sources - Table ('TEST_TAB'/38)
+  |       
+Row - Row - Row - Row - Row
+  |     |     |     |     |
+  |     |     |     |   VarcharValue ('really last row') - IntegerValue (0) - VarcharValue ('')
+  |     |     |     |   
+  |     |     |   VarcharValue ('last row') - IntegerValue (4) - VarcharValue ('#####')
+  |     |     |   
+  |     |   VarcharValue ('NULL') - NullValue - NullValue
+  |     |   
+  |   VarcharValue ('row 2') - IntegerValue (12) - VarcharValue ('row 2')
+  |   
+VarcharValue ('1') - NullValue - VarcharValue ('abc')
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Table does not exist
+#####################################################################
+
+
+A table named 'TEST_TAB' does not exist.
+
+
+
+#####################################################################
+ Table has different number of columns
+#####################################################################
+
+
+The row 1 cannot be inserted into table 'TEST_TAB'.  It has 2 columns, but the table is defined with 1 columns.
+
+
+
+The row 1 cannot be inserted into table 'TEST_TAB'.  It has 2 columns, but the table is defined with 1 columns.
+
+
+
+The row 1 cannot be inserted into table 'TEST_TAB'.  It has 2 columns, but the table is defined with 3 columns.
+
+
+
+The row 1 cannot be inserted into table 'TEST_TAB'.  It has 2 columns, but the table is defined with 3 columns.
+
+
+
+The row 1 cannot be inserted into table 'TEST_TAB'.  It has 3 columns, but the table is defined with 2 columns.
+
+
+
+The row 1 cannot be inserted into table 'TEST_TAB'.  It has 3 columns, but the table is defined with 4 columns.
+
+
+
+#####################################################################
+ Table has different data types than given data
+#####################################################################
+
+
+The value of column 'E' of row 1 cannot be inserted into table 'TEST_TAB' because the types do not match.  The column in the table is of type VARCHAR, and the value to be inserted is of type INTEGER.
+
+
+
+The column 'MNB' of table 'TEST_TAB' does not allow NULLs.
+
+
+
+#####################################################################
+ Differences in rows of a multi-row insert
+#####################################################################
+
+
+The value of column 'ASDF' of row 2 cannot be inserted into table 'TEST_TAB' because the types do not match.  The column in the table is of type VARCHAR, and the value to be inserted is of type INTEGER.
+
+
+
+The row 2 cannot be inserted into table 'TEST_TAB'.  It has 4 columns, but the table is defined with 3 columns.
+
+
+
+The row 4 cannot be inserted into table 'TEST_TAB'.  It has 4 columns, but the table is defined with 3 columns.
+
+
+
+The row 4 cannot be inserted into table 'TEST_TAB'.  It has 4 columns, but the table is defined with 3 columns.
+
+
+
+#####################################################################
+ Inserting NULL into NOT NULL columns
+#####################################################################
+
+
+The column 'A' of table 'T' does not allow NULLs.
+
+
+
+The column 'D' of table 'T' does not allow NULLs.
+
+
+
+The column 'A' of table 'T' does not allow NULLs.
+
+
+
+#####################################################################
+ Syntax error
+#####################################################################
+
+
+An invalid number was encountered at "901234567890)".
+
+
+
+An unterminated string was encountered at "1, 1234567890)".
+
+
+
+A parsing error "syntax error" occured in statement "INSERT INTO test_tab VALUES ('',0),('',1)('',2)".  Parsing stopped after token "('',0),('',1)('',2)" at the beginning of "'',2)".
+
+
+
+A parsing error "syntax error" occured in statement "INSERT INT test_tab VALUES ('',0),('',1)".  Parsing stopped after token "INT test_tab VALUES ('',0),('',1)" at the beginning of " test_tab VALUES ('',0),('',1)".
+
+
+
+A parsing error "syntax error" occured in statement "INSERT INTO 1234 VALUES ('',0),('',1)".  Parsing stopped after token "1234 VALUES ('',0),('',1)" at the beginning of " VALUES ('',0),('',1)".
+
+
+
+A parsing error "syntax error" occured in statement "INSERT INTO test_tab VALUES (('&&&',0))".  Parsing stopped after token "(('&&&',0))" at the beginning of "'&&&',0))".
+
+
+
+A parsing error "syntax error" occured in statement "INSERT INTO INSERT VALUES ('',0)".  Parsing stopped after token "INSERT VALUES ('',0)" at the beginning of " VALUES ('',0)".
+
+

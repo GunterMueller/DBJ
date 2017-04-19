@@ -1,0 +1,198 @@
+#!/usr/bin/perl -w
+
+#************************************************************************
+#
+# (C) 2004
+# Lehrstuhl fuer Datenbanken und Informationssysteme
+# Friedrich-Schiller-Universitaet Jena
+# Ernst-Abbe-Platz 1-2
+# 07745 Jena
+#
+#************************************************************************
+#************************************************************************
+#
+# Dieses Skript wird dazu verwendet, um die Fehlercodes aus der Datei
+# support/DbjErrorMessages.hpp zu extrahieren und eine konsistente
+# Header-Datei include/DbjErrorCodes zu generieren.  Bei der
+# Definition von Fehlermeldungen sind die Richtlinien fuer die Struktur
+# "errorMessages" zu beachten!
+#
+# Benutzung:
+#
+#     gen_errorcodes <error-messages-file> <error-codes-file>
+#
+#************************************************************************
+
+require 5;
+use strict;
+
+#************************************************************************
+#
+# Main routine
+#
+#************************************************************************
+
+my $debug = (exists $ENV{DBJ_DEBUG} && $ENV{DBJ_DEBUG} eq "true") ? 1 : 0;
+
+# list of error codes collected from prepped DbjErrorMessages.hpp
+my @errorCodes = ( );
+
+my ($messagesFile, $codesFile) = &parseArguments();
+&readErrorMessages($messagesFile);
+&writeErrorCodes($codesFile);
+
+
+#************************************************************************
+#
+# get the file names of source/target from the arguments
+#
+#************************************************************************
+sub parseArguments()
+{
+    my $messagesFile = "";
+    my $codesFile = "";
+    local $_;
+
+    # 2 filenames must be given
+    die "Usage: $0 <error-messages-file> <error-codes-file>\n\n"
+	unless @ARGV == 2;
+
+    # check error messages file and that we can read it
+    $messagesFile = shift(@ARGV);
+    die "Cannot read error message file '$messagesFile'.\n"
+        unless -r $messagesFile;
+
+    $codesFile = shift(@ARGV);
+
+    return ($messagesFile, $codesFile);
+}
+
+#************************************************************************
+#
+# parse DbjErrorMessages and extract the error codes
+#
+#************************************************************************
+sub readErrorMessages()
+{
+    my $messagesFile = shift;
+    local $_;
+
+    die "No preprocessor specified\n" unless $ENV{CPP};
+
+    my @preppedFile = `$ENV{CPP} -DDBJ_PREP_ERRORCODES $messagesFile`;
+    if ( $debug ) {
+	print "Precompiled messages file:\n";
+	print "==========================\n";
+	print @preppedFile;
+	print "==========================\n";
+    }
+
+    my $source = "";
+    foreach (@preppedFile) {
+	# extract the name of the current source file being processed
+	($source = $1) if /^#\s*\d+\s+(.*)/;
+
+	# skip lines with no messages
+	next unless /^\s*\{/;
+
+	# extract the error code and verify that it starts with "DBJ_"
+	die "Invalid error code found in file '$source', line '$_'."
+	    unless /\{\s*(DBJ_\w+)/;
+	my $errorCode = $1;
+
+	# forbid duplicate error codes
+	die "The error code '$errorCode' was defined twice."
+	    if grep(/^$errorCode$/, @errorCodes);
+
+	# add the error code to our list
+	push(@errorCodes, $errorCode) if $errorCode ne "DBJ_SUCCESS";
+    }
+
+    if ( $debug ) {
+	print "List of error codes:\n";
+	foreach (sort @errorCodes) {
+	    print "    => $_\n";
+	}
+    }
+}
+
+
+#************************************************************************
+#
+# write error codes to DbjErrorCodes.hpp
+#
+#************************************************************************
+sub writeErrorCodes()
+{
+    my $file = shift;
+    local $_;
+
+    # open the file
+    unlink $file;
+    open(FILE, ">$file") || die "Could not open file '$file' for " .
+	"writing."; 
+    if ( ! $debug ) {
+	select(FILE);
+    }
+
+    # entferne Verzeichnisse von Dateinamen und konstruiere Macro
+    $file = $1 if $file =~ m|/([^/]+)$|;
+    (my $includeMacro = "__" . $file . "__") =~ tr/\./_/;
+
+    # write the header of the file
+    print "/**********************************************************************\\\n";
+    print " *                                                                    *\n";
+    print " * (C) 2004                                                           *\n";
+    print " * Lehrstuhl fuer Datnbanken und Informationssysteme                 *\n";
+    print " * Friedrich-Schiller-Universitaet Jena                               *\n";
+    print " * Ernst-Abbe-Platz 1-2                                               *\n";
+    print " * 07745 Jena                                                         *\n";
+    print " *                                                                    *\n";
+    print "\\**********************************************************************/\n";
+    print "/**********************************************************************\\\n";
+    print " *                                                                    *\n";
+    printf(" * Filename: %-55s  *\n", $file);
+    print " *                                                                    *\n";
+    print " * THIS FILE IS GENERATED AUTOMATICALLY - DON'T TOUCH IT!!!           *\n";
+    print " *                                                                    *\n";
+    print " * Purpose:                                                           *\n";
+    printf(" *   %-64s *\n", $file . " is the header file containing all error codes");
+    print " *   For more details on the actual error messages, see the file      *\n";
+    print " *   'support/DbjErrorMessages.hpp'.                                  *\n";
+    print " *                                                                    *\n";
+    print "\\**********************************************************************/\n";
+    print "\n";
+    print "#if !defined($includeMacro)\n";
+    print "#define $includeMacro\n";
+    print "\n\n";
+    print "/** Fehlercodes.\n";
+    print " *\n";
+    print " * Diese Enumeration spezifiziert <i>alle</i> moeglichen Fehlercodes\n";
+    print " * des gesamten Datenbanksystems.  Keine anderen Fehlercodes\n";
+    print " * duerfen verwendet werden!\n";
+    print " *\n";
+    print " * Jede Komponente muss einen eigenen Header definieren, der die\n";
+    print " * entsprechenden Fehlermeldungen spezifiziert.  Der Header muss in\n";
+    print " * 'support/DbjErrorMessages.hpp' eingebunden werden.\n";
+    print " */\n";
+    print "enum DbjErrorCode {\n";
+
+    my $count = 1;
+    printf("    %-50s = %5d,\n", "DBJ_SUCCESS", 0);
+    foreach (@errorCodes) {
+	printf("    %-50s = %+5d%s\n", $_,
+	       ($_ =~ /_WARN/ ? "+" : "-") . "$count",
+	       $count == @errorCodes ? "" : ",");
+	$count++;
+    }
+
+    # write footer of the file
+    print "};\n";
+    print "\n";
+    print "#endif /* $includeMacro */\n";
+    print "\n";
+
+    select(STDOUT);
+    close(FILE);
+}
+

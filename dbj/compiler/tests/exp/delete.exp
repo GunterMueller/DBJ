@@ -1,0 +1,375 @@
+
+#####################################################################
+ Success cases
+#####################################################################
+
+Validated access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB'/1)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB'/2) [Correlation name: t]
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB'/3)
+  |       
+WhereClause - Predicate
+                |
+              IntegerValue (1) - Comparison ('=') - IntegerValue (0)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB'/4) [Correlation name: t]
+  |       
+WhereClause - Predicate
+                |
+              IntegerValue (1) - Comparison ('=') - IntegerValue (0)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB'/5) [Correlation name: t]
+  |       
+WhereClause - Predicate
+                |
+              Column ('COL1'/2) - Comparison ('=') - VarcharValue ('abc')
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB'/5) [Correlation name: t]
+  |       
+WhereClause - Predicate
+                |
+              Column ('COL1'/1) - Comparison ('=') - IntegerValue (12345)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB'/6) [Correlation name: t]
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Column ('COL2'/1) - Comparison ('=') - IntegerValue (123)
+                |         
+              Column ('COL1'/2) - Comparison ('=') - VarcharValue ('abc')
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB'/7) [Correlation name: t]
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('OR') - Predicate
+                |                               |                              |
+                |                               |                            Column ('COL3'/2) - Comparison ('<>') - NullValue
+                |                               |         
+                |                             Column ('COL2'/3) - Comparison ('=') - IntegerValue (123)
+                |         
+              Column ('COL1'/1) - Comparison ('=') - NullValue
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB'/8)
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Predicate - LogicalOp ('OR') - Predicate
+                |                               |                              |
+                |                               |                            Predicate
+                |                               |                              |
+                |                               |                            Column ('COL3'/2) - Comparison ('<>') - NullValue
+                |                               |         
+                |                             Column ('COL2'/3) - Comparison ('=') - IntegerValue (123)
+                |         
+              Predicate
+                |
+              Predicate
+                |
+              Column ('COL1'/1) - Comparison ('=') - NullValue
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB'/9) [Correlation name: t]
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('AND') - Predicate
+                |                               |                               |                               |
+                |                               |                               |                             Predicate
+                |                               |                               |                               |
+                |                               |                               |                             Column ('COL3'/2) - Comparison ('<>') - NullValue
+                |                               |                               |         
+                |                               |                             Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('OR') - Predicate
+                |                               |                               |                              |                              |
+                |                               |                               |                              |                            Column ('COL2'/3) - Comparison ('=') - IntegerValue (32)
+                |                               |                               |                              |         
+                |                               |                               |                            Column ('COL2'/3) - Comparison ('=') - IntegerValue (0)
+                |                               |                               |         
+                |                               |                             Column ('COL2'/3) - Comparison ('=') - IntegerValue (123)
+                |                               |         
+                |                             IntegerValue (1) - Comparison ('=') - IntegerValue (0)
+                |         
+              Predicate
+                |
+              Predicate
+                |
+              Column ('COL1'/1) - Comparison ('=') - NullValue
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T1'/2) [Correlation name: t2]
+  |       
+WhereClause - Predicate
+                |
+              Predicate
+                |
+              Predicate
+                |
+              Column ('COL1'/1) [Correlation name: t2] - Comparison ('=') - IntegerValue (123)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T1'/2) [Correlation name: t2]
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('AND') - Predicate
+                |                               |                               |                               |
+                |                               |                               |                             Column ('COL01'/5) - Comparison ('=') - IntegerValue (5)
+                |                               |                               |         
+                |                               |                             Column ('COL3'/3) - Comparison ('=') - IntegerValue (1928)
+                |                               |         
+                |                             Predicate - LogicalOp ('OR') - Predicate
+                |                               |                              |
+                |                               |                            Column ('COL2'/2) - Comparison ('=') - VarcharValue ('text')
+                |                               |         
+                |                             Column ('COL2'/2) [Correlation name: t2] - Comparison ('<>') - NullValue
+                |         
+              Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('OR') - Predicate
+                |                               |                              |
+                |                               |                            Column ('COL2'/2) - Comparison ('=') - NullValue
+                |                               |         
+                |                             Column ('COL1'/1) [Correlation name: t2] - Comparison ('=') - IntegerValue (0)
+                |         
+              Predicate
+                |
+              Column ('COL1'/1) [Correlation name: t2] - Comparison ('=') - IntegerValue (123)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('T'/2)
+  |       
+WhereClause - Predicate
+                |
+              Column ('COL1'/2) - Comparison ('<>') - Column ('COL2'/4)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB'/10)
+  |       
+WhereClause - Predicate
+                |
+              Predicate
+                |
+              Column ('A'/2) - Comparison ('=') - Column ('B'/2)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+DeleteStmt
+  |
+Sources - Table ('TAB'/10)
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Negation - Predicate
+                |                                         |
+                |                                       Predicate - LogicalOp ('AND') - Predicate
+                |                                         |                               |
+                |                                         |                             Column ('COL2'/1) - Comparison ('<=') - IntegerValue (7)
+                |                                         |         
+                |                                       Column ('COL2'/1) - Comparison ('>=') - IntegerValue (5)
+                |         
+              Predicate - LogicalOp ('AND') - Predicate
+                |                               |
+                |                             Column ('COL1'/0) - Comparison ('<=') - VarcharValue ('z')
+                |         
+              Column ('COL1'/0) - Comparison ('>=') - VarcharValue ('a')
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Type mismatch in predicates
+#####################################################################
+
+
+The predicate 'COL1 = 123' is not valid because it compares values of two different types.
+
+
+
+The predicate 'COL1 = 123' is not valid because it compares values of two different types.
+
+
+
+The predicate 'COL1 = 123' is not valid because it compares values of two different types.
+
+
+
+The predicate 'COL1 = string' is not valid because it compares values of two different types.
+
+
+
+The predicate 'COL2 = text' is not valid because it compares values of two different types.
+
+
+
+The predicate 'COL1 <> 567' is not valid because it compares values of two different types.
+
+
+
+The predicate 'COL2 = COL3' is not valid because it compares values of two different types.
+
+
+
+#####################################################################
+ Table does not exist
+#####################################################################
+
+
+A table named 'T' does not exist.
+
+
+
+A table named 'T' does not exist.
+
+
+
+#####################################################################
+ Column does not exist
+#####################################################################
+
+
+A column named 'COL1' does not exist in any of the tables in the SQL statement.
+
+
+
+A column named 'COL1' does not exist in any of the tables in the SQL statement.
+
+
+
+A column named 'COL01' does not exist in any of the tables in the SQL statement.
+
+
+
+#####################################################################
+ Syntax errors
+#####################################################################
+
+
+An incomplete or invalid statement was entered.  "DELETE FROM tab t"
+
+
+
+A parsing error "syntax error" occured in statement "DELETE FROM tab t WHERE a = b".  Parsing stopped after token "t WHERE a = b" at the beginning of " WHERE a = b".
+
+
+
+An unknown token was encountered in the statement, beginning at "!= b".
+
+
+
+A parsing error "syntax error" occured in statement "DELETE FROM tab WHERE a = b is not null".  Parsing stopped after token "is not null" at the beginning of " not null".
+
+
+
+A parsing error "syntax error" occured in statement "DELETE FROM tab WHERE (a = ()b))".  Parsing stopped after token "()b))" at the beginning of "b))".
+
+
+
+A parsing error "syntax error" occured in statement "DELETE FROM WHERE (a = ()b))".  Parsing stopped after token "WHERE (a = ()b))" at the beginning of " (a = ()b))".
+
+
+
+A parsing error "syntax error" occured in statement "DELETE FRO t WHERE a = b".  Parsing stopped after token "FRO t WHERE a = b" at the beginning of " t WHERE a = b".
+
+

@@ -1,0 +1,45 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2005                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " Commit"
+echo "#####################################################################"
+echo
+cat > stmt.rm <<EOF
+commit
+EOF
+test_record stmt.rm
+
+echo
+echo "#####################################################################"
+echo " Rollback"
+echo "#####################################################################"
+echo
+cat > stmt.rm <<EOF
+rollback
+EOF
+test_record stmt.rm
+
+cat > stmt.rm <<EOF
+commit
+commit
+rollback
+commit
+rollback
+rollback
+EOF
+test_record stmt.rm
+
+rm stmt.rm
+
+exit 0
+

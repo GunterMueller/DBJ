@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+    <title>Jenas Datenbanksystem &apos;System J&apos; - C++</title>
+</head>
+<body>
+
+<center>
+<h1>System J - C++</h1>
+</center>
+
+<h3>Einf&uuml;hrung und Literatur zu C++</h3>
+
+<ul>
+<li><a href="http://ladedu.com/cpp/">Einführung in C++</a></li>
+<li><a href="http://www.ica1.uni-stuttgart.de/Courses_and_Lectures/C++/script/">
+    Eine Einführung in C++ und Entwicklungsumgebungen</a> (Uni Stuttgart)</li>
+<li>Eine umfassende <a href="http://static.sws.bfh.ch/skripte/CPP-Script-V2.6.pdf">
+    Einführung in C++ und objekt-orientierte Programmierung</a> (PDF)</li>
+</ul>
+
+<h3>Coding Standards</h3>
+
+<table width="100%" border="1">
+<tr><td>Variable, Funktionen und Methoden erhalten immer <i>sprechende</i>
+        Namen.
+        <ul>
+	<li>Es besteht <b>kein</b> Grund irgendwas unverständlich
+	    abzukürzen.</li>
+	</ul></td></tr>
+<tr><td>Namensgebung und Klein- und Gro&szlig;schreibung:
+        <ul>
+	<li><b>Namen von Klassen/Strukturen</b> beginnen grunds&auml;tzlich
+        mit "Dbj", es sei denn die Klasse bzw. Struktur ist in eine andere
+        Dbj-Klasse geschachtelt.  Es werden keine Unterstriche in den Namen
+        verwendet.  Neue Worte werden jeweils mit einem Gro&szlig;buchstaben
+        begonnen, z.B. "DbjCatalogManager" (und nicht
+        dbj_catalog_manager).</li>
+	<li><b>Namen von Methoden</b> beginnen immer mit einem
+        Kleinbuchstaben.  Vorzugsweise ist das erste Wort im Namen ein Verb.
+        Bestandteile des Namens werden durch einen gro&szlig;en Buchstabe fuer
+        den n&auml;chsten Teil getrennt, z.B. "getFreeSpaceMap" (und nicht
+        "get_free_space_map").</li>
+	<li><b>Variablennamen</b> folgen prinzipiell den gleichen Festlegungen
+        wie fuer Methodennamen.</li>
+	<li><b>Datentypen</b> werden genau wie Klassen und Strukturen
+        behandelt.</li>
+	</ul>
+	Hinweis: Diese Festlegungen entsprechen im Wesentlichen den Coding
+        Guidelines f&uuml;r Java-Programme.
+	</td></tr>
+<tr><td>Alle Members von Klassen und jede Funktion <b>müssen</b> in den
+        Header-Dateien dokumentiert werden.  Die Dokumentation wird
+        automatisch mit <a href="http://www.doxygen.org/">Doxygen</a>
+        korrigiert, und diese Generation darf keine Warnungen oder Fehler
+        verursachen.</td></tr>
+<tr><td>Tracing muss in allen Funktionen und Methoden verwendet werden.
+        Folgendes ist dabei zu beachten:
+        <ul>
+	<li>Das Makro <tt>DBJ_TRACE_ENTRY</tt> muss am Beginn einer jeden
+            Funktion/Methode gesetzt sein.</li>
+	<li>Die Makros <tt>DBJ_TRACE_DATA*</tt>, <tt>DBJ_TRACE_NUMBER</tt>
+            oder <tt>DBJ_TRACE_STRING</tt> sind zu verwenden, wenn wichtige
+            Daten ins Trace geschrieben werden sollen.</li>
+        </ul>
+	Im gesamten Quelltext (ausser in den Testprogrammen) d&uuml;rfen keine
+        Ein- oder Ausgaben auf Standard-Out oder Standard-Error
+        erfolgen.</td></tr>
+<tr><td>Alle Blöcke direkt nach <tt>if</tt>, <tt>while</tt> oder <tt>for</tt>
+        müssen mit <tt>{ ... }</tt> geklammert werden.  Dies gilt selbst dann,
+        wenn nur eine eintelne Anweisung in dem Block vorkommt.</td></tr>
+<tr><td>Es dürfen keine C-Style Casts verwendet werden.  In den meisten Fällen
+        sind Casts ein Zeichen von Programmierfehlern.  Wenn Casts benötigt
+	werden, so sind folgende einzusetzen:
+	<table align="center" border="1">
+	<tr><td><tt><b>static_cast</b></tt></td>
+	    <td>kann für die meisten Casts verwendet werden, wenn die beiden
+	        Typen (Quelle und Ziel) kompatibel sind.  Der Compiler kann
+		dies weitgehend überprüfen.</td></tr>
+	<tr><td><tt><b>reinterpret_cast</b></tt></td>
+	    <td>ist für inkompatible Datentypen zu verwenden; wird aber fast
+	        nie benötigt.</td></tr>
+	<tr><td><tt><b>const_cast</b></tt></td>
+	    <td>zum Entfernen von <tt>const</tt> eines Datentypen.</td></tr>
+	</table>
+	</td></tr>
+<tr><td>Verwendet <tt>const</tt> und <tt>static</tt> wo es möglich und
+        sinnvoll ist.  Damit kann der Compiler mehr statische Überprüfungen
+        beim Übersetzen vornehmen.</td></tr>
+<tr><td>Setzt Referenzen anstatt Zeiger-auf-Zeigern ein.  Der Code wird
+        verständlicher und damit einfacher wartbar.  Referenzen sind in der
+        Signatur der jeweiligen Funktion/Methode durch <tt>&amp;</tt>
+        erkenntlich.</td></tr>
+<tr><td>Strukturen/Klassenobjekte können und sollten auch per Referenz
+        übergeben werden, wenn sie nicht NULL (Null-Zeiger) sein
+        können/dürfen.  Soll die Struktur in der gerufenen Funktion nicht
+        geändert werden, so verwendet <tt>const</tt>.</td></tr>
+<tr><td>Alle Klassennamen und Funktionen müssen das Präfix "Dbj" tragen.
+        <ul>
+	<li>In der Praxis hat oft sogar jede Komponente sein eigenes
+	    Präfix.</li>
+	</ul></td></tr>
+<tr><td>Alle Compiler-Warnungen müssen vor dem Einchecken des Codes adressiert
+        und beseitigt werden.</td></tr>
+<tr><td>Templates, insbesondere die der Standard Template Library (STL) dürfen
+        eingesetzt werden.  Exceptions laufen jedoch unserer Fehlerbehandlung
+        zuwieder und dürfen nicht eingesetzt bzw. müssen innerhalb der eigenen
+        Komponente abgefangen und entsprechend für die Fehlerbehandlung
+        <tt>DbjError</tt> aufbereitet werden.</td></tr>
+<tr><td>Gibt eine Funktion einen Fehler mittels <tt>DbjErrorCode</tt> zurück,
+        so ist immer <tt>return DbjGetErrorCode();</tt> zu verwenden, und ein
+        erkannter Fehler muss zuvor mittels <tt>DBJ_SET_ERROR*</tt> gesetzt
+        bzw. mittels <tt>DBJ_TRACE_ERROR</tt> getract werden.</td></tr>
+<tr><td>Es dürfen <b>keine</b> Funktionen des Betriebssystems direkt verwendet
+        werden.  Folgende Ausnahmen bestehen:
+	<table align="center" border="1">
+	<tr><td>strlen</td>
+	    <td>Gib Länge eines Strings zurück.</td></tr>
+	<tr><td>sprintf</td>
+	    <td>Formatiere Zahl oder String und schreibe Ergebnis in einen
+	        Puffer.  Für die Formatierung von Integer-Zahlen existieren
+		die Makros <tt>DBJ_FORMAT_*</tt>, die in DbjString.hpp
+		definiert sind.</td></tr>
+	</table>
+	Für alle anderen Betriebssystemfunktionen sind die entsprechenden
+        Funktionen der "Support" Komponente zu verwenden.
+	</td></tr>
+<tr><td>Es dürfen nur die Integer-Datentypen <tt>Uint32</tt>, <tt>Sint32</tt>,
+        <tt>Uint16</tt>, <tt>Sint16</tt>, <tt>Uint8</tt> und <tt>Sint8</tt>
+        eingesetzt werden.</td></tr>
+<tr><td><tt>goto</tt> darf (und soll) verwendet werden, um einen zentralen
+        "Exit"-Punkt in einer Funktion/Methode zu erhalten.  Das verhindern
+        unnötig tiefe Schachtelungen.  Ansonsten gibt es keinen Grund,
+        <tt>goto</tt> einzusetzen.</td></tr>
+</table>
+
+</body>
+</html>
+

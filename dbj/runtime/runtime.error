@@ -1,0 +1,35 @@
+/*************************************************************************\
+ *                                                                       *
+ * (C) 2004-2005                                                         *
+ * Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+ * Friedrich-Schiller-Universitaet Jena                                  *
+ * Ernst-Abbe-Platz 1-2                                                  *
+ * 07745 Jena                                                            *
+ *                                                                       *
+\*************************************************************************/
+
+/*
+ * Definition aller Fehlermeldungen des SQL Compilers
+ */
+
+{ DBJ_RUNTIME_INVALID_PROJECTION_DEFINITION,
+      "The internal definition of the projection of the colunms in the table "
+      "is invalid.  A column with number %s does not exist in the underlying "
+      "table.",
+      "RT000" },
+{ DBJ_RUNTIME_REGEXP_COMPILE_FAIL,
+      "Could not compile the regular expression '%s' into the internal "
+      "format.  An error '%s' occured at position %s.",
+      "RT001" },
+{ DBJ_RUNTIME_REGEXP_MATCH_FAIL,
+      "An error occured while matching the string '%s' against the regular "
+      "expression '%s'.  An error code %d was returned.",
+      "RT002" },
+
+{ DBJ_RUNTIME_TOO_MANY_COLUMNS_IN_TABLE,
+      "The table %s cannot be defined with more than %s columns.",
+      "RT003" },
+{ DBJ_RUNTIME_COLUMN_TOO_LONG,
+      "The length %s for the column %s is not in the valid range between 1 "
+      "and %s.",
+      "RT004" },

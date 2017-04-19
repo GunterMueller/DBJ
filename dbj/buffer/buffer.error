@@ -1,0 +1,52 @@
+/*************************************************************************\
+ *                                                                       *
+ * (C) 2004-2005                                                         *
+ * Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+ * Friedrich-Schiller-Universitaet Jena                                  *
+ * Ernst-Abbe-Platz 1-2                                                  *
+ * 07745 Jena                                                            *
+ *                                                                       *
+\*************************************************************************/
+
+/*
+ * Definition aller Fehlermeldungen der BufferManager Komponente
+ */
+
+{ DBJ_BM_PAGE_NOT_FOUND,
+      "The page %s in segment %s was not found in the buffer.",
+      "BM000" },
+{ DBJ_BM_PAGETYPE_MISMATCH,
+      "The page %s in segment %s is of type %s but a page of type %s "
+      "was requested.",
+      "BM001" },
+{ DBJ_BM_PAGEID_MISMATCH,
+      "The requested page %s in segment %s is invalid.  It's page ID "
+      "is set to %s.",
+      "BM002" },
+{ DBJ_BM_BUFFER_FULL,
+      "The system buffer is full and no free space for another page "
+      "could be found.",
+      "BM003" },
+{ DBJ_BM_PAGE_IS_DIRTY,
+      "Page %s in segment %s found in the buffer pool is marked as 'dirty' "
+      "and currently being used by another transaction.  The page cannot "
+      "be requested.",
+      "BM004" },
+{ DBJ_BM_PAGE_IS_FIX,
+      "Page %s in segment %s is fixed by multiple transactions and cannot "
+      "be set as 'dirty'.",
+      "BM005" },
+{ DBJ_BM_PAGE_NOT_RELEASED,
+      "Page %s in segment %s was not released before the end of the "
+      "transaction.",
+      "BM006" },
+{ DBJ_BM_PAGE_ALREADY_EXISTS_IN_BUFFER,
+      "The page %s from segment %s allready exists in the buffer pool.",
+      "BM007" },
+{ DBJ_BM_PAGE_ALREADY_EXISTS_IN_FILE,
+      "The page %s from segment %s allready exists in the file.",
+      "BM008" },
+{ DBJ_BM_SEGMENT_DROPPED,
+      "The page %s from segment %s cannot be retrieved from the buffer "
+      "because the segment was previously dropped.",
+      "BM009" },

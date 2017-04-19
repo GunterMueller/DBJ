@@ -1,0 +1,358 @@
+
+#####################################################################
+ Initialize Shared Memory Segment & Latch
+#####################################################################
+
+
+Lege Lockliste an...
+
+Stelle Verbindung zur Lockliste her...
+	Address: **ADDRESS**
+
+Initialisiere Latch in Lockliste...
+The operation was completed successfully.
+
+Trenne Verbindung zur Lockliste...
+The operation was completed successfully.
+
+#####################################################################
+ Cleanup Shared Memory Segment & Latch
+#####################################################################
+
+
+Stelle Verbindung zur Lockliste her...
+	Address: **ADDRESS**
+The operation was completed successfully.
+
+Zerstoere Latch...
+
+Trenne Verbindung zur Lockliste...
+
+Zerstoere Lockliste...
+The operation was completed successfully.
+
+#####################################################################
+ Initialize Shared Memory Segment & Latch
+#####################################################################
+
+
+Lege Lockliste an...
+
+Stelle Verbindung zur Lockliste her...
+	Address: **ADDRESS**
+
+Initialisiere Latch in Lockliste...
+The operation was completed successfully.
+
+Trenne Verbindung zur Lockliste...
+The operation was completed successfully.
+
+#####################################################################
+ Get Shared Latch
+#####################################################################
+
+
+Stelle Verbindung zur Lockliste her...
+	Address: **ADDRESS**
+	Latch status:
+	=============
+	Shared count: 0
+	Exclusive:    unlocked
+
+Fordere Latch im Shared Modus an...
+	Latch status:
+	=============
+	Shared count: 1
+	Exclusive:    unlocked
+
+Warte 5 Sekunden...
+Gebe Latch frei...
+	Latch status:
+	=============
+	Shared count: 0
+	Exclusive:    unlocked
+
+The operation was completed successfully.
+
+Trenne Verbindung zur Lockliste...
+The operation was completed successfully.
+
+#####################################################################
+ Get Exclusive Latch
+#####################################################################
+
+
+Stelle Verbindung zur Lockliste her...
+	Address: **ADDRESS**
+	Latch status:
+	=============
+	Shared count: 0
+	Exclusive:    unlocked
+
+Fordere Latch im Exclusive Modus an...
+	Latch status:
+	=============
+	Shared count: 0
+	Exclusive:    locked
+
+Warte 5 Sekunden...
+Gebe Latch frei...
+	Latch status:
+	=============
+	Shared count: 0
+	Exclusive:    unlocked
+
+The operation was completed successfully.
+
+Trenne Verbindung zur Lockliste...
+The operation was completed successfully.
+
+#####################################################################
+ Get 3x Shared Latch (parallel)
+#####################################################################
+
+
+Process 1
+---------
+
+Stelle Verbindung zur Lockliste her...
+	Address: **ADDRESS**
+	Latch status:
+	=============
+	Shared count: 0
+	Exclusive:    unlocked
+
+Fordere Latch im Shared Modus an...
+	Latch status:
+	=============
+	Shared count: 1
+	Exclusive:    unlocked
+
+Warte 5 Sekunden...
+Gebe Latch frei...
+	Latch status:
+	=============
+	Shared count: 2
+	Exclusive:    unlocked
+
+The operation was completed successfully.
+
+Trenne Verbindung zur Lockliste...
+The operation was completed successfully.
+
+Process 2
+---------
+
+Stelle Verbindung zur Lockliste her...
+	Address: **ADDRESS**
+	Latch status:
+	=============
+	Shared count: 1
+	Exclusive:    unlocked
+
+Fordere Latch im Shared Modus an...
+	Latch status:
+	=============
+	Shared count: 2
+	Exclusive:    unlocked
+
+Warte 5 Sekunden...
+Gebe Latch frei...
+	Latch status:
+	=============
+	Shared count: 1
+	Exclusive:    unlocked
+
+The operation was completed successfully.
+
+Trenne Verbindung zur Lockliste...
+The operation was completed successfully.
+
+Process 3
+---------
+
+Stelle Verbindung zur Lockliste her...
+	Address: **ADDRESS**
+	Latch status:
+	=============
+	Shared count: 2
+	Exclusive:    unlocked
+
+Fordere Latch im Shared Modus an...
+	Latch status:
+	=============
+	Shared count: 3
+	Exclusive:    unlocked
+
+Warte 5 Sekunden...
+Gebe Latch frei...
+	Latch status:
+	=============
+	Shared count: 0
+	Exclusive:    unlocked
+
+The operation was completed successfully.
+
+Trenne Verbindung zur Lockliste...
+The operation was completed successfully.
+
+#####################################################################
+ Get Shared, Exclusive, Shared, Shared, Exclusive Latch (parallel)
+#####################################################################
+
+
+Process 1
+---------
+
+Stelle Verbindung zur Lockliste her...
+	Address: **ADDRESS**
+	Latch status:
+	=============
+	Shared count: 0
+	Exclusive:    unlocked
+
+Fordere Latch im Shared Modus an...
+	Latch status:
+	=============
+	Shared count: 1
+	Exclusive:    unlocked
+
+Warte 5 Sekunden...
+Gebe Latch frei...
+	Latch status:
+	=============
+	Shared count: 0
+	Exclusive:    locked
+
+The operation was completed successfully.
+
+Trenne Verbindung zur Lockliste...
+The operation was completed successfully.
+
+Process 2
+---------
+
+Stelle Verbindung zur Lockliste her...
+	Address: **ADDRESS**
+	Latch status:
+	=============
+	Shared count: 1
+	Exclusive:    unlocked
+
+Fordere Latch im Exclusive Modus an...
+	Latch status:
+	=============
+	Shared count: 0
+	Exclusive:    locked
+
+Warte 5 Sekunden...
+Gebe Latch frei...
+	Latch status:
+	=============
+	Shared count: 2
+	Exclusive:    unlocked
+
+The operation was completed successfully.
+
+Trenne Verbindung zur Lockliste...
+The operation was completed successfully.
+
+Process 3
+---------
+
+Stelle Verbindung zur Lockliste her...
+	Address: **ADDRESS**
+	Latch status:
+	=============
+	Shared count: 1
+	Exclusive:    unlocked
+
+Fordere Latch im Shared Modus an...
+	Latch status:
+	=============
+	Shared count: 2
+	Exclusive:    unlocked
+
+Warte 5 Sekunden...
+Gebe Latch frei...
+	Latch status:
+	=============
+	Shared count: 0
+	Exclusive:    locked
+
+The operation was completed successfully.
+
+Trenne Verbindung zur Lockliste...
+The operation was completed successfully.
+
+Process 4
+---------
+
+Stelle Verbindung zur Lockliste her...
+	Address: **ADDRESS**
+	Latch status:
+	=============
+	Shared count: 0
+	Exclusive:    locked
+
+Fordere Latch im Shared Modus an...
+	Latch status:
+	=============
+	Shared count: 2
+	Exclusive:    unlocked
+
+Warte 5 Sekunden...
+Gebe Latch frei...
+	Latch status:
+	=============
+	Shared count: 0
+	Exclusive:    locked
+
+The operation was completed successfully.
+
+Trenne Verbindung zur Lockliste...
+The operation was completed successfully.
+
+Process 5
+---------
+
+Stelle Verbindung zur Lockliste her...
+	Address: **ADDRESS**
+	Latch status:
+	=============
+	Shared count: 2
+	Exclusive:    unlocked
+
+Fordere Latch im Exclusive Modus an...
+	Latch status:
+	=============
+	Shared count: 0
+	Exclusive:    locked
+
+Warte 5 Sekunden...
+Gebe Latch frei...
+	Latch status:
+	=============
+	Shared count: 0
+	Exclusive:    unlocked
+
+The operation was completed successfully.
+
+Trenne Verbindung zur Lockliste...
+The operation was completed successfully.
+
+#####################################################################
+ Cleanup Shared Memory Segment & Latch
+#####################################################################
+
+
+Stelle Verbindung zur Lockliste her...
+	Address: **ADDRESS**
+The operation was completed successfully.
+
+Zerstoere Latch...
+
+Trenne Verbindung zur Lockliste...
+
+Zerstoere Lockliste...
+The operation was completed successfully.

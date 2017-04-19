@@ -1,0 +1,22 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2005                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " Plan bleibt unveraendert"
+echo "#####################################################################"
+echo
+
+test_optimizer "create table xyz ( abc int, def int, ghi varchar(500) )"
+test_optimizer "create table xyz ( abc int not null, def int not null, ghi varchar(500) )"
+test_optimizer "create table xyz ( abc int not null, def int not null, ghi varchar(500), primary key (abc) )"
+
+exit 0

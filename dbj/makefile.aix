@@ -1,0 +1,64 @@
+#************************************************************************
+#
+# (C) 2004-2005
+# Lehrstuhl fuer Datenbanken und Informationssysteme
+# Friedrich-Schiller-Universitaet Jena
+# Ernst-Abbe-Platz 1-2
+# 07745 Jena
+#
+#************************************************************************
+
+CXX := /usr/vacpp/bin/xlC_r
+CPP := /usr/vacpp/bin/xlC_r -E
+ARCHIVE := ar rc
+
+COMPILER = vacpp
+
+# Suppressed messages:
+# 1540-5301 (I) Goto statements should not be used.
+# 1540-5314 (I) A user-defined copy constructor/assignment operator should be
+#               created in "class DbjError" to handle a pointer data member.
+# 1540-5334 (I) 64-bit portability : possible difference in results if value
+#               is negative.
+# 1540-5336 (I) Global variable "const Uint32 DBJ_PAGE_SIZE" is not used.
+# 1540-5341 (I) Auto compiler temporary of type "iterator" has been
+#               generated.
+# 1540-5344 (I) Pointer types "int *" and "void *" are not compatible.
+CXXFLAGS := $(CXXFLAGS) -qro -qroconst -qwarn64 -qcheck=all \
+	-qenum=small -qflag=i -qinfo=all -qlanglvl=ansi -qlonglong \
+	-qsuppress=1540-5301:1540-5314:1540-5334:1540-5336:1540-5341:1540-5344
+
+# equivalent to -Werror on Linux
+# -qhalt=i
+
+CXXDEBUGFLAGS := -g
+CXXOPTFLAGS := -O3
+
+
+# The test files might not really care about all class definitions and we
+# supress some messages for the typical errors, then
+# 1540-5316 (I) "DbjTable()" does not assign values to all data members in the
+#               class.
+# 1540-5317 (I) "TableId tabID" was not assigned.
+SUPRESS_TEST_MSGS := -qsuppress=1540-5316:1540-5317
+
+LD := $(CXX)
+LDFLAGS = -Wl,-bh:5 -L/opt/freeware/lib
+LINK_REQUIRE_LIB_FIRST := true
+
+LIBREADLINE := -lreadline -lcurses
+LIBPCRE := -lpcre
+
+#========================================================================
+
+ECHO := echo
+REMOVE := rm -f
+GREP := grep
+MOVE := mv
+DIFF := diff
+TOUCH := touch
+
+#========================================================================
+
+INCFLAGS += -I/usr/vacpp/include -I/opt/freeware/include
+

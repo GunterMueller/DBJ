@@ -1,0 +1,6 @@
+test_bm.exe: test_bm.o
+test_lru-hash.exe: test_lru-hash.o
+test_1.exe: test_1.o
+test_2.exe: test_2.o
+test_buffer.exe: test_buffer.o
+dumpBufferContent.exe: dumpBufferContent.o

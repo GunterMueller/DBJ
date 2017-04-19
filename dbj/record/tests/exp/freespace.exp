@@ -1,0 +1,411 @@
+
+#####################################################################
+ Largest Free Block aendert sich
+#####################################################################
+
+BM::openSegment(1) aufgerufen.
+BM::getPage(1, 0) aufgerufen.
+    => Seite existiert nicht.
+BM::getPage(1, 0) aufgerufen.
+    => Seite existiert nicht.
+LM::request(1, 1) aufgerufen.
+BM::getNewPage(1, 1) aufgerufen.
+BM::getPage(1, 0) aufgerufen.
+    => Seite existiert nicht.
+LM::request(1, 0) aufgerufen.
+BM::getNewPage(1, 0) aufgerufen.
+BM::releasePage(1, 0) aufgerufen.
+Seite (1, 1) als modifiziert markiert.
+BM::getPage(1, 0) aufgerufen.
+Seite (1, 0) als modifiziert markiert.
+BM::releasePage(1, 0) aufgerufen.
+BM::releasePage(1, 1) aufgerufen.
+TupleId: { 1, 1, 0 }
+The operation was completed successfully.
+
+BM::openSegment(1) aufgerufen.
+BM::getPage(1, 0) aufgerufen.
+BM::releasePage(1, 0) aufgerufen.
+LM::request(1, 1) aufgerufen.
+BM::getPage(1, 1) aufgerufen.
+Seite (1, 1) als modifiziert markiert.
+BM::getPage(1, 0) aufgerufen.
+Seite (1, 0) als modifiziert markiert.
+BM::releasePage(1, 0) aufgerufen.
+BM::releasePage(1, 1) aufgerufen.
+TupleId: { 1, 1, 1 }
+The operation was completed successfully.
+
+BM::openSegment(1) aufgerufen.
+BM::getPage(1, 0) aufgerufen.
+BM::releasePage(1, 0) aufgerufen.
+LM::request(1, 1) aufgerufen.
+BM::getPage(1, 1) aufgerufen.
+Seite (1, 1) als modifiziert markiert.
+BM::getPage(1, 0) aufgerufen.
+Seite (1, 0) als modifiziert markiert.
+BM::releasePage(1, 0) aufgerufen.
+BM::releasePage(1, 1) aufgerufen.
+TupleId: { 1, 1, 2 }
+The operation was completed successfully.
+
+BM::getPage(1, 0) aufgerufen.
++---------------------------------------------------------------------------+
+|                                                                           |
+| +------------------------- Global Page Header --------------------------+ |
+| | Page number:  0                                                       | |
+| | Type of Page: FreeSpaceInventory                                      | |
+| +-----------------------------------------------------------------------+ |
+| +------------------------- FSI Page Header -----------------------------+ |
+| | countEntries: 1                                                       | |
+| +-----------------------------------------------------------------------+ |
+| +----------------------------- FSI Table -------------------------------+ |
+| | Page  |  FS  | LFB  |  | Page  |  FS  | LFB  |  | Page  |  FS  | LFB  | |
+| |-------|------|------|  |-------|------|------|  |-------|------|------| |
+| |     1 |   34 |   34 |  |       |      |      |  |       |      |      | |
+| +-----------------------------------------------------------------------+ |
+| |                   --- no more FSI entries found ---                   | |
+| +-----------------------------------------------------------------------+ |
+| | FS = free space -- LFB largest free block -- (in 16  Bytes)           | |
+| +-----------------------------------------------------------------------+ |
+|                                                                           |
++---------------------------------------------------------------------------+
+BM::releasePage(1, 0) aufgerufen.
+BM::getPage(1, 1) aufgerufen.
++---------------------------------------------------------------------------+
+|                                                                           |
+| +------------------------- Global Page Header --------------------------+ |
+| | Page number:  1                                                       | |
+| | Type of Page: Data                                                    | |
+| +-----------------------------------------------------------------------+ |
+| +-------------------------- Slot Page Header ---------------------------+ |
+| | Number of slots:             3                                        | |
+| | Total free space:          548 (Bytes)                                | |
+| | Consecuitive free space:                  548 (Bytes)                 | |
+| | Offset of consecuitive free space:         48                         | |
+| +-----------------------------------------------------------------------+ |
+| +---------------------------- Record List ------------------------------+ |
+| | Slot:   0   --   Offset: 3096   --   Primary length:  1000 (Bytes)    | |
+| | Slot:   1   --   Offset: 2096   --   Primary length:  1000 (Bytes)    | |
+| | Slot:   2   --   Offset:  596   --   Primary length:  1500 (Bytes)    | |
+| +-----------------------------------------------------------------------+ |
+|                                                                           |
++---------------------------------------------------------------------------+
+BM::releasePage(1, 1) aufgerufen.
+BM::getPage(1, 2) aufgerufen.
+    => Seite existiert nicht.
+The operation was completed successfully.
+
+LM::request(1, 1) aufgerufen.
+BM::getPage(1, 1) aufgerufen.
+Seite (1, 1) als modifiziert markiert.
+BM::getPage(1, 0) aufgerufen.
+Seite (1, 0) als modifiziert markiert.
+BM::releasePage(1, 0) aufgerufen.
+BM::releasePage(1, 1) aufgerufen.
+The operation was completed successfully.
+
+BM::getPage(1, 0) aufgerufen.
++---------------------------------------------------------------------------+
+|                                                                           |
+| +------------------------- Global Page Header --------------------------+ |
+| | Page number:  0                                                       | |
+| | Type of Page: FreeSpaceInventory                                      | |
+| +-----------------------------------------------------------------------+ |
+| +------------------------- FSI Page Header -----------------------------+ |
+| | countEntries: 1                                                       | |
+| +-----------------------------------------------------------------------+ |
+| +----------------------------- FSI Table -------------------------------+ |
+| | Page  |  FS  | LFB  |  | Page  |  FS  | LFB  |  | Page  |  FS  | LFB  | |
+| |-------|------|------|  |-------|------|------|  |-------|------|------| |
+| |     1 |   96 |   62 |  |       |      |      |  |       |      |      | |
+| +-----------------------------------------------------------------------+ |
+| |                   --- no more FSI entries found ---                   | |
+| +-----------------------------------------------------------------------+ |
+| | FS = free space -- LFB largest free block -- (in 16  Bytes)           | |
+| +-----------------------------------------------------------------------+ |
+|                                                                           |
++---------------------------------------------------------------------------+
+BM::releasePage(1, 0) aufgerufen.
+BM::getPage(1, 1) aufgerufen.
++---------------------------------------------------------------------------+
+|                                                                           |
+| +------------------------- Global Page Header --------------------------+ |
+| | Page number:  1                                                       | |
+| | Type of Page: Data                                                    | |
+| +-----------------------------------------------------------------------+ |
+| +-------------------------- Slot Page Header ---------------------------+ |
+| | Number of slots:             3                                        | |
+| | Total free space:         1548 (Bytes)                                | |
+| | Consecuitive free space:                 1000 (Bytes)                 | |
+| | Offset of consecuitive free space:       2096                         | |
+| +-----------------------------------------------------------------------+ |
+| +---------------------------- Record List ------------------------------+ |
+| | Slot:   0   --   Offset: 3096   --   Primary length:  1000 (Bytes)    | |
+| | Slot:   2   --   Offset:  596   --   Primary length:  1500 (Bytes)    | |
+| +-----------------------------------------------------------------------+ |
+|                                                                           |
++---------------------------------------------------------------------------+
+BM::releasePage(1, 1) aufgerufen.
+BM::getPage(1, 2) aufgerufen.
+    => Seite existiert nicht.
+The operation was completed successfully.
+
+LM::request(1, 1) aufgerufen.
+BM::getPage(1, 1) aufgerufen.
+Seite (1, 1) als modifiziert markiert.
+BM::getPage(1, 0) aufgerufen.
+Seite (1, 0) als modifiziert markiert.
+BM::releasePage(1, 0) aufgerufen.
+BM::releasePage(1, 1) aufgerufen.
+The operation was completed successfully.
+
+BM::getPage(1, 0) aufgerufen.
++---------------------------------------------------------------------------+
+|                                                                           |
+| +------------------------- Global Page Header --------------------------+ |
+| | Page number:  0                                                       | |
+| | Type of Page: FreeSpaceInventory                                      | |
+| +-----------------------------------------------------------------------+ |
+| +------------------------- FSI Page Header -----------------------------+ |
+| | countEntries: 1                                                       | |
+| +-----------------------------------------------------------------------+ |
+| +----------------------------- FSI Table -------------------------------+ |
+| | Page  |  FS  | LFB  |  | Page  |  FS  | LFB  |  | Page  |  FS  | LFB  | |
+| |-------|------|------|  |-------|------|------|  |-------|------|------| |
+| |     1 |   46 |   34 |  |       |      |      |  |       |      |      | |
+| +-----------------------------------------------------------------------+ |
+| |                   --- no more FSI entries found ---                   | |
+| +-----------------------------------------------------------------------+ |
+| | FS = free space -- LFB largest free block -- (in 16  Bytes)           | |
+| +-----------------------------------------------------------------------+ |
+|                                                                           |
++---------------------------------------------------------------------------+
+BM::releasePage(1, 0) aufgerufen.
+BM::getPage(1, 1) aufgerufen.
++---------------------------------------------------------------------------+
+|                                                                           |
+| +------------------------- Global Page Header --------------------------+ |
+| | Page number:  1                                                       | |
+| | Type of Page: Data                                                    | |
+| +-----------------------------------------------------------------------+ |
+| +-------------------------- Slot Page Header ---------------------------+ |
+| | Number of slots:             3                                        | |
+| | Total free space:          748 (Bytes)                                | |
+| | Consecuitive free space:                  548 (Bytes)                 | |
+| | Offset of consecuitive free space:         48                         | |
+| +-----------------------------------------------------------------------+ |
+| +---------------------------- Record List ------------------------------+ |
+| | Slot:   0   --   Offset: 2296   --   Primary length:  1800 (Bytes)    | |
+| | Slot:   2   --   Offset:  596   --   Primary length:  1500 (Bytes)    | |
+| +-----------------------------------------------------------------------+ |
+|                                                                           |
++---------------------------------------------------------------------------+
+BM::releasePage(1, 1) aufgerufen.
+BM::getPage(1, 2) aufgerufen.
+    => Seite existiert nicht.
+The operation was completed successfully.
+
+BM::openSegment(1) aufgerufen.
+BM::getPage(1, 0) aufgerufen.
+    => Seite existiert nicht.
+BM::getPage(1, 0) aufgerufen.
+    => Seite existiert nicht.
+LM::request(1, 1) aufgerufen.
+BM::getNewPage(1, 1) aufgerufen.
+BM::getPage(1, 0) aufgerufen.
+    => Seite existiert nicht.
+LM::request(1, 0) aufgerufen.
+BM::getNewPage(1, 0) aufgerufen.
+BM::releasePage(1, 0) aufgerufen.
+Seite (1, 1) als modifiziert markiert.
+BM::getPage(1, 0) aufgerufen.
+Seite (1, 0) als modifiziert markiert.
+BM::releasePage(1, 0) aufgerufen.
+BM::releasePage(1, 1) aufgerufen.
+TupleId: { 1, 1, 0 }
+The operation was completed successfully.
+
+BM::openSegment(1) aufgerufen.
+BM::getPage(1, 0) aufgerufen.
+BM::releasePage(1, 0) aufgerufen.
+LM::request(1, 1) aufgerufen.
+BM::getPage(1, 1) aufgerufen.
+Seite (1, 1) als modifiziert markiert.
+BM::getPage(1, 0) aufgerufen.
+Seite (1, 0) als modifiziert markiert.
+BM::releasePage(1, 0) aufgerufen.
+BM::releasePage(1, 1) aufgerufen.
+TupleId: { 1, 1, 1 }
+The operation was completed successfully.
+
+BM::openSegment(1) aufgerufen.
+BM::getPage(1, 0) aufgerufen.
+BM::releasePage(1, 0) aufgerufen.
+LM::request(1, 1) aufgerufen.
+BM::getPage(1, 1) aufgerufen.
+Seite (1, 1) als modifiziert markiert.
+BM::getPage(1, 0) aufgerufen.
+Seite (1, 0) als modifiziert markiert.
+BM::releasePage(1, 0) aufgerufen.
+BM::releasePage(1, 1) aufgerufen.
+TupleId: { 1, 1, 2 }
+The operation was completed successfully.
+
+BM::getPage(1, 0) aufgerufen.
++---------------------------------------------------------------------------+
+|                                                                           |
+| +------------------------- Global Page Header --------------------------+ |
+| | Page number:  0                                                       | |
+| | Type of Page: FreeSpaceInventory                                      | |
+| +-----------------------------------------------------------------------+ |
+| +------------------------- FSI Page Header -----------------------------+ |
+| | countEntries: 1                                                       | |
+| +-----------------------------------------------------------------------+ |
+| +----------------------------- FSI Table -------------------------------+ |
+| | Page  |  FS  | LFB  |  | Page  |  FS  | LFB  |  | Page  |  FS  | LFB  | |
+| |-------|------|------|  |-------|------|------|  |-------|------|------| |
+| |     1 |   34 |   34 |  |       |      |      |  |       |      |      | |
+| +-----------------------------------------------------------------------+ |
+| |                   --- no more FSI entries found ---                   | |
+| +-----------------------------------------------------------------------+ |
+| | FS = free space -- LFB largest free block -- (in 16  Bytes)           | |
+| +-----------------------------------------------------------------------+ |
+|                                                                           |
++---------------------------------------------------------------------------+
+BM::releasePage(1, 0) aufgerufen.
+BM::getPage(1, 1) aufgerufen.
++---------------------------------------------------------------------------+
+|                                                                           |
+| +------------------------- Global Page Header --------------------------+ |
+| | Page number:  1                                                       | |
+| | Type of Page: Data                                                    | |
+| +-----------------------------------------------------------------------+ |
+| +-------------------------- Slot Page Header ---------------------------+ |
+| | Number of slots:             3                                        | |
+| | Total free space:          548 (Bytes)                                | |
+| | Consecuitive free space:                  548 (Bytes)                 | |
+| | Offset of consecuitive free space:         48                         | |
+| +-----------------------------------------------------------------------+ |
+| +---------------------------- Record List ------------------------------+ |
+| | Slot:   0   --   Offset: 3096   --   Primary length:  1000 (Bytes)    | |
+| | Slot:   1   --   Offset: 2096   --   Primary length:  1000 (Bytes)    | |
+| | Slot:   2   --   Offset:  596   --   Primary length:  1500 (Bytes)    | |
+| +-----------------------------------------------------------------------+ |
+|                                                                           |
++---------------------------------------------------------------------------+
+BM::releasePage(1, 1) aufgerufen.
+BM::getPage(1, 2) aufgerufen.
+    => Seite existiert nicht.
+The operation was completed successfully.
+
+LM::request(1, 1) aufgerufen.
+BM::getPage(1, 1) aufgerufen.
+Seite (1, 1) als modifiziert markiert.
+BM::getPage(1, 0) aufgerufen.
+Seite (1, 0) als modifiziert markiert.
+BM::releasePage(1, 0) aufgerufen.
+BM::releasePage(1, 1) aufgerufen.
+The operation was completed successfully.
+
+BM::getPage(1, 0) aufgerufen.
++---------------------------------------------------------------------------+
+|                                                                           |
+| +------------------------- Global Page Header --------------------------+ |
+| | Page number:  0                                                       | |
+| | Type of Page: FreeSpaceInventory                                      | |
+| +-----------------------------------------------------------------------+ |
+| +------------------------- FSI Page Header -----------------------------+ |
+| | countEntries: 1                                                       | |
+| +-----------------------------------------------------------------------+ |
+| +----------------------------- FSI Table -------------------------------+ |
+| | Page  |  FS  | LFB  |  | Page  |  FS  | LFB  |  | Page  |  FS  | LFB  | |
+| |-------|------|------|  |-------|------|------|  |-------|------|------| |
+| |     1 |   96 |   62 |  |       |      |      |  |       |      |      | |
+| +-----------------------------------------------------------------------+ |
+| |                   --- no more FSI entries found ---                   | |
+| +-----------------------------------------------------------------------+ |
+| | FS = free space -- LFB largest free block -- (in 16  Bytes)           | |
+| +-----------------------------------------------------------------------+ |
+|                                                                           |
++---------------------------------------------------------------------------+
+BM::releasePage(1, 0) aufgerufen.
+BM::getPage(1, 1) aufgerufen.
++---------------------------------------------------------------------------+
+|                                                                           |
+| +------------------------- Global Page Header --------------------------+ |
+| | Page number:  1                                                       | |
+| | Type of Page: Data                                                    | |
+| +-----------------------------------------------------------------------+ |
+| +-------------------------- Slot Page Header ---------------------------+ |
+| | Number of slots:             3                                        | |
+| | Total free space:         1548 (Bytes)                                | |
+| | Consecuitive free space:                 1000 (Bytes)                 | |
+| | Offset of consecuitive free space:       2096                         | |
+| +-----------------------------------------------------------------------+ |
+| +---------------------------- Record List ------------------------------+ |
+| | Slot:   0   --   Offset: 3096   --   Primary length:  1000 (Bytes)    | |
+| | Slot:   2   --   Offset:  596   --   Primary length:  1500 (Bytes)    | |
+| +-----------------------------------------------------------------------+ |
+|                                                                           |
++---------------------------------------------------------------------------+
+BM::releasePage(1, 1) aufgerufen.
+BM::getPage(1, 2) aufgerufen.
+    => Seite existiert nicht.
+The operation was completed successfully.
+
+LM::request(1, 1) aufgerufen.
+BM::getPage(1, 1) aufgerufen.
+Seite (1, 1) als modifiziert markiert.
+BM::getPage(1, 0) aufgerufen.
+Seite (1, 0) als modifiziert markiert.
+BM::releasePage(1, 0) aufgerufen.
+BM::releasePage(1, 1) aufgerufen.
+The operation was completed successfully.
+
+BM::getPage(1, 0) aufgerufen.
++---------------------------------------------------------------------------+
+|                                                                           |
+| +------------------------- Global Page Header --------------------------+ |
+| | Page number:  0                                                       | |
+| | Type of Page: FreeSpaceInventory                                      | |
+| +-----------------------------------------------------------------------+ |
+| +------------------------- FSI Page Header -----------------------------+ |
+| | countEntries: 1                                                       | |
+| +-----------------------------------------------------------------------+ |
+| +----------------------------- FSI Table -------------------------------+ |
+| | Page  |  FS  | LFB  |  | Page  |  FS  | LFB  |  | Page  |  FS  | LFB  | |
+| |-------|------|------|  |-------|------|------|  |-------|------|------| |
+| |     1 |   28 |   28 |  |       |      |      |  |       |      |      | |
+| +-----------------------------------------------------------------------+ |
+| |                   --- no more FSI entries found ---                   | |
+| +-----------------------------------------------------------------------+ |
+| | FS = free space -- LFB largest free block -- (in 16  Bytes)           | |
+| +-----------------------------------------------------------------------+ |
+|                                                                           |
++---------------------------------------------------------------------------+
+BM::releasePage(1, 0) aufgerufen.
+BM::getPage(1, 1) aufgerufen.
++---------------------------------------------------------------------------+
+|                                                                           |
+| +------------------------- Global Page Header --------------------------+ |
+| | Page number:  1                                                       | |
+| | Type of Page: Data                                                    | |
+| +-----------------------------------------------------------------------+ |
+| +-------------------------- Slot Page Header ---------------------------+ |
+| | Number of slots:             3                                        | |
+| | Total free space:          448 (Bytes)                                | |
+| | Consecuitive free space:                  448 (Bytes)                 | |
+| | Offset of consecuitive free space:         48                         | |
+| +-----------------------------------------------------------------------+ |
+| +---------------------------- Record List ------------------------------+ |
+| | Slot:   0   --   Offset:  496   --   Primary length:  2100 (Bytes)    | |
+| | Slot:   2   --   Offset: 2596   --   Primary length:  1500 (Bytes)    | |
+| +-----------------------------------------------------------------------+ |
+|                                                                           |
++---------------------------------------------------------------------------+
+BM::releasePage(1, 1) aufgerufen.
+BM::getPage(1, 2) aufgerufen.
+    => Seite existiert nicht.
+The operation was completed successfully.
+

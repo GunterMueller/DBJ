@@ -1,0 +1,58 @@
+*********************************************************
+Starte DbjSystem und initialisiere Lock Liste
+
+DbjSystem: Lock Liste initialisiert
+
+*********************************************************
+
+Ausfuehren der Testfaelle
+einfuegen: 15,8,shared
+
+einfuegen: 1,2,shared
+
+einfuegen: 5,1,shared
+
+einfuegen: 10,2,exclusive
+
+einfuegen: 30,80,exclusive
+
+versuch erneut einfuegen: 5,1,shared
+The operation was completed successfully.
+
+
+versuch einfuegen: 5,1,exclusive
+A exclusive lock on page 1 in segment 5 could not be granted to the current transaction.  A timeout
+
+
+Warte...........
+(5,1) released
+The operation was completed successfully.
+all released.
+
+
+Lockliste wird vollgemacht! mit shared
+There is no available space in the lock list to store a new lock.
+
+
+Client2 einfuegen: 5,1,shared
+Einfuegen des Client 2 5,1 shared erfolgreich
+
+Client2 einfuegen: 30,80,shared
+A shared lock on page 80 in segment 30 could not be granted to the current transaction.  A timeout 
+
+Einfuegen 30,80,shared nicht erfolgreich.
+
+A shared lock on page 80 in segment 30 could not be granted to the current transaction.  A timeout 
+
+Release von 15,8 nicht erfolgreich.
+
+A shared lock on page 80 in segment 30 could not be granted to the current transaction.  A timeout 
+
+Release All fehlgeschlagen.
+
+*********************************************************
+Shutdown DbjSystem und loeschen der Lock Liste
+
+System Shutdown Complete
+
+*********************************************************

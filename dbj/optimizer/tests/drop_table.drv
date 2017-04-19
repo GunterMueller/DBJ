@@ -1,0 +1,29 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2005                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " Einzelne Tabelle ohne Indexe"
+echo "#####################################################################"
+echo
+
+XYZ=1 test_optimizer "drop table xyz"
+
+echo
+echo "#####################################################################"
+echo " Weitere Indexe auf der Tabelle"
+echo "#####################################################################"
+echo
+
+INDEXES="IDX1" IDX1="5:156 1 BTREE 1" TAB1="156:A B C" test_optimizer "drop table tab1"
+INDEXES="IDX1 IDX2 IDX3 IDX4 IDX5" IDX1="1:1 1 BTREE 1" IDX2="29:1 1 BTREE 0" IDX3="36:1 3 BTREE 0" IDX4="4:1 2 HASH 1" IDX5="67:2 0 BTREE 0" TAB1="1:A B C" test_optimizer "drop table tab1"
+
+exit 0

@@ -1,0 +1,29 @@
+
+#####################################################################
+ Success cases
+#####################################################################
+
+DbjLockManager::isLockListInUse() has been called.
+DbjBufferManager::haveFixedPages() has been called.
+DbjLockManager::destroyLockList() has been called.
+DbjBufferManager::destroyBuffer() has been called.
+The system was stopped successfully. SQLSTATE=00000
+
+DbjLockManager::destroyLockList() has been called.
+DbjBufferManager::destroyBuffer() has been called.
+The system was stopped successfully. SQLSTATE=00000
+
+
+#####################################################################
+ Unknown option
+#####################################################################
+
+
+Usage: test_stop [force]
+
+
+Usage: test_stop [force]
+
+
+Usage: test_stop [force]
+

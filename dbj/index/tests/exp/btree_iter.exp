@@ -1,0 +1,1030 @@
+
+Struktur des B-Baums
+====================
+
+Wurzel: Knoten 1
+Blaetter (von links nach rechts)
+
+   2 [-28, -24]
+   3 [-13, 123]
+   4 [124, 165]
+  25 [166, 166]
+   6 [167, <max>]
+
+
+#####################################################################
+ B-Baum Iterator fuer Interval [5, 10].
+#####################################################################
+
+*****************************************************************
+* B-Baum hat eindeutige INTEGER-Schluessel
+*****************************************************************
+
+B-Baum Iterator fuer Interval [5, 10].
+
+LM::request(1) aufgerufen.
+LM::request(3) aufgerufen.
+FETCH Tupel-ID: 5, 23
+FETCH Tupel-ID: 6, 23
+FETCH Tupel-ID: 7, 23
+FETCH Tupel-ID: 8, 23
+FETCH Tupel-ID: 9, 23
+FETCH Tupel-ID: 10, 23
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ B-Baum Iterator fuer Punkt-Interval [200, 200].
+#####################################################################
+
+*****************************************************************
+* B-Baum hat eindeutige INTEGER-Schluessel
+*****************************************************************
+
+B-Baum Iterator fuer Interval [200, 200].
+
+LM::request(1) aufgerufen.
+LM::request(6) aufgerufen.
+FETCH Tupel-ID: 200, 23
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ B-Baum Iterator fuer Punkt-Interval [166, 166].
+#####################################################################
+
+*****************************************************************
+* B-Baum hat eindeutige INTEGER-Schluessel
+*****************************************************************
+
+B-Baum Iterator fuer Interval [166, 166].
+
+LM::request(1) aufgerufen.
+LM::request(25) aufgerufen.
+LM::request(6) aufgerufen.
+FETCH Tupel-ID: 166, 23
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ B-Baum Iterator fuer Interval [NULL, 13].
+#####################################################################
+
+*****************************************************************
+* B-Baum hat eindeutige INTEGER-Schluessel
+*****************************************************************
+
+B-Baum Iterator fuer Interval [NULL, 13].
+
+LM::request(1) aufgerufen.
+LM::request(2) aufgerufen.
+FETCH Tupel-ID: -28, 23
+FETCH Tupel-ID: -27, 23
+FETCH Tupel-ID: -26, 23
+FETCH Tupel-ID: -25, 23
+LM::request(3) aufgerufen.
+FETCH Tupel-ID: -24, 23
+FETCH Tupel-ID: -13, 23
+FETCH Tupel-ID: -12, 23
+FETCH Tupel-ID: -11, 23
+FETCH Tupel-ID: -10, 23
+FETCH Tupel-ID: -9, 23
+FETCH Tupel-ID: -8, 23
+FETCH Tupel-ID: -7, 23
+FETCH Tupel-ID: -6, 23
+FETCH Tupel-ID: -5, 23
+FETCH Tupel-ID: -4, 23
+FETCH Tupel-ID: -3, 23
+FETCH Tupel-ID: -2, 23
+FETCH Tupel-ID: -1, 23
+FETCH Tupel-ID: 0, 23
+FETCH Tupel-ID: 1, 23
+FETCH Tupel-ID: 2, 23
+FETCH Tupel-ID: 3, 23
+FETCH Tupel-ID: 4, 23
+FETCH Tupel-ID: 5, 23
+FETCH Tupel-ID: 6, 23
+FETCH Tupel-ID: 7, 23
+FETCH Tupel-ID: 8, 23
+FETCH Tupel-ID: 9, 23
+FETCH Tupel-ID: 10, 23
+FETCH Tupel-ID: 11, 23
+FETCH Tupel-ID: 12, 23
+FETCH Tupel-ID: 13, 23
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ B-Baum Iterator fuer Interval [411, NULL].
+#####################################################################
+
+*****************************************************************
+* B-Baum hat eindeutige INTEGER-Schluessel
+*****************************************************************
+
+B-Baum Iterator fuer Interval [411, NULL].
+
+LM::request(1) aufgerufen.
+LM::request(6) aufgerufen.
+FETCH Tupel-ID: 411, 23
+FETCH Tupel-ID: 412, 23
+FETCH Tupel-ID: 413, 23
+FETCH Tupel-ID: 414, 23
+FETCH Tupel-ID: 415, 23
+FETCH Tupel-ID: 416, 23
+FETCH Tupel-ID: 417, 23
+FETCH Tupel-ID: 418, 23
+FETCH Tupel-ID: 419, 23
+FETCH Tupel-ID: 420, 23
+FETCH Tupel-ID: 421, 23
+FETCH Tupel-ID: 422, 23
+FETCH Tupel-ID: 423, 23
+FETCH Tupel-ID: 424, 23
+FETCH Tupel-ID: 425, 23
+FETCH Tupel-ID: 426, 23
+FETCH Tupel-ID: 427, 23
+FETCH Tupel-ID: 428, 23
+FETCH Tupel-ID: 429, 23
+FETCH Tupel-ID: 430, 23
+FETCH Tupel-ID: 431, 23
+FETCH Tupel-ID: 432, 23
+FETCH Tupel-ID: 433, 23
+FETCH Tupel-ID: 434, 23
+FETCH Tupel-ID: 435, 23
+FETCH Tupel-ID: 436, 23
+FETCH Tupel-ID: 437, 23
+FETCH Tupel-ID: 438, 23
+FETCH Tupel-ID: 439, 23
+FETCH Tupel-ID: 440, 23
+FETCH Tupel-ID: 441, 23
+FETCH Tupel-ID: 442, 23
+FETCH Tupel-ID: 443, 23
+FETCH Tupel-ID: 444, 23
+FETCH Tupel-ID: 445, 23
+FETCH Tupel-ID: 446, 23
+FETCH Tupel-ID: 447, 23
+FETCH Tupel-ID: 448, 23
+FETCH Tupel-ID: 449, 23
+FETCH Tupel-ID: 450, 23
+FETCH Tupel-ID: 451, 23
+FETCH Tupel-ID: 452, 23
+FETCH Tupel-ID: 453, 23
+FETCH Tupel-ID: 454, 23
+FETCH Tupel-ID: 455, 23
+FETCH Tupel-ID: 456, 23
+FETCH Tupel-ID: 457, 23
+FETCH Tupel-ID: 458, 23
+FETCH Tupel-ID: 459, 23
+FETCH Tupel-ID: 460, 23
+FETCH Tupel-ID: 461, 23
+FETCH Tupel-ID: 462, 23
+FETCH Tupel-ID: 463, 23
+FETCH Tupel-ID: 464, 23
+FETCH Tupel-ID: 465, 23
+FETCH Tupel-ID: 466, 23
+FETCH Tupel-ID: 467, 23
+FETCH Tupel-ID: 468, 23
+FETCH Tupel-ID: 469, 23
+FETCH Tupel-ID: 470, 23
+FETCH Tupel-ID: 471, 23
+FETCH Tupel-ID: 472, 23
+FETCH Tupel-ID: 473, 23
+FETCH Tupel-ID: 474, 23
+FETCH Tupel-ID: 475, 23
+FETCH Tupel-ID: 476, 23
+FETCH Tupel-ID: 477, 23
+FETCH Tupel-ID: 478, 23
+FETCH Tupel-ID: 479, 23
+FETCH Tupel-ID: 480, 23
+FETCH Tupel-ID: 481, 23
+FETCH Tupel-ID: 482, 23
+FETCH Tupel-ID: 483, 23
+FETCH Tupel-ID: 484, 23
+FETCH Tupel-ID: 485, 23
+FETCH Tupel-ID: 486, 23
+FETCH Tupel-ID: 487, 23
+FETCH Tupel-ID: 488, 23
+FETCH Tupel-ID: 489, 23
+FETCH Tupel-ID: 490, 23
+FETCH Tupel-ID: 491, 23
+FETCH Tupel-ID: 492, 23
+FETCH Tupel-ID: 493, 23
+FETCH Tupel-ID: 494, 23
+FETCH Tupel-ID: 495, 23
+FETCH Tupel-ID: 496, 23
+FETCH Tupel-ID: 497, 23
+FETCH Tupel-ID: 498, 23
+FETCH Tupel-ID: 499, 23
+FETCH Tupel-ID: 500, 23
+FETCH Tupel-ID: 501, 23
+FETCH Tupel-ID: 502, 23
+FETCH Tupel-ID: 503, 23
+FETCH Tupel-ID: 504, 23
+FETCH Tupel-ID: 505, 23
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ B-Baum Iterator fuer Interval [NULL, NULL].
+#####################################################################
+
+*****************************************************************
+* B-Baum hat eindeutige INTEGER-Schluessel
+*****************************************************************
+
+B-Baum Iterator fuer Interval [NULL, NULL].
+
+LM::request(1) aufgerufen.
+LM::request(2) aufgerufen.
+FETCH Tupel-ID: -28, 23
+FETCH Tupel-ID: -27, 23
+FETCH Tupel-ID: -26, 23
+FETCH Tupel-ID: -25, 23
+LM::request(3) aufgerufen.
+FETCH Tupel-ID: -24, 23
+FETCH Tupel-ID: -13, 23
+FETCH Tupel-ID: -12, 23
+FETCH Tupel-ID: -11, 23
+FETCH Tupel-ID: -10, 23
+FETCH Tupel-ID: -9, 23
+FETCH Tupel-ID: -8, 23
+FETCH Tupel-ID: -7, 23
+FETCH Tupel-ID: -6, 23
+FETCH Tupel-ID: -5, 23
+FETCH Tupel-ID: -4, 23
+FETCH Tupel-ID: -3, 23
+FETCH Tupel-ID: -2, 23
+FETCH Tupel-ID: -1, 23
+FETCH Tupel-ID: 0, 23
+FETCH Tupel-ID: 1, 23
+FETCH Tupel-ID: 2, 23
+FETCH Tupel-ID: 3, 23
+FETCH Tupel-ID: 4, 23
+FETCH Tupel-ID: 5, 23
+FETCH Tupel-ID: 6, 23
+FETCH Tupel-ID: 7, 23
+FETCH Tupel-ID: 8, 23
+FETCH Tupel-ID: 9, 23
+FETCH Tupel-ID: 10, 23
+FETCH Tupel-ID: 11, 23
+FETCH Tupel-ID: 12, 23
+FETCH Tupel-ID: 13, 23
+FETCH Tupel-ID: 14, 23
+FETCH Tupel-ID: 15, 23
+FETCH Tupel-ID: 16, 23
+FETCH Tupel-ID: 17, 23
+FETCH Tupel-ID: 18, 23
+FETCH Tupel-ID: 19, 23
+FETCH Tupel-ID: 20, 23
+FETCH Tupel-ID: 21, 23
+FETCH Tupel-ID: 22, 23
+FETCH Tupel-ID: 23, 23
+FETCH Tupel-ID: 24, 23
+FETCH Tupel-ID: 25, 23
+FETCH Tupel-ID: 26, 23
+FETCH Tupel-ID: 27, 23
+FETCH Tupel-ID: 28, 23
+FETCH Tupel-ID: 29, 23
+FETCH Tupel-ID: 30, 23
+FETCH Tupel-ID: 31, 23
+FETCH Tupel-ID: 32, 23
+FETCH Tupel-ID: 33, 23
+FETCH Tupel-ID: 34, 23
+FETCH Tupel-ID: 35, 23
+FETCH Tupel-ID: 36, 23
+FETCH Tupel-ID: 37, 23
+FETCH Tupel-ID: 38, 23
+FETCH Tupel-ID: 39, 23
+FETCH Tupel-ID: 40, 23
+FETCH Tupel-ID: 41, 23
+FETCH Tupel-ID: 42, 23
+FETCH Tupel-ID: 43, 23
+FETCH Tupel-ID: 44, 23
+FETCH Tupel-ID: 45, 23
+FETCH Tupel-ID: 46, 23
+FETCH Tupel-ID: 47, 23
+FETCH Tupel-ID: 48, 23
+FETCH Tupel-ID: 49, 23
+FETCH Tupel-ID: 50, 23
+FETCH Tupel-ID: 51, 23
+FETCH Tupel-ID: 52, 23
+FETCH Tupel-ID: 53, 23
+FETCH Tupel-ID: 54, 23
+FETCH Tupel-ID: 55, 23
+FETCH Tupel-ID: 56, 23
+FETCH Tupel-ID: 57, 23
+FETCH Tupel-ID: 58, 23
+FETCH Tupel-ID: 59, 23
+FETCH Tupel-ID: 60, 23
+FETCH Tupel-ID: 61, 23
+FETCH Tupel-ID: 62, 23
+FETCH Tupel-ID: 63, 23
+FETCH Tupel-ID: 64, 23
+FETCH Tupel-ID: 65, 23
+FETCH Tupel-ID: 66, 23
+FETCH Tupel-ID: 67, 23
+FETCH Tupel-ID: 68, 23
+FETCH Tupel-ID: 69, 23
+FETCH Tupel-ID: 70, 23
+FETCH Tupel-ID: 71, 23
+FETCH Tupel-ID: 72, 23
+FETCH Tupel-ID: 73, 23
+FETCH Tupel-ID: 74, 23
+FETCH Tupel-ID: 75, 23
+FETCH Tupel-ID: 76, 23
+FETCH Tupel-ID: 77, 23
+FETCH Tupel-ID: 78, 23
+FETCH Tupel-ID: 79, 23
+FETCH Tupel-ID: 80, 23
+FETCH Tupel-ID: 81, 23
+FETCH Tupel-ID: 82, 23
+FETCH Tupel-ID: 83, 23
+FETCH Tupel-ID: 84, 23
+FETCH Tupel-ID: 85, 23
+FETCH Tupel-ID: 86, 23
+FETCH Tupel-ID: 87, 23
+FETCH Tupel-ID: 88, 23
+FETCH Tupel-ID: 89, 23
+FETCH Tupel-ID: 90, 23
+FETCH Tupel-ID: 91, 23
+FETCH Tupel-ID: 92, 23
+FETCH Tupel-ID: 93, 23
+FETCH Tupel-ID: 94, 23
+FETCH Tupel-ID: 95, 23
+FETCH Tupel-ID: 96, 23
+FETCH Tupel-ID: 97, 23
+FETCH Tupel-ID: 98, 23
+FETCH Tupel-ID: 99, 23
+FETCH Tupel-ID: 100, 23
+FETCH Tupel-ID: 101, 23
+FETCH Tupel-ID: 102, 23
+FETCH Tupel-ID: 103, 23
+FETCH Tupel-ID: 104, 23
+FETCH Tupel-ID: 105, 23
+FETCH Tupel-ID: 106, 23
+FETCH Tupel-ID: 107, 23
+FETCH Tupel-ID: 108, 23
+FETCH Tupel-ID: 109, 23
+FETCH Tupel-ID: 110, 23
+FETCH Tupel-ID: 111, 23
+FETCH Tupel-ID: 112, 23
+FETCH Tupel-ID: 113, 23
+FETCH Tupel-ID: 114, 23
+FETCH Tupel-ID: 115, 23
+FETCH Tupel-ID: 116, 23
+FETCH Tupel-ID: 117, 23
+FETCH Tupel-ID: 118, 23
+FETCH Tupel-ID: 119, 23
+FETCH Tupel-ID: 120, 23
+FETCH Tupel-ID: 121, 23
+FETCH Tupel-ID: 122, 23
+LM::request(4) aufgerufen.
+FETCH Tupel-ID: 123, 23
+FETCH Tupel-ID: 124, 23
+FETCH Tupel-ID: 125, 23
+FETCH Tupel-ID: 126, 23
+FETCH Tupel-ID: 127, 23
+FETCH Tupel-ID: 128, 23
+FETCH Tupel-ID: 129, 23
+FETCH Tupel-ID: 130, 23
+FETCH Tupel-ID: 131, 23
+FETCH Tupel-ID: 132, 23
+FETCH Tupel-ID: 133, 23
+FETCH Tupel-ID: 134, 23
+FETCH Tupel-ID: 135, 23
+FETCH Tupel-ID: 136, 23
+FETCH Tupel-ID: 137, 23
+FETCH Tupel-ID: 138, 23
+FETCH Tupel-ID: 139, 23
+FETCH Tupel-ID: 140, 23
+FETCH Tupel-ID: 141, 23
+FETCH Tupel-ID: 142, 23
+FETCH Tupel-ID: 143, 23
+FETCH Tupel-ID: 144, 23
+FETCH Tupel-ID: 145, 23
+FETCH Tupel-ID: 146, 23
+FETCH Tupel-ID: 147, 23
+FETCH Tupel-ID: 148, 23
+FETCH Tupel-ID: 149, 23
+FETCH Tupel-ID: 150, 23
+FETCH Tupel-ID: 151, 23
+FETCH Tupel-ID: 152, 23
+FETCH Tupel-ID: 153, 23
+FETCH Tupel-ID: 154, 23
+FETCH Tupel-ID: 155, 23
+FETCH Tupel-ID: 156, 23
+FETCH Tupel-ID: 157, 23
+FETCH Tupel-ID: 158, 23
+FETCH Tupel-ID: 159, 23
+FETCH Tupel-ID: 160, 23
+FETCH Tupel-ID: 161, 23
+FETCH Tupel-ID: 162, 23
+FETCH Tupel-ID: 163, 23
+FETCH Tupel-ID: 164, 23
+LM::request(25) aufgerufen.
+FETCH Tupel-ID: 165, 23
+LM::request(6) aufgerufen.
+FETCH Tupel-ID: 166, 23
+FETCH Tupel-ID: 167, 23
+FETCH Tupel-ID: 168, 23
+FETCH Tupel-ID: 169, 23
+FETCH Tupel-ID: 170, 23
+FETCH Tupel-ID: 171, 23
+FETCH Tupel-ID: 172, 23
+FETCH Tupel-ID: 173, 23
+FETCH Tupel-ID: 174, 23
+FETCH Tupel-ID: 175, 23
+FETCH Tupel-ID: 176, 23
+FETCH Tupel-ID: 177, 23
+FETCH Tupel-ID: 178, 23
+FETCH Tupel-ID: 179, 23
+FETCH Tupel-ID: 180, 23
+FETCH Tupel-ID: 181, 23
+FETCH Tupel-ID: 182, 23
+FETCH Tupel-ID: 183, 23
+FETCH Tupel-ID: 184, 23
+FETCH Tupel-ID: 185, 23
+FETCH Tupel-ID: 186, 23
+FETCH Tupel-ID: 187, 23
+FETCH Tupel-ID: 188, 23
+FETCH Tupel-ID: 189, 23
+FETCH Tupel-ID: 190, 23
+FETCH Tupel-ID: 191, 23
+FETCH Tupel-ID: 192, 23
+FETCH Tupel-ID: 193, 23
+FETCH Tupel-ID: 194, 23
+FETCH Tupel-ID: 195, 23
+FETCH Tupel-ID: 196, 23
+FETCH Tupel-ID: 197, 23
+FETCH Tupel-ID: 198, 23
+FETCH Tupel-ID: 199, 23
+FETCH Tupel-ID: 200, 23
+FETCH Tupel-ID: 201, 23
+FETCH Tupel-ID: 202, 23
+FETCH Tupel-ID: 203, 23
+FETCH Tupel-ID: 204, 23
+FETCH Tupel-ID: 205, 23
+FETCH Tupel-ID: 206, 23
+FETCH Tupel-ID: 207, 23
+FETCH Tupel-ID: 208, 23
+FETCH Tupel-ID: 209, 23
+FETCH Tupel-ID: 210, 23
+FETCH Tupel-ID: 211, 23
+FETCH Tupel-ID: 212, 23
+FETCH Tupel-ID: 213, 23
+FETCH Tupel-ID: 214, 23
+FETCH Tupel-ID: 215, 23
+FETCH Tupel-ID: 216, 23
+FETCH Tupel-ID: 217, 23
+FETCH Tupel-ID: 218, 23
+FETCH Tupel-ID: 219, 23
+FETCH Tupel-ID: 220, 23
+FETCH Tupel-ID: 221, 23
+FETCH Tupel-ID: 222, 23
+FETCH Tupel-ID: 223, 23
+FETCH Tupel-ID: 224, 23
+FETCH Tupel-ID: 225, 23
+FETCH Tupel-ID: 226, 23
+FETCH Tupel-ID: 227, 23
+FETCH Tupel-ID: 228, 23
+FETCH Tupel-ID: 229, 23
+FETCH Tupel-ID: 230, 23
+FETCH Tupel-ID: 231, 23
+FETCH Tupel-ID: 232, 23
+FETCH Tupel-ID: 233, 23
+FETCH Tupel-ID: 234, 23
+FETCH Tupel-ID: 235, 23
+FETCH Tupel-ID: 236, 23
+FETCH Tupel-ID: 237, 23
+FETCH Tupel-ID: 238, 23
+FETCH Tupel-ID: 239, 23
+FETCH Tupel-ID: 240, 23
+FETCH Tupel-ID: 241, 23
+FETCH Tupel-ID: 242, 23
+FETCH Tupel-ID: 243, 23
+FETCH Tupel-ID: 244, 23
+FETCH Tupel-ID: 245, 23
+FETCH Tupel-ID: 246, 23
+FETCH Tupel-ID: 247, 23
+FETCH Tupel-ID: 248, 23
+FETCH Tupel-ID: 249, 23
+FETCH Tupel-ID: 250, 23
+FETCH Tupel-ID: 251, 23
+FETCH Tupel-ID: 252, 23
+FETCH Tupel-ID: 253, 23
+FETCH Tupel-ID: 254, 23
+FETCH Tupel-ID: 255, 23
+FETCH Tupel-ID: 256, 23
+FETCH Tupel-ID: 257, 23
+FETCH Tupel-ID: 258, 23
+FETCH Tupel-ID: 259, 23
+FETCH Tupel-ID: 260, 23
+FETCH Tupel-ID: 261, 23
+FETCH Tupel-ID: 262, 23
+FETCH Tupel-ID: 263, 23
+FETCH Tupel-ID: 264, 23
+FETCH Tupel-ID: 265, 23
+FETCH Tupel-ID: 266, 23
+FETCH Tupel-ID: 267, 23
+FETCH Tupel-ID: 268, 23
+FETCH Tupel-ID: 269, 23
+FETCH Tupel-ID: 270, 23
+FETCH Tupel-ID: 271, 23
+FETCH Tupel-ID: 272, 23
+FETCH Tupel-ID: 273, 23
+FETCH Tupel-ID: 274, 23
+FETCH Tupel-ID: 275, 23
+FETCH Tupel-ID: 276, 23
+FETCH Tupel-ID: 277, 23
+FETCH Tupel-ID: 278, 23
+FETCH Tupel-ID: 279, 23
+FETCH Tupel-ID: 280, 23
+FETCH Tupel-ID: 281, 23
+FETCH Tupel-ID: 282, 23
+FETCH Tupel-ID: 283, 23
+FETCH Tupel-ID: 284, 23
+FETCH Tupel-ID: 285, 23
+FETCH Tupel-ID: 286, 23
+FETCH Tupel-ID: 287, 23
+FETCH Tupel-ID: 288, 23
+FETCH Tupel-ID: 289, 23
+FETCH Tupel-ID: 290, 23
+FETCH Tupel-ID: 291, 23
+FETCH Tupel-ID: 292, 23
+FETCH Tupel-ID: 293, 23
+FETCH Tupel-ID: 294, 23
+FETCH Tupel-ID: 295, 23
+FETCH Tupel-ID: 296, 23
+FETCH Tupel-ID: 297, 23
+FETCH Tupel-ID: 298, 23
+FETCH Tupel-ID: 299, 23
+FETCH Tupel-ID: 300, 23
+FETCH Tupel-ID: 301, 23
+FETCH Tupel-ID: 302, 23
+FETCH Tupel-ID: 303, 23
+FETCH Tupel-ID: 304, 23
+FETCH Tupel-ID: 305, 23
+FETCH Tupel-ID: 306, 23
+FETCH Tupel-ID: 307, 23
+FETCH Tupel-ID: 308, 23
+FETCH Tupel-ID: 309, 23
+FETCH Tupel-ID: 310, 23
+FETCH Tupel-ID: 311, 23
+FETCH Tupel-ID: 312, 23
+FETCH Tupel-ID: 313, 23
+FETCH Tupel-ID: 314, 23
+FETCH Tupel-ID: 315, 23
+FETCH Tupel-ID: 316, 23
+FETCH Tupel-ID: 317, 23
+FETCH Tupel-ID: 318, 23
+FETCH Tupel-ID: 319, 23
+FETCH Tupel-ID: 320, 23
+FETCH Tupel-ID: 321, 23
+FETCH Tupel-ID: 322, 23
+FETCH Tupel-ID: 323, 23
+FETCH Tupel-ID: 324, 23
+FETCH Tupel-ID: 325, 23
+FETCH Tupel-ID: 326, 23
+FETCH Tupel-ID: 327, 23
+FETCH Tupel-ID: 328, 23
+FETCH Tupel-ID: 329, 23
+FETCH Tupel-ID: 330, 23
+FETCH Tupel-ID: 331, 23
+FETCH Tupel-ID: 332, 23
+FETCH Tupel-ID: 333, 23
+FETCH Tupel-ID: 334, 23
+FETCH Tupel-ID: 335, 23
+FETCH Tupel-ID: 336, 23
+FETCH Tupel-ID: 337, 23
+FETCH Tupel-ID: 338, 23
+FETCH Tupel-ID: 339, 23
+FETCH Tupel-ID: 340, 23
+FETCH Tupel-ID: 341, 23
+FETCH Tupel-ID: 342, 23
+FETCH Tupel-ID: 343, 23
+FETCH Tupel-ID: 344, 23
+FETCH Tupel-ID: 345, 23
+FETCH Tupel-ID: 346, 23
+FETCH Tupel-ID: 347, 23
+FETCH Tupel-ID: 348, 23
+FETCH Tupel-ID: 349, 23
+FETCH Tupel-ID: 350, 23
+FETCH Tupel-ID: 351, 23
+FETCH Tupel-ID: 352, 23
+FETCH Tupel-ID: 353, 23
+FETCH Tupel-ID: 354, 23
+FETCH Tupel-ID: 355, 23
+FETCH Tupel-ID: 356, 23
+FETCH Tupel-ID: 357, 23
+FETCH Tupel-ID: 358, 23
+FETCH Tupel-ID: 359, 23
+FETCH Tupel-ID: 360, 23
+FETCH Tupel-ID: 361, 23
+FETCH Tupel-ID: 362, 23
+FETCH Tupel-ID: 363, 23
+FETCH Tupel-ID: 364, 23
+FETCH Tupel-ID: 365, 23
+FETCH Tupel-ID: 366, 23
+FETCH Tupel-ID: 367, 23
+FETCH Tupel-ID: 368, 23
+FETCH Tupel-ID: 369, 23
+FETCH Tupel-ID: 370, 23
+FETCH Tupel-ID: 371, 23
+FETCH Tupel-ID: 372, 23
+FETCH Tupel-ID: 373, 23
+FETCH Tupel-ID: 374, 23
+FETCH Tupel-ID: 375, 23
+FETCH Tupel-ID: 376, 23
+FETCH Tupel-ID: 377, 23
+FETCH Tupel-ID: 378, 23
+FETCH Tupel-ID: 379, 23
+FETCH Tupel-ID: 380, 23
+FETCH Tupel-ID: 381, 23
+FETCH Tupel-ID: 382, 23
+FETCH Tupel-ID: 383, 23
+FETCH Tupel-ID: 384, 23
+FETCH Tupel-ID: 385, 23
+FETCH Tupel-ID: 386, 23
+FETCH Tupel-ID: 387, 23
+FETCH Tupel-ID: 388, 23
+FETCH Tupel-ID: 389, 23
+FETCH Tupel-ID: 390, 23
+FETCH Tupel-ID: 391, 23
+FETCH Tupel-ID: 392, 23
+FETCH Tupel-ID: 393, 23
+FETCH Tupel-ID: 394, 23
+FETCH Tupel-ID: 395, 23
+FETCH Tupel-ID: 396, 23
+FETCH Tupel-ID: 397, 23
+FETCH Tupel-ID: 398, 23
+FETCH Tupel-ID: 399, 23
+FETCH Tupel-ID: 400, 23
+FETCH Tupel-ID: 401, 23
+FETCH Tupel-ID: 402, 23
+FETCH Tupel-ID: 403, 23
+FETCH Tupel-ID: 404, 23
+FETCH Tupel-ID: 405, 23
+FETCH Tupel-ID: 406, 23
+FETCH Tupel-ID: 407, 23
+FETCH Tupel-ID: 408, 23
+FETCH Tupel-ID: 409, 23
+FETCH Tupel-ID: 410, 23
+FETCH Tupel-ID: 411, 23
+FETCH Tupel-ID: 412, 23
+FETCH Tupel-ID: 413, 23
+FETCH Tupel-ID: 414, 23
+FETCH Tupel-ID: 415, 23
+FETCH Tupel-ID: 416, 23
+FETCH Tupel-ID: 417, 23
+FETCH Tupel-ID: 418, 23
+FETCH Tupel-ID: 419, 23
+FETCH Tupel-ID: 420, 23
+FETCH Tupel-ID: 421, 23
+FETCH Tupel-ID: 422, 23
+FETCH Tupel-ID: 423, 23
+FETCH Tupel-ID: 424, 23
+FETCH Tupel-ID: 425, 23
+FETCH Tupel-ID: 426, 23
+FETCH Tupel-ID: 427, 23
+FETCH Tupel-ID: 428, 23
+FETCH Tupel-ID: 429, 23
+FETCH Tupel-ID: 430, 23
+FETCH Tupel-ID: 431, 23
+FETCH Tupel-ID: 432, 23
+FETCH Tupel-ID: 433, 23
+FETCH Tupel-ID: 434, 23
+FETCH Tupel-ID: 435, 23
+FETCH Tupel-ID: 436, 23
+FETCH Tupel-ID: 437, 23
+FETCH Tupel-ID: 438, 23
+FETCH Tupel-ID: 439, 23
+FETCH Tupel-ID: 440, 23
+FETCH Tupel-ID: 441, 23
+FETCH Tupel-ID: 442, 23
+FETCH Tupel-ID: 443, 23
+FETCH Tupel-ID: 444, 23
+FETCH Tupel-ID: 445, 23
+FETCH Tupel-ID: 446, 23
+FETCH Tupel-ID: 447, 23
+FETCH Tupel-ID: 448, 23
+FETCH Tupel-ID: 449, 23
+FETCH Tupel-ID: 450, 23
+FETCH Tupel-ID: 451, 23
+FETCH Tupel-ID: 452, 23
+FETCH Tupel-ID: 453, 23
+FETCH Tupel-ID: 454, 23
+FETCH Tupel-ID: 455, 23
+FETCH Tupel-ID: 456, 23
+FETCH Tupel-ID: 457, 23
+FETCH Tupel-ID: 458, 23
+FETCH Tupel-ID: 459, 23
+FETCH Tupel-ID: 460, 23
+FETCH Tupel-ID: 461, 23
+FETCH Tupel-ID: 462, 23
+FETCH Tupel-ID: 463, 23
+FETCH Tupel-ID: 464, 23
+FETCH Tupel-ID: 465, 23
+FETCH Tupel-ID: 466, 23
+FETCH Tupel-ID: 467, 23
+FETCH Tupel-ID: 468, 23
+FETCH Tupel-ID: 469, 23
+FETCH Tupel-ID: 470, 23
+FETCH Tupel-ID: 471, 23
+FETCH Tupel-ID: 472, 23
+FETCH Tupel-ID: 473, 23
+FETCH Tupel-ID: 474, 23
+FETCH Tupel-ID: 475, 23
+FETCH Tupel-ID: 476, 23
+FETCH Tupel-ID: 477, 23
+FETCH Tupel-ID: 478, 23
+FETCH Tupel-ID: 479, 23
+FETCH Tupel-ID: 480, 23
+FETCH Tupel-ID: 481, 23
+FETCH Tupel-ID: 482, 23
+FETCH Tupel-ID: 483, 23
+FETCH Tupel-ID: 484, 23
+FETCH Tupel-ID: 485, 23
+FETCH Tupel-ID: 486, 23
+FETCH Tupel-ID: 487, 23
+FETCH Tupel-ID: 488, 23
+FETCH Tupel-ID: 489, 23
+FETCH Tupel-ID: 490, 23
+FETCH Tupel-ID: 491, 23
+FETCH Tupel-ID: 492, 23
+FETCH Tupel-ID: 493, 23
+FETCH Tupel-ID: 494, 23
+FETCH Tupel-ID: 495, 23
+FETCH Tupel-ID: 496, 23
+FETCH Tupel-ID: 497, 23
+FETCH Tupel-ID: 498, 23
+FETCH Tupel-ID: 499, 23
+FETCH Tupel-ID: 500, 23
+FETCH Tupel-ID: 501, 23
+FETCH Tupel-ID: 502, 23
+FETCH Tupel-ID: 503, 23
+FETCH Tupel-ID: 504, 23
+FETCH Tupel-ID: 505, 23
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ B-Baum Iterator fuer Interval [NULL, -30] (vor Daten).
+#####################################################################
+
+*****************************************************************
+* B-Baum hat eindeutige INTEGER-Schluessel
+*****************************************************************
+
+B-Baum Iterator fuer Interval [NULL, -30].
+
+LM::request(1) aufgerufen.
+LM::request(2) aufgerufen.
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ B-Baum Iterator fuer Interval [-31, -29] (vor Daten).
+#####################################################################
+
+*****************************************************************
+* B-Baum hat eindeutige INTEGER-Schluessel
+*****************************************************************
+
+B-Baum Iterator fuer Interval [-31, -29].
+
+LM::request(1) aufgerufen.
+LM::request(2) aufgerufen.
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ B-Baum Iterator fuer Interval [-29, -27] (ueberlappend mit Beginn).
+#####################################################################
+
+*****************************************************************
+* B-Baum hat eindeutige INTEGER-Schluessel
+*****************************************************************
+
+B-Baum Iterator fuer Interval [-29, -27].
+
+LM::request(1) aufgerufen.
+LM::request(2) aufgerufen.
+FETCH Tupel-ID: -28, 23
+FETCH Tupel-ID: -27, 23
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ B-Baum Iterator fuer Interval [499, 508] (ueberlappend mit Ende).
+#####################################################################
+
+*****************************************************************
+* B-Baum hat eindeutige INTEGER-Schluessel
+*****************************************************************
+
+B-Baum Iterator fuer Interval [499, 508].
+
+LM::request(1) aufgerufen.
+LM::request(6) aufgerufen.
+FETCH Tupel-ID: 499, 23
+FETCH Tupel-ID: 500, 23
+FETCH Tupel-ID: 501, 23
+FETCH Tupel-ID: 502, 23
+FETCH Tupel-ID: 503, 23
+FETCH Tupel-ID: 504, 23
+FETCH Tupel-ID: 505, 23
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ B-Baum Iterator fuer Interval [505, 506] (ueberlappend mit Ende).
+#####################################################################
+
+*****************************************************************
+* B-Baum hat eindeutige INTEGER-Schluessel
+*****************************************************************
+
+B-Baum Iterator fuer Interval [505, 506].
+
+LM::request(1) aufgerufen.
+LM::request(6) aufgerufen.
+FETCH Tupel-ID: 505, 23
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ B-Baum Iterator fuer Interval [508, 509] (hinter Daten).
+#####################################################################
+
+*****************************************************************
+* B-Baum hat eindeutige INTEGER-Schluessel
+*****************************************************************
+
+B-Baum Iterator fuer Interval [508, 509].
+
+LM::request(1) aufgerufen.
+LM::request(6) aufgerufen.
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ B-Baum Iterator fuer Interval [700, NULL] (hinter Daten).
+#####################################################################
+
+*****************************************************************
+* B-Baum hat eindeutige INTEGER-Schluessel
+*****************************************************************
+
+B-Baum Iterator fuer Interval [700, NULL].
+
+LM::request(1) aufgerufen.
+LM::request(6) aufgerufen.
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ B-Baum Iterator fuer Interval [-10, -12] (Fehler).
+#####################################################################
+
+*****************************************************************
+* B-Baum hat eindeutige INTEGER-Schluessel
+*****************************************************************
+
+B-Baum Iterator fuer Interval [-10, -12].
+
+Fehler in 'DbjIndexManager::findRange':
+An invalid parameter value was detected.
+
+
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ B-Baum Iterator fuer Interval [197, 202] (Duplikate).
+#####################################################################
+
+*****************************************************************
+* B-Baum hat nicht-eindeutige INTEGER-Schluessel
+*****************************************************************
+
+B-Baum Iterator fuer Interval [197, 202].
+
+LM::request(1) aufgerufen.
+LM::request(6) aufgerufen.
+FETCH Tupel-ID: 197, 23
+FETCH Tupel-ID: 197, 23
+FETCH Tupel-ID: 197, 23
+FETCH Tupel-ID: 197, 23
+FETCH Tupel-ID: 197, 23
+FETCH Tupel-ID: 202, 23
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ B-Baum Iterator fuer Interval [NULL, -26] (Duplikate).
+#####################################################################
+
+*****************************************************************
+* B-Baum hat nicht-eindeutige INTEGER-Schluessel
+*****************************************************************
+
+B-Baum Iterator fuer Interval [NULL, -26].
+
+LM::request(1) aufgerufen.
+LM::request(2) aufgerufen.
+FETCH Tupel-ID: -28, 23
+FETCH Tupel-ID: -28, 23
+FETCH Tupel-ID: -28, 23
+FETCH Tupel-ID: -28, 23
+LM::request(3) aufgerufen.
+FETCH Tupel-ID: -28, 23
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ B-Baum Iterator fuer Interval [143, 159] (keine Duplikate im Interval).
+#####################################################################
+
+*****************************************************************
+* B-Baum hat nicht-eindeutige INTEGER-Schluessel
+*****************************************************************
+
+B-Baum Iterator fuer Interval [143, 159].
+
+LM::request(1) aufgerufen.
+LM::request(4) aufgerufen.
+FETCH Tupel-ID: 143, 23
+FETCH Tupel-ID: 144, 23
+FETCH Tupel-ID: 145, 23
+FETCH Tupel-ID: 146, 23
+FETCH Tupel-ID: 147, 23
+FETCH Tupel-ID: 148, 23
+FETCH Tupel-ID: 149, 23
+FETCH Tupel-ID: 150, 23
+FETCH Tupel-ID: 151, 23
+FETCH Tupel-ID: 152, 23
+FETCH Tupel-ID: 153, 23
+FETCH Tupel-ID: 154, 23
+FETCH Tupel-ID: 154, 23
+FETCH Tupel-ID: 154, 23
+FETCH Tupel-ID: 154, 23
+FETCH Tupel-ID: 154, 23
+FETCH Tupel-ID: 159, 23
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ B-Baum Iterator fuer Interval [158, 163] (in Luecke).
+#####################################################################
+
+*****************************************************************
+* B-Baum hat nicht-eindeutige INTEGER-Schluessel
+*****************************************************************
+
+B-Baum Iterator fuer Interval [158, 163].
+
+LM::request(1) aufgerufen.
+LM::request(4) aufgerufen.
+FETCH Tupel-ID: 159, 23
+FETCH Tupel-ID: 160, 23
+FETCH Tupel-ID: 161, 23
+FETCH Tupel-ID: 162, 23
+FETCH Tupel-ID: 163, 23
+
+The operation was completed successfully.
+
+

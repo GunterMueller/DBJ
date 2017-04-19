@@ -1,0 +1,153 @@
+
+#####################################################################
+ System starten
+#####################################################################
+
+The system was started successfully. SQLSTATE=00000
+
+
+#####################################################################
+ Tabellen anlegen
+#####################################################################
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+
+8 Seg1.dbj
+8 Seg2.dbj
+8 Seg3.dbj
+8 Seg32768.dbj
+8 Seg32769.dbj
+8 Seg32770.dbj
+8 Seg32771.dbj
+8 Seg32772.dbj
+8 Seg32773.dbj
+8 Seg32774.dbj
+8 Seg32775.dbj
+8 Seg32776.dbj
+8 Seg32777.dbj
+8 Seg32778.dbj
+0 Seg4.dbj
+0 Seg5.dbj
+
+#####################################################################
+ Daten einfuegen
+#####################################################################
+
+The operation was completed successfully. SQLSTATE=00000
+
+
+TUPLE_COUNT
+-----------
+          1
+
+  1 record(s) returned.
+
+The operation was completed successfully. SQLSTATE=00000
+
+The index key already exists in the unique index with segment id 32775. SQLSTATE=IM001
+Rolling back transaction...
+
+
+PERSNR      VORNAME    NACHNAME             GEHALT      ADRESSE             
+----------- ---------- -------------------- ----------- --------------------
+          1 Klaus      Kuespert                   10000 -                   
+
+  1 record(s) returned.
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+The operation was completed successfully. SQLSTATE=00000
+
+
+PERSNR      VORNAME    NACHNAME             GEHALT      ADRESSE             
+----------- ---------- -------------------- ----------- --------------------
+          1 Klaus      Kuespert                   10000 -                   
+          2 Knut       Stolze                      1500 Ernst-Abbe-Platz 2  
+          3 Thomas     Mueller                     3000 Ernst-Abbe-Platz 2  
+          4 Hannes     Moser                        500 Ernst-Abbe-Platz 1  
+
+  4 record(s) returned.
+
+The operation was completed successfully. SQLSTATE=00000
+
+
+TUPLE_COUNT
+-----------
+          4
+
+  1 record(s) returned.
+
+The operation was completed successfully. SQLSTATE=00000
+
+
+PERSNR      VORNAME    NACHNAME             GEHALT      ADRESSE             
+----------- ---------- -------------------- ----------- --------------------
+          1 Klaus      Kuespert                   10000 -                   
+          2 Knut       Stolze                      1500 Ernst-Abbe-Platz 2  
+          3 Thomas     Mueller                     3000 Ernst-Abbe-Platz 2  
+          4 Hannes     Moser                        500 Ernst-Abbe-Platz 1  
+         20 -          Studi                          0 -                   
+
+  5 record(s) returned.
+
+
+TUPLE_COUNT
+-----------
+          5
+
+  1 record(s) returned.
+
+The operation was completed successfully. SQLSTATE=00000
+
+
+PERSNR      VORNAME    NACHNAME             GEHALT      ADRESSE             
+----------- ---------- -------------------- ----------- --------------------
+          1 Klaus      Kuespert                   10000 -                   
+          2 Knut       Stolze                      1500 Ernst-Abbe-Platz 2  
+          3 Thomas     Mueller                     3000 Ernst-Abbe-Platz 2  
+          4 Hannes     Moser                        500 Ernst-Abbe-Platz 1  
+
+  4 record(s) returned.
+
+
+TUPLE_COUNT
+-----------
+          4
+
+  1 record(s) returned.
+
+
+8 Seg1.dbj
+8 Seg2.dbj
+8 Seg3.dbj
+8 Seg32768.dbj
+8 Seg32769.dbj
+8 Seg32770.dbj
+8 Seg32771.dbj
+8 Seg32772.dbj
+8 Seg32773.dbj
+8 Seg32774.dbj
+8 Seg32775.dbj
+8 Seg32776.dbj
+8 Seg32777.dbj
+8 Seg32778.dbj
+8 Seg4.dbj
+0 Seg5.dbj
+
+#####################################################################
+ System stoppen
+#####################################################################
+
+The system was stopped successfully. SQLSTATE=00000
+

@@ -1,0 +1,18 @@
+
+#####################################################################
+ Success cases
+#####################################################################
+
+DbjLockManager::initializeLockList() has been called.
+DbjBufferManager::initializeBuffer() has been called.
+DbjCatalogManager::initializeCatalog() has been called.
+The system was started successfully. SQLSTATE=00000
+
+
+#####################################################################
+ Unknown option
+#####################################################################
+
+
+Usage: test_start
+

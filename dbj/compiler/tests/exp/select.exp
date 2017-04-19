@@ -1,0 +1,374 @@
+
+#####################################################################
+ Success cases
+#####################################################################
+
+Validated access plan:
+==================================================
+SelectStmt
+  |
+Projections - Column ('A'/0) [Correlation name: T] - Column ('B'/1) [Correlation name: T] - Column ('C'/2) [Correlation name: T] - Column ('D'/3) [Correlation name: T] - Column ('E'/4) [Correlation name: T] - Column ('F'/5) [Correlation name: T] - Column ('G'/6) [Correlation name: T] - Column ('H'/7) [Correlation name: T] - Column ('I'/8) [Correlation name: T] - Column ('J'/9) [Correlation name: T] - Column ('K'/10) [Correlation name: T] - Column ('L'/11) [Correlation name: T]
+  |           
+Sources - Table ('T'/1)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+SelectStmt
+  |
+Projections - Column ('C1'/0) [Correlation name: x] - Column ('C2'/1) [Correlation name: x] - Column ('C3'/2) [Correlation name: x]
+  |           
+Sources - Table ('T'/1) [Correlation name: x]
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+SelectStmt
+  |
+Projections - Column ('X'/0) [Correlation name: x] - Column ('Y'/1) [Correlation name: x] - Column ('Z'/2) [Correlation name: x] - Column ('C'/3) [Correlation name: x]
+  |           
+Sources - Table ('T'/1) [Correlation name: x]
+  |       
+WhereClause - Predicate
+                |
+              Column ('C'/3) - Comparison ('=') - IntegerValue (1)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+SelectStmt
+  |
+Projections - Column ('C1'/0) [Correlation name: x] - Column ('DUMMY'/1) [Correlation name: x] - Column ('C2'/2) [Correlation name: x]
+  |           
+Sources - Table ('T'/1) [Correlation name: x]
+  |       
+WhereClause - Predicate
+                |
+              Column ('C1'/0) - Comparison ('>=') - Column ('C2'/2)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+SelectStmt
+  |
+Projections - Column ('T1_COL'/0) - Column ('T2_COL'/2)
+  |           
+Sources - Table ('T1'/1) [Correlation name: t2] - Table ('T2'/2) [Correlation name: t1]
+  |       
+WhereClause - Predicate
+                |
+              Column ('T1_COL'/0) [Correlation name: t2] - Comparison ('<') - Column ('T2_COL'/2) [Correlation name: t1]
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+SelectStmt
+  |
+Projections - Column ('A'/0) [Correlation name: T] - Column ('B'/1) [Correlation name: T] - Column ('C'/2) [Correlation name: T] - Column ('A'/0) [Correlation name: T] - Column ('B'/1) [Correlation name: T] - Column ('C'/2) [Correlation name: T]
+  |           
+Sources - Table ('T'/1)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+SelectStmt
+  |
+Projections - Column ('X'/0) [Correlation name: T1] - Column ('N'/0) [Correlation name: T2] - Column ('M'/1) [Correlation name: T2] - Column ('O'/2) [Correlation name: T2] - Column ('P'/3) [Correlation name: T2] - Column ('Q'/4) [Correlation name: T2] - Column ('X'/0) [Correlation name: T1]
+  |           
+Sources - Table ('T1'/1) - Table ('T2'/2)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+SelectStmt
+  |
+Projections - Column ('N'/0) [Correlation name: T1] - Column ('M'/1) [Correlation name: T1] - Column ('O'/2) [Correlation name: T1] - Column ('P'/3) [Correlation name: T1] - Column ('Q'/4) [Correlation name: T1] - Column ('R'/5) [Correlation name: T1] - Column ('S'/6) [Correlation name: T1] - Column ('T'/7) [Correlation name: T1] - Column ('U'/8) [Correlation name: T1] - Column ('V'/9) [Correlation name: T1] - Column ('W'/10) [Correlation name: T1] - Column ('A'/0) [Correlation name: T2] - Column ('B'/1) [Correlation name: T2] - Column ('C'/2) [Correlation name: T2] - Column ('D'/3) [Correlation name: T2] - Column ('E'/4) [Correlation name: T2] - Column ('F'/5) [Correlation name: T2] - Column ('G'/6) [Correlation name: T2] - Column ('H'/7) [Correlation name: T2] - Column ('I'/8) [Correlation name: T2] - Column ('J'/9) [Correlation name: T2] - Column ('K'/10) [Correlation name: T2] - Column ('L'/11) [Correlation name: T2] - Column ('M'/12) [Correlation name: T2] - Column ('N'/0) [Correlation name: T1] - Column ('M'/1) [Correlation name: T1] - Column ('O'/2) [Correlation name: T1] - Column ('P'/3) [Correlation name: T1] - Column ('Q'/4) [Correlation name: T1] - Column ('R'/5) [Correlation name: T1] - Column ('S'/6) [Correlation name: T1] - Column ('T'/7) [Correlation name: T1] - Column ('U'/8) [Correlation name: T1] - Column ('V'/9) [Correlation name: T1] - Column ('W'/10) [Correlation name: T1] - Column ('A'/0) [Correlation name: T2] - Column ('B'/1) [Correlation name: T2] - Column ('C'/2) [Correlation name: T2] - Column ('D'/3) [Correlation name: T2] - Column ('E'/4) [Correlation name: T2] - Column ('F'/5) [Correlation name: T2] - Column ('G'/6) [Correlation name: T2] - Column ('H'/7) [Correlation name: T2] - Column ('I'/8) [Correlation name: T2] - Column ('J'/9) [Correlation name: T2] - Column ('K'/10) [Correlation name: T2] - Column ('L'/11) [Correlation name: T2] - Column ('M'/12) [Correlation name: T2] - Column ('M'/1) [Correlation name: t1]
+  |           
+Sources - Table ('T1'/1) - Table ('T2'/2)
+  |       
+WhereClause - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('OR') - Predicate
+                |                               |                              |                              |
+                |                               |                              |                            Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('AND') - Predicate
+                |                               |                              |                              |                               |                               |
+                |                               |                              |                              |                               |                             Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('AND') - Predicate - LogicalOp ('OR') - Predicate
+                |                               |                              |                              |                               |                               |                              |                               |                              |
+                |                               |                              |                              |                               |                               |                              |                               |                            Column ('O'/2) [Correlation name: t1] - Comparison ('=') - NullValue
+                |                               |                              |                              |                               |                               |                              |                               |         
+                |                               |                              |                              |                               |                               |                              |                             Column ('D'/3) - Comparison ('<>') - NullValue
+                |                               |                              |                              |                               |                               |                              |         
+                |                               |                              |                              |                               |                               |                            Predicate - LogicalOp ('AND') - Predicate
+                |                               |                              |                              |                               |                               |                              |                               |
+                |                               |                              |                              |                               |                               |                              |                             Column ('T'/7) [Correlation name: t1] - Comparison ('<>') - Column ('L'/11) [Correlation name: t2]
+                |                               |                              |                              |                               |                               |                              |         
+                |                               |                              |                              |                               |                               |                            Column ('A'/0) - Comparison ('=') - Column ('A'/0)
+                |                               |                              |                              |                               |                               |         
+                |                               |                              |                              |                               |                             Column ('Q'/4) - Comparison ('<=') - Column ('G'/6)
+                |                               |                              |                              |                               |         
+                |                               |                              |                              |                             Predicate - LogicalOp ('OR') - Predicate
+                |                               |                              |                              |                               |                              |
+                |                               |                              |                              |                               |                            Column ('P'/3) [Correlation name: t1] - Comparison ('<=') - Column ('F'/5)
+                |                               |                              |                              |                               |         
+                |                               |                              |                              |                             Column ('C'/2) - Comparison ('=') - Column ('E'/4)
+                |                               |                              |                              |         
+                |                               |                              |                            Predicate
+                |                               |                              |                              |
+                |                               |                              |                            Column ('C'/2) - Comparison ('<=') - Column ('O'/2)
+                |                               |                              |         
+                |                               |                            Predicate
+                |                               |                              |
+                |                               |                            Column ('W'/10) - Comparison ('<>') - Column ('M'/12) [Correlation name: t2]
+                |                               |         
+                |                             Column ('O'/2) - Comparison ('<') - Column ('C'/2)
+                |         
+              Column ('N'/0) - Comparison ('=') - Column ('A'/0)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+SelectStmt
+  |
+Projections - Column ('A'/0) - Column ('B'/1) - Column ('A'/0) [Correlation name: t]
+  |           
+Sources - Table ('T'/1)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+SelectStmt
+  |
+Projections - Column ('A'/0) - Column ('B'/1)
+  |           
+Sources - Table ('T'/1)
+  |       
+WhereClause - Predicate
+                |
+              Column ('A'/0) - Comparison ('LIKE') - VarcharValue ('string')
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+SelectStmt
+  |
+Projections - Column ('A'/0) - Column ('B'/1)
+  |           
+Sources - Table ('T'/1)
+  |       
+WhereClause - Predicate
+                |
+              Predicate
+                |
+              Column ('C'/2) - Comparison ('NOT LIKE') - VarcharValue ('some text')
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+SelectStmt
+  |
+Projections - Column ('COL1'/0) [Correlation name: TAB] - Column ('COL2'/1) [Correlation name: TAB]
+  |           
+Sources - Table ('TAB'/10)
+  |       
+WhereClause - Negation - Predicate - LogicalOp ('AND') - Negation - Predicate
+                           |                                          |
+                           |                                        Predicate - LogicalOp ('AND') - Predicate
+                           |                                          |                               |
+                           |                                          |                             Column ('COL2'/1) - Comparison ('<=') - IntegerValue (7)
+                           |                                          |         
+                           |                                        Column ('COL2'/1) - Comparison ('>=') - IntegerValue (5)
+                           |         
+                         Predicate - LogicalOp ('AND') - Predicate
+                           |                               |
+                           |                             Column ('COL1'/0) - Comparison ('<=') - VarcharValue ('z')
+                           |         
+                         Column ('COL1'/0) - Comparison ('>=') - VarcharValue ('a')
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+SelectStmt
+  |
+Projections - Column ('A'/0) [Correlation name: a] - Column ('B'/1) [Correlation name: a] - Column ('C'/2) [Correlation name: a]
+  |           
+Sources - Table ('T1'/1) [Correlation name: a] - Table ('T2'/2) [Correlation name: b]
+  |       
+WhereClause - Predicate - LogicalOp ('OR') - Predicate - LogicalOp ('AND') - Predicate
+                |                              |                               |
+                |                              |                             Column ('C'/2) [Correlation name: a] - Comparison ('<>') - Column ('C'/2) [Correlation name: b]
+                |                              |         
+                |                            Column ('B'/1) [Correlation name: a] - Comparison ('<') - Column ('B'/1) [Correlation name: b]
+                |         
+              Column ('A'/0) [Correlation name: a] - Comparison ('=') - Column ('A'/0) [Correlation name: b]
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+SelectStmt
+  |
+Projections - Column ('TABLE_NAME'/0) - Column ('COLUMN_ID'/1) - Column ('FROM_FROM'/2)
+  |           
+Sources - Table ('T'/1)
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Type mismatch in where clause
+#####################################################################
+
+
+The predicate 'C1 <= C2' is not valid because it compares values of two different types.
+
+
+
+The predicate 'T1_COL < T2_COL' is not valid because it compares values of two different types.
+
+
+
+A column named 'B2' does not exist in the table 'T'.
+
+
+
+#####################################################################
+ Tables do not exist
+#####################################################################
+
+
+A table named 'T' does not exist.
+
+
+
+A table named 'TC' does not exist.
+
+
+
+#####################################################################
+ Column does not exist
+#####################################################################
+
+
+A column named 'A' does not exist in any of the tables in the SQL statement.
+
+
+
+A column named 'N' does not exist in any of the tables in the SQL statement.
+
+
+
+A column named 'C' does not exist in any of the tables in the SQL statement.
+
+
+
+#####################################################################
+ Column not identified uniquely
+#####################################################################
+
+
+The source table to which the column 'X' belongs cannot be determined unambigiously.
+
+
+
+The source table to which the column 'X' belongs cannot be determined unambigiously.
+
+
+
+#####################################################################
+ Syntax errors
+#####################################################################
+
+
+A parsing error "syntax error" occured in statement "SELECT select from from where where = were".  Parsing stopped after token "select from from where where = were" at the beginning of " from from where where = were".
+
+
+
+A parsing error "syntax error" occured in statement "SELEC abc FROM t".  Parsing stopped after token "SELEC abc FROM t" at the beginning of " abc FROM t".
+
+
+
+A parsing error "syntax error" occured in statement "SELECT abc def from t".  Parsing stopped after token "def from t" at the beginning of " from t".
+
+
+
+An incomplete or invalid statement was entered.  "SELECT abc FROM t x"
+
+
+
+An unknown token was encountered in the statement, beginning at "!= y".
+
+
+
+A parsing error "syntax error" occured in statement "SELECT abc FROM t as x WHERE x(=) y".  Parsing stopped after token "x(=) y" at the beginning of "=) y".
+
+
+
+A parsing error "syntax error" occured in statement "SELECT abc FROM t as x WHERE x()= y".  Parsing stopped after token "x()= y" at the beginning of ")= y".
+
+
+
+A parsing error "syntax error" occured in statement "SELECT abc FROM t as x WHERE x * 2 = y".  Parsing stopped after token "* 2 = y" at the beginning of " 2 = y".
+
+
+
+A parsing error "syntax error" occured in statement "SELECT abc FROM t as x WHERE (x = y) xor 5 = 6".  Parsing stopped after token "xor 5 = 6" at the beginning of " 5 = 6".
+
+
+
+An incomplete or invalid statement was entered.  "SELECT abc FROM t as x WHERE (x = y) and z"
+
+
+
+An incomplete or invalid statement was entered.  "SELECT a, c FROM t WHERE b LIKE 123"
+
+
+
+An incomplete or invalid statement was entered.  "SELECT a, c FROM t WHERE b LIKE REGEX 123"
+
+
+
+The correlation name 'a' used in the select clause is not assigned to any of the tables in the from clause.
+
+
+
+An unknown token was encountered in the statement, beginning at ":".
+
+

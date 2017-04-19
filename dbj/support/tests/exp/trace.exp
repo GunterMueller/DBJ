@@ -1,0 +1,155 @@
+
+#####################################################################
+ No tracing activated
+#####################################################################
+
+Starting...
+Result: 5040
+
+#####################################################################
+ Tracing activated (all components)
+#####################################################################
+
++ Function: DbjError::DbjError()
+- Function: DbjError::DbjError()
++ Function: main()
+Starting...
+    + Function: fak()
+        + Function: fak()
+            Data in Function: fak() at Probe: 20
+            Length: 1 Byte(s)
+            Hexadecimal representation
+            46 
+
+            String representation
+            F
+
+            + Function: fak()
+                + Function: fak()
+                    + Function: fak()
+                        + Function: fak()
+                            Data in Function: fak() at Probe: 20
+                            Length: 1 Byte(s)
+                            Hexadecimal representation
+                            46 
+
+                            String representation
+                            F
+
+                            + Function: fak()
+                                fak() (Probe 1): u32 = 10
+                                fak() (Probe 2): s32 = -10
+                                fak() (Probe 3): u16 = 10
+                                fak() (Probe 4): w16 = -10
+                                fak() (Probe 5): u8 = 10
+                                fak() (Probe 6): s8 = -10
+                                fak() (Probe 7): double = 232.223000
+                                fak() (Probe 8): String = some sort of text
+                            - Function: fak()
+                        - Function: fak()
+                    - Function: fak()
+                - Function: fak()
+            - Function: fak()
+        - Function: fak()
+    - Function: fak()
+    main() (Probe 10): Result of fak(7) = 5040
+Result: 5040
+    + Function: traceOtherComponent()
+    - Function: traceOtherComponent()
+    + Function: DbjMemoryManager::operator new()
+    - Function: DbjMemoryManager::operator new()
+    + Function: DbjMemoryManager::DbjMemoryManager()
+    - Function: DbjMemoryManager::DbjMemoryManager()
+    + Function: DbjMemoryManager::dumpMemoryTrackInfo()
+    - Function: DbjMemoryManager::dumpMemoryTrackInfo()
+- Function: main()
++ Function: DbjError::~DbjError()
+- Function: DbjError::~DbjError()
+
+#####################################################################
+ Tracing activated (only RunTime component)
+#####################################################################
+
+Starting...
++ Function: fak()
+    + Function: fak()
+        Data in Function: fak() at Probe: 20
+        Length: 1 Byte(s)
+        Hexadecimal representation
+        46 
+
+        String representation
+        F
+
+        + Function: fak()
+            + Function: fak()
+                + Function: fak()
+                    + Function: fak()
+                        Data in Function: fak() at Probe: 20
+                        Length: 1 Byte(s)
+                        Hexadecimal representation
+                        46 
+
+                        String representation
+                        F
+
+                        + Function: fak()
+                            fak() (Probe 1): u32 = 10
+                            fak() (Probe 2): s32 = -10
+                            fak() (Probe 3): u16 = 10
+                            fak() (Probe 4): w16 = -10
+                            fak() (Probe 5): u8 = 10
+                            fak() (Probe 6): s8 = -10
+                            fak() (Probe 7): double = 232.223000
+                            fak() (Probe 8): String = some sort of text
+                        - Function: fak()
+                    - Function: fak()
+                - Function: fak()
+            - Function: fak()
+        - Function: fak()
+    - Function: fak()
+- Function: fak()
+Result: 5040
+
+#####################################################################
+ Tracing activated (only Support component)
+#####################################################################
+
++ Function: DbjError::DbjError()
+- Function: DbjError::DbjError()
++ Function: main()
+Starting...
+    main() (Probe 10): Result of fak(7) = 5040
+Result: 5040
+    + Function: DbjMemoryManager::operator new()
+    - Function: DbjMemoryManager::operator new()
+    + Function: DbjMemoryManager::DbjMemoryManager()
+    - Function: DbjMemoryManager::DbjMemoryManager()
+    + Function: DbjMemoryManager::dumpMemoryTrackInfo()
+    - Function: DbjMemoryManager::dumpMemoryTrackInfo()
+- Function: main()
++ Function: DbjError::~DbjError()
+- Function: DbjError::~DbjError()
+
+#####################################################################
+ Tracing activated (unused component)
+#####################################################################
+
+Starting...
+Result: 5040
+
+#####################################################################
+ Performance tracing activated
+#####################################################################
+
+Starting...
+Result: 5040
+Function timings:
+=================
+ 1 calls in 0.**MASKED** sec to function "DbjError::DbjError()"
+ 1 calls in 0.**MASKED** sec to function "DbjMemoryManager::DbjMemoryManager()"
+ 1 calls in 0.**MASKED** sec to function "DbjMemoryManager::dumpMemoryTrackInfo()"
+ 1 calls in 0.**MASKED** sec to function "DbjMemoryManager::operator new()"
+ 1 calls in 0.**MASKED** sec to function "traceOtherComponent()"
+ 1 calls in 2.**MASKED** sec to function "main()"
+ 7 calls in 2.**MASKED** sec to function "fak()"

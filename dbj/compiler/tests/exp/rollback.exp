@@ -1,0 +1,34 @@
+
+#####################################################################
+ Success cases
+#####################################################################
+
+Validated access plan:
+==================================================
+RollbackStmt
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+RollbackStmt
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Syntax error
+#####################################################################
+
+
+An incomplete or invalid statement was entered.  "ROLLBACK garbage"
+
+
+
+An incomplete or invalid statement was entered.  "rolback"
+
+

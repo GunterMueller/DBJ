@@ -1,0 +1,43 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2005                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " Keine Indexe auf Zieltabelle"
+echo "#####################################################################"
+echo
+TEST_TAB="125:A" test_optimizer "UPDATE test_tab AS x SET a = ''"
+TEST_TAB="125:A B C" test_optimizer "UPDATE test_tab AS t SET t.c = null"
+TEST_TAB="125:A B C D" test_optimizer "UPDATE test_tab AS n SET n.b = 123"
+TEST_TAB="125:A B C D" test_optimizer "UPDATE test_tab AS m SET b = null"
+TEST_TAB="2:N M O" test_optimizer "UPDATE test_tab AS a SET a.n = a.o"
+TEST_TAB="125:A B C D" test_optimizer "UPDATE test_tab SET test_tab.a = test_tab.c"
+
+echo
+echo "#####################################################################"
+echo " Ein Index auf Zieltabelle"
+echo "#####################################################################"
+echo
+INDEXES="IDX1" IDX1="6:1 0 BTREE 0" TEST_TAB="1:X Y Z" test_optimizer "UPDATE test_tab SET y = 2 WHERE x = 'string'"
+INDEXES="IDX1" IDX1="6:1 2 BTREE 0" TEST_TAB="1:X Y Z" test_optimizer "UPDATE test_tab SET y = 2 WHERE x = 'string'"
+INDEXES="IDX1" IDX1="6:1 1 BTREE 0" TEST_TAB="1:X Y Z" test_optimizer "UPDATE test_tab SET z = '12' WHERE (x = 'string') and (y > 10 or y <= 20)"
+INDEXES="IDX1" IDX1="6:1 1 BTREE 0" TEST_TAB="1:X Y Z" test_optimizer "UPDATE test_tab SET z = '12' WHERE (x = 'string') and (y >= 10 and y <= 20)"
+INDEXES="IDX1" IDX1="6:1 1 BTREE 0" TEST_TAB="1:X Y Z" test_optimizer "UPDATE test_tab SET z = '12' WHERE (x = 'string') or (y > 10 and y < 20)"
+
+echo
+echo "#####################################################################"
+echo " Mehrere Indexe auf Zieltabelle"
+echo "#####################################################################"
+echo
+INDEXES="IDX1 IDX2" IDX1="6:1 1 BTREE 0" IDX2="7:1 0 BTREE 1" TEST_TAB="1:X Y Z" test_optimizer "UPDATE test_tab SET z = '12' WHERE (x = 'string') and (y > 10 or y < 20)"
+
+exit 0
+

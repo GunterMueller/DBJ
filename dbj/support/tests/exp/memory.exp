@@ -1,0 +1,144 @@
+
+#####################################################################
+ Private memory without memory tracking
+#####################################################################
+
+
+WARNING
+=======
+Underflow of memory area at address **ADDRESS** detected
+=======
+
+
+WARNING
+=======
+Underflow of memory area at address **ADDRESS** detected
+=======
+
+Allocating 3 memory blocks
+Producing buffer overflow
+Producing buffer underflow
+Producing buffer overflow and underflow
+The operation was completed successfully.
+
+#####################################################################
+ Private memory with memory tracking
+#####################################################################
+
+Allocating 3 memory blocks
+
+==================================
+Currently allocated memory blocks:
+----------------------------------
+Address **ADDRESS** (200 Bytes), allocated at test_memory.cpp:**LINE**
+	Function: main()
+Address **ADDRESS** (1000 Bytes), allocated at test_memory.cpp:**LINE**
+	Function: main()
+Address **ADDRESS** (1 Bytes), allocated at test_memory.cpp:**LINE**
+	Function: main()
+==================================
+
+
+==================================
+Currently allocated memory blocks:
+----------------------------------
+Address **ADDRESS** (200 Bytes), allocated at test_memory.cpp:**LINE**
+	Function: main()
+Address **ADDRESS** (1 Bytes), allocated at test_memory.cpp:**LINE**
+	Function: main()
+==================================
+
+Producing buffer overflow
+
+==================================
+Currently allocated memory blocks:
+----------------------------------
+Address **ADDRESS** (200 Bytes), allocated at test_memory.cpp:**LINE**
+	Function: main()
+==================================
+
+
+==================================
+Currently allocated memory blocks:
+----------------------------------
+Address **ADDRESS** (200 Bytes), allocated at test_memory.cpp:**LINE**
+	Function: main()
+	==> Buffer overflow detected.
+==================================
+
+
+WARNING
+=======
+Buffer overflow of memory area at address **ADDRESS** detected.
+	Block was allocated at: test_memory.cpp:**LINE**
+	Function: main()
+=======
+
+Producing buffer underflow
+
+==================================
+Currently allocated memory blocks:
+----------------------------------
+Address **ADDRESS** (38 Bytes), allocated at test_memory.cpp:**LINE**
+	Function: main()
+==================================
+
+
+==================================
+Currently allocated memory blocks:
+----------------------------------
+Address **ADDRESS** (38 Bytes), allocated at test_memory.cpp:**LINE**
+	Function: main()
+	==> Buffer underflow detected.
+==================================
+
+
+WARNING
+=======
+Buffer underflow of memory area at address **ADDRESS** detected.
+	Block was allocated at: test_memory.cpp:**LINE**
+	Function: main()
+=======
+
+Producing buffer overflow and underflow
+
+==================================
+Currently allocated memory blocks:
+----------------------------------
+Address **ADDRESS** (38 Bytes), allocated at test_memory.cpp:**LINE**
+	Function: main()
+==================================
+
+
+==================================
+Currently allocated memory blocks:
+----------------------------------
+Address **ADDRESS** (38 Bytes), allocated at test_memory.cpp:**LINE**
+	Function: main()
+	==> Buffer underflow detected.
+	==> Buffer overflow detected.
+==================================
+
+
+WARNING
+=======
+Buffer underflow of memory area at address **ADDRESS** detected.
+	Block was allocated at: test_memory.cpp:**LINE**
+	Function: main()
+=======
+
+
+WARNING
+=======
+Buffer overflow of memory area at address **ADDRESS** detected.
+	Block was allocated at: test_memory.cpp:**LINE**
+	Function: main()
+=======
+
+
+WARNING
+=======
+Attempting to free invalid address 0x1234567
+=======
+
+An underflow or overflow of a memory block allocated at 'test_memory.cpp:83' (Function: main()) was detected.

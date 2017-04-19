@@ -1,0 +1,25 @@
+RunTime:
+	- UPDATE implementieren
+
+Record Mgr:
+	- Weitere Tests fuer Replace
+
+BTree:
+	- dump und andere Tests ueberarbeiten
+	- Nephew etc. Verweise
+
+Lock Mgr:
+	- hierarchische Sperren (fuer CREATE/DROP TABLE/INDEX)
+	- dump implementieren
+
+Buffer Mgr:
+	- LRU erst beim "release" aktualisieren?
+	- dirty-Liste im LRU separat mitfuehren (wie schaut's da mit STEAL aus?)
+	- groesserer Puffer
+
+File Mgr:
+	- read ahead/prefetch
+	- mmap
+
+Global:
+	- Signal-Behandlung

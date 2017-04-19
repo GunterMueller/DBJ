@@ -1,0 +1,182 @@
+
+#####################################################################
+ Create & destroy Shared Memory Segment (no memory tracking)
+#####################################################################
+
+
+Lege Bufferpool an...
+
+Gebe Shared Memory Segment fuer Bufferpool frei...
+The operation was completed successfully.
+
+#####################################################################
+ Create & destroy Shared Memory Segment (with memory tracking)
+#####################################################################
+
+
+Lege Bufferpool an...
+
+Gebe Shared Memory Segment fuer Bufferpool frei...
+The operation was completed successfully.
+
+#####################################################################
+ Destroy not existing Shared Memory Segment (no memory tracking)
+#####################################################################
+
+
+Gebe Shared Memory Segment fuer Bufferpool frei...
+Could not determine the shared memory segment id for memory set 'Buffer Pool'.  Segment does not exists?  System error: 2 ('No such file or directory')
+
+#####################################################################
+ Destroy not existing Shared Memory Segment (with memory tracking)
+#####################################################################
+
+
+Gebe Shared Memory Segment fuer Bufferpool frei...
+Could not determine the shared memory segment id for memory set 'Buffer Pool'.  Segment does not exists?  System error: 2 ('No such file or directory')
+
+#####################################################################
+ Create Shared Memory Segment (memory tracking)
+#####################################################################
+
+
+Lege Bufferpool an...
+The operation was completed successfully.
+
+#####################################################################
+ Connect & disconnect to Shared Memory Segment (memory tracking)
+#####################################################################
+
+
+Stelle Verbindung zum Bufferpool her...
+	Address: **ADDRESS**
+	Inhalt in Bufferpool: 0
+
+Schreibe in Bufferpool...
+	Geschrieben: 763
+
+==================================
+Currently allocated memory blocks:
+----------------------------------
+Address **ADDRESS** (4096000 Bytes), allocated at DbjMemoryManager.cpp:**LINE**
+	Function: DbjMemoryManager::connectToMemorySet()
+==================================
+
+	Erzeuge buffer underflow...
+
+==================================
+Currently allocated memory blocks:
+----------------------------------
+Address **ADDRESS** (4096000 Bytes), allocated at DbjMemoryManager.cpp:**LINE**
+	Function: DbjMemoryManager::connectToMemorySet()
+	==> Buffer underflow detected.
+==================================
+
+
+Trenne Verbindung zum Bufferpool...
+The operation was completed successfully.
+
+#####################################################################
+ Connect & disconnect to Shared Memory Segment (no memory tracking)
+#####################################################################
+
+
+Stelle Verbindung zum Bufferpool her...
+	Address: **ADDRESS**
+	Inhalt in Bufferpool: 763
+
+Schreibe in Bufferpool...
+	Geschrieben: 2289
+	Erzeuge buffer underflow...
+
+Trenne Verbindung zum Bufferpool...
+The operation was completed successfully.
+
+#####################################################################
+ Only disconnect from Shared Memory Segment (memory tracking)
+#####################################################################
+
+
+Trenne Verbindung zum Bufferpool...
+Could not disconnect from memory set 'Buffer Pool'.  A connection to the shared memory segment for this memory set does not exist.
+
+#####################################################################
+ Destroy Shared Memory Segment (memory tracking)
+#####################################################################
+
+
+Gebe Shared Memory Segment fuer Bufferpool frei...
+The operation was completed successfully.
+
+#####################################################################
+ Create Shared Memory Segment (no memory tracking)
+#####################################################################
+
+
+Lege Bufferpool an...
+The operation was completed successfully.
+
+#####################################################################
+ Connect & disconnect to Shared Memory Segment (memory tracking)
+#####################################################################
+
+
+Stelle Verbindung zum Bufferpool her...
+	Address: **ADDRESS**
+	Inhalt in Bufferpool: 0
+
+Schreibe in Bufferpool...
+	Geschrieben: 763
+
+==================================
+Currently allocated memory blocks:
+----------------------------------
+Address **ADDRESS** (4096000 Bytes), allocated at DbjMemoryManager.cpp:**LINE**
+	Function: DbjMemoryManager::connectToMemorySet()
+==================================
+
+	Erzeuge buffer underflow...
+
+==================================
+Currently allocated memory blocks:
+----------------------------------
+Address **ADDRESS** (4096000 Bytes), allocated at DbjMemoryManager.cpp:**LINE**
+	Function: DbjMemoryManager::connectToMemorySet()
+	==> Buffer underflow detected.
+==================================
+
+
+Trenne Verbindung zum Bufferpool...
+The operation was completed successfully.
+
+#####################################################################
+ Only disconnect from Shared Memory Segment (memory tracking)
+#####################################################################
+
+
+Trenne Verbindung zum Bufferpool...
+Could not disconnect from memory set 'Buffer Pool'.  A connection to the shared memory segment for this memory set does not exist.
+
+#####################################################################
+ Destroy Shared Memory Segment (no memory tracking)
+#####################################################################
+
+
+Gebe Shared Memory Segment fuer Bufferpool frei...
+The operation was completed successfully.
+
+#####################################################################
+ Connect to not existing Shared Memory Segment (no memory tracking)
+#####################################################################
+
+
+Stelle Verbindung zum Bufferpool her...
+The shared memory segment for memory set 'Buffer Pool' does not exist.
+
+#####################################################################
+ Connect to not existing Shared Memory Segment (memory tracking)
+#####################################################################
+
+
+Stelle Verbindung zum Bufferpool her...
+The shared memory segment for memory set 'Buffer Pool' does not exist.

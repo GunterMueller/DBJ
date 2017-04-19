@@ -1,0 +1,142 @@
+
+#####################################################################
+ Teste Iteratoren
+#####################################################################
+
+Starting...
+Einfacher Test-Iterator
+0 A0 
+1 A1 
+2 A2 
+3 A3 
+
+Tests auf leeres Kreuzprodukt
+linker Originaliterator leer, hasNext() korrekt?     --> OK
+getNextTuple() muss DBJ_NOT_FOUND_WARN werfen...     --> OK
+rechter Originaliterator leer, hasNext() korrekt?    --> OK
+getNextTuple() muss DBJ_NOT_FOUND_WARN werfen...     --> OK
+beide Originaliteratoren leer, hasNext() korrekt?    --> OK
+getNextTuple() muss DBJ_NOT_FOUND_WARN werfen...     --> OK
+
+Kreuzprodukt: Test auf Wiederverwendung...           --> OK
+
+Kreuzprodukt zweier Test-Iteratoren
+0 A0 0 A0 
+0 A0 1 A1 
+0 A0 2 A2 
+0 A0 3 A3 
+1 A1 0 A0 
+1 A1 1 A1 
+1 A1 2 A2 
+1 A1 3 A3 
+2 A2 0 A0 
+2 A2 1 A1 
+2 A2 2 A2 
+2 A2 3 A3 
+3 A3 0 A0 
+3 A3 1 A1 
+3 A3 2 A2 
+3 A3 3 A3 
+
+Reset des vorherigen Kreuzproduktes, Kreuzprodukt mit
+einem weiteren mit 2 Tupeln
+0 A0 0 A0 0 A0 
+0 A0 0 A0 1 A1 
+0 A0 1 A1 0 A0 
+0 A0 1 A1 1 A1 
+0 A0 2 A2 0 A0 
+0 A0 2 A2 1 A1 
+0 A0 3 A3 0 A0 
+0 A0 3 A3 1 A1 
+1 A1 0 A0 0 A0 
+1 A1 0 A0 1 A1 
+1 A1 1 A1 0 A0 
+1 A1 1 A1 1 A1 
+1 A1 2 A2 0 A0 
+1 A1 2 A2 1 A1 
+1 A1 3 A3 0 A0 
+1 A1 3 A3 1 A1 
+2 A2 0 A0 0 A0 
+2 A2 0 A0 1 A1 
+2 A2 1 A1 0 A0 
+2 A2 1 A1 1 A1 
+2 A2 2 A2 0 A0 
+2 A2 2 A2 1 A1 
+2 A2 3 A3 0 A0 
+2 A2 3 A3 1 A1 
+3 A3 0 A0 0 A0 
+3 A3 0 A0 1 A1 
+3 A3 1 A1 0 A0 
+3 A3 1 A1 1 A1 
+3 A3 2 A2 0 A0 
+3 A3 2 A2 1 A1 
+3 A3 3 A3 0 A0 
+3 A3 3 A3 1 A1 
+
+Projektion eines Test-Iterators
+A0 
+A1 
+A2 
+A3 
+
+Projektion eines Kreuzproduktes
+0 A0 0 
+0 A1 0 
+0 A2 0 
+0 A3 0 
+1 A0 1 
+1 A1 1 
+1 A2 1 
+1 A3 1 
+2 A0 2 
+2 A1 2 
+2 A2 2 
+2 A3 2 
+3 A0 3 
+3 A1 3 
+3 A2 3 
+3 A3 3 
+
+Test 1 einer einfachen Selektion auf Test-Iterator
+INTEGER (Spalte 0 = 3)
+3 A3 
+
+Test 2 einer einfachen Selektion auf Test-Iterator
+VARCHAR (Spalte 1 = "A1")
+1 A1 
+
+Test 3 einer einfachen Selektion auf Test-Iterator
+VARCHAR (Spalte 1 == "A3") || (Spalte 0 == 2)
+2 A2 
+3 A3 
+
+Test 4 einer einfachen Selektion auf Test-Iterator
+VARCHAR (Spalte 1 = ".[12]") (REGEX)
+1 A1 
+2 A2 
+
+Test 5 einer einfachen Selektion auf Test-Iterator
+VARCHAR (Spalte 1 <> ".[12]") (REGEX)
+0 A0 
+3 A3 
+
+Test auf leeren Selektionsiterator, leerer Unteriterator
+hasNext() korrekt?                                   --> OK
+getNextTuple() muss DBJ_NOT_FOUND_WARN werfen...     --> OK
+
+Test auf leeren Selektionsiterator, durchiteriert
+hat Iterator ueber Tupel iteriert?                   --> OK
+hasNext() korrekt?                                   --> OK
+getNextTuple() muss DBJ_NOT_FOUND_WARN werfen...     --> OK
+
+Test auf leeren Selektionsiterator, kein Tupel erfuellt Selektionsbedingung
+hasNext() korrekt?                                   --> OK
+getNextTuple() muss DBJ_NOT_FOUND_WARN werfen...     --> OK
+
+Test des reset(): Danach sollte Ergebismenge identisch sein
+INTEGER (Spalte 0 = 3)
+Erster Durchlauf
+3 A3 
+Zweiter Durchlauf nach reset()
+3 A3 
+

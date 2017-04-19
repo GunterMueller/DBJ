@@ -1,0 +1,21 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2005                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " Plan bleibt unveraendert"
+echo "#####################################################################"
+echo
+
+test_optimizer "rollback"
+test_optimizer "ROLLBACK work"
+
+exit 0

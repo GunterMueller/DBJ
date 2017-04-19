@@ -1,0 +1,48 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2004                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+# Erfolgreiche Faelle
+echo
+echo "#####################################################################"
+echo " Success cases"
+echo "#####################################################################"
+echo
+TEST_TAB=12 test_parser "DROP TABLE test_tab"
+TEST_TAB=12 test_parser "DRoP taBle test_TAB"
+
+echo
+echo "#####################################################################"
+echo " Statement with embedded comments"
+echo "#####################################################################"
+echo
+T=3 test_parser "/* comment */ drop table t"
+T=3 test_parser "/* comment */drop table t"
+T=3 test_parser "drop/* comment */table t"
+T=3 test_parser "drop table t/* comment */"
+
+# Tabelle existiert nicht
+echo
+echo "#####################################################################"
+echo " Table does not exist"
+echo "#####################################################################"
+echo
+test_parser "DROP TABLE test_tab"
+
+# Syntaxfehler
+echo
+echo "#####################################################################"
+echo " Syntax errors"
+echo "#####################################################################"
+echo
+test_parser "DRoP taBle test_TAB restrict"
+test_parser "DROP TABL test_tab"
+
+exit 0

@@ -1,0 +1,23 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2005                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " Plan bleibt unveraendert"
+echo "#####################################################################"
+echo
+
+IDX1="1:23 3 BTREE 0" test_optimizer "drop index idx1"
+IDX1="2:23 3 BTREE 1" test_optimizer "drop index idx1"
+IDX1="3:23 3 HASH 0" test_optimizer "drop index idx1"
+IDX1="4:23 3 HASH 1" test_optimizer "drop index idx1"
+
+exit 0

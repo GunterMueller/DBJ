@@ -1,0 +1,4 @@
+test_rm.exe: test_rm.o
+test_record.exe: test_record.o
+dumpTable.exe: dumpTable.o
+dumpPageFromBuffer.exe: dumpPageFromBuffer.o

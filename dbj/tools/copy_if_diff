@@ -1,0 +1,47 @@
+#!/bin/sh
+
+#************************************************************************
+#
+# (C) 2005
+# Lehrstuhl fuer Datenbanken und Informationssysteme
+# Friedrich-Schiller-Universitaet Jena
+# Ernst-Abbe-Platz 1-2
+# 07745 Jena
+#
+#************************************************************************
+#************************************************************************
+#
+# Dieses Skript wird dazu verwendet, um Dateien nur dann zu kopieren,
+# wenn die Quelldatei und die Zieldatei unterschiedlichen Inhalt haben.
+# Es wird auch der Fall behandelt, dass die Zieldatei noch gar nicht
+# existiert.
+#
+# Benutzung:
+#
+#     copy_if_diff <source-file> <target-file>
+#
+#************************************************************************
+
+SOURCE=$1
+TARGET=$2
+
+if [ -z "$SOURCE" -o -z "$TARGET" ]; then
+    echo "Usage: $0 <source> <target>"
+    exit 1
+fi
+if [ ! -f "$SOURCE" ]; then
+    echo "Source file '$SOURCE' does not exist."
+    exit 1
+fi
+
+if [ ! -f "$TARGET" ]; then
+    cp $SOURCE $TARGET
+else
+    diff -q $SOURCE $TARGET 1> /dev/null
+    if [ $? -ne 0 ]; then
+	cp $SOURCE $TARGET
+    fi
+fi
+
+exit 0
+

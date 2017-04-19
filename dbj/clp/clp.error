@@ -1,0 +1,23 @@
+/*************************************************************************\
+ *                                                                       *
+ * (C) 2004-2005                                                         *
+ * Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+ * Friedrich-Schiller-Universitaet Jena                                  *
+ * Ernst-Abbe-Platz 1-2                                                  *
+ * 07745 Jena                                                            *
+ *                                                                       *
+\*************************************************************************/
+
+/*
+ * Definition aller Fehlermeldungen der Kommandozeile
+ */
+
+// System Start/Stop
+{ DBJ_SYSTEM_START_FAIL,
+      "The system could not be started successfully.",
+      "SY000" },
+{ DBJ_SYSTEM_STOP_IN_USE,
+      "The system could not be stopped because it is currently being "
+      "used.",
+      "SY001" },
+

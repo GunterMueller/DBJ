@@ -1,0 +1,488 @@
+
+#####################################################################
+ Reading commands from STDIN
+#####################################################################
+
+
+System J
+
+(c) 2004-2005, Lehrstuhl fuer Datenbanken und Informationssysteme
+
+Command Line
+============
+- Alle Anweisungen muessen mit einem Semikolon ';' gefolgt vom Zeilenende
+  abgeschlossen werden
+- Verlassen der Kommandzeile mit 'quit' oder 'exit'
+
+
+Die Syntax fuer unterstuetze SQL Anweisungen kann unter folgender Adresse
+gefunden werden:
+
+	http://iibm08.inf.uni-jena.de/~mgr/dbj/class_dbj_compiler.html
+
+dbj => DbjCompiler::parse() has been called for statement 'select * from t'
+DbjCompiler::validatePlan() has been called.
+DbjOptimizer::optimize() has been called.
+DbjRunTime::execute() has been called.
+
+DbjRunTime::fetch() has been called.
+
+COL0        COL1                 COL2        COL3                 COL4       
+----------- -------------------- ----------- -------------------- -----------
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+
+COL0        COL1                 COL2        COL3                 COL4       
+----------- -------------------- ----------- -------------------- -----------
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+
+  40 record(s) returned.
+
+dbj => 
+DbjRunTime::execute() has been called.
+
+System J
+
+(c) 2004-2005, Lehrstuhl fuer Datenbanken und Informationssysteme
+
+Command Line
+============
+- Alle Anweisungen muessen mit einem Semikolon ';' gefolgt vom Zeilenende
+  abgeschlossen werden
+- Verlassen der Kommandzeile mit 'quit' oder 'exit'
+
+
+Die Syntax fuer unterstuetze SQL Anweisungen kann unter folgender Adresse
+gefunden werden:
+
+	http://iibm08.inf.uni-jena.de/~mgr/dbj/class_dbj_compiler.html
+
+dbj => DbjCompiler::parse() has been called for statement 'select * from t'
+DbjCompiler::validatePlan() has been called.
+DbjOptimizer::optimize() has been called.
+DbjRunTime::execute() has been called.
+
+DbjRunTime::fetch() has been called.
+
+COL0        COL1                 COL2        COL3                 COL4       
+----------- -------------------- ----------- -------------------- -----------
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+
+COL0        COL1                 COL2        COL3                 COL4       
+----------- -------------------- ----------- -------------------- -----------
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+
+  40 record(s) returned.
+
+dbj => dbj => dbj => DbjCompiler::parse() has been called for statement 'insert into a values (1)'
+DbjCompiler::validatePlan() has been called.
+DbjOptimizer::optimize() has been called.
+DbjRunTime::execute() has been called.
+
+DbjRunTime::fetch() has been called.
+
+  0 record(s) returned.
+
+dbj => DbjCompiler::parse() has been called for statement 'commit'
+DbjCompiler::validatePlan() has been called.
+DbjOptimizer::optimize() has been called.
+DbjRunTime::execute() has been called.
+
+DbjRunTime::fetch() has been called.
+
+  0 record(s) returned.
+
+dbj => 
+DbjRunTime::execute() has been called.
+
+#####################################################################
+ Reading commands from file
+#####################################################################
+
+DbjCompiler::parse() has been called for statement 'create table t ( c int )'
+DbjCompiler::validatePlan() has been called.
+DbjOptimizer::optimize() has been called.
+DbjRunTime::execute() has been called.
+
+DbjRunTime::fetch() has been called.
+
+COL0        COL1                 COL2        COL3                 COL4       
+----------- -------------------- ----------- -------------------- -----------
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+
+COL0        COL1                 COL2        COL3                 COL4       
+----------- -------------------- ----------- -------------------- -----------
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+         78 VARCHAR value                 78 VARCHAR value                 78
+
+DbjRunTime::fetch() has been called.
+
+  40 record(s) returned.
+
+DbjCompiler::parse() has been called for statement 'insert into t values (2)'
+DbjCompiler::validatePlan() has been called.
+DbjOptimizer::optimize() has been called.
+DbjRunTime::execute() has been called.
+
+DbjRunTime::fetch() has been called.
+
+  0 record(s) returned.
+
+DbjCompiler::parse() has been called for statement 'rollback'
+DbjCompiler::validatePlan() has been called.
+DbjOptimizer::optimize() has been called.
+DbjRunTime::execute() has been called.
+The operation was completed successfully. SQLSTATE=00000
+
+
+DbjRunTime::execute() has been called.

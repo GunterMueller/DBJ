@@ -1,0 +1,3 @@
+test_tupleiterator.exe: test_tupleiterator.o
+test_rec-tuple.exe: test_rec-tuple.o
+test_runtime.exe: test_runtime.o

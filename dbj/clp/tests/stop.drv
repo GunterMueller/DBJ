@@ -1,0 +1,30 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2004                                                              *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+echo
+echo "#####################################################################"
+echo " Success cases"
+echo "#####################################################################"
+echo
+test_stop
+test_stop force
+
+echo
+echo "#####################################################################"
+echo " Unknown option"
+echo "#####################################################################"
+echo
+test_stop unknown
+test_stop now
+test_stop force now
+
+exit 0
+

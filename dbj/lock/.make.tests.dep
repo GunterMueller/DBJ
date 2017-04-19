@@ -1,0 +1,4 @@
+test_client1.exe: test_client1.o
+test_client2.exe: test_client2.o
+test_start-lm.exe: test_start-lm.o
+test_stop-lm.exe: test_stop-lm.o

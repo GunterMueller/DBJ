@@ -1,0 +1,101 @@
+#!/usr/bin/perl -w
+
+#************************************************************************
+#
+# (C) 2004
+# Lehrstuhl fuer Datenbanken und Informationssysteme
+# Friedrich-Schiller-Universitaet Jena
+# Ernst-Abbe-Platz 1-2
+# 07745 Jena
+#
+#************************************************************************
+#************************************************************************
+#
+# Dieses Skript wird dazu verwendet, um ein paar bestimmte Fehler in der
+# generierten LaTeX-Dokumentation auszubessern.
+#
+# Nutzung:
+#
+# fix_latex_doc <LaTeX-file>
+#
+#************************************************************************
+
+require 5;
+use strict;
+use File::Copy;
+use File::Temp "tempfile";
+
+
+#************************************************************************
+#
+# Main routine
+#
+#************************************************************************
+
+my $debug = (exists $ENV{DBJ_DEBUG} && $ENV{DBJ_DEBUG} eq "true") ? 1 : 0;
+
+my $fileName = &parseArguments();
+&fixFile($fileName);
+
+
+#************************************************************************
+#
+# get the file names of source/target from the arguments
+#
+#************************************************************************
+sub parseArguments()
+{
+    my $texFile = "";
+    local $_;
+
+    # 1 filename must be given
+    die "Usage: $0 <LaTeX-file>\n\n"
+	unless @ARGV == 1;
+
+    # check LaTeX file and that we can read it
+    $texFile = shift(@ARGV);
+    die "Cannot read LaTeX file '$texFile'.\n" unless -r $texFile;
+
+    return $texFile;
+}
+
+#************************************************************************
+#
+# open the given file, read it line-by-line and fix the errors
+#
+#************************************************************************
+sub fixFile()
+{
+    my $origFile = shift;
+
+    # open the given file
+    open(INPUT, "<$origFile") || die "Could not open file '$origFile'.";
+    my ($tempFile, $tempFilename) = tempfile();
+
+    while (<INPUT>) {
+	# replace '$>$' and '$<$'
+	s|\$>\$|>|g;
+	s|\$<\$|<|g;
+
+	# remove '\/}'
+	s|\\/\}|\}|g;
+
+	# replace '{\em ..}' and '{\bf ...}' and '{\rm ...}'
+	s|\{\\em |\\textit\{|g;
+	s|\{\\bf |\\textbf\{|g;
+	s|\{\\rm |\\textrm\{|g;
+
+	if ( $debug ) {
+	    print $_;
+	}
+
+	print $tempFile $_;
+    }
+    close(INPUT);
+    close($tempFile);
+
+    # move the temp file over to the original one
+    move($tempFilename, $origFile) || die "Could not replace original " .
+	"file '$origFile'.";
+}
+

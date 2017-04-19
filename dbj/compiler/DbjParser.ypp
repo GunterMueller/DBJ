@@ -1,0 +1,1247 @@
+%pure_parser	
+%{
+/*************************************************************************\
+ *                                                                       *
+ * (C) 2004-2005                                                         *
+ * Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+ * Friedrich-Schiller-Universitaet Jena                                  *
+ * Ernst-Abbe-Platz 1-2                                                  *
+ * 07745 Jena                                                            *
+ *                                                                       *
+\*************************************************************************/
+
+#include "DbjCompiler.hpp"
+#include "DbjAccessPlan.hpp"
+
+#define yyparse(x) DbjCompiler::yyparse(x)
+
+#include "DbjParserToken.hpp"
+
+%}
+
+/*
+ * tokens (terminal symbols) in the supported grammar
+ *
+ * The list is sorted according to the SQL commands in the documentation for
+ * the DbjCompiler::parse method.
+ */
+
+// CREATE TABLE
+%token T_CREATE
+%token T_TABLE
+%token T_INTEGER_TYPE
+%token T_VARCHAR_TYPE
+%token T_NOT
+%token T_NULL
+%token T_PRIMARY
+%token T_KEY
+
+// DROP TABLE
+%token T_DROP
+
+// CREATE INDEX
+%token T_INDEX
+%token T_UNIQUE
+%token T_ON
+%token T_OF
+%token T_TYPE
+%token T_BTREE
+%token T_HASH
+
+// DROP INDEX
+
+// INSERT
+%token T_INSERT
+%token T_INTO
+%token T_VALUES
+
+// UPDATE
+%token T_UPDATE
+%token T_SET
+
+// DELETE
+%token T_DELETE
+%token T_FROM
+%token T_AS
+
+// SELECT
+%token T_SELECT
+%token T_STAR
+
+// where-clause
+%token T_WHERE
+%token T_AND
+%token T_OR
+%token T_SIGN_EQUAL
+%token T_SIGN_SMALLER
+%token T_SIGN_SMALLER_EQUAL
+%token T_SIGN_LARGER
+%token T_SIGN_LARGER_EQUAL
+%token T_SIGN_NOTEQUAL
+%token T_IS
+%token T_LIKE
+%token T_REGEX
+%token T_BETWEEN
+
+// COMMIT
+%token T_COMMIT
+%token T_WORK
+
+// ROLLBACK
+%token T_ROLLBACK
+
+// some general stuff appearing all over the place
+%token <stringValue>	T_IDENTIFIER
+%token <stringValue>	T_STRING
+%token <integerValue>	T_NUMBER
+%token T_PERIOD
+%token T_COMMA
+%token T_LEFT_PAREN
+%token T_RIGHT_PAREN
+
+// unknown token (Lexer sets error information)
+%token T_UNKNOWN
+
+/*
+ * special return types of some non-terminals
+ */
+%type <stringValue>	identifier
+%type <stringValue>	string
+%type <integerValue>	number
+%type <nodeValue>	table_column_list
+%type <nodeValue>	table_column_element
+%type <nodeValue>	data_type
+%type <nodeValue>	not_null_option
+%type <nodeValue>	primary_key
+%type <nodeValue>	create_index_parameters
+%type <nodeValue>	index_type
+%type <nodeValue>	row_list
+%type <nodeValue>	row_element
+%type <nodeValue>	value_list
+%type <nodeValue>	value_element
+%type <nodeValue>	assignment_list
+%type <nodeValue>	assignment_element
+%type <nodeValue>	column_identifier
+%type <stringValue>	correlation_name
+%type <nodeValue>	select_column_list
+%type <nodeValue>	select_column_element
+%type <stringValue>	new_column_name
+%type <nodeValue>	from_table_list
+%type <nodeValue>	from_table_element
+%type <nodeValue>	where_clause
+%type <nodeValue>	predicate_list
+%type <nodeValue>	predicate_element
+%type <nodeValue>	expression
+%type <nodeValue>	simple_expression
+%type <nodeValue>	operation
+%type <nodeValue>	commit
+%type <nodeValue>	rollback
+
+%%
+
+/*
+ * The complete grammar for all supported SQL statements commands.
+ *
+ * Naming conventions:
+ * -------------------
+ * - for recursions, we use the suffixes "_list" and "_element"
+ * - identifier is used for table/index/column names so that we can support
+ *   keywords as identifiers
+ */
+parse:
+	  sql_statement
+	| error
+	  {
+	      // Raeume Stack auf und gib alle Knoten frei, die eventuell noch
+	      // vorhanden sein koennten
+	      for (YYSIZE_T i = 0; i < yystacksize; i++) {
+		  delete yyvs[i].nodeValue;
+		  yyvs[i].nodeValue = NULL;
+	      }
+	  }
+	;
+
+sql_statement:
+	  create_table
+	| drop_table
+	| create_index
+	| drop_index
+	| insert
+	| update
+	| delete
+	| select
+	| commit
+	| rollback
+	;
+
+/* CREATE TABLE */
+create_table:
+	  T_CREATE T_TABLE identifier /* table name */
+	  {
+	      plan = createNode(DbjAccessPlan::CreateTableStmt);
+	      if (!plan) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      DbjAccessPlan *tableName = createNode(DbjAccessPlan::Table, $3);
+	      if (!tableName) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      plan->addSon(tableName);
+	  }
+	  T_LEFT_PAREN
+	  table_column_list primary_key
+	  {
+	      plan->getSon()->addSon($6);
+	      plan->addSon($7);
+	      $6 = $7 = NULL;
+	  }
+	  T_RIGHT_PAREN
+	;
+
+table_column_list:
+	  table_column_element
+	  {
+	      $$ = $1;
+	      $1 = NULL;
+	  }
+	| table_column_list T_COMMA table_column_element
+	  {
+	      $$ = $1;
+	      $$->addNext($3);
+	      $1 = $3 = NULL;
+	  }
+	;
+
+table_column_element:
+	  identifier data_type not_null_option
+	  {
+	      $$ = createNode(DbjAccessPlan::Column, $1);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addSon($2);
+	      $$->addSon($3);
+	      $2 = $3 = NULL;
+	  }
+	;
+
+data_type:
+	  T_INTEGER_TYPE
+	  {
+	      $$ = createNode(DbjAccessPlan::DataType, "INTEGER");
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	  }
+	| T_VARCHAR_TYPE T_LEFT_PAREN number T_RIGHT_PAREN
+	  {
+	      $$ = createNode(DbjAccessPlan::DataType, "VARCHAR");
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      DbjErrorCode rc = $$->setIntData($3);
+	      if (rc != DBJ_SUCCESS) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	  }
+	;
+
+not_null_option:
+	  /* empty */
+	  {
+	      $$ = NULL;
+	  }
+	| T_NOT T_NULL
+	  {
+	      $$ = createNode(DbjAccessPlan::NotNullOption);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	  }
+	;
+
+primary_key:
+	  /* empty */
+	  {
+	      $$ = NULL;
+	  }
+	| T_COMMA T_PRIMARY T_KEY T_LEFT_PAREN identifier T_RIGHT_PAREN
+	  {
+	      $$ = createNode(DbjAccessPlan::Column, $5);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	  }
+	;
+
+/* DROP TABLE */
+drop_table:
+	  T_DROP T_TABLE identifier /* table name */
+	  {
+	      plan = createNode(DbjAccessPlan::DropTableStmt);
+	      if (!plan) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      DbjAccessPlan *tableName = createNode(DbjAccessPlan::Table, $3);
+	      if (!tableName) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      plan->addSon(tableName);
+	  }
+	;
+
+/* CREATE INDEX */
+create_index:
+	  T_CREATE T_INDEX identifier /* index name */
+	  {
+	      plan = createNode(DbjAccessPlan::CreateIndexStmt);
+	      if (!plan) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      DbjAccessPlan *indexName = createNode(DbjAccessPlan::Index, $3);
+	      if (!indexName) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      plan->addSon(indexName);
+	  }
+	  create_index_parameters
+	  {
+	      plan->getSon()->addSon($5);
+	      $5 = NULL;
+	  }
+	| T_CREATE T_UNIQUE T_INDEX identifier /* index name */
+	  {
+	      plan = createNode(DbjAccessPlan::CreateIndexStmt);
+	      if (!plan) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      DbjAccessPlan *indexName = createNode(
+		      DbjAccessPlan::UniqueIndex, $4);
+	      if (!indexName) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      plan->addSon(indexName);
+	  }
+	  create_index_parameters
+	  {
+	      plan->getSon()->addSon($6);
+	      $6 = NULL;
+	  }
+	;
+
+create_index_parameters:
+	  T_ON identifier
+	  T_LEFT_PAREN identifier T_RIGHT_PAREN index_type
+	  {
+	      $$ = createNode(DbjAccessPlan::Table, $2);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      DbjAccessPlan *columnName = createNode(DbjAccessPlan::Column, $4);
+	      if (!columnName) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addSon(columnName);
+	      columnName->addSon($6);
+	      $6 = NULL;
+	  }
+	;
+
+index_type:
+	  /* empty */
+	  {
+	      $$ = NULL;
+	  }
+	| T_OF T_TYPE T_BTREE
+	  {
+	      $$ = createNode(DbjAccessPlan::IndexType, "BTREE");
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	  }
+	| T_OF T_TYPE T_HASH
+	  {
+	      $$ = createNode(DbjAccessPlan::IndexType, "HASH");
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	  }
+	;
+
+/* DROP INDEX */
+drop_index:
+	  T_DROP T_INDEX identifier /* index name */
+	  {
+	      plan = createNode(DbjAccessPlan::DropIndexStmt);
+	      if (!plan) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      DbjAccessPlan *indexName = createNode(DbjAccessPlan::Index, $3);
+	      if (!indexName) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      plan->addSon(indexName);
+	  }
+	;
+
+/* INSERT */
+insert:
+	  T_INSERT
+	  T_INTO identifier /* table name */
+	  {
+	      plan = createNode(DbjAccessPlan::InsertStmt);
+	      if (!plan) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      DbjAccessPlan *sources = createNode(DbjAccessPlan::Sources);
+	      if (!sources) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      plan->addSon(sources);
+	      DbjAccessPlan *tableName = createNode(DbjAccessPlan::Table, $3);
+	      if (!tableName) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      plan->addSon(tableName);
+	  }
+	  T_VALUES row_list
+	  {
+	      plan->getSon()->addSon($6);
+	      $6 = NULL;
+	  }
+	;
+
+row_list:
+	  row_element
+	  {
+	      $$ = $1;
+	      $1 = NULL;
+	  }
+	| row_list T_COMMA row_element
+	  {
+	      $$ = $1;
+	      $$->addNext($3);
+	      $1 = $3 = NULL;
+	  }
+	;
+
+row_element:
+	  T_LEFT_PAREN value_list T_RIGHT_PAREN
+	  {
+	      $$ = createNode(DbjAccessPlan::Row);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addSon($2);
+	      $2 = NULL;
+	  }
+	;
+
+value_list:
+	  value_element
+	  {
+	      $$ = $1;
+	      $1 = NULL;
+	  }
+	| value_list T_COMMA value_element
+	  {
+	      $$ = $1;
+	      $$->addNext($3);
+	      $1 = $3 = NULL;
+	  }
+	;
+
+value_element:
+	  string
+	  {
+	      $$ = createNode(DbjAccessPlan::VarcharValue, $1);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	  }
+	| number
+	  {
+	      $$ = createNode(DbjAccessPlan::IntegerValue);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      DbjErrorCode rc = $$->setIntData($1);
+	      if (rc != DBJ_SUCCESS) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	  }
+	| T_NULL
+	  {
+	      $$ = createNode(DbjAccessPlan::NullValue);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	  }
+	;
+
+/* UPDATE */
+update:
+	  T_UPDATE identifier /* table name */ correlation_name
+	  {
+	      plan = createNode(DbjAccessPlan::UpdateStmt);
+	      if (!plan) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      DbjAccessPlan *sources = createNode(DbjAccessPlan::Sources);
+	      if (!sources) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      plan->addSon(sources);
+
+	      DbjAccessPlanTable *tableName =
+		  static_cast<DbjAccessPlanTable *>(
+			  createNode(DbjAccessPlan::Table, $2));
+	      if (!tableName) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      if ($3.data != NULL) {
+		  DbjErrorCode rc = tableName->setCorrelationName($3);
+		  if (rc != DBJ_SUCCESS) {
+		      DBJ_TRACE_ERROR();
+		      delete tableName;
+		      YYABORT;
+		  }
+	      }
+	      plan->addSon(tableName);
+	  }
+	  T_SET assignment_list
+	  {
+	      DbjAccessPlan *assignmentList =
+		  createNode(DbjAccessPlan::Assignment);
+	      if (!assignmentList) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      plan->getSon()->addSon(assignmentList);
+	      assignmentList->addNext($6);
+	  }
+	  where_clause
+	  {
+	      plan->getSon()->getSon()->addSon($8);
+	      $8 = NULL;
+	  }
+	;
+
+assignment_list:
+	  assignment_element
+	  {
+	      $$ = $1;
+	      $1 = NULL;
+	  }
+	| assignment_list T_COMMA assignment_element
+	  {
+	      $$ = $1;
+	      $$->addNext($3);
+	      $1 = $3 = NULL;
+	  }
+	;
+
+assignment_element:
+	  column_identifier T_SIGN_EQUAL value_element
+	  {
+	      $1->addNext($3);
+	      $$ = $1;
+	  }
+	| column_identifier T_SIGN_EQUAL column_identifier
+	  {
+	      $1->addNext($3);
+	      $$ = $1;
+	  }
+	;
+
+column_identifier:
+	  identifier
+	  {
+	      $$ = createNode(DbjAccessPlan::Column, $1);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	  }
+	| identifier T_PERIOD identifier
+	  {
+	      DbjErrorCode rc = DBJ_SUCCESS;
+	      DbjAccessPlanColumn *column =
+		  static_cast<DbjAccessPlanColumn *>(
+			  createNode(DbjAccessPlan::Column, $3));
+	      if (!column) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$ = column;
+	      rc = column->setCorrelationName($1);
+	      if (rc != DBJ_SUCCESS) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	  }
+	;
+
+/* DELETE */
+delete:
+	  T_DELETE
+	  T_FROM identifier /* table name */ correlation_name
+	  {
+	      plan = createNode(DbjAccessPlan::DeleteStmt);
+	      if (!plan) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      DbjAccessPlan *sources = createNode(DbjAccessPlan::Sources);
+	      if (!sources) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      plan->addSon(sources);
+
+	      DbjAccessPlanTable *tableName =
+		  static_cast<DbjAccessPlanTable *>(
+			  createNode(DbjAccessPlan::Table, $3));
+	      if (!tableName) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      if ($4.data != NULL) {
+		  DbjErrorCode rc = tableName->setCorrelationName($4);
+		  if (rc != DBJ_SUCCESS) {
+		      DBJ_TRACE_ERROR();
+		      delete tableName;
+		      YYABORT;
+		  }
+	      }
+	      plan->addSon(tableName);
+	  }
+	  where_clause
+	  {
+	      plan->getSon()->addSon($6);
+	      $6 = NULL;
+	  }
+	;
+
+correlation_name:
+	  /* empty */
+	  {
+	      $$.data = NULL;
+	  }
+	| T_AS identifier
+	  {
+	      $$ = $2;
+	  }
+	;
+
+/* SELECT */
+select:
+	  T_SELECT select_column_list
+	  {
+	      plan = createNode(DbjAccessPlan::SelectStmt);
+	      if (!plan) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      plan->addSon($2);
+	      $2 = NULL;
+	  }
+	  T_FROM from_table_list
+	  {
+	      plan->getSon()->addSon($5);
+	      $5 = NULL;
+	  }
+	  where_clause
+	  {
+	      plan->getSon()->getSon()->addSon($7);
+	      $7 = NULL;
+	  }
+	;
+
+select_column_list:
+	  select_column_element
+	  {
+	      $$ = createNode(DbjAccessPlan::Projections);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addNext($1);
+	      $1 = NULL;
+	  }
+	| select_column_list T_COMMA select_column_element
+	  {
+	      $$ = $1;
+	      $$->addNext($3);
+	      $1 = $3 = NULL;
+	  }
+	;
+
+select_column_element:
+	  T_STAR
+	  {
+	      $$ = createNode(DbjAccessPlan::Column, "*");
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	  }
+	| identifier T_PERIOD T_STAR
+	  {
+	      DbjAccessPlanColumn *column =
+		  static_cast<DbjAccessPlanColumn *>(
+			  createNode(DbjAccessPlan::Column, "*"));
+	      if (!column) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      DbjErrorCode rc = column->setCorrelationName($1);
+	      if (rc != DBJ_SUCCESS) {
+		  DBJ_TRACE_ERROR();
+		  delete column;
+		  YYABORT;
+	      }
+	      $$ = column;
+	  }
+	| column_identifier new_column_name
+	  {
+	      if ($2.data != NULL) {
+		  DbjErrorCode rc = DBJ_SUCCESS;
+		  DbjAccessPlanColumn *column =
+		      static_cast<DbjAccessPlanColumn *>($1);
+		  rc = column->setNewColumnName($2);
+		  if (rc != DBJ_SUCCESS) {
+		      DBJ_TRACE_ERROR();
+		      YYABORT;
+		  }
+	      }
+	      $$ = $1;
+	  }
+	;
+
+new_column_name:
+	  /* empty */
+	  {
+	      $$.data = NULL;
+	  }
+	| T_AS identifier
+	  {
+	      $$ = $2;
+	  }
+	;
+
+from_table_list:
+	  from_table_element
+	  {
+	      $$ = createNode(DbjAccessPlan::Sources);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addNext($1);
+	      $1 = NULL;
+	  }
+	| from_table_list T_COMMA from_table_element
+	  {
+	      $$ = $1;
+	      $$->addNext($3);
+	      $1 = $3 = NULL;
+	  }
+	;
+
+from_table_element:
+	  identifier correlation_name
+	  {
+	      DbjAccessPlanTable *tableName =
+		  static_cast<DbjAccessPlanTable *>(
+			  createNode(DbjAccessPlan::Table, $1));
+	      if (!tableName) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      if ($2.data != NULL) {
+		  DbjErrorCode rc = tableName->setCorrelationName($2);
+		  if (rc != DBJ_SUCCESS) {
+		      DBJ_TRACE_ERROR();
+		      delete tableName;
+		      YYABORT;
+		  }
+	      }
+	      $$ = tableName;
+	  }
+	;
+
+where_clause:
+	  /* empty */
+	  {
+	      $$ = NULL;
+	  }
+	| T_WHERE predicate_list
+	  {
+	      $$ = createNode(DbjAccessPlan::WhereClause);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addNext($2);
+	      $2 = NULL;
+	  }
+	;
+
+predicate_list:
+	  predicate_element
+	  {
+	      $$ = $1;
+	      $1 = NULL;
+	  }
+	| T_LEFT_PAREN predicate_list T_RIGHT_PAREN
+	  {
+	      $$ = createNode(DbjAccessPlan::Predicate);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addSon($2);
+	      $2 = NULL;
+	  }
+	| T_NOT T_LEFT_PAREN predicate_list T_RIGHT_PAREN
+	  {
+	      $$ = createNode(DbjAccessPlan::Negation);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      DbjAccessPlan *pred = createNode(DbjAccessPlan::Predicate);
+	      if (!pred) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addNext(pred);
+	      pred->addSon($3);
+	      $3 = NULL;
+	  }
+	| predicate_list T_AND predicate_list
+	  {
+	      DbjAccessPlan *logicOp = createNode(
+		      DbjAccessPlan::LogicalOperation, "AND");
+	      if (!logicOp) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$ = $1;
+	      $$->addNext(logicOp);
+	      $$->addNext($3);
+	      $1 = $3 = NULL;
+	  }
+	| predicate_list T_OR predicate_list
+	  {
+	      DbjAccessPlan *logicOp = createNode(
+		      DbjAccessPlan::LogicalOperation, "OR");
+	      if (!logicOp) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$ = $1;
+	      $$->addNext(logicOp);
+	      $$->addNext($3);
+	      $1 = $3 = NULL;
+	  }
+	;
+
+predicate_element:
+	  expression operation expression
+	  {
+	      $$ = createNode(DbjAccessPlan::Predicate);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addSon($1);
+	      $$->addSon($2);
+	      $$->addSon($3);
+	      $1 = $2 = $3 = NULL;
+	  }
+	| expression T_IS T_NULL
+	  {
+	      $$ = createNode(DbjAccessPlan::Predicate);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addSon($1);
+	      $1 = NULL;
+	      DbjAccessPlan *next = createNode(DbjAccessPlan::Comparison, "=");
+	      if (!next) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addSon(next);
+	      next = createNode(DbjAccessPlan::NullValue);
+	      if (!next) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addSon(next);
+	  }
+	| expression T_IS T_NOT T_NULL
+	  {
+	      $$ = createNode(DbjAccessPlan::Predicate);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addSon($1);
+	      $1 = NULL;
+	      DbjAccessPlan *next = createNode(DbjAccessPlan::Comparison, "<>");
+	      if (!next) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addSon(next);
+	      next = createNode(DbjAccessPlan::NullValue);
+	      if (!next) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addSon(next);
+	  }
+	| expression T_LIKE T_REGEX string
+	  {
+	      $$ = createNode(DbjAccessPlan::Predicate);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addSon($1);
+	      $1 = NULL;
+	      DbjAccessPlan *next = createNode(DbjAccessPlan::Comparison, "LIKE");
+	      if (!next) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addSon(next);
+	      next = createNode(DbjAccessPlan::VarcharValue, $4);
+	      if (!next) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addSon(next);
+	  }
+	| expression T_NOT T_LIKE T_REGEX string
+	  {
+	      $$ = createNode(DbjAccessPlan::Predicate);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addSon($1);
+	      $1 = NULL;
+	      DbjAccessPlan *next = createNode(DbjAccessPlan::Comparison,
+		      "NOT LIKE");
+	      if (!next) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addSon(next);
+	      next = createNode(DbjAccessPlan::VarcharValue, $5);
+	      if (!next) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addSon(next);
+	  }
+	| expression T_BETWEEN expression T_AND expression
+	  {
+	      DbjAccessPlan *node = NULL;
+	      DbjAccessPlan *pred = NULL;
+
+	      $$ = createNode(DbjAccessPlan::Predicate);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      // erstes Praedikat
+	      pred = createNode(DbjAccessPlan::Predicate);
+	      if (!pred) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addSon(pred);
+	      pred->addSon($1);
+	      $1 = NULL;
+	      node = createNode(DbjAccessPlan::Comparison, ">=");
+	      if (!node) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      pred->addSon(node);
+	      pred->addSon($3);
+	      $3 = NULL;
+
+	      // AND-Verknuepfung
+	      node = createNode(DbjAccessPlan::LogicalOperation, "AND");
+	      if (!node) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addSon(node);
+
+	      // zweites Praedikat
+	      pred = createNode(DbjAccessPlan::Predicate);
+	      if (!pred) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addSon(pred);
+	      node = copyNode($$->getSon()->getSon());
+	      if (!node) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      pred->addSon(node);
+	      node = createNode(DbjAccessPlan::Comparison, "<=");
+	      if (!node) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      pred->addSon(node);
+	      pred->addSon($5);
+	      $5 = NULL;
+	  }
+	| expression T_NOT T_BETWEEN expression T_AND expression
+	  {
+	      DbjAccessPlan *node = NULL;
+	      DbjAccessPlan *between = NULL;
+	      DbjAccessPlan *pred = NULL;
+
+	      $$ = createNode(DbjAccessPlan::Negation);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      between = createNode(DbjAccessPlan::Predicate);
+	      if (!between) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      $$->addNext(between);
+
+	      // erstes Praedikat
+	      pred = createNode(DbjAccessPlan::Predicate);
+	      if (!pred) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      between->addSon(pred);
+	      pred->addSon($1);
+	      $1 = NULL;
+	      node = createNode(DbjAccessPlan::Comparison, ">=");
+	      if (!node) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      pred->addSon(node);
+	      pred->addSon($4);
+	      $4 = NULL;
+
+	      // AND-Verknuepfung
+	      node = createNode(DbjAccessPlan::LogicalOperation, "AND");
+	      if (!node) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      between->addSon(node);
+
+	      // zweites Praedikat
+	      pred = createNode(DbjAccessPlan::Predicate);
+	      if (!pred) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      between->addSon(pred);
+	      node = copyNode(between->getSon()->getSon());
+	      if (!node) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      pred->addSon(node);
+	      node = createNode(DbjAccessPlan::Comparison, "<=");
+	      if (!node) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      pred->addSon(node);
+	      pred->addSon($6);
+	      $6 = NULL;
+	  }
+	;
+
+expression:
+	  simple_expression
+	  {
+	      $$ = $1;
+	      $1 = NULL;
+	  }
+	| T_LEFT_PAREN expression T_RIGHT_PAREN
+	  {
+	      $$ = $2;
+	      $2 = NULL;
+	  }
+	;
+
+simple_expression:
+	  column_identifier
+	  {
+	      $$ = $1;
+	  }
+	| string
+	  {
+	      $$ = createNode(DbjAccessPlan::VarcharValue, $1);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	  }
+	| number
+	  {
+	      $$ = createNode(DbjAccessPlan::IntegerValue);
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	      DbjErrorCode rc = $$->setIntData($1);
+	      if (rc != DBJ_SUCCESS) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	  }
+	;
+
+operation:
+	  T_SIGN_EQUAL
+	  {
+	      $$ = createNode(DbjAccessPlan::Comparison, "=");
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	  }
+	| T_SIGN_SMALLER
+	  {
+	      $$ = createNode(DbjAccessPlan::Comparison, "<");
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	  }
+	| T_SIGN_SMALLER_EQUAL
+	  {
+	      $$ = createNode(DbjAccessPlan::Comparison, "<=");
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	  }
+	| T_SIGN_LARGER
+	  {
+	      $$ = createNode(DbjAccessPlan::Comparison, ">");
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	  }
+	| T_SIGN_LARGER_EQUAL
+	  {
+	      $$ = createNode(DbjAccessPlan::Comparison, ">=");
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	  }
+	| T_SIGN_NOTEQUAL
+	  {
+	      $$ = createNode(DbjAccessPlan::Comparison, "<>");
+	      if (!$$) {
+		  DBJ_TRACE_ERROR();
+		  YYABORT;
+	      }
+	  }
+	;
+
+/* COMMIT */
+commit:
+	T_COMMIT work_token
+	{
+	    plan = createNode(DbjAccessPlan::CommitStmt);
+	    if (!plan) {
+		DBJ_TRACE_ERROR();
+		YYABORT;
+	    }
+	}
+      ;
+
+work_token:
+	/* empty */
+      | T_WORK
+      ;
+
+/* ROLLBACK */
+rollback:
+	T_ROLLBACK work_token
+	{
+	    plan = createNode(DbjAccessPlan::RollbackStmt);
+	    if (!plan) {
+		DBJ_TRACE_ERROR();
+		YYABORT;
+	    }
+	}
+      ;
+
+/*****************\
+ * Miscellaneous *
+\*****************/
+identifier:
+	  T_IDENTIFIER
+	;
+
+string:
+	  T_STRING
+	;
+
+number:
+	  T_NUMBER
+	;
+
+%%
+

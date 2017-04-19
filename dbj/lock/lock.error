@@ -1,0 +1,25 @@
+/*************************************************************************\
+ *                                                                       *
+ * (C) 2004-2005                                                         *
+ * Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+ * Friedrich-Schiller-Universitaet Jena                                  *
+ * Ernst-Abbe-Platz 1-2                                                  *
+ * 07745 Jena                                                            *
+ *                                                                       *
+\*************************************************************************/
+
+/*
+ * Definition aller Fehlermeldungen des Lock Managers
+ */
+
+{ DBJ_LM_LOCK_LIST_FULL,
+      "There is no available space in the lock list to store a new lock.",
+      "LM000" },
+{ DBJ_LM_NO_SUCH_ENTRY,
+      "A lock for page %s in segment %s cannot be released because the "
+      "current transaction does not hold the lock.",
+      "LM001" },
+{ DBJ_LM_LOCK_TIME_OUT,
+      "A %s lock on page %s in segment %s could not be granted to the "
+      "current transaction.  A timeout occured.",
+      "LM002" },

@@ -1,0 +1,92 @@
+
+#####################################################################
+ Success cases
+#####################################################################
+
+Validated access plan:
+==================================================
+DropTableStmt
+  |
+Table ('TEST_TAB'/12)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+DropTableStmt
+  |
+Table ('TEST_TAB'/12)
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Statement with embedded comments
+#####################################################################
+
+Validated access plan:
+==================================================
+DropTableStmt
+  |
+Table ('T'/3)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+DropTableStmt
+  |
+Table ('T'/3)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+DropTableStmt
+  |
+Table ('T'/3)
+==================================================
+
+The operation was completed successfully.
+
+
+Validated access plan:
+==================================================
+DropTableStmt
+  |
+Table ('T'/3)
+==================================================
+
+The operation was completed successfully.
+
+
+
+#####################################################################
+ Table does not exist
+#####################################################################
+
+
+A table named 'TEST_TAB' does not exist.
+
+
+
+#####################################################################
+ Syntax errors
+#####################################################################
+
+
+An incomplete or invalid statement was entered.  "DRoP taBle test_TAB restrict"
+
+
+
+A parsing error "syntax error" occured in statement "DROP TABL test_tab".  Parsing stopped after token "TABL test_tab" at the beginning of " test_tab".
+
+

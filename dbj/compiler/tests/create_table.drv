@@ -1,0 +1,68 @@
+#!/bin/sh
+#*************************************************************************
+#*                                                                       *
+#* (C) 2004-2005                                                         *
+#* Lehrstuhl fuer Datenbanken und Informationssysteme                    *
+#* Friedrich-Schiller-Universitaet Jena                                  *
+#* Ernst-Abbe-Platz 1-2                                                  *
+#* 07745 Jena                                                            *
+#*                                                                       *
+#*************************************************************************
+
+# Erfolgreiche Faelle
+echo
+echo "#####################################################################"
+echo " Success cases"
+echo "#####################################################################"
+echo
+test_parser "create table t ( a int )"
+test_parser "CREATE TABLE test_tab ( col1 INT, col2 INT, col3 INT )"
+test_parser "CREATE TABLE test_tab ( col1 INT, col2 INT NOT NULL, col3 INT )"
+test_parser "CREATE TABLE test_tab ( col1 INT NOT NULL, col2 INT, PRIMARY KEY(col1) )"
+test_parser "CREATE TABLE test_tab ( col1 INT, col2 VARCHAR(1), col3 INTEGER )"
+test_parser "CREATE TABLE test_tab ( col1 VARCHAR(100), col2 VARCHAR(100), col3 VARCHAR(100) )"
+test_parser "CREATE TABLE test_tab ( col1 VARCHAR(2000), col2 VARCHAR(-100) )"
+
+# existierende Tabelle
+echo
+echo "#####################################################################"
+echo " Table already exists"
+echo "#####################################################################"
+echo
+TEST_TAB=12 test_parser "CREATE TABLE test_tab ( col1 INT, col2 INT, col3 INT )"
+
+# Primaerschluessel ist nicht NOT NULL
+echo
+echo "#####################################################################"
+echo " Primary key column is not defined as being NOT NULL"
+echo "#####################################################################"
+echo
+test_parser "CREATE TABLE test_tab ( col1 INT, col2 INT, PRIMARY KEY(col1) )"
+test_parser "CREATE TABLE test_tab ( col1 VARCHAR(2000), col2 INT, PRIMARY KEY(col1) )"
+
+# Doppelte Spaltennamen
+echo
+echo "#####################################################################"
+echo " Duplicate column names"
+echo "#####################################################################"
+echo
+test_parser "CREATE TABLE test_tab ( col1 INT, col2 INT, col3 VARCHAR(100), col1 INTEGER )"
+test_parser "CREATE TABLE test_tab ( col1 INT, col2 INT, col3 VARCHAR(100), col1 VARCHAR(10) )"
+test_parser "CREATE TABLE test_tab ( col1 INT, col2 INT, col3 VARCHAR(100), col1 INTEGER, PRIMARY KEY(col1) )"
+
+# Syntaxfehler
+echo
+echo "#####################################################################"
+echo " Syntax errors"
+echo "#####################################################################"
+echo
+test_parser "CREATE TABLE test_tab ( col1 INT, col2 INT, PRIMARY KEY(col1), col3 VARCHAR(10) )"
+test_parser "CREATE TABLE 123 ( col1 VARCHAR(2000), col2 INTEGER )"
+test_parser "CREATE TABLE test_tab ( col1 INTEGERX )"
+test_parser "CREATE TABLE test_tab ( col1 (int), col2 varchar(100) )"
+test_parser "CREATE TABLE test_tab ( col1 int, col2 varchar(100) ) always"
+test_parser "CREATE TABL test_tab ( col1 int, col2 varchar(100) )"
+test_parser "CREATE TABLE test_tab ((col1 int, col2 varchar(100)))"
+test_parser "CREATE TABLE test_tab ( col1 int, col2 varchar((100)))"
+
+exit 0
