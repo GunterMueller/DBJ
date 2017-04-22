@@ -8,6 +8,9 @@
  *                                                                       *
 \*************************************************************************/
 
+// GM
+#include <stdlib.h>
+
 #include "DbjRecordManager.hpp"
 #include "DbjRecordIterator.hpp"
 #include "DbjRecord.hpp"

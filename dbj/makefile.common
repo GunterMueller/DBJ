@@ -12,12 +12,14 @@
 # some global flags
 #========================================================================
 
-RELTOPDIR := $(shell perl -e '$$cwd = `pwd`; \
-		$$root = `cd \`bk root\`; pwd`; \
-		$$_ = substr($$cwd,length($$root)-1); \
-		s|\s||g; s|[^/]+|..|g; s|^/||; \
-		$$_ = "." unless $$_ ne ""; \
-		print "$$_";')
+#RELTOPDIR := $(shell perl -e '$$cwd = `pwd`; \
+#		$$root = `cd \`bk root\`; pwd`; \
+#		$$_ = substr($$cwd,length($$root)-1); \
+#		s|\s||g; s|[^/]+|..|g; s|^/||; \
+#		$$_ = "." unless $$_ ne ""; \
+#		print "$$_";')
+
+RELTOPDIR :=  /home/gunter/GM_DATABASES/RDBMS/DBJ/dbj
 
 INCDIR := $(RELTOPDIR)/include
 INCFLAGS := -I$(INCDIR)

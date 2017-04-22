@@ -11,6 +11,9 @@
 #include <time.h>	// localtime()
 #include <sys/time.h>	// gettimeofday()
 
+//GM
+#include <stdlib.h>
+
 #include "DbjCatalogManager.hpp"
 #include "DbjRecord.hpp"
 #include "DbjRecordManager.hpp"

@@ -1,0 +1,4 @@
+test_client1: test_client1.o
+test_client2: test_client2.o
+test_start-lm: test_start-lm.o
+test_stop-lm: test_stop-lm.o
