@@ -19,7 +19,8 @@
 #		$$_ = "." unless $$_ ne ""; \
 #		print "$$_";')
 
-RELTOPDIR :=  /home/gunter/GM_DATABASES/RDBMS/DBJ/dbj
+
+RELTOPDIR := /home/gunter/GM_DATABASES/RDBMS/DBJ/dbj
 
 INCDIR := $(RELTOPDIR)/include
 INCFLAGS := -I$(INCDIR)
